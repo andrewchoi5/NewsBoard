@@ -22,7 +22,8 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     
     var selectedSpaces = Set<Int>()
     
-    var testArray = [ 1, 1, 0, 0, 0,
+    var testArray = [
+                      1, 1, 0, 0, 0,
                       1, 1, 0, 0, 0,
                       1, 1, 0, 2, 2,
                       0, 0, 0, 2, 2,
@@ -34,7 +35,19 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         super.viewDidLoad()
         
         self.collectionView?.allowsMultipleSelection = true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        rotateToLandscapeIfNeeded()
+        
+    }
+    
+    func rotateToLandscapeIfNeeded() {
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+            UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
+        }
     }
     
     @IBAction func didFinishSelectingSpace(sender: AnyObject) {
@@ -72,7 +85,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     // TODO: Optimize this function
     func isRectangular(var spaces: Set<Int>) -> Bool {
         var cellsInEachColumn = Dictionary<Int,Int>()
-        
+        let spacesCopy = spaces
         while !spaces.isEmpty {
             let index = spaces.removeFirst() % cellsPerRow
             if(cellsInEachColumn[ index ] == nil) {
@@ -83,6 +96,8 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
                 
             }
         }
+        
+        spacesCopy
         
         // Quick & dirty way to see if all values in cellsInEachColumn are the same
         var indexCount = 0
@@ -101,7 +116,6 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         
     }
 
-    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return cellsPerRow * cellsPerColumn
@@ -151,7 +165,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     }
 
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [ .LandscapeLeft ]
+        return [ .LandscapeLeft, .LandscapeRight ]
     }
     
     override func shouldAutorotate() -> Bool {
@@ -161,7 +175,6 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return .LandscapeLeft
     }
-    
     
     
 }

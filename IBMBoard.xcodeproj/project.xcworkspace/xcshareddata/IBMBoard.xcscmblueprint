@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "45F2C52E716C8BE6EEDFFD12E29862105903FEA9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E28E36D423EC87798E52E2BF482E9F7A1E6479D6" : 0,
+    "45F2C52E716C8BE6EEDFFD12E29862105903FEA9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DFD6BC68-5A6A-47E6-ACF5-3C17D0A20CAE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E28E36D423EC87798E52E2BF482E9F7A1E6479D6" : "IBMBoard\/SDWebImage\/",
+    "45F2C52E716C8BE6EEDFFD12E29862105903FEA9" : "IBMBoard\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IBMBoard",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IBMBoard.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/atldcyz082170.red.ihost.com\/Haque\/IBMBoardiOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "45F2C52E716C8BE6EEDFFD12E29862105903FEA9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rs\/SDWebImage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E28E36D423EC87798E52E2BF482E9F7A1E6479D6"
+    }
+  ]
+}
