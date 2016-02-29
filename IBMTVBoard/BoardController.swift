@@ -1,3 +1,4 @@
+
 //
 //  BoardController.swift
 //  IBMTVBoard
@@ -48,7 +49,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, rectForItemAtIndexPath indexPath: NSIndexPath) -> CGRect {
         
-        let cell = testCellList[indexPath.row]
+        let cell = testCellList[ indexPath.row ]
         let blockWidth = (self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow)
         let blockHeight = (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn)
         let xPos = CGFloat((cell.topLeftCorner - 1) % cellsPerRow) * blockWidth
@@ -58,6 +59,27 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         return CGRectMake(xPos,yPos,width,height)
         
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print("item selected \(indexPath.row)")
+    }
+    
+    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        print("item highlighted \(indexPath.row)")
+    }
+    
+    func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        if(context.previouslyFocusedIndexPath != nil && context.nextFocusedIndexPath != nil) {
+            let previousCell = collectionView.cellForItemAtIndexPath(context.previouslyFocusedIndexPath!) as! CardCell
+            let nextCell = collectionView.cellForItemAtIndexPath(context.nextFocusedIndexPath!) as! CardCell
+            previousCell.defocus()
+            nextCell.focus()
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -76,7 +98,8 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardCell
-        cell.userPhoto.image = UIImage(named: "\(indexPath.row + 1)")
+        // TODO: Get photo of user, using random samples
+        cell.userPhoto.image = UIImage(named: "\(indexPath.row % 8 + 1)")
         return cell
     }
     
