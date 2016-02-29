@@ -9,6 +9,12 @@
 #ifndef IBMBoard_Bridging_Header_h
 #define IBMBoard_Bridging_Header_h
 
+#import <Foundation/Foundation.h>
+
 #import "WebImage.h"
+#import "TBXML.h"
+#import "TBXML+Compression.h"
+#import "TBXML+HTTP.h"
+
 
 #endif /* IBMBoard_Bridging_Header_h */

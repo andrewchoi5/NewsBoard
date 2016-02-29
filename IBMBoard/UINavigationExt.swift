@@ -12,7 +12,7 @@ import UIKit
 extension UINavigationController {
     public override func shouldAutorotate() -> Bool {
         if let viewController = visibleViewController {
-            if (viewController.respondsToSelector("shouldAutorotate")) {
+            if viewController.respondsToSelector("shouldAutorotate") {
                 return viewController.shouldAutorotate()
             }
         }
@@ -21,7 +21,7 @@ extension UINavigationController {
     
     public override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         if let viewController = visibleViewController {
-            if (viewController.respondsToSelector("preferredInterfaceOrientationForPresentation")) {
+            if viewController.respondsToSelector("preferredInterfaceOrientationForPresentation") {
                 return viewController.preferredInterfaceOrientationForPresentation()
             }
         }
@@ -30,7 +30,7 @@ extension UINavigationController {
     
     public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if let viewController = visibleViewController {
-            if (viewController.respondsToSelector("supportedInterfaceOrientations")) {
+            if viewController.respondsToSelector("supportedInterfaceOrientations") {
                 return viewController.supportedInterfaceOrientations()
             }
         }
