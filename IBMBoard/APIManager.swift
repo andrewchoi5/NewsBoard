@@ -34,7 +34,7 @@ public class APIManager {
         if articleURL == "" {
             return noPreviewText
         }
-        var string = String(data: NSData(contentsOfURL: NSURL(string: articleURL)!)!, encoding: NSUTF8StringEncoding)
+        let string = String(data: NSData(contentsOfURL: NSURL(string: articleURL)!)!, encoding: NSUTF8StringEncoding)
         string?.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
 //        string = string?.stringByReplacingOccurrencesOfString("/>", withString: ">")
         

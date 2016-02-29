@@ -12,22 +12,28 @@ class BoardController: UIViewController, BoardLayoutDelegate {
 
     let cellsPerRow = 9
     let cellsPerColumn = 6
-    let vertical : CGFloat = 0.0
-    let horizontal : CGFloat = 0.0
+    
+    let DefaultCardCellIdentifier = "defaultCardCell"
+    let AnnouncementCardCellIdentifier = "announcementCardCell"
+    let IdeaCardCellIdentifier = "ideaCardCell"
+    let RFPCardCellIdentifier = "rfpCardCell"
+    let ArticleCardCellIdentifier = "articleCardCell"
+    let VideoCardCellIdentifier = "videoCardCell"
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
-    // data structure for one cell (topLeftCorner, width, height)
+    // data structure for one cell (cellType, topLeftCorner, width, height)
     // Order by topLeftCorner
-    let testCellList : [ (topLeftCorner: Int, width: Int, height: Int) ] = [
+    let testCellList : [ (type: CardCellType, topLeftCorner: Int, width: Int, height: Int) ] = [
         
-                         (1, 3, 4),
-                         (4, 3, 2),
-                         (7, 3, 2),
-                        (22, 3, 2),
-                        (25, 3, 2),
-                        (37, 3, 2),
-                        (40, 3, 2),
-                        (43, 3, 2)
+                        (.Announcement,   1, 3, 4),
+                        (.Idea,           4, 3, 2),
+                        (.Video,          7, 3, 2),
+                        (.Announcement,  22, 3, 2),
+                        (.Announcement,  25, 3, 2),
+                        (.RFP,           37, 3, 2),
+                        (.NewsArticle,   40, 3, 2),
+                        (.Announcement,  43, 3, 2)
     
     ]
     
@@ -55,7 +61,22 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("defaultCardCell", forIndexPath: indexPath)
+        
+        var cellIdentifier : String
+        
+        switch testCellList[ indexPath.row ].type {
+            
+            case .Default:      cellIdentifier = DefaultCardCellIdentifier
+            case .Announcement: cellIdentifier = DefaultCardCellIdentifier
+            case .Idea:         cellIdentifier = DefaultCardCellIdentifier
+            case .RFP:          cellIdentifier = DefaultCardCellIdentifier
+            case .NewsArticle:  cellIdentifier = ArticleCardCellIdentifier
+            case .Video:        cellIdentifier = VideoCardCellIdentifier
+            
+        }
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardCell
+        cell.userPhoto.image = UIImage(named: "\(indexPath.row + 1)")
         return cell
     }
     

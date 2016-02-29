@@ -9,10 +9,18 @@
 import Foundation
 import UIKit
 
+enum CardCellType {
+    case Default
+    case Announcement
+    case RFP
+    case Video
+    case NewsArticle
+    case Idea
+}
+
 class CardCell : UICollectionViewCell {
     
-    
-    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var userPhoto: UIImageView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,7 +32,7 @@ class CardCell : UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        photoView.layer.cornerRadius = photoView.frame.size.width / 2
+        userPhoto.layer.cornerRadius = userPhoto.frame.size.width / 2
     }
     
 }
