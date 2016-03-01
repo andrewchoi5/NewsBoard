@@ -41,6 +41,8 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ServerInterface.getAllPostsForToday()
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,14 +63,6 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("item selected \(indexPath.row)")
-    }
-    
-    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
-        print("item highlighted \(indexPath.row)")
-    }
-    
     func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -80,6 +74,10 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             previousCell.defocus()
             nextCell.focus()
         }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

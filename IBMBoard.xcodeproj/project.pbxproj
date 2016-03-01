@@ -16,6 +16,7 @@
 		392CF1551C76424500090214 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
 		392CF1581C76424500090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1561C76424500090214 /* Main.storyboard */; };
 		392CF15A1C76424500090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
+		39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
 		39D878541C765067007E0CD5 /* SpaceSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878531C765067007E0CD5 /* SpaceSelectorController.swift */; };
 		39D878561C766026007E0CD5 /* EmptyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878551C766026007E0CD5 /* EmptyCellView.swift */; };
 		39D878581C766F21007E0CD5 /* DefaultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878571C766F21007E0CD5 /* DefaultCellView.swift */; };
@@ -413,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				392CF1551C76424500090214 /* BoardController.swift in Sources */,
+				39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */,
 				39EB94121C84ABB10053F73F /* BoardLayout.swift in Sources */,
 				392CF1531C76424500090214 /* AppDelegate.swift in Sources */,
 				39EB940E1C80FE240053F73F /* CardCell.swift in Sources */,

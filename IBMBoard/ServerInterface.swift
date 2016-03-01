@@ -27,4 +27,13 @@ public class ServerInterface {
         
         
     }
+    
+    public static func getAllPostsForToday() -> [AnyObject]? {
+        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string:"https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com/ibmboard/_all_docs")!, completionHandler: { (data, response, error) in
+            
+                let result = String(data: data!, encoding: NSUTF8StringEncoding)!
+            }).resume()
+        
+        return nil
+    }
 }

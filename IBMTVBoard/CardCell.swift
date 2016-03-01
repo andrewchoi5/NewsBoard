@@ -28,8 +28,8 @@ class CardCell : UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-//        self.selectedBackgroundView = UIView()
-//        self.selectedBackgroundView?.backgroundColor = UIColor.whiteColor()
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 1.0
     }
     
     override func layoutSubviews() {
