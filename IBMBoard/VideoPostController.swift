@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VideoPostController : UIViewController, UITextFieldDelegate {
+class VideoPostController : PosterController, UITextFieldDelegate {
     
     @IBOutlet weak var videoLink: UITextField!
     @IBOutlet weak var videoTitle: UITextField!
@@ -79,12 +79,16 @@ class VideoPostController : UIViewController, UITextFieldDelegate {
     
     @IBAction func didPushPostVideoButton(sender: UIButton) {
         
-        ServerInterface.postVideo(videoLink.text!, videoTitle:videoTitle.text!, completion: nil)
+        selectedCardSpace.info["videoURL"] = videoLink.text!
+        selectedCardSpace.info["videoTitle"] = videoTitle.text!
+        
+        ServerInterface.postCard(selectedCardSpace, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
         
     }
     
     func loadPreview() {
         videoPreview.sd_setImageWithURL(getAPIURL(videoLink.text!), placeholderImage: UIImage())
+        videoTitle.text = APIManager.getArbitraryVideoTitle(videoLink.text!, maxLength: 1000)
     }
 }

@@ -391,7 +391,7 @@
         <!--Announcement Poster View Controller-->
         <scene sceneID="mZQ-tx-wSF">
             <objects>
-                <viewController id="NvT-Dn-yoj" userLabel="Announcement Poster View Controller" customClass="AnnoucmentPostController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NvT-Dn-yoj" userLabel="Announcement Poster View Controller" customClass="AnnouncementPostController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4fy-4O-W3e"/>
                         <viewControllerLayoutGuide type="bottom" id="iZ2-0x-c0A"/>

@@ -8,9 +8,9 @@
 
 import Foundation
 
-class AnnoucmentPostController : UIViewController {
+class AnnouncementPostController : PosterController {
     
-    @IBOutlet weak var annocunmentText: UITextView!
+    @IBOutlet weak var announcementText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,9 @@ class AnnoucmentPostController : UIViewController {
     
     @IBAction func didPushPostButton(sender: UIButton) {
         
-        ServerInterface.postAnnouncement(annocunmentText.text!, completion: nil)
+        selectedCardSpace.info["announcementText"] = announcementText.text!
+        
+        ServerInterface.postCard(selectedCardSpace, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
         
     }

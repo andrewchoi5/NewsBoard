@@ -23,41 +23,42 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    // data structure for one cell (cellType, topLeftCorner, width, height)
-    // Order by topLeftCorner
-    let testCellList : [ (type: CardCellType, topLeftCorner: Int, width: Int, height: Int) ] = [
+    var cellList : [Card] = [] //[
         
-                        (.Announcement,   1, 3, 4),
-                        (.Idea,           4, 3, 2),
-                        (.Video,          7, 3, 2),
-                        (.Announcement,  22, 3, 2),
-                        (.Announcement,  25, 3, 2),
-                        (.RFP,           37, 3, 2),
-                        (.NewsArticle,   40, 3, 2),
-                        (.Announcement,  43, 3, 2)
-    
-    ]
+//                        Card(cardType: .Announcement, corner: 1,  aWidth: 3, aHeight: 4),
+//                        Card(cardType: .Idea,         corner: 4,  aWidth: 3, aHeight: 2),
+//                        Card(cardType: .Video,        corner: 7,  aWidth: 3, aHeight: 2),
+//                        Card(cardType: .Announcement, corner: 22, aWidth: 3, aHeight: 2),
+//                        Card(cardType: .Announcement, corner: 25, aWidth: 3, aHeight: 2),
+//                        Card(cardType: .RFP,          corner: 37, aWidth: 3, aHeight: 2),
+//                        Card(cardType: .NewsArticle,  corner: 40, aWidth: 3, aHeight: 2),
+//                        Card(cardType: .Announcement, corner: 43, aWidth: 3, aHeight: 2)
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ServerInterface.getAllPostsForToday()
-        
+        ServerInterface.getAllPostsForToday({ (cards) in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.cellList = cards
+                self.collectionView.reloadData()
+            })
+        })
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testCellList.count
+        return cellList.count
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, rectForItemAtIndexPath indexPath: NSIndexPath) -> CGRect {
         
-        let cell = testCellList[ indexPath.row ]
+        let cell = cellList[ indexPath.row ]
         let blockWidth = (self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow)
         let blockHeight = (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn)
-        let xPos = CGFloat((cell.topLeftCorner - 1) % cellsPerRow) * blockWidth
-        let yPos = CGFloat(cell.topLeftCorner / cellsPerRow) * blockHeight
-        let width = blockWidth * CGFloat(cell.width)
-        let height = blockHeight * CGFloat(cell.height)
+        let xPos = CGFloat((cell.space.topLeftCorner - 1) % cellsPerRow) * blockWidth
+        let yPos = CGFloat(cell.space.topLeftCorner / cellsPerRow) * blockHeight
+        let width = blockWidth * CGFloat(cell.space.width)
+        let height = blockHeight * CGFloat(cell.space.height)
         
         return CGRectMake(xPos,yPos,width,height)
         
@@ -84,7 +85,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         var cellIdentifier : String
         
-        switch testCellList[ indexPath.row ].type {
+        switch cellList[ indexPath.row ].type! {
             
             case .Default:      cellIdentifier = DefaultCardCellIdentifier
             case .Announcement: cellIdentifier = DefaultCardCellIdentifier
@@ -92,7 +93,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             case .RFP:          cellIdentifier = DefaultCardCellIdentifier
             case .NewsArticle:  cellIdentifier = ArticleCardCellIdentifier
             case .Video:        cellIdentifier = VideoCardCellIdentifier
-            
+            default:            cellIdentifier = DefaultCardCellIdentifier
         }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardCell

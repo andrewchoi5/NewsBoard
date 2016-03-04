@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum CardCellType {
+enum CardCellType : Int {
     
     case Default
     case Announcement
@@ -17,7 +17,69 @@ enum CardCellType {
     case Video
     case NewsArticle
     case Idea
+    case Polling
+    case Question
+    case Guest
     
+    
+}
+
+struct Space {
+    
+    var topLeftCorner : Int
+    var width : Int
+    var height : Int
+    
+    init(corner: Int, aWidth: Int, aHeight: Int) {
+        
+        topLeftCorner = corner
+        width = aWidth
+        height = aHeight
+    }
+    
+    init(dictionary: [String: Int]) {
+        
+        topLeftCorner = dictionary["topLeftCorner"]!
+        width = dictionary["width"]!
+        height = dictionary["height"]!
+        
+    }
+    
+}
+
+class Card : NSObject {
+    
+    var type : CardCellType!
+    var info : Dictionary<String, AnyObject>!
+    var space : Space!
+    
+    
+    init(cardType: CardCellType, corner: Int, aWidth: Int, aHeight: Int) {
+
+        space = Space(corner: corner, aWidth: aWidth, aHeight: aHeight)
+        type = cardType
+        info = Dictionary<String, AnyObject>()
+    }
+    
+    init(corner: Int, aWidth: Int, aHeight: Int) {
+        
+        space = Space(corner: corner, aWidth: aWidth, aHeight: aHeight)
+        type = .Default
+        info = Dictionary<String, AnyObject>()
+
+    }
+    
+    init(dictionary: [String: AnyObject]) {
+        super.init()
+        
+        type = CardCellType(rawValue: dictionary["type"] as! Int)
+        info = dictionary["info"] as! [String : AnyObject]
+        space = Space(dictionary: dictionary["space"]  as! [String : Int])
+    }
+    
+    override init() {
+        super.init()
+    }
 }
 
 class CardCell : UICollectionViewCell {

@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class ArticlePosterController : UIViewController, UITextFieldDelegate {
+class ArticlePosterController : PosterController, UITextFieldDelegate {
     
     @IBOutlet weak var articleLink: UITextField!
     @IBOutlet weak var articleTitle: UITextField!
     @IBOutlet weak var articlePreviewBody: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +32,10 @@ class ArticlePosterController : UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didPushPostArticleButton() {
+        selectedCardSpace.info["articleURL"] = articleLink.text!
+        selectedCardSpace.info["articleTitle"] = articleTitle.text!
         
-        ServerInterface.postArticle(articleLink.text!, articleTitle:articleTitle.text!, completion: nil)
+        ServerInterface.postCard(selectedCardSpace, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
         
     }

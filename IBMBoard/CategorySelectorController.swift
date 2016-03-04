@@ -24,6 +24,17 @@ class CategorySelectorController : UICollectionViewController {
     
     ]
     
+    var pollingSegueIdentifier       = "pollingSegue"
+    var newsSegueIdentifier          = "newsSegue"
+    var announcementSegueIdentifier  = "announcementSegue"
+    var ideaSegueIdentifier          = "ideaSegue"
+    var questionSegueIdentifier      = "questionSegue"
+    var rfpSegueIdentifier           = "rfpSegue"
+    var videoSegueIdentifier         = "videoSegue"
+    var guestSegueIdentifier         = "guestSegue"
+    
+    var selectedCardSpace : Card!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,16 +67,17 @@ class CategorySelectorController : UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var segueIdentifier = ""
         switch indexPath.row {
-            case 0: segueIdentifier = "pollingSegue"
-            case 1: segueIdentifier = "newsSegue"
-            case 2: segueIdentifier = "announcementSegue"
-            case 3: segueIdentifier = "ideaSegue"
-            case 4: segueIdentifier = "questionSegue"
-            case 5: segueIdentifier = "rfpSegue"
-            case 6: segueIdentifier = "videoSegue"
-            case 7: segueIdentifier = "guestSegue"
             
-           default: segueIdentifier = "videoSegue"
+            case 0: segueIdentifier = pollingSegueIdentifier;       selectedCardSpace.type = .Polling
+            case 1: segueIdentifier = newsSegueIdentifier;          selectedCardSpace.type = .NewsArticle
+            case 2: segueIdentifier = announcementSegueIdentifier;  selectedCardSpace.type = .Announcement
+            case 3: segueIdentifier = ideaSegueIdentifier;          selectedCardSpace.type = .Idea
+            case 4: segueIdentifier = questionSegueIdentifier;      selectedCardSpace.type = .Question
+            case 5: segueIdentifier = rfpSegueIdentifier;           selectedCardSpace.type = .RFP
+            case 6: segueIdentifier = videoSegueIdentifier;         selectedCardSpace.type = .Video
+            case 7: segueIdentifier = guestSegueIdentifier;         selectedCardSpace.type = .Guest
+            
+           default: segueIdentifier = videoSegueIdentifier;         selectedCardSpace.type = .Video
         }
         
         self.performSegueWithIdentifier(segueIdentifier, sender: self)
@@ -90,5 +102,10 @@ class CategorySelectorController : UICollectionViewController {
     
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return .Portrait
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! PosterController
+        vc.selectedCardSpace = selectedCardSpace
     }
 }

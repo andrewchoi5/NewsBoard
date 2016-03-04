@@ -15,26 +15,43 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     var lockedCellIdentifier = "lockedCell"
     var crossedCellIdentifier = "crossedCell"
     var completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
-    var selectedSpace : (Int, Int, Int)!
     
-    let cellsPerRow = 5
-    let cellsPerColumn = 5
+    var emptyCardSpace : Card!
+    
+    let cellsPerRow = 9
+    let cellsPerColumn = 6
     
     var selectedSpaces = Set<Int>()
     
-    var testArray = [
-                      1, 1, 0, 0, 0,
-                      1, 1, 0, 0, 0,
-                      1, 1, 0, 2, 2,
-                      0, 0, 0, 2, 2,
-                      0, 0, 0, 0, 0
-
-    ]
+    var cardList = [ Card ]()
+    
+    var testArray = [ Int ](count: 9 * 6, repeatedValue: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.collectionView?.allowsMultipleSelection = true
+        
+        ServerInterface.getAllPostsForToday { (cards) in
+            
+            self.cardList = cards
+            self.reloadData()
+        }
+    }
+    
+    func reloadData() {
+        testArray = [ Int ](count: 9 * 6, repeatedValue: 0)
+        
+        for card in cardList {
+            let startIndex = card.space.topLeftCorner - 1
+            for xIndex in 0 ..< card.space.width {
+                for yIndex in 0 ..< card.space.height {
+                    testArray[ startIndex + (yIndex * cellsPerRow) + xIndex ] = 1
+                }
+            }
+        }
+        
+        self.collectionView?.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,7 +60,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         rotateToLandscapeIfNeeded()
         
     }
-    
+ 
     func rotateToLandscapeIfNeeded() {
         if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
             UIDevice.currentDevice().setValue(UIInterfaceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
@@ -57,16 +74,16 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
             return
         }
         
-        selectedSpace = makeSelectedSpaceTuple(selectedSpaces)
+        emptyCardSpace = makeSelectedSpaceTuple(selectedSpaces)
         
         print("Spaces selected: \(selectedSpaces)")
-        print("Space selected: \(selectedSpace)")
+        print("Space selected: \(emptyCardSpace)")
         
         self.performSegueWithIdentifier(completedSpaceSelectionSegue, sender: self)
         
     }
     
-    func makeSelectedSpaceTuple(var spaces: Set<Int>) -> (Int, Int, Int) {
+    func makeSelectedSpaceTuple(var spaces: Set<Int>) -> Card {
         var minimumElement = Int.max
         var maximumElement = Int.min
         while !spaces.isEmpty {
@@ -77,9 +94,9 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         }
         
         let width = maximumElement % cellsPerRow - minimumElement % cellsPerRow + 1
-        let height = (maximumElement - width + 1 - minimumElement) / cellsPerColumn + 1
+        let height = (maximumElement - width + 1 - minimumElement) / cellsPerColumn
         
-        return (minimumElement, width, height)
+        return Card(corner: minimumElement + 1, aWidth: width, aHeight: height)
     }
     
     // TODO: Optimize this function
@@ -176,5 +193,8 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         return .LandscapeLeft
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! CategorySelectorController
+        vc.selectedCardSpace = emptyCardSpace
+    }
 }

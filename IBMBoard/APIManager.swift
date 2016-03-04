@@ -21,8 +21,16 @@ public class APIManager {
                                                     "editorial",
                                                     "body",
                                                     "source"
-    
     ]
+    
+    public static func getArbitraryVideoTitle(videoURL: String, maxLength: UInt) -> String {
+        let string = String(data: NSData(contentsOfURL: NSURL(string: videoURL)!)!, encoding: NSUTF8StringEncoding)
+        string?.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
+        
+        let parsedXML = TBXML(XMLString: string)
+        
+        return APIManager.collectVideoTitle(parsedXML.rootXMLElement)
+    }
     
     public static func getArbitraryTextArticleTitle(let articleURL: String, maxLength: UInt) -> String {
         return collectedTitle
@@ -81,6 +89,37 @@ public class APIManager {
             }
         }
         return false
+    }
+    
+    static func collectVideoTitle(element : UnsafeMutablePointer<TBXMLElement>) -> String {
+        
+        if(element == nil ) {
+            return ""
+            
+        }
+        
+        var collectedTitle = ""
+        
+        if TBXML.elementName(element) == "title" {
+            return TBXML.textForElement(element)
+        }
+        
+        collectedTitle = self.collectVideoTitle(element.memory.firstChild)
+        if(collectedTitle != "") {
+            return collectedTitle
+        }
+        
+        var nextSibling = element.memory.nextSibling
+        
+        while (nextSibling != nil) {
+            collectedTitle = self.collectVideoTitle(nextSibling)
+            if(collectedTitle != "") {
+                return collectedTitle
+            }
+            nextSibling = nextSibling.memory.nextSibling
+        }
+        
+        return collectedTitle
     }
     
     static func collectPreviewArticleText(element : UnsafeMutablePointer<TBXMLElement>) -> String {
