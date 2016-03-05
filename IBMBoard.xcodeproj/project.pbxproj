@@ -36,6 +36,7 @@
 		392CF1551C76424500090214 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
 		392CF1581C76424500090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1561C76424500090214 /* Main.storyboard */; };
 		392CF15A1C76424500090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
+		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
 		39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
@@ -92,6 +93,7 @@
 		392CF1571C76424500090214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		392CF1591C76424500090214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		392CF15B1C76424500090214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
 		39D878531C765067007E0CD5 /* SpaceSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceSelectorController.swift; sourceTree = "<group>"; };
 		39D878551C766026007E0CD5 /* EmptyCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCellView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		392CF1511C76424500090214 /* IBMTVBoard */ = {
 			isa = PBXGroup;
 			children = (
+				39830FEB1C8AD6B600313AFC /* PostViewerController.swift */,
 				39EB94111C84ABB10053F73F /* BoardLayout.swift */,
 				39EB940D1C80FE240053F73F /* CardCell.swift */,
 				392CF1521C76424500090214 /* AppDelegate.swift */,
@@ -443,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				392CF1551C76424500090214 /* BoardController.swift in Sources */,
+				39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */,
 				39022CE61C895C5F00464BC1 /* SDWebImageManager.m in Sources */,
 				39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */,
 				39022CE51C895C5F00464BC1 /* SDWebImageDownloaderOperation.m in Sources */,

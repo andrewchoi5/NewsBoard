@@ -114,6 +114,10 @@ class CardCell : UICollectionViewCell {
     func defocus() {
         self.backgroundColor = oldColor
     }
+    
+    override func prepareForReuse() {
+        self.defocus()
+    }
 }
 
 class VideoCardCell : CardCell {
@@ -121,8 +125,47 @@ class VideoCardCell : CardCell {
     
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
-            titleLabel.text = card.info["videoTitle"] as? String
+        titleLabel.text = card.info["videoTitle"] as? String
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String))
+
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let frame = videoPreview.frame
+        var height : CGFloat
+        var width : CGFloat
+        
+        let aspectRatio : CGFloat = 4.0 / 3.0
+        
+        if(frame.width / frame.height > aspectRatio) {
+            height = frame.height
+            width = frame.height * aspectRatio
+            
+        } else if(frame.width / frame.height < aspectRatio) {
+            height = frame.width / (aspectRatio)
+            width = frame.width
+            
+        } else {
+            height = frame.height
+            width = frame.width
+            
+        }
+        
+        let view = UIView()
+        view.frame.size.width = width
+        view.frame.size.height = height
+        view.alpha = 0.4
+        view.tag = 1
+        view.center = videoPreview.center
+        view.frame.origin.x += 2
+        view.frame.origin.y += 3
+        view.backgroundColor = UIColor.blackColor()
+        
+        self.viewWithTag(1)?.removeFromSuperview()
+        
+        self.addSubview(view)
+        self.bringSubviewToFront(self.viewWithTag(2)!)
     }
     
 }

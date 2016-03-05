@@ -44,21 +44,25 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         self.reload()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)        
     }
     
     func reload() {
         ServerInterface.getAllPostsForToday({ (cards) in
                 self.cardList = cards
                 self.collectionView.reloadData()
+                self.collectionView!.setCollectionViewLayout(BoardLayout(), animated: true)
                 self.firstLoadCompletionRoutine()
         })
     }
     
     func backgroundReload() {
         ServerInterface.getAllPostsForToday({ (cards) in
+            
             self.cardList = cards
             self.collectionView.reloadData()
+            self.collectionView!.setCollectionViewLayout(BoardLayout(), animated: true)
+
         })
     }
     
@@ -90,7 +94,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-
+    
     func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         if(context.previouslyFocusedIndexPath != nil && context.nextFocusedIndexPath != nil) {
             let previousCell = collectionView.cellForItemAtIndexPath(context.previouslyFocusedIndexPath!) as! CardCell
@@ -101,7 +105,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -126,5 +130,9 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! PostViewerController
+        vc.contentURL = NSURL(string: (sender as! Card).info["videoURL"] as! String)
+    }
+    
 }
-

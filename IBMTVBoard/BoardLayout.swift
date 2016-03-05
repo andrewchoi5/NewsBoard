@@ -13,7 +13,7 @@ import UIKit
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, rectForItemAtIndexPath indexPath: NSIndexPath) -> CGRect    
 }
 
-class BoardLayout : UICollectionViewLayout {
+class BoardLayout : UICollectionViewFlowLayout {
     
     var delegate : BoardLayoutDelegate?
     var dataSource : UICollectionViewDataSource?
@@ -49,6 +49,26 @@ class BoardLayout : UICollectionViewLayout {
         }
         
         return attributesArray
+    }
+    
+    override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+        
+        let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
+        attributes?.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(4.0, 4.0), CGFloat(M_PI))
+//        attributes?.center = CGPointMake(CGRectGetMidX(self.collectionView!.bounds), CGRectGetMaxY(self.collectionView!.bounds))
+        return attributes
+    }
+    
+    
+    override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+        
+        let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
+        var flyUpTransform = CATransform3DIdentity;
+        flyUpTransform.m34 = 1.0 / -20000;
+        flyUpTransform = CATransform3DTranslate(flyUpTransform, 0, 0, 19500);
+        attributes?.transform3D = flyUpTransform;
+        return attributes
+        
     }
     
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {

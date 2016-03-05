@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="ibY-wK-Ja0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -118,6 +119,12 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-8y-tdl">
                                                             <rect key="frame" x="8" y="95" width="530" height="321"/>
                                                         </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="Q4t-fd-FEf">
+                                                            <rect key="frame" x="153" y="211" width="240" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="HyW-Ux-PJM"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YdZ-cC-HeG">
                                                             <rect key="frame" x="92" y="8" width="446" height="70"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="42"/>
@@ -130,7 +137,10 @@
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="height" secondItem="PPw-Ak-Cyr" secondAttribute="height" id="0bn-cS-9Ik"/>
                                                         <constraint firstAttribute="trailing" secondItem="whZ-8y-tdl" secondAttribute="trailing" constant="8" id="0xx-A9-XFR"/>
                                                         <constraint firstAttribute="trailing" secondItem="YdZ-cC-HeG" secondAttribute="trailing" constant="8" id="8R3-qX-QXh"/>
+                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="width" secondItem="whZ-8y-tdl" secondAttribute="height" multiplier="80:107" id="E2b-HX-k9B"/>
                                                         <constraint firstAttribute="bottom" secondItem="whZ-8y-tdl" secondAttribute="bottom" constant="8" id="HiZ-wh-gMx"/>
+                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="centerY" secondItem="whZ-8y-tdl" secondAttribute="centerY" id="Rxm-39-4WN"/>
+                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="centerX" secondItem="whZ-8y-tdl" secondAttribute="centerX" id="S6s-XH-vZn"/>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="leading" secondItem="PPw-Ak-Cyr" secondAttribute="trailing" constant="14" id="dgP-qf-4Ds"/>
                                                         <constraint firstItem="whZ-8y-tdl" firstAttribute="leading" secondItem="qyX-Os-HLu" secondAttribute="leading" constant="8" id="eiN-zs-fRW"/>
                                                         <constraint firstItem="whZ-8y-tdl" firstAttribute="top" secondItem="PPw-Ak-Cyr" secondAttribute="bottom" constant="17" id="oeL-7l-dmk"/>
@@ -253,11 +263,32 @@
                         <outlet property="activityIndicator" destination="RJK-CP-3Lq" id="YZb-ki-VYB"/>
                         <outlet property="collectionView" destination="yuC-Fs-YnA" id="Xvx-kR-9ih"/>
                         <outlet property="loadingView" destination="usf-4d-e41" id="S3L-HZ-fDk"/>
+                        <segue destination="dIu-zU-G7e" kind="show" identifier="viewPostSegue" id="Oj2-AK-HdB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWs-37-2HJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085" y="1638"/>
+            <point key="canvasLocation" x="1105" y="1638"/>
+        </scene>
+        <!--Post Viewer Controller-->
+        <scene sceneID="iGB-r5-jLF">
+            <objects>
+                <viewController id="dIu-zU-G7e" customClass="PostViewerController" customModule="IBMTVBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jYU-7b-Khb"/>
+                        <viewControllerLayoutGuide type="bottom" id="6gy-Yd-8FM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gaA-LB-IFR">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZv-aE-M5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3124" y="1638"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play" width="128" height="128"/>
+    </resources>
 </document>

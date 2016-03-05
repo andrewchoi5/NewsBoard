@@ -459,10 +459,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-eR-n8W">
-                                            <rect key="frame" x="91" y="91" width="25" height="25"/>
+                                            <rect key="frame" x="3" y="3" width="20" height="20"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="FqR-fd-4EL"/>
+                                                <constraint firstAttribute="width" constant="20" id="FqR-fd-4EL"/>
                                                 <constraint firstAttribute="width" secondItem="KTh-eR-n8W" secondAttribute="height" multiplier="1:1" id="GsV-J5-kXA"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -474,11 +474,11 @@
                                 </view>
                                 <color key="backgroundColor" red="0.54117647059999996" green="0.65490196079999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="KTh-eR-n8W" secondAttribute="trailing" constant="-4" id="9qY-Nt-K06"/>
+                                    <constraint firstAttribute="topMargin" secondItem="KTh-eR-n8W" secondAttribute="top" constant="5" id="Jgf-Qw-Ovr"/>
                                     <constraint firstItem="1IW-1D-qTK" firstAttribute="centerX" secondItem="4xf-J4-Zm3" secondAttribute="centerX" id="k1K-0C-cfM"/>
                                     <constraint firstItem="1IW-1D-qTK" firstAttribute="width" secondItem="4xf-J4-Zm3" secondAttribute="height" multiplier="7:12" id="kap-oB-mSo"/>
+                                    <constraint firstAttribute="leadingMargin" secondItem="KTh-eR-n8W" secondAttribute="leading" constant="5" id="sYP-wS-PR9"/>
                                     <constraint firstItem="1IW-1D-qTK" firstAttribute="centerY" secondItem="4xf-J4-Zm3" secondAttribute="centerY" id="sd9-76-Pe2"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="KTh-eR-n8W" secondAttribute="bottom" constant="-4" id="vGA-6B-FtF"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
@@ -502,10 +502,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axc-74-ybs">
-                                            <rect key="frame" x="91" y="91" width="25" height="25"/>
+                                            <rect key="frame" x="3" y="3" width="20" height="20"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="OlJ-J6-iIr"/>
+                                                <constraint firstAttribute="width" constant="20" id="OlJ-J6-iIr"/>
                                                 <constraint firstAttribute="width" secondItem="axc-74-ybs" secondAttribute="height" multiplier="1:1" id="Yoh-07-R7v"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -517,11 +517,11 @@
                                 </view>
                                 <color key="backgroundColor" red="0.54117647059999996" green="0.65490196079999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="axc-74-ybs" secondAttribute="bottom" constant="4" id="9Me-xO-p1A"/>
                                     <constraint firstItem="vJ6-eV-twT" firstAttribute="centerX" secondItem="g0i-h6-jzr" secondAttribute="centerX" id="AYt-pr-XMw"/>
+                                    <constraint firstAttribute="leadingMargin" secondItem="axc-74-ybs" secondAttribute="leading" constant="5" id="Cgj-bZ-FcP"/>
                                     <constraint firstItem="vJ6-eV-twT" firstAttribute="width" secondItem="g0i-h6-jzr" secondAttribute="height" multiplier="7:12" id="HD6-Ec-dof"/>
+                                    <constraint firstAttribute="topMargin" secondItem="axc-74-ybs" secondAttribute="top" constant="5" id="VI8-Du-M4O"/>
                                     <constraint firstItem="vJ6-eV-twT" firstAttribute="centerY" secondItem="g0i-h6-jzr" secondAttribute="centerY" id="gMj-Sr-nsq"/>
-                                    <constraint firstAttribute="trailing" secondItem="axc-74-ybs" secondAttribute="trailing" constant="4" id="wHB-fG-lfe"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
