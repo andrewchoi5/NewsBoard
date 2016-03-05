@@ -22,6 +22,8 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     let VideoCardCellIdentifier = "videoCardCell"
     var timer : NSTimer!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var cardList = [Card]()
 
@@ -42,16 +44,29 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         self.reload()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reload", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
     }
     
     func reload() {
         ServerInterface.getAllPostsForToday({ (cards) in
-            dispatch_async(dispatch_get_main_queue(), {
                 self.cardList = cards
                 self.collectionView.reloadData()
-            })
+                self.firstLoadCompletionRoutine()
         })
+    }
+    
+    func backgroundReload() {
+        ServerInterface.getAllPostsForToday({ (cards) in
+            self.cardList = cards
+            self.collectionView.reloadData()
+        })
+    }
+    
+    func firstLoadCompletionRoutine() {
+        
+        loadingView.alpha = 0.0
+        activityIndicator.stopAnimating()
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

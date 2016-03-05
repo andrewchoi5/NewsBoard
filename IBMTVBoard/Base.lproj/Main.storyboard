@@ -116,7 +116,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-8y-tdl">
-                                                            <rect key="frame" x="8" y="86" width="530" height="330"/>
+                                                            <rect key="frame" x="8" y="95" width="530" height="321"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YdZ-cC-HeG">
                                                             <rect key="frame" x="92" y="8" width="446" height="70"/>
@@ -133,7 +133,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="whZ-8y-tdl" secondAttribute="bottom" constant="8" id="HiZ-wh-gMx"/>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="leading" secondItem="PPw-Ak-Cyr" secondAttribute="trailing" constant="14" id="dgP-qf-4Ds"/>
                                                         <constraint firstItem="whZ-8y-tdl" firstAttribute="leading" secondItem="qyX-Os-HLu" secondAttribute="leading" constant="8" id="eiN-zs-fRW"/>
-                                                        <constraint firstItem="whZ-8y-tdl" firstAttribute="top" secondItem="PPw-Ak-Cyr" secondAttribute="bottom" constant="8" id="oeL-7l-dmk"/>
+                                                        <constraint firstItem="whZ-8y-tdl" firstAttribute="top" secondItem="PPw-Ak-Cyr" secondAttribute="bottom" constant="17" id="oeL-7l-dmk"/>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="top" secondItem="qyX-Os-HLu" secondAttribute="top" constant="8" id="rcv-4d-twc"/>
                                                         <constraint firstItem="PPw-Ak-Cyr" firstAttribute="top" secondItem="qyX-Os-HLu" secondAttribute="top" constant="8" id="uzq-Xm-Ve4"/>
                                                         <constraint firstItem="PPw-Ak-Cyr" firstAttribute="leading" secondItem="qyX-Os-HLu" secondAttribute="leading" constant="8" id="yDl-zz-o9Y"/>
@@ -223,17 +223,36 @@
                                     <outlet property="delegate" destination="ibY-wK-Ja0" id="csW-lJ-MBq"/>
                                 </connections>
                             </collectionView>
+                            <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usf-4d-e41">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="RJK-CP-3Lq">
+                                        <rect key="frame" x="940" y="520" width="40" height="40"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RJK-CP-3Lq" firstAttribute="centerY" secondItem="usf-4d-e41" secondAttribute="centerY" id="9JJ-DY-SwD"/>
+                                    <constraint firstItem="RJK-CP-3Lq" firstAttribute="centerX" secondItem="usf-4d-e41" secondAttribute="centerX" id="v6y-or-mRE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745100000001" green="0.43529411759999997" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="usf-4d-e41" firstAttribute="height" secondItem="bmA-B4-pd8" secondAttribute="height" id="3Ap-Ef-zG4"/>
                             <constraint firstItem="qML-AJ-fGR" firstAttribute="top" secondItem="yuC-Fs-YnA" secondAttribute="bottom" constant="10" id="MFO-il-y2P"/>
+                            <constraint firstItem="usf-4d-e41" firstAttribute="centerX" secondItem="bmA-B4-pd8" secondAttribute="centerX" id="Vrc-PQ-nih"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yuC-Fs-YnA" secondAttribute="trailing" constant="-10" id="bKh-oK-lz7"/>
+                            <constraint firstItem="usf-4d-e41" firstAttribute="centerY" secondItem="bmA-B4-pd8" secondAttribute="centerY" id="k9M-7e-dDH"/>
                             <constraint firstItem="yuC-Fs-YnA" firstAttribute="top" secondItem="pO3-pH-06q" secondAttribute="bottom" constant="10" id="sFn-7b-Zjy"/>
                             <constraint firstItem="yuC-Fs-YnA" firstAttribute="leading" secondItem="bmA-B4-pd8" secondAttribute="leadingMargin" constant="-10" id="xKm-jV-V2q"/>
+                            <constraint firstItem="usf-4d-e41" firstAttribute="width" secondItem="bmA-B4-pd8" secondAttribute="width" id="xSy-wa-YIt"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="RJK-CP-3Lq" id="YZb-ki-VYB"/>
                         <outlet property="collectionView" destination="yuC-Fs-YnA" id="Xvx-kR-9ih"/>
+                        <outlet property="loadingView" destination="usf-4d-e41" id="S3L-HZ-fDk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWs-37-2HJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

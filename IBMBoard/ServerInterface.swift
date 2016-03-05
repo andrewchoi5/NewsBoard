@@ -229,6 +229,7 @@ public class ServerInterface {
         
         NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             dispatch_async(dispatch_get_main_queue(), {
+                // TODO: Fix random crash that occurs when data is nil
                 completion(cards: CardToDocumentConverter.getCards((QueryDeserializer.getDocuments(data!))))
             })
         }).resume()
