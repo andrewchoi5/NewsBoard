@@ -10,12 +10,11 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    public func sd_setImageWithURLString(let url : String) {
+    public func sd_setImageWithURLString(url : String) {
         self.sd_setImageWithURL(NSURL(string: url))
-        
     }
     
-    public func sd_setImageWithURLString(let url : String, let placeholderImage : UIImage) {
+    public func sd_setImageWithURLString(url : String, placeholderImage : UIImage) {
         self.sd_setImageWithURL(NSURL(string: url), placeholderImage: placeholderImage)
         
     }

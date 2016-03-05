@@ -83,8 +83,9 @@ class Card : NSObject {
 }
 
 class CardCell : UICollectionViewCell {
-    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
+    
     var oldColor : UIColor!
     
     required init?(coder aDecoder: NSCoder) {
@@ -100,6 +101,10 @@ class CardCell : UICollectionViewCell {
         userPhoto.layer.cornerRadius = userPhoto.frame.size.width / 2
     }
     
+    func applyCardContent(card: Card) {
+        
+    }
+    
     func focus() {
         oldColor = self.backgroundColor
         self.backgroundColor = UIColor.redColor()
@@ -109,4 +114,15 @@ class CardCell : UICollectionViewCell {
     func defocus() {
         self.backgroundColor = oldColor
     }
+}
+
+class VideoCardCell : CardCell {
+    @IBOutlet weak var videoPreview: UIImageView!
+    
+    override func applyCardContent(card: Card) {
+        super.applyCardContent(card)
+            titleLabel.text = card.info["videoTitle"] as? String
+        videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String))
+    }
+    
 }

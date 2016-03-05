@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39022CDE1C895C3800464BC1 /* SDWebImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* SDWebImageExt.swift */; };
+		39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
+		39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
+		39022CE21C895C5F00464BC1 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A87B1C7D29C900DFC0F5 /* SDWebImageCompat.m */; };
+		39022CE31C895C5F00464BC1 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A87D1C7D29C900DFC0F5 /* SDWebImageDecoder.m */; };
+		39022CE41C895C5F00464BC1 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A87F1C7D29C900DFC0F5 /* SDWebImageDownloader.m */; };
+		39022CE51C895C5F00464BC1 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8811C7D29C900DFC0F5 /* SDWebImageDownloaderOperation.m */; };
+		39022CE61C895C5F00464BC1 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8831C7D29C900DFC0F5 /* SDWebImageManager.m */; };
+		39022CE71C895C5F00464BC1 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8861C7D29C900DFC0F5 /* SDWebImagePrefetcher.m */; };
+		39022CE81C895C5F00464BC1 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8881C7D29C900DFC0F5 /* UIButton+WebCache.m */; };
+		39022CE91C895C5F00464BC1 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A88A1C7D29C900DFC0F5 /* UIImage+GIF.m */; };
+		39022CEA1C895C5F00464BC1 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A88C1C7D29C900DFC0F5 /* UIImage+MultiFormat.m */; };
+		39022CEB1C895C5F00464BC1 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A88E1C7D29C900DFC0F5 /* UIImage+WebP.m */; };
+		39022CEC1C895C5F00464BC1 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8901C7D29C900DFC0F5 /* UIImageView+HighlightedWebCache.m */; };
+		39022CED1C895C5F00464BC1 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8921C7D29C900DFC0F5 /* UIImageView+WebCache.m */; };
+		39022CEE1C895C5F00464BC1 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8941C7D29C900DFC0F5 /* UIView+WebCacheOperation.m */; };
+		39022CF81C8A512900464BC1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022CF71C8A512900464BC1 /* ImageIO.framework */; };
+		39022CFA1C8A513300464BC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022CF91C8A513300464BC1 /* libz.tbd */; };
+		39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
+		39022D051C8A549500464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
 		392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF11E1C762FCF00090214 /* AppDelegate.swift */; };
 		392CF1211C762FCF00090214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1201C762FCF00090214 /* LoginViewController.swift */; };
 		392CF1241C762FCF00090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1221C762FCF00090214 /* Main.storyboard */; };
@@ -34,7 +54,6 @@
 		39EB93F61C7E66600053F73F /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93EC1C7E65CA0053F73F /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		39EB93F71C7E66600053F73F /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93ED1C7E65CA0053F73F /* TBXML+Compression.m */; };
 		39EB93F81C7E66600053F73F /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93EE1C7E65CA0053F73F /* TBXML+HTTP.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		39EB93F91C7E66600053F73F /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8751C7D29C900DFC0F5 /* MKAnnotationView+WebCache.m */; };
 		39EB93FA1C7E66600053F73F /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
 		39EB93FB1C7E66600053F73F /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
 		39EB93FC1C7E66600053F73F /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A87B1C7D29C900DFC0F5 /* SDWebImageCompat.m */; };
@@ -57,6 +76,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39022CF71C8A512900464BC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		39022CF91C8A513300464BC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		392CF11B1C762FCF00090214 /* IBMBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IBMBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		392CF11E1C762FCF00090214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		392CF1201C762FCF00090214 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -76,8 +98,6 @@
 		39D878571C766F21007E0CD5 /* DefaultCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCellView.swift; sourceTree = "<group>"; };
 		39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectorController.swift; sourceTree = "<group>"; };
 		39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		39E5A8741C7D29C900DFC0F5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MKAnnotationView+WebCache.h"; path = "SDWebImage/SDWebImage/MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
-		39E5A8751C7D29C900DFC0F5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MKAnnotationView+WebCache.m"; path = "SDWebImage/SDWebImage/MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		39E5A8761C7D29C900DFC0F5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		39E5A8781C7D29C900DFC0F5 /* SDImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
@@ -144,6 +164,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39022CFA1C8A513300464BC1 /* libz.tbd in Frameworks */,
+				39022CF81C8A512900464BC1 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
+				39022D031C8A545B00464BC1 /* VideoAPIManager.swift */,
 				39EB93F51C7E65E30053F73F /* TBXML */,
 				39E5A8B81C7D29D900DFC0F5 /* SDWebImage */,
 				392CF11C1C762FCF00090214 /* Products */,
@@ -215,6 +238,8 @@
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39022CF91C8A513300464BC1 /* libz.tbd */,
+				39022CF71C8A512900464BC1 /* ImageIO.framework */,
 				39EB94091C7E67950053F73F /* libz.tbd */,
 				39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */,
 			);
@@ -224,8 +249,6 @@
 		39E5A8B81C7D29D900DFC0F5 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
-				39E5A8741C7D29C900DFC0F5 /* MKAnnotationView+WebCache.h */,
-				39E5A8751C7D29C900DFC0F5 /* MKAnnotationView+WebCache.m */,
 				39E5A8761C7D29C900DFC0F5 /* NSData+ImageContentType.h */,
 				39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */,
 				39E5A8781C7D29C900DFC0F5 /* SDImageCache.h */,
@@ -383,6 +406,7 @@
 				39D878581C766F21007E0CD5 /* DefaultCellView.swift in Sources */,
 				39EB93E51C7E3D500053F73F /* ServerInterface.swift in Sources */,
 				39EB94051C7E66600053F73F /* UIImage+WebP.m in Sources */,
+				39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */,
 				39EB93FA1C7E66600053F73F /* NSData+ImageContentType.m in Sources */,
 				39EB93E71C7E45C60053F73F /* ArticlePosterController.swift in Sources */,
 				39EB93AF1C7D87BD0053F73F /* UINavigationExt.swift in Sources */,
@@ -406,7 +430,6 @@
 				39E5A8641C77DF9F00DFC0F5 /* CategorySelectorController.swift in Sources */,
 				39EB940C1C7FC8030053F73F /* AnnouncementPostController.swift in Sources */,
 				399A75021C88C86F007778B0 /* PosterController.swift in Sources */,
-				39EB93F91C7E66600053F73F /* MKAnnotationView+WebCache.m in Sources */,
 				39EB94041C7E66600053F73F /* UIImage+MultiFormat.m in Sources */,
 				39EB94081C7E66600053F73F /* UIView+WebCacheOperation.m in Sources */,
 				39EB93FC1C7E66600053F73F /* SDWebImageCompat.m in Sources */,
@@ -420,10 +443,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				392CF1551C76424500090214 /* BoardController.swift in Sources */,
+				39022CE61C895C5F00464BC1 /* SDWebImageManager.m in Sources */,
+				39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */,
+				39022CE51C895C5F00464BC1 /* SDWebImageDownloaderOperation.m in Sources */,
+				39022CEE1C895C5F00464BC1 /* UIView+WebCacheOperation.m in Sources */,
 				39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */,
+				39022CE81C895C5F00464BC1 /* UIButton+WebCache.m in Sources */,
+				39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */,
+				39022CE71C895C5F00464BC1 /* SDWebImagePrefetcher.m in Sources */,
+				39022CE41C895C5F00464BC1 /* SDWebImageDownloader.m in Sources */,
+				39022D051C8A549500464BC1 /* VideoAPIManager.swift in Sources */,
 				39EB94121C84ABB10053F73F /* BoardLayout.swift in Sources */,
+				39022CEB1C895C5F00464BC1 /* UIImage+WebP.m in Sources */,
+				39022CED1C895C5F00464BC1 /* UIImageView+WebCache.m in Sources */,
+				39022CE31C895C5F00464BC1 /* SDWebImageDecoder.m in Sources */,
 				392CF1531C76424500090214 /* AppDelegate.swift in Sources */,
+				39022CE21C895C5F00464BC1 /* SDWebImageCompat.m in Sources */,
 				39EB940E1C80FE240053F73F /* CardCell.swift in Sources */,
+				39022CDE1C895C3800464BC1 /* SDWebImageExt.swift in Sources */,
+				39022CEA1C895C5F00464BC1 /* UIImage+MultiFormat.m in Sources */,
+				39022CEC1C895C5F00464BC1 /* UIImageView+HighlightedWebCache.m in Sources */,
+				39022CE91C895C5F00464BC1 /* UIImage+GIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +616,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
@@ -591,6 +632,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};

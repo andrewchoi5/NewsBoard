@@ -20,11 +20,13 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     let RFPCardCellIdentifier = "rfpCardCell"
     let ArticleCardCellIdentifier = "articleCardCell"
     let VideoCardCellIdentifier = "videoCardCell"
-    
+    var timer : NSTimer!
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var cellList : [Card] = [] //[
-        
+    var cardList = [Card]()
+
+//    var cardList : [Card] = [
+//        
 //                        Card(cardType: .Announcement, corner: 1,  aWidth: 3, aHeight: 4),
 //                        Card(cardType: .Idea,         corner: 4,  aWidth: 3, aHeight: 2),
 //                        Card(cardType: .Video,        corner: 7,  aWidth: 3, aHeight: 2),
@@ -38,21 +40,27 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.reload()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "reload", userInfo: nil, repeats: true)
+    }
+    
+    func reload() {
         ServerInterface.getAllPostsForToday({ (cards) in
             dispatch_async(dispatch_get_main_queue(), {
-                self.cellList = cards
+                self.cardList = cards
                 self.collectionView.reloadData()
             })
         })
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cellList.count
+        return cardList.count
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, rectForItemAtIndexPath indexPath: NSIndexPath) -> CGRect {
         
-        let cell = cellList[ indexPath.row ]
+        let cell = cardList[ indexPath.row ]
         let blockWidth = (self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow)
         let blockHeight = (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn)
         let xPos = CGFloat((cell.space.topLeftCorner - 1) % cellsPerRow) * blockWidth
@@ -85,7 +93,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         var cellIdentifier : String
         
-        switch cellList[ indexPath.row ].type! {
+        switch cardList[ indexPath.row ].type! {
             
             case .Default:      cellIdentifier = DefaultCardCellIdentifier
             case .Announcement: cellIdentifier = DefaultCardCellIdentifier
@@ -99,6 +107,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardCell
         // TODO: Get photo of user, using random samples
         cell.userPhoto.image = UIImage(named: "\(indexPath.row % 8 + 1)")
+        cell.applyCardContent(cardList[ indexPath.row ])
         return cell
     }
     

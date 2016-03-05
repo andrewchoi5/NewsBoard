@@ -90,10 +90,11 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="nMX-1g-xLA" secondAttribute="trailing" constant="-5" id="X6r-L3-xc3"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="titleLabel" destination="fDt-di-rdF" id="BFr-Wn-Vqx"/>
                                             <outlet property="userPhoto" destination="L0i-SV-FKK" id="gVI-LA-GlH"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCardCell" id="IPw-kx-yBk" customClass="CardCell" customModule="IBMTVBoard" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCardCell" id="IPw-kx-yBk" customClass="VideoCardCell" customModule="IBMTVBoard" customModuleProvider="target">
                                         <rect key="frame" x="674" y="0.0" width="552" height="430"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -114,7 +115,7 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.minificationFilter" value="kCAFilterTrilinear"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-8y-tdl">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-8y-tdl">
                                                             <rect key="frame" x="8" y="86" width="530" height="330"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YdZ-cC-HeG">
@@ -127,8 +128,12 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="height" secondItem="PPw-Ak-Cyr" secondAttribute="height" id="0bn-cS-9Ik"/>
+                                                        <constraint firstAttribute="trailing" secondItem="whZ-8y-tdl" secondAttribute="trailing" constant="8" id="0xx-A9-XFR"/>
                                                         <constraint firstAttribute="trailing" secondItem="YdZ-cC-HeG" secondAttribute="trailing" constant="8" id="8R3-qX-QXh"/>
+                                                        <constraint firstAttribute="bottom" secondItem="whZ-8y-tdl" secondAttribute="bottom" constant="8" id="HiZ-wh-gMx"/>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="leading" secondItem="PPw-Ak-Cyr" secondAttribute="trailing" constant="14" id="dgP-qf-4Ds"/>
+                                                        <constraint firstItem="whZ-8y-tdl" firstAttribute="leading" secondItem="qyX-Os-HLu" secondAttribute="leading" constant="8" id="eiN-zs-fRW"/>
+                                                        <constraint firstItem="whZ-8y-tdl" firstAttribute="top" secondItem="PPw-Ak-Cyr" secondAttribute="bottom" constant="8" id="oeL-7l-dmk"/>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="top" secondItem="qyX-Os-HLu" secondAttribute="top" constant="8" id="rcv-4d-twc"/>
                                                         <constraint firstItem="PPw-Ak-Cyr" firstAttribute="top" secondItem="qyX-Os-HLu" secondAttribute="top" constant="8" id="uzq-Xm-Ve4"/>
                                                         <constraint firstItem="PPw-Ak-Cyr" firstAttribute="leading" secondItem="qyX-Os-HLu" secondAttribute="leading" constant="8" id="yDl-zz-o9Y"/>
@@ -145,7 +150,9 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="qyX-Os-HLu" secondAttribute="bottom" constant="-5" id="zSM-Yg-iVz"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="userPhoto" destination="PPw-Ak-Cyr" id="dGC-le-XJB"/>
+                                            <outlet property="titleLabel" destination="YdZ-cC-HeG" id="tbj-Vt-xiz"/>
+                                            <outlet property="userPhoto" destination="PPw-Ak-Cyr" id="JY3-gB-g6m"/>
+                                            <outlet property="videoPreview" destination="whZ-8y-tdl" id="t9n-Sk-jjz"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="articleCardCell" id="JT0-CE-yaF" customClass="CardCell" customModule="IBMTVBoard" customModuleProvider="target">
@@ -206,6 +213,7 @@
                                             <constraint firstAttribute="leadingMargin" secondItem="oDr-Co-wTQ" secondAttribute="leading" constant="5" id="t7K-PJ-bAX"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="titleLabel" destination="Lmw-eF-NtK" id="sH3-jj-lSW"/>
                                             <outlet property="userPhoto" destination="g8e-4e-cIq" id="sIb-bI-o4z"/>
                                         </connections>
                                     </collectionViewCell>
