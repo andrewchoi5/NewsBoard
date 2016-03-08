@@ -47,39 +47,42 @@ struct Space {
     
 }
 
-class Card : NSObject {
+class Card : Document {
     
     var type : CardCellType!
-    var info : Dictionary<String, AnyObject>!
     var space : Space!
-    
+    var attachmentURLString : String {
+        guard let attachmentName = super.getAttachments().keys.first else { return "" }
+        return "https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com/ibmboard/\(self.id)/\(attachmentName)"
+    }
     
     init(cardType: CardCellType, corner: Int, aWidth: Int, aHeight: Int) {
-
+        super.init()
+        
         space = Space(corner: corner, aWidth: aWidth, aHeight: aHeight)
         type = cardType
-        info = Dictionary<String, AnyObject>()
     }
     
     init(corner: Int, aWidth: Int, aHeight: Int) {
+        super.init()
         
         space = Space(corner: corner, aWidth: aWidth, aHeight: aHeight)
         type = .Default
-        info = Dictionary<String, AnyObject>()
 
     }
     
-    init(dictionary: [String: AnyObject]) {
-        super.init()
+    override init(document: Document) {
+        super.init(document: document)
         
-        type = CardCellType(rawValue: dictionary["type"] as! Int)
-        info = dictionary["info"] as! [String : AnyObject]
-        space = Space(dictionary: dictionary["space"]  as! [String : Int])
+        type = CardCellType(rawValue: document.info["type"] as! Int)
+        info = document.info["info"] as! [String : AnyObject]
+        space = Space(dictionary: document.info["space"]  as! [String : Int])
     }
     
     override init() {
         super.init()
     }
+    
 }
 
 class CardCell : UICollectionViewCell {
@@ -120,6 +123,28 @@ class CardCell : UICollectionViewCell {
     }
 }
 
+class AnnouncementCardCell : CardCell {
+    
+    @IBOutlet weak var announcementPhoto: UIImageView!
+    
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var announcementText: UILabel!
+    override func applyCardContent(card: Card) {
+        super.applyCardContent(card)
+    
+        announcementPhoto.sd_setImageWithURLString(card.attachmentURLString, progressBlock: { (expectedSize, totalSize) in
+            self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
+            
+            }, completion: {(image, error, cacheType, url) in
+            self.progressBar.removeFromSuperview()
+            
+        })
+                
+        titleLabel.text = "Announcement"
+        announcementText.text =  card.info["announcementText"] as? String
+    }
+}
+
 class VideoCardCell : CardCell {
     @IBOutlet weak var videoPreview: UIImageView!
     
@@ -129,6 +154,7 @@ class VideoCardCell : CardCell {
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String))
 
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
 

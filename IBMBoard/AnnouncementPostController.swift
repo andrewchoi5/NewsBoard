@@ -8,9 +8,12 @@
 
 import Foundation
 
-class AnnouncementPostController : PosterController {
+class AnnouncementPostController : PosterController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLSessionTaskDelegate {
     
     @IBOutlet weak var announcementText: UITextView!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+    var selectedImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +23,51 @@ class AnnouncementPostController : PosterController {
     
     @IBAction func didPushPostButton(sender: UIButton) {
         
-        selectedCardSpace.info["announcementText"] = announcementText.text!
+        if !progressBar.hidden {
+            return
+        }
         
-        ServerInterface.postCard(selectedCardSpace, completion: nil)
-        self.navigationController?.popViewControllerAnimated(true)
+        selectedCardSpace.info["announcementText"] = announcementText.text!
+        if let image = selectedImage {
+            selectedCardSpace.addPNGImage(image)
+        }
+        
+        progressBar.hidden = false
+        
+        ServerInterface.delegateProxy.forwardMessagesTo(self)
+        
+        ServerInterface.postCard(selectedCardSpace, completion: {
+            self.navigationController?.popViewControllerAnimated(true)
+
+        
+        })
         
     }
     
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.progressBar.setProgress(Float(totalBytesSent) / Float(totalBytesExpectedToSend), animated: true)
+        })
+    }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func didPushPhotoAlbumButton(sender: UIButton) {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .SavedPhotosAlbum
+        vc.delegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
     
 }

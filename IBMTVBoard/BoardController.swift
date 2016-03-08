@@ -44,7 +44,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         self.reload()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)        
+//        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)        
     }
     
     func reload() {
@@ -115,7 +115,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         switch cardList[ indexPath.row ].type! {
             
             case .Default:      cellIdentifier = DefaultCardCellIdentifier
-            case .Announcement: cellIdentifier = DefaultCardCellIdentifier
+            case .Announcement: cellIdentifier = AnnouncementCardCellIdentifier
             case .Idea:         cellIdentifier = DefaultCardCellIdentifier
             case .RFP:          cellIdentifier = DefaultCardCellIdentifier
             case .NewsArticle:  cellIdentifier = ArticleCardCellIdentifier

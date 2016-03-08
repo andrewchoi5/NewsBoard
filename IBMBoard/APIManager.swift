@@ -24,6 +24,9 @@ public class APIManager {
     ]
     
     public static func getArbitraryVideoTitle(videoURL: String, maxLength: UInt) -> String {
+        if videoURL == "" {
+            return ""
+        }
         let string = String(data: NSData(contentsOfURL: NSURL(string: videoURL)!)!, encoding: NSUTF8StringEncoding)
         string?.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
         
@@ -32,11 +35,11 @@ public class APIManager {
         return APIManager.collectVideoTitle(parsedXML.rootXMLElement)
     }
     
-    public static func getArbitraryTextArticleTitle(let articleURL: String, maxLength: UInt) -> String {
+    public static func getArbitraryTextArticleTitle(articleURL: String, maxLength: UInt) -> String {
         return collectedTitle
     }
     
-    public static func getArbitraryTextArticlePreview(let articleURL: String) -> String {
+    public static func getArbitraryTextArticlePreview(articleURL: String) -> String {
 //        let parser = ArticleParser(contentsOfURL: NSURL(string: articleURL)!)!
 //        parser.parse()
         if articleURL == "" {

@@ -27,6 +27,9 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     
     var testArray = [ Int ](count: 9 * 6, repeatedValue: 0)
     
+//    @IBOutlet weak var loadingScreen: UIView!
+    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +39,16 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
             
             self.cardList = cards
             self.reloadData()
+            self.finishedReloading()
         }
+    }
+    
+    func finishedReloading() {
+        
+//        loadingScreen.alpha = 0.0
+        activityIndicator.stopAnimating()
+        collectionView?.userInteractionEnabled = true
+        
     }
     
     func reloadData() {
@@ -94,7 +106,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         }
         
         let width = maximumElement % cellsPerRow - minimumElement % cellsPerRow + 1
-        let height = (maximumElement - width + 1 - minimumElement) / cellsPerColumn
+        let height = (maximumElement - width + 1 - minimumElement) / (cellsPerColumn + 1)
         
         return Card(corner: minimumElement + 1, aWidth: width, aHeight: height)
     }
@@ -141,24 +153,35 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        if !isEmptyCell(indexPath) {
+            return
+        }
+        
         selectedSpaces.insert(indexPath.row)
-//        print("added \(indexPath.row)")
-//        print("Space is rectangular: \(isRectangular(selectedSpaces))")
+
         if(isRectangular(selectedSpaces)) {
             print("Space selected: \(makeSelectedSpaceTuple(selectedSpaces))")
+            
         }
         
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        if !isEmptyCell(indexPath) {
+            return
+            
+        }
+        
         selectedSpaces.remove(indexPath.row)
 //        print("removed \(indexPath.row)")
 //        print("Space is rectangular: \(isRectangular(selectedSpaces))")
         if(isRectangular(selectedSpaces)) {
             print("Space selected: \(makeSelectedSpaceTuple(selectedSpaces))")
+            
         }
 
     }
+
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -166,19 +189,29 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         
         var identifier = ""
         
-        if(cellType == 0) {
+        if cellType == 0 {
             identifier = emptyCellIdentifier
             
-        } else if(cellType == 1) {
+        } else if cellType == 1 {
             identifier = lockedCellIdentifier
             
-        } else if(cellType == 2) {
-            identifier = crossedCellIdentifier
+        } else if cellType == 2 {
+            if SessionInformation.currentSession.hasAdminRights() {
+                
+                
+            } else {
+                identifier = crossedCellIdentifier
+                
+            }
             
         }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
         return cell
+    }
+    
+    func isEmptyCell(indexPath: NSIndexPath) -> Bool {
+        return collectionView!.cellForItemAtIndexPath(indexPath)!.reuseIdentifier == emptyCellIdentifier
     }
 
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {

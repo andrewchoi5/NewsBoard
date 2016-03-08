@@ -38,22 +38,40 @@ extension NSJSONSerialization {
     }
 }
 
-class CardSerializer : NSJSONSerialization {
-    
-    class func getData(card: Card) -> NSData {
-        let card = [
-            "card" : [
-                "type":card.type.rawValue,
-                "info":card.info,
-                "space":[
-                    "topLeftCorner":card.space.topLeftCorner,
-                    "width":card.space.width,
-                    "height":card.space.height
-                ]
-            ]
-        ]
+class DocumentSerializer : NSJSONSerialization {
+    class func getData(document: Document) -> NSData {
+        return NSJSONSerialization.dataWithJSONObject(DocumentSerializer.getJSONObject(document))
         
-        return NSJSONSerialization.dataWithJSONObject(card)
+    }
+    
+    class func getJSONObject(document: Document) -> AnyObject {
+        var documentJSONObject = [ String : AnyObject ]()
+        if document.hasAttachments() {
+            documentJSONObject["_attachments"] = document.attachments
+        }
+        return documentJSONObject
+    }
+}
+
+class CardSerializer : DocumentSerializer {
+    
+    override class func getJSONObject(card : Document) -> AnyObject {
+        var document = super.getJSONObject(card) as! [ String : AnyObject ]
+        document["card"] =  [
+                                "type":(card as! Card).type.rawValue,
+                                "info":(card as! Card).info,
+                                "space":[
+                                    "topLeftCorner":(card as! Card).space.topLeftCorner,
+                                    "width":(card as! Card).space.width,
+                                    "height":(card as! Card).space.height
+                                ]
+                            ]
+        return document
+    }
+    
+    override class func getData(card: Document) -> NSData {
+//        String( data:NSJSONSerialization.prettyDataWithJSONObject(CardSerializer.getJSONObject(card)), encoding: NSUTF8StringEncoding)
+        return NSJSONSerialization.prettyDataWithJSONObject(CardSerializer.getJSONObject(card))
     }
 }
 
@@ -75,6 +93,7 @@ class Query : NSObject {
         
         self.addField("_id")
         self.addField("_rev")
+        self.addField("_attachments")
 
     }
     
@@ -122,24 +141,88 @@ class QuerySerializer : NSJSONSerialization {
     
 }
 
+extension NSData {
+    
+    func base64EncodedString() -> String {
+        return self.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+    }
+    
+}
+
 class Document : NSObject {
     var id : String!
     var revision : String!
     var infoKey : String!
-    var info : [String : AnyObject]!
+    var info = [String : AnyObject]()
+    private var attachments = [ String : [ String : AnyObject ] ]()
     
     init(dictionary : [ String : AnyObject ]) {
         super.init()
         
         id = dictionary["_id"] as! String
         revision = dictionary["_rev"] as! String
+        if let attachDict = dictionary["_attachments"] as? [ String : [ String : AnyObject ] ] {
+            attachments = attachDict
+        }
         
         var keys = Set(dictionary.keys)
         keys.remove("_id")
         keys.remove("_rev")
+        keys.remove("_attachments")
         infoKey = keys.removeFirst()
         
         info = dictionary[ infoKey ] as! [String : AnyObject]
+        
+    }
+    
+    init(document : Document) {
+        super.init()
+        
+        id = document.id
+        revision = document.revision
+        infoKey = document.infoKey
+        info = document.info
+        attachments = document.attachments
+    }
+    
+    func addAttachment(attachmentData: NSData, mimeType: String, name: String) {
+        self.attachments[name] =
+                                    [
+                                        "content_type" : mimeType,
+                                        "data" : attachmentData.base64EncodedString()
+                                    ]
+    }
+    
+    func addAttachment(attachmentData: NSData, mimeType: String) {
+        self.addAttachment(attachmentData, mimeType: mimeType, name: "attachment\(attachments.count + 1)")
+        
+    }
+    
+    func addJPEGImage(image: UIImage, compressionRatio: CGFloat) {
+        guard let imageData = UIImageJPEGRepresentation(image, compressionRatio) else { return }
+        self.addAttachment(imageData, mimeType: "image/jpeg")
+    }
+    
+    func addPNGImage(image: UIImage) {
+        guard let imageData = UIImagePNGRepresentation(image) else { return }
+        self.addAttachment(imageData, mimeType: "image/png")
+    }
+    
+    func addJPEGImage(image: UIImage) {
+        self.addJPEGImage(image, compressionRatio: 0.5)
+    }
+    
+    func hasAttachments() -> Bool {
+        return attachments.count > 0
+    }
+    
+    func getAttachments() -> [ String : AnyObject ] {
+        return attachments
+    }
+    
+    override init() {
+        super.init()
+        
     }
 }
 
@@ -157,80 +240,127 @@ class QueryDeserializer : NSJSONSerialization {
     
 }
 
-class CardToDocumentConverter {
+class DocumentToCardConverter {
     
     class func getCards(documents: [Document]) -> [Card] {
         var cards = [Card]()
         for document in documents {
-            cards.append(Card(dictionary: document.info))
+            cards.append(Card(document: document))
         }
         
         return cards
     }
 }
 
+class DelegateProxy : NSObject, NSURLSessionTaskDelegate {
+    
+    private var delegate : NSURLSessionTaskDelegate?
+    
+    func forwardMessagesTo(obj: NSURLSessionTaskDelegate?) {
+        guard let object = obj else { return }
+        delegate = object
+    }
+    
+    override init() {
+        super.init()
+        
+        
+    }
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        guard let forwardedObject = delegate else { return }
+        
+//        if forwardedObject.respondsToSelector()
+        
+        forwardedObject.URLSession!(session, task: task, didSendBodyData: bytesSent, totalBytesSent: totalBytesSent, totalBytesExpectedToSend: totalBytesExpectedToSend)
+        
+    }
+    
+}
+
 public class ServerInterface {
     
     static let serverURL = "https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com/ibmboard"
+    static let currentSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: DelegateProxy(), delegateQueue: nil)
+    static let delegateProxy = currentSession.delegate as! DelegateProxy
     
-    static func doPostRequest() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(serverURL)/")!)
-        request.HTTPMethod = "POST"
+    
+    static func requestWithURL(url: NSURL) -> NSMutableURLRequest {
+        return NSMutableURLRequest(URL: url)
     }
     
-    static func doGetRequest() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(serverURL)/")!)
-        
+    static func requestWithURLString(string: String) -> NSMutableURLRequest {
+        let request = requestWithURL(NSURL(string: string)!)
+        return request
     }
     
-    static func doPutRequest() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(serverURL)/")!)
-        request.HTTPMethod = "PUT"
-    }
-    
-    static func doDeleteRequest() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(serverURL)/")!)
-        request.HTTPMethod = "DELETE"
-    }
-    
-    static func doQuery(query : Query) {
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(serverURL)/")!)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = QuerySerializer.getData(query)
+    static func JSONRequestWithURLString(string: String) -> NSMutableURLRequest {
+        let request = requestWithURLString(string)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string:"\(serverURL)/_all_docs")!, completionHandler: { (data, response, error) in
-            
-            let result = String(data: data!, encoding: NSUTF8StringEncoding)!
-            
-        }).resume()
+        return request
     }
+    
+    static func postJSONRequestWithURLString(string: String) -> NSMutableURLRequest {
+        let request = JSONRequestWithURLString(string)
+        request.HTTPMethod = "POST"
+        return request
+    }
+    
+    static func getJSONRequestWithURLString(string: String) -> NSMutableURLRequest {
+        return JSONRequestWithURLString(string)
+    }
+    
+    static func putJSONRequestWithURLString(string: String) -> NSMutableURLRequest {
+        let request = JSONRequestWithURLString(string)
+        request.HTTPMethod = "PUT"
+        return request
+    }
+    
+    static func deleteJSONRequestWithURLString(string: String) -> NSMutableURLRequest {
+        let request = JSONRequestWithURLString(string)
+        request.HTTPMethod = "DELETE"
+        return request
+    }
+    
+//    static func doQuery(query : Query) {
+//        NSURLSession.sharedSession().dataTaskWithRequest(postJSONRequestWithURLString("\(serverURL)/"), completionHandler: { (data, response, error) in
+//            
+//            let result = String(data: data!, encoding: NSUTF8StringEncoding)!
+//            
+//        }).resume()
+//    }
     
     static func postCard(cardContent: Card, completion: ((Void) -> Void)?) {
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(serverURL)/")!)
-        request.HTTPMethod = "POST"
+        let request = postJSONRequestWithURLString("\(serverURL)/")
         request.HTTPBody = CardSerializer.getData(cardContent)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+        ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             
             let result = String(data: data!, encoding: NSUTF8StringEncoding)!
+            completion!()
             
         }).resume()
         
+    }
+    
+    static func deleteCard(cardContent: Card, completion: ((Void) -> Void)) {
+        let urlString = "\(serverURL)/\(cardContent.id)?rev=\(cardContent.revision)"
+        
+        ServerInterface.currentSession.dataTaskWithRequest(deleteJSONRequestWithURLString(urlString), completionHandler: { (data, response, error) in
+            dispatch_async(dispatch_get_main_queue(), {
+                completion()
+            })
+        }).resume()
     }
     
     static func getAllPostsForToday(completion: (cards: [Card]) -> Void) {
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(serverURL)/_find")!)
-        request.HTTPMethod = "POST"
+        let request = postJSONRequestWithURLString("\(serverURL)/_find")
         request.HTTPBody = QuerySerializer.getData(AllPostsQuery())
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+        ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 // TODO: Fix random crash that occurs when data is nil
-                completion(cards: CardToDocumentConverter.getCards((QueryDeserializer.getDocuments(data!))))
+                completion(cards: DocumentToCardConverter.getCards((QueryDeserializer.getDocuments(data!))))
             })
         }).resume()
     }
