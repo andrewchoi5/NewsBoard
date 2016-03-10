@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class SpaceSelectorController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var emptyCellIdentifier = "emptyCell"
     var lockedCellIdentifier = "lockedCell"
     var crossedCellIdentifier = "crossedCell"
     var completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var emptyCardSpace : Card!
     
     let cellsPerRow = 9
@@ -119,7 +120,6 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     // TODO: Optimize this function
     func isRectangular(var spaces: Set<Int>) -> Bool {
         var cellsInEachColumn = Dictionary<Int,Int>()
-        let spacesCopy = spaces
         while !spaces.isEmpty {
             let index = spaces.removeFirst() % cellsPerRow
             if(cellsInEachColumn[ index ] == nil) {
@@ -148,13 +148,13 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         
     }
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return cellsPerRow * cellsPerColumn
         
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         if !isEmptyCell(indexPath) {
             return
@@ -169,7 +169,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         
     }
     
-    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         if !isEmptyCell(indexPath) {
             return
             
@@ -186,7 +186,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     }
 
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cellType = cardHolderMatrix[ indexPath.row ].0
         let cardNumber = cardHolderMatrix[ indexPath.row ].1
@@ -213,6 +213,18 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
         cell.setPhoto(UIImage(named: "\(cardNumber % 8 + 1)")!)
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        
+        return 0.0
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        
+        return 0.0
+        
     }
     
     func isEmptyCell(indexPath: NSIndexPath) -> Bool {

@@ -127,7 +127,7 @@
                         <outlet property="emailID" destination="WzG-HD-GeB" id="SYV-6F-7O1"/>
                         <outlet property="password" destination="uHG-uR-Mx4" id="4ee-RB-lw6"/>
                         <outlet property="rememberCredentials" destination="8qD-ge-Ne4" id="fvg-pE-uqu"/>
-                        <segue destination="Shu-xN-lTH" kind="show" identifier="LoginSuccessfulSegue" id="uQx-jc-4dN"/>
+                        <segue destination="qHj-es-kGg" kind="show" identifier="LoginSuccessfulSegue" id="gn3-NY-18y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmA-li-uBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -444,148 +444,165 @@
             </objects>
             <point key="canvasLocation" x="990.5" y="3567.5"/>
         </scene>
-        <!--Space Selector View Controller-->
-        <scene sceneID="57h-0o-20e">
+        <!--Space Selector-->
+        <scene sceneID="y39-Be-u9p">
             <objects>
-                <collectionViewController id="Shu-xN-lTH" userLabel="Space Selector View Controller" customClass="SpaceSelectorController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" dataMode="prototypes" id="A8o-Zo-TR7">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qHj-es-kGg" customClass="SpaceSelectorController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YOE-xc-AiB"/>
+                        <viewControllerLayoutGuide type="bottom" id="amK-Bn-Hjf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="byt-7F-rLS">
                         <rect key="frame" x="0.0" y="64" width="736" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.77254901960784317" green="0.83529411764705885" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ima-PU-BNY">
-                            <size key="itemSize" width="120" height="120"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="IcO-OX-EP6">
-                            <rect key="frame" x="0.0" y="0.0" width="736" height="350"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </activityIndicatorView>
-                        <cells>
-                            <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="lockedCell" id="4xf-J4-Zm3" customClass="DefaultCellView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                    <subviews>
-                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="1IW-1D-qTK">
-                                            <rect key="frame" x="25" y="30" width="70" height="60"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8UH-W9-sPh">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="350"/>
+                                <color key="backgroundColor" red="0.77254901960784317" green="0.83529411764705885" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ima-PU-BNY">
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="lockedCell" id="4xf-J4-Zm3" customClass="DefaultCellView" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <subviews>
+                                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="1IW-1D-qTK">
+                                                    <rect key="frame" x="25" y="30" width="70" height="60"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1IW-1D-qTK" secondAttribute="height" multiplier="7:6" id="5eL-ay-oMB"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-eR-n8W">
+                                                    <rect key="frame" x="3" y="3" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="FqR-fd-4EL"/>
+                                                        <constraint firstAttribute="width" secondItem="KTh-eR-n8W" secondAttribute="height" multiplier="1:1" id="GsV-J5-kXA"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="1IW-1D-qTK" secondAttribute="height" multiplier="7:6" id="5eL-ay-oMB"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-eR-n8W">
-                                            <rect key="frame" x="3" y="3" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="FqR-fd-4EL"/>
-                                                <constraint firstAttribute="width" secondItem="KTh-eR-n8W" secondAttribute="height" multiplier="1:1" id="GsV-J5-kXA"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" red="0.54117647059999996" green="0.65490196079999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="topMargin" secondItem="KTh-eR-n8W" secondAttribute="top" constant="5" id="Jgf-Qw-Ovr"/>
-                                    <constraint firstItem="1IW-1D-qTK" firstAttribute="centerX" secondItem="4xf-J4-Zm3" secondAttribute="centerX" id="k1K-0C-cfM"/>
-                                    <constraint firstItem="1IW-1D-qTK" firstAttribute="width" secondItem="4xf-J4-Zm3" secondAttribute="height" multiplier="7:12" id="kap-oB-mSo"/>
-                                    <constraint firstAttribute="leadingMargin" secondItem="KTh-eR-n8W" secondAttribute="leading" constant="5" id="sYP-wS-PR9"/>
-                                    <constraint firstItem="1IW-1D-qTK" firstAttribute="centerY" secondItem="4xf-J4-Zm3" secondAttribute="centerY" id="sd9-76-Pe2"/>
-                                </constraints>
+                                        </view>
+                                        <color key="backgroundColor" red="0.54117647059999996" green="0.65490196079999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="topMargin" secondItem="KTh-eR-n8W" secondAttribute="top" constant="5" id="Jgf-Qw-Ovr"/>
+                                            <constraint firstItem="1IW-1D-qTK" firstAttribute="centerX" secondItem="4xf-J4-Zm3" secondAttribute="centerX" id="k1K-0C-cfM"/>
+                                            <constraint firstItem="1IW-1D-qTK" firstAttribute="width" secondItem="4xf-J4-Zm3" secondAttribute="height" multiplier="7:12" id="kap-oB-mSo"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="KTh-eR-n8W" secondAttribute="leading" constant="5" id="sYP-wS-PR9"/>
+                                            <constraint firstItem="1IW-1D-qTK" firstAttribute="centerY" secondItem="4xf-J4-Zm3" secondAttribute="centerY" id="sd9-76-Pe2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="photoView" destination="KTh-eR-n8W" id="BY0-18-5M4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="crossedCell" id="g0i-h6-jzr" customClass="DefaultCellView" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="123" y="0.0" width="120" height="120"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <subviews>
+                                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete" translatesAutoresizingMaskIntoConstraints="NO" id="vJ6-eV-twT">
+                                                    <rect key="frame" x="25" y="25" width="70" height="69"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="vJ6-eV-twT" secondAttribute="height" multiplier="70:69" id="YSg-Uu-dDn"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="axc-74-ybs">
+                                                    <rect key="frame" x="3" y="3" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="OlJ-J6-iIr"/>
+                                                        <constraint firstAttribute="width" secondItem="axc-74-ybs" secondAttribute="height" multiplier="1:1" id="Yoh-07-R7v"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.54117647059999996" green="0.65490196079999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="vJ6-eV-twT" firstAttribute="centerX" secondItem="g0i-h6-jzr" secondAttribute="centerX" id="AYt-pr-XMw"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="axc-74-ybs" secondAttribute="leading" constant="5" id="Cgj-bZ-FcP"/>
+                                            <constraint firstItem="vJ6-eV-twT" firstAttribute="width" secondItem="g0i-h6-jzr" secondAttribute="height" multiplier="7:12" id="HD6-Ec-dof"/>
+                                            <constraint firstAttribute="topMargin" secondItem="axc-74-ybs" secondAttribute="top" constant="5" id="VI8-Du-M4O"/>
+                                            <constraint firstItem="vJ6-eV-twT" firstAttribute="centerY" secondItem="g0i-h6-jzr" secondAttribute="centerY" id="gMj-Sr-nsq"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="photoView" destination="axc-74-ybs" id="eP8-Rw-5YA"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="emptyCell" id="qEg-5e-cqm" customClass="EmptyCellView" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="246.5" y="0.0" width="120" height="120"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="photoView" destination="KTh-eR-n8W" id="BY0-18-5M4"/>
+                                    <outlet property="dataSource" destination="qHj-es-kGg" id="XJe-pK-A5w"/>
+                                    <outlet property="delegate" destination="qHj-es-kGg" id="kQb-xE-hAv"/>
                                 </connections>
-                            </collectionViewCell>
-                            <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="crossedCell" id="g0i-h6-jzr" customClass="DefaultCellView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="123" y="0.0" width="120" height="120"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                    <subviews>
-                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete" translatesAutoresizingMaskIntoConstraints="NO" id="vJ6-eV-twT">
-                                            <rect key="frame" x="25" y="25" width="70" height="69"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="vJ6-eV-twT" secondAttribute="height" multiplier="70:69" id="YSg-Uu-dDn"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="axc-74-ybs">
-                                            <rect key="frame" x="3" y="3" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="OlJ-J6-iIr"/>
-                                                <constraint firstAttribute="width" secondItem="axc-74-ybs" secondAttribute="height" multiplier="1:1" id="Yoh-07-R7v"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" red="0.54117647059999996" green="0.65490196079999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="vJ6-eV-twT" firstAttribute="centerX" secondItem="g0i-h6-jzr" secondAttribute="centerX" id="AYt-pr-XMw"/>
-                                    <constraint firstAttribute="leadingMargin" secondItem="axc-74-ybs" secondAttribute="leading" constant="5" id="Cgj-bZ-FcP"/>
-                                    <constraint firstItem="vJ6-eV-twT" firstAttribute="width" secondItem="g0i-h6-jzr" secondAttribute="height" multiplier="7:12" id="HD6-Ec-dof"/>
-                                    <constraint firstAttribute="topMargin" secondItem="axc-74-ybs" secondAttribute="top" constant="5" id="VI8-Du-M4O"/>
-                                    <constraint firstItem="vJ6-eV-twT" firstAttribute="centerY" secondItem="g0i-h6-jzr" secondAttribute="centerY" id="gMj-Sr-nsq"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="photoView" destination="axc-74-ybs" id="eP8-Rw-5YA"/>
-                                </connections>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="emptyCell" id="qEg-5e-cqm" customClass="EmptyCellView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="246.5" y="0.0" width="120" height="120"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </collectionViewCell>
-                        </cells>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="dataSource" destination="Shu-xN-lTH" id="G8E-2c-QJO"/>
-                            <outlet property="delegate" destination="Shu-xN-lTH" id="hDp-sW-BFt"/>
-                        </connections>
-                    </collectionView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Select Space" id="ywS-hS-496">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="O2N-W6-j9p">
+                            </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IcO-OX-EP6">
+                                <rect key="frame" x="349.5" y="156.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7725490196" green="0.83529411760000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8UH-W9-sPh" firstAttribute="width" secondItem="byt-7F-rLS" secondAttribute="width" id="DRd-Za-vyh"/>
+                            <constraint firstItem="8UH-W9-sPh" firstAttribute="height" secondItem="byt-7F-rLS" secondAttribute="height" id="EIx-n6-dPn"/>
+                            <constraint firstItem="IcO-OX-EP6" firstAttribute="centerY" secondItem="byt-7F-rLS" secondAttribute="centerY" id="IAl-tI-CkZ"/>
+                            <constraint firstItem="8UH-W9-sPh" firstAttribute="leading" secondItem="byt-7F-rLS" secondAttribute="leadingMargin" constant="-20" id="KrI-wY-6tO"/>
+                            <constraint firstItem="IcO-OX-EP6" firstAttribute="centerX" secondItem="byt-7F-rLS" secondAttribute="centerX" id="VGj-YW-eWp"/>
+                            <constraint firstItem="8UH-W9-sPh" firstAttribute="top" secondItem="YOE-xc-AiB" secondAttribute="bottom" id="eEJ-gs-zFs"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Space Selector" id="7Iw-Sh-Rdv">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="bLj-A0-Kh2">
                             <connections>
-                                <action selector="didFinishSelectingSpace:" destination="Shu-xN-lTH" id="un5-6T-X32"/>
+                                <action selector="didFinishSelectingSpace:" destination="qHj-es-kGg" id="WIf-MB-KBj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="IcO-OX-EP6" id="dpK-2w-0Vf"/>
-                        <segue destination="v1k-AI-dtd" kind="show" identifier="completedSpaceSelectionSegue" id="rsS-O9-Ftf"/>
+                        <outlet property="activityIndicator" destination="IcO-OX-EP6" id="fKn-KK-aRp"/>
+                        <outlet property="collectionView" destination="8UH-W9-sPh" id="8ox-b1-Mv8"/>
+                        <segue destination="v1k-AI-dtd" kind="show" identifier="completedSpaceSelectionSegue" id="J6H-1j-AbP"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ude-5e-CoU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IfA-sf-JJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="601"/>
+            <point key="canvasLocation" x="1787" y="475"/>
         </scene>
         <!--Post Scheduler View Controller-->
         <scene sceneID="i5o-Dd-Pdo">
