@@ -29,3 +29,46 @@ extension UIImageView {
         
     }
 }
+
+extension UIImageView {
+    
+    func viewFrameAspectRatio() -> CGFloat {
+        return self.frame.width / self.frame.height
+        
+    }
+    
+    func expectedImageAspectRatio() -> CGFloat {
+        guard let size = self.image?.size else { return 1.0 }
+        return size.width / size.height
+        
+    }
+    
+    func frameForImage() -> CGRect {
+        
+        let xOffsetForFrame : CGFloat = 3.0
+        let yOffsetForFrame : CGFloat = 3.0
+        
+        var rect = CGRect()
+        
+        if(viewFrameAspectRatio() > expectedImageAspectRatio()) {
+            rect.size.height = frame.height
+            rect.size.width = frame.height * expectedImageAspectRatio()
+            
+        } else if(viewFrameAspectRatio() < expectedImageAspectRatio()) {
+            rect.size.height = frame.width / (expectedImageAspectRatio())
+            rect.size.width = frame.width
+            
+        } else {
+            rect.size.height = frame.height
+            rect.size.width = frame.width
+            
+        }
+        
+        rect.origin.x = (self.frame.width - rect.size.width) / 2 + xOffsetForFrame + self.frame.origin.x
+        rect.origin.y = (self.frame.height - rect.size.height) / 2 + yOffsetForFrame  + self.frame.origin.y
+        
+        return rect
+        
+    }
+    
+}

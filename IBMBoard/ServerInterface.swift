@@ -49,6 +49,7 @@ class DocumentSerializer : NSJSONSerialization {
         if document.hasAttachments() {
             documentJSONObject["_attachments"] = document.attachments
         }
+        documentJSONObject["hidden"] = 0
         return documentJSONObject
     }
 }
@@ -70,8 +71,7 @@ class CardSerializer : DocumentSerializer {
     }
     
     override class func getData(card: Document) -> NSData {
-//        String( data:NSJSONSerialization.prettyDataWithJSONObject(CardSerializer.getJSONObject(card)), encoding: NSUTF8StringEncoding)
-        return NSJSONSerialization.prettyDataWithJSONObject(CardSerializer.getJSONObject(card))
+        return NSJSONSerialization.dataWithJSONObject(CardSerializer.getJSONObject(card))
     }
 }
 
@@ -121,6 +121,7 @@ class AllPostsQuery : Query {
         super.init()
         
         self.addSelector("_id", comparator: "$gt", value: 0)
+        self.addSelector("hidden", comparator: "$eq", value: 0)
         self.addField("card")
         self.addSortingParameter("_id", direction: .Ascending)
     }
@@ -270,6 +271,7 @@ class DelegateProxy : NSObject, NSURLSessionTaskDelegate {
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
         guard let forwardedObject = delegate else { return }
         
+        // TODO: Figure out the above method signatures
 //        if forwardedObject.respondsToSelector()
         
         forwardedObject.URLSession!(session, task: task, didSendBodyData: bytesSent, totalBytesSent: totalBytesSent, totalBytesExpectedToSend: totalBytesExpectedToSend)
@@ -283,7 +285,6 @@ public class ServerInterface {
     static let serverURL = "https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com/ibmboard"
     static let currentSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: DelegateProxy(), delegateQueue: nil)
     static let delegateProxy = currentSession.delegate as! DelegateProxy
-    
     
     static func requestWithURL(url: NSURL) -> NSMutableURLRequest {
         return NSMutableURLRequest(URL: url)
@@ -336,8 +337,13 @@ public class ServerInterface {
         
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             
-            let result = String(data: data!, encoding: NSUTF8StringEncoding)!
-            completion!()
+            dispatch_async(dispatch_get_main_queue(), {
+            
+                let result = String(data: data!, encoding: NSUTF8StringEncoding)!
+                guard let handler = completion else { return }
+                handler()
+            
+            })
             
         }).resume()
         

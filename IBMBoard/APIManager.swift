@@ -12,10 +12,12 @@ import Foundation
 public class APIManager {
     
     public static var indent = 0
-    public static let maxTagScans = 10000
+    public static let maxTagScans = 100000
     public static var totalTagScans = 0
     public static var collectedTitle = "Testing Article Title"
     public static let noPreviewText = "Could not generate preview of article"
+    
+    public static var container = Set<String>()
     
     public static let classValueNameFragments = [
                                                     "editorial",
@@ -35,7 +37,7 @@ public class APIManager {
         return APIManager.collectVideoTitle(parsedXML.rootXMLElement)
     }
     
-    public static func getArbitraryTextArticleTitle(articleURL: String, maxLength: UInt) -> String {
+    public static func getArbitraryTextArticleTitle() -> String {
         return collectedTitle
     }
     
@@ -126,22 +128,35 @@ public class APIManager {
     }
     
     static func collectPreviewArticleText(element : UnsafeMutablePointer<TBXMLElement>) -> String {
-        if(element == nil || totalTagScans >= maxTagScans ) {
+        if(element == nil || totalTagScans >= maxTagScans) {
             return ""
             
         }
         
-        ++totalTagScans
+//        ++totalTagScans
         
         var collectedText = ""
         
-//        if(element.memory.firstAttribute != nil) {
-//            let attributeName = TBXML.attributeName(element.memory.firstAttribute)
-//            let attributeValue = TBXML.attributeValue(element.memory.firstAttribute)
-//            print("\(APIManager.generateSpaces(indent))<\(TBXML.elementName(element)) \(attributeName)='\(attributeValue)'>")
+//        if(element.memory.firstAttribute != nil && element.memory.firstAttribute.memory.next != nil) {
+//            let attributeName = TBXML.attributeName(element.memory.firstAttribute.memory.next)
+//            let attributeValue = TBXML.attributeValue(element.memory.firstAttribute.memory.next)
+//            let string = "\(APIManager.generateSpaces(indent))<\(TBXML.elementName(element)) \(attributeName)='\(attributeValue)'>"
+//            print(string)
+//            if !container.contains(string) {
+//                container.insert(string)
+//            } else {
+//                print("")
+//            }
+//            
 //            
 //        } else {
-//            print("\(APIManager.generateSpaces(indent))<\(TBXML.elementName(element))>")
+//            let string = "\(APIManager.generateSpaces(indent))<\(TBXML.elementName(element))>"
+//            print(string)
+//            if !container.contains(string) {
+//                container.insert(string)
+//            } else {
+//                print("")
+//            }
 //
 //        }
         
@@ -150,26 +165,27 @@ public class APIManager {
         }
         
         if TBXML.elementName(element) == "p" || TBXML.elementName(element) == "cite" {
-            if let classValue = TBXML.valueOfAttributeNamed("class", forElement: element) {
-                if(APIManager.probablyContainsUsefulText(classValue)) {
+//            if let classValue = TBXML.valueOfAttributeNamed("class", forElement: element) {
+//                if(APIManager.probablyContainsUsefulText(classValue)) {
                     collectedText += TBXML.textForElement(element)
                     
-                }
+//                }
+//                
+//            } else {
+//                collectedText += TBXML.textForElement(element)
                 
-            } else {
-                collectedText += TBXML.textForElement(element)
-                
-            }
+//            }
         }
         
         APIManager.indent += 1
         collectedText += self.collectPreviewArticleText(element.memory.firstChild)
         APIManager.indent -= 1
         
-        var nextSibling = element.memory.nextSibling
+        var nextSibling = element
         
         while (nextSibling != nil) {
-            collectedText += self.collectPreviewArticleText(nextSibling)
+            collectedText += self.collectPreviewArticleText(nextSibling.memory.firstChild)
+//            collectedText += self.collectPreviewArticleText(nextSibling)
             nextSibling = nextSibling.memory.nextSibling
         }
         

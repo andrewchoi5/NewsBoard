@@ -44,6 +44,12 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         self.reload()
         
+
+        let id = "ruwxZfiC9dI"
+        let stringURL = NSURL(string: "http://www.youtube.com/v/\(id)")!
+        
+        UIApplication.sharedApplication().openURL(stringURL)
+        
 //        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)        
     }
     

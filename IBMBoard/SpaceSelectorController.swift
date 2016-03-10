@@ -106,7 +106,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
         }
         
         let width = maximumElement % cellsPerRow - minimumElement % cellsPerRow + 1
-        let height = (maximumElement - width + 1 - minimumElement) / (cellsPerColumn + 1)
+        let height = (maximumElement - width + 1 - minimumElement) / cellsPerRow + 1
         
         return Card(corner: minimumElement + 1, aWidth: width, aHeight: height)
     }
@@ -125,9 +125,7 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
                 
             }
         }
-        
-        spacesCopy
-        
+                
         // Quick & dirty way to see if all values in cellsInEachColumn are the same
         var indexCount = 0
         var sampleIndex = 0

@@ -29,11 +29,13 @@ class ArticlePosterController : PosterController, UITextFieldDelegate {
     
     func loadPreview() {
         articlePreviewBody.text = APIManager.getArbitraryTextArticlePreview(articleLink.text!)
+        articleTitle.text = APIManager.getArbitraryTextArticleTitle()
     }
     
     @IBAction func didPushPostArticleButton() {
         selectedCardSpace.info["articleURL"] = articleLink.text!
         selectedCardSpace.info["articleTitle"] = articleTitle.text!
+        selectedCardSpace.info["articlePreviewText"] = articlePreviewBody.text
         
         ServerInterface.postCard(selectedCardSpace, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)

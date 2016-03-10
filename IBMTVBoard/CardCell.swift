@@ -126,9 +126,9 @@ class CardCell : UICollectionViewCell {
 class AnnouncementCardCell : CardCell {
     
     @IBOutlet weak var announcementPhoto: UIImageView!
-    
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var announcementText: UILabel!
+    
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
     
@@ -139,10 +139,24 @@ class AnnouncementCardCell : CardCell {
             self.progressBar.removeFromSuperview()
             
         })
-                
+                        
         titleLabel.text = "Announcement"
         announcementText.text =  card.info["announcementText"] as? String
+        
     }
+}
+
+class ArticleCardCell : CardCell {
+    
+    @IBOutlet weak var articleMessageBody: UILabel!
+    
+    override func applyCardContent(card: Card) {
+        super.applyCardContent(card)
+        
+        titleLabel.text = card.info["articleTitle"] as? String
+        articleMessageBody.text = card.info["articlePreviewText"] as? String
+    }
+    
 }
 
 class VideoCardCell : CardCell {
@@ -157,40 +171,14 @@ class VideoCardCell : CardCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        let frame = videoPreview.frame
-        var height : CGFloat
-        var width : CGFloat
         
-        let aspectRatio : CGFloat = 4.0 / 3.0
-        
-        if(frame.width / frame.height > aspectRatio) {
-            height = frame.height
-            width = frame.height * aspectRatio
-            
-        } else if(frame.width / frame.height < aspectRatio) {
-            height = frame.width / (aspectRatio)
-            width = frame.width
-            
-        } else {
-            height = frame.height
-            width = frame.width
-            
-        }
-        
-        let view = UIView()
-        view.frame.size.width = width
-        view.frame.size.height = height
+        let view = UIView(frame: videoPreview.frameForImage())
         view.alpha = 0.4
-        view.tag = 1
-        view.center = videoPreview.center
-        view.frame.origin.x += 2
-        view.frame.origin.y += 3
         view.backgroundColor = UIColor.blackColor()
-        
+        view.tag = 1
         self.viewWithTag(1)?.removeFromSuperview()
-        
         self.addSubview(view)
+        
         self.bringSubviewToFront(self.viewWithTag(2)!)
     }
     
