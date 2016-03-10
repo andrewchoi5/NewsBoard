@@ -9,6 +9,17 @@
 import Foundation
 import UIKit
 
+extension UIAlertController {
+    public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.AllButUpsideDown
+    }
+    
+    public override func shouldAutorotate() -> Bool {
+        return true
+    }
+}
+
+
 extension UINavigationController {
     public override func shouldAutorotate() -> Bool {
         if let viewController = visibleViewController {

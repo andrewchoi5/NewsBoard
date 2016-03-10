@@ -28,4 +28,9 @@ class DefaultCellView : UICollectionViewCell {
         }
     }
     
+    func setPhoto(image: UIImage) {
+        guard let view = photoView else { return }
+        view.image = image
+    }
+    
 }

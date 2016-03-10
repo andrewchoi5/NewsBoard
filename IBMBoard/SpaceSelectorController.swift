@@ -25,9 +25,8 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     
     var cardList = [ Card ]()
     
-    var testArray = [ Int ](count: 9 * 6, repeatedValue: 0)
+    var cardHolderMatrix = [ (Int, Int) ](count: 9 * 6, repeatedValue: (0, 0))
     
-//    @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -45,22 +44,24 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     
     func finishedReloading() {
         
-//        loadingScreen.alpha = 0.0
         activityIndicator.stopAnimating()
         collectionView?.userInteractionEnabled = true
         
     }
     
     func reloadData() {
-        testArray = [ Int ](count: 9 * 6, repeatedValue: 0)
+        cardHolderMatrix = [ (Int, Int) ](count: 9 * 6, repeatedValue: (0, 0))
+        
+        var cardNumber = 0
         
         for card in cardList {
             let startIndex = card.space.topLeftCorner - 1
             for xIndex in 0 ..< card.space.width {
                 for yIndex in 0 ..< card.space.height {
-                    testArray[ startIndex + (yIndex * cellsPerRow) + xIndex ] = 1
+                    cardHolderMatrix[ startIndex + (yIndex * cellsPerRow) + xIndex ] = (1, cardNumber)
                 }
             }
+            cardNumber++
         }
         
         self.collectionView?.reloadData()
@@ -82,6 +83,10 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     @IBAction func didFinishSelectingSpace(sender: AnyObject) {
         
         if(!isRectangular(selectedSpaces)) {
+            let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+            let alert = UIAlertController(title: "Improper Selection", message: "Please select an appropriate rectangular area for your post!", preferredStyle: .Alert)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
             print("Error: Select an appropriate rectangular area before submitting")
             return
         }
@@ -183,7 +188,8 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cellType = testArray[ indexPath.row ]
+        let cellType = cardHolderMatrix[ indexPath.row ].0
+        let cardNumber = cardHolderMatrix[ indexPath.row ].1
         
         var identifier = ""
         
@@ -203,8 +209,9 @@ class SpaceSelectorController : UICollectionViewController, UICollectionViewDele
             }
             
         }
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
+                
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
+        cell.setPhoto(UIImage(named: "\(cardNumber % 8 + 1)")!)
         return cell
     }
     
