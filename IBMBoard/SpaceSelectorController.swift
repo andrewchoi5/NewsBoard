@@ -9,14 +9,20 @@
 import Foundation
 import UIKit
 
-class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, PostDateSelector {
     
     var emptyCellIdentifier = "emptyCell"
     var lockedCellIdentifier = "lockedCell"
     var crossedCellIdentifier = "crossedCell"
     var completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
+    var calenderPopoverSegue = "calenderPopoverSegue"
     
+    @IBOutlet weak var calendarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var toolBar: UIToolbar!
+    
+    var postingDates = Set<NSDate>()
+    
     var emptyCardSpace : Card!
     
     let cellsPerRow = 9
@@ -28,19 +34,57 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
     
     var cardHolderMatrix = [ (Int, Int) ](count: 9 * 6, repeatedValue: (0, 0))
     
-    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MM/yy"
+        
+        calendarButton.title = formatter.stringFromDate(NSDate())
+        
         self.collectionView?.allowsMultipleSelection = true
         
-        ServerInterface.getAllPostsForToday { (cards) in
-            
+        
+        ServerInterface.getPostsUntilDate(JTDateHelper().addToDate(NSDate(), days: 14)) { (cards) in
             self.cardList = cards
             self.reloadData()
             self.finishedReloading()
         }
+        
+        let swipeUp = UISwipeGestureRecognizer()
+        swipeUp.direction = .Up
+        swipeUp.addTarget(self, action: "didSwipeUp")
+        
+        let swipeDown = UISwipeGestureRecognizer()
+        swipeDown.direction = .Down
+        swipeDown.addTarget(self, action: "didSwipeDown")
+        
+        self.collectionView.addGestureRecognizer(swipeUp)
+        self.collectionView.addGestureRecognizer(swipeDown)
+    }
+    
+    func didAddPostingDate(date: NSDate) {
+        postingDates.insert(date)
+    }
+    
+    func didRemovePostingDate(date: NSDate) {
+        postingDates.remove(date)
+    }
+    
+    func hasPostingDate(date: NSDate) -> Bool {
+        return postingDates.contains(date)
+    }
+    
+    func didSwipeUp() {
+        // Replace with animation later
+        toolBar.hidden = false
+    }
+    
+    func didSwipeDown() {
+        // Replace with animation later
+        toolBar.hidden = true
     }
     
     func finishedReloading() {
@@ -93,6 +137,7 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         }
         
         emptyCardSpace = makeSelectedSpaceTuple(selectedSpaces)
+        emptyCardSpace.setPostingDates(self.postingDates)
         
         print("Spaces selected: \(selectedSpaces)")
         print("Space selected: \(emptyCardSpace)")
@@ -176,8 +221,6 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         }
         
         selectedSpaces.remove(indexPath.row)
-//        print("removed \(indexPath.row)")
-//        print("Space is rectangular: \(isRectangular(selectedSpaces))")
         if(isRectangular(selectedSpaces)) {
             print("Space selected: \(makeSelectedSpaceTuple(selectedSpaces))")
             
@@ -244,7 +287,15 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! CategorySelectorController
-        vc.selectedCardSpace = emptyCardSpace
+        if segue.identifier == completedSpaceSelectionSegue {
+            let vc = segue.destinationViewController as! CategorySelectorController
+            vc.selectedCardSpace = emptyCardSpace
+            
+        } else if segue.identifier == calenderPopoverSegue {
+            let vc = segue.destinationViewController as! CalendarController
+            vc.delegate = self
+            
+        }
+
     }
 }

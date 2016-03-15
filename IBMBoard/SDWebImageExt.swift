@@ -14,6 +14,10 @@ extension UIImageView {
         self.sd_setImageWithURL(NSURL(string: url))
     }
     
+    public func sd_setImageWithURL(url : NSURL, completion:SDWebImageCompletionBlock) {
+        self.sd_setImageWithURL(url, completed: completion)
+    }
+    
     public func sd_setImageWithURLString(url : String, placeholderImage : UIImage) {
         self.sd_setImageWithURL(NSURL(string: url), placeholderImage: placeholderImage)
         
@@ -45,8 +49,8 @@ extension UIImageView {
     
     func frameForImage() -> CGRect {
         
-        let xOffsetForFrame : CGFloat = 3.0
-        let yOffsetForFrame : CGFloat = 3.0
+        let xOffsetForFrame : CGFloat = 0.0
+        let yOffsetForFrame : CGFloat = 0.0
         
         var rect = CGRect()
         

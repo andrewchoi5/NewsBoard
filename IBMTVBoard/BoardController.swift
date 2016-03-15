@@ -25,37 +25,25 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    var cardList = [Card]()
-
-//    var cardList : [Card] = [
-//        
-//                        Card(cardType: .Announcement, corner: 1,  aWidth: 3, aHeight: 4),
-//                        Card(cardType: .Idea,         corner: 4,  aWidth: 3, aHeight: 2),
-//                        Card(cardType: .Video,        corner: 7,  aWidth: 3, aHeight: 2),
-//                        Card(cardType: .Announcement, corner: 22, aWidth: 3, aHeight: 2),
-//                        Card(cardType: .Announcement, corner: 25, aWidth: 3, aHeight: 2),
-//                        Card(cardType: .RFP,          corner: 37, aWidth: 3, aHeight: 2),
-//                        Card(cardType: .NewsArticle,  corner: 40, aWidth: 3, aHeight: 2),
-//                        Card(cardType: .Announcement, corner: 43, aWidth: 3, aHeight: 2)
-//    ]
+    var cardList =  [Card]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.reload()
-        
 
         let id = "ruwxZfiC9dI"
         let stringURL = NSURL(string: "http://www.youtube.com/v/\(id)")!
         
         UIApplication.sharedApplication().openURL(stringURL)
         
-//        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)        
+//        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
     }
     
     func reload() {
         ServerInterface.getAllPostsForToday({ (cards) in
-                self.cardList = cards
+                self.cardList = CardTestSets.requirementsDemo() //cards
                 self.collectionView.reloadData()
                 self.collectionView!.setCollectionViewLayout(BoardLayout(), animated: true)
                 self.firstLoadCompletionRoutine()
@@ -122,8 +110,8 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             
             case .Default:      cellIdentifier = DefaultCardCellIdentifier
             case .Announcement: cellIdentifier = AnnouncementCardCellIdentifier
-            case .Idea:         cellIdentifier = DefaultCardCellIdentifier
-            case .RFP:          cellIdentifier = DefaultCardCellIdentifier
+            case .Idea:         cellIdentifier = IdeaCardCellIdentifier
+            case .RFP:          cellIdentifier = RFPCardCellIdentifier
             case .NewsArticle:  cellIdentifier = ArticleCardCellIdentifier
             case .Video:        cellIdentifier = VideoCardCellIdentifier
             default:            cellIdentifier = DefaultCardCellIdentifier

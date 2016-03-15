@@ -61,6 +61,7 @@ class CardSerializer : DocumentSerializer {
         document["card"] =  [
                                 "type":(card as! Card).type.rawValue,
                                 "info":(card as! Card).info,
+                                "postDates": (card as! Card).postDateStrings(),
                                 "space":[
                                     "topLeftCorner":(card as! Card).space.topLeftCorner,
                                     "width":(card as! Card).space.width,
@@ -84,9 +85,10 @@ enum QuerySortDirection : String {
 
 class Query : NSObject {
     
-    var selector = [String : [String : AnyObject]]()
-    var fields = [ String ]()
-    var sort = [[String : String]]()
+    private var selector = [String : [String : AnyObject]]()
+    private var fields = [ String ]()
+    private var sort = [[String : String]]()
+    private var limit = 25
     
     override init() {
         super.init()
@@ -94,7 +96,7 @@ class Query : NSObject {
         self.addField("_id")
         self.addField("_rev")
         self.addField("_attachments")
-
+        self.addSelector("hidden", comparator: "$eq", value: 0)
     }
     
     func addSelector(fieldName : String, comparator: String, value: AnyObject) {
@@ -113,19 +115,54 @@ class Query : NSObject {
         sort.append([ fieldName : direction.rawValue ])
     }
     
+    func limitToNumberOfResults(num : Int) {
+        limit = num
+    }
 }
 
-class AllPostsQuery : Query {
+extension NSDate {
     
-    override init() {
+    func shortDateString() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "d-M-y"
+        return formatter.stringFromDate(self)
+    }
+    
+}
+
+extension String {
+    
+    func dateFromShortString() -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "d-M-y"
+        return formatter.dateFromString(self)!
+    }
+    
+}
+
+class PostsForDateInterval : Query {
+    
+    init(fromDate firstDate: NSDate, toDate secondDate: NSDate) {
         super.init()
         
         self.addSelector("_id", comparator: "$gt", value: 0)
-        self.addSelector("hidden", comparator: "$eq", value: 0)
+        self.addSelector("card.postDates", comparator: "$in", value: [firstDate.shortDateString(), secondDate.shortDateString()])
         self.addField("card")
         self.addSortingParameter("_id", direction: .Ascending)
+//        self.limitToNumberOfResults(1)
     }
 }
+
+//class AllPostsQuery : Query {
+//    
+//    override init() {
+//        super.init()
+//        
+//        self.addSelector("_id", comparator: "$gt", value: 0)
+//        self.addField("card")
+//        self.addSortingParameter("_id", direction: .Ascending)
+//    }
+//}
 
 class QuerySerializer : NSJSONSerialization {
     
@@ -134,7 +171,8 @@ class QuerySerializer : NSJSONSerialization {
                     [
                         "selector":query.selector,
                         "fields":query.fields,
-                        "sort":query.sort
+                        "sort":query.sort,
+                        "limit":query.limit
                     ]
         
         return NSJSONSerialization.dataWithJSONObject(query)
@@ -359,15 +397,27 @@ public class ServerInterface {
         }).resume()
     }
     
-    static func getAllPostsForToday(completion: (cards: [Card]) -> Void) {
+    static func getPostsFromDate(firstDate : NSDate, toDate secondDate : NSDate, completion: (cards: [Card]) -> Void) {
         let request = postJSONRequestWithURLString("\(serverURL)/_find")
-        request.HTTPBody = QuerySerializer.getData(AllPostsQuery())
+        request.HTTPBody = QuerySerializer.getData(PostsForDateInterval(fromDate: firstDate, toDate: secondDate))
         
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 // TODO: Fix random crash that occurs when data is nil
+                let result = String(data: data!, encoding: NSUTF8StringEncoding)!
+                if data == nil {
+                    
+                }
                 completion(cards: DocumentToCardConverter.getCards((QueryDeserializer.getDocuments(data!))))
             })
         }).resume()
+    }
+    
+    static func getPostsUntilDate(date: NSDate, completion: (cards: [Card]) -> Void) {
+        ServerInterface.getPostsFromDate(NSDate(), toDate: date, completion: completion)
+    }
+    
+    static func getAllPostsForToday(completion: (cards: [Card]) -> Void) {
+        ServerInterface.getPostsFromDate(NSDate(), toDate: NSDate(), completion: completion)
     }
 }
