@@ -87,7 +87,7 @@ class CardTestSets {
         let announcementBody2 = "A refugee family living in our neighbourhood. Please donate your gently used clothes if you have any"
         let announcementTitle3 = "Volunteer Needed"
         let annoucementBody3 = "A graphic designer for 1-2 days to work on an App prototype for a RFP response."
-        let RFPTitle1 = "Help with RFP Response"
+        let RFPTitle1 = "Help with a RFP Response"
         let RFPBody1 = "Anyone with some experience working with HL7 standard in the healthcare domain?"
         let articleTitle1 = "Interesting Article"
         let articlePreview1 = "Where will IBM be heading with Watson? Interesting read"
@@ -96,9 +96,9 @@ class CardTestSets {
         
         return [
         
-            CardFactory.makePictureAnnouncementCard(Space(1, 3,  4), announcementTitle1,  announcementBody1, announcementPicture1),
-            CardFactory.makeIdeaCard(               Space(4, 3,  2), ideaTitle1,          ideaBody1),
-            CardFactory.makeVideoCard(              Space(7, 3,  2), videoTitle1,         videoURL1),
+            CardFactory.makePictureAnnouncementCard(Space( 1, 3, 4), announcementTitle1,  announcementBody1, announcementPicture1),
+            CardFactory.makeIdeaCard(               Space( 4, 3, 2), ideaTitle1,          ideaBody1),
+            CardFactory.makeVideoCard(              Space( 7, 3, 2), videoTitle1,         videoURL1),
             CardFactory.makeAnnouncementCard(       Space(22, 3, 2), announcementTitle2,  announcementBody2),
             CardFactory.makeAnnouncementCard(       Space(25, 3, 2), announcementTitle3,  annoucementBody3),
             CardFactory.makeRFPCard(                Space(37, 3, 2), RFPTitle1,           RFPBody1),
