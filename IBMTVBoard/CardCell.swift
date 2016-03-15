@@ -72,6 +72,7 @@ class AnnouncementCardCell : CardCell {
         super.applyCardContent(card)
     
         if let image = card.attachedImage {
+            progressBar.hidden = true
             announcementPhoto.image = image
             
         } else {
