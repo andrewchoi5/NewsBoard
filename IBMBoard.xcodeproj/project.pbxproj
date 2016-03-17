@@ -267,24 +267,17 @@
 		392CF11D1C762FCF00090214 /* IBMBoard */ = {
 			isa = PBXGroup;
 			children = (
-				39EB93E81C7E49BF0053F73F /* APIManager.swift */,
-				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
+				3964FF5A1C9A62E0002B5AE8 /* Extensions */,
+				3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */,
 				3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */,
+				39EB93E81C7E49BF0053F73F /* APIManager.swift */,
 				3964FF521C9A5666002B5AE8 /* CouchDBInterface.swift */,
 				39EB93E41C7E3D500053F73F /* ServerInterface.swift */,
-				3964FF561C9A5695002B5AE8 /* NSDateExt.swift */,
-				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
-				3964FF581C9A56AA002B5AE8 /* StringExt.swift */,
 				39826A9A1C8CDAFC00674734 /* SessionInformation.swift */,
-				39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */,
 				39EB93EA1C7E50750053F73F /* ArticleParser.swift */,
-				39EB93B21C7D8A880053F73F /* SDWebImageExt.swift */,
 				392CF11E1C762FCF00090214 /* AppDelegate.swift */,
 				392CF1201C762FCF00090214 /* LoginViewController.swift */,
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
-				39D878551C766026007E0CD5 /* EmptyCellView.swift */,
-				392CF1271C762FCF00090214 /* LaunchScreen.storyboard */,
-				39D878571C766F21007E0CD5 /* DefaultCellView.swift */,
 				399A75011C88C86F007778B0 /* PosterController.swift */,
 				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
@@ -292,6 +285,7 @@
 				39EB93B01C7D896A0053F73F /* VideoPostController.swift */,
 				39EB940B1C7FC8030053F73F /* AnnouncementPostController.swift */,
 				392CF1221C762FCF00090214 /* Main.storyboard */,
+				392CF1271C762FCF00090214 /* LaunchScreen.storyboard */,
 				392CF1251C762FCF00090214 /* Assets.xcassets */,
 				392CF12A1C762FCF00090214 /* Info.plist */,
 			);
@@ -376,6 +370,28 @@
 				394CD6831C91825500AB28F1 /* JTVerticalCalendarView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		3964FF5A1C9A62E0002B5AE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
+				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
+				3964FF561C9A5695002B5AE8 /* NSDateExt.swift */,
+				3964FF581C9A56AA002B5AE8 /* StringExt.swift */,
+				39EB93B21C7D8A880053F73F /* SDWebImageExt.swift */,
+				39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */ = {
+			isa = PBXGroup;
+			children = (
+				39D878551C766026007E0CD5 /* EmptyCellView.swift */,
+				39D878571C766F21007E0CD5 /* DefaultCellView.swift */,
+			);
+			name = "Space Selector Cells";
 			sourceTree = "<group>";
 		};
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {
