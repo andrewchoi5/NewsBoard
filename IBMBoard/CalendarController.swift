@@ -21,19 +21,27 @@ extension JTCalendarDayView {
 }
 
 protocol PostDateSelector {
+    func startingDate() -> NSDate
+    func didChangeStartingDate(date : NSDate)
     func didAddPostingDate(date : NSDate)
     func didRemovePostingDate(date: NSDate)
     func hasPostingDate(date: NSDate) -> Bool
 }
 
-class CalendarController : UIViewController, JTCalendarDelegate {
+@objc protocol ZHCalendarDelegate : JTCalendarDelegate {
+    
+    optional func calendar(calendar : JTCalendarManager, didLongPressDayView dayView : UIView!)
+
+    
+}
+
+class CalendarController : UIViewController, ZHCalendarDelegate {
     
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var scrollView: JTVerticalCalendarView!
     @IBOutlet weak var weekDayView: JTCalendarWeekDayView!
     
     let manager = JTCalendarManager()
-    let currentDate = NSDate()
     
     var delegate : PostDateSelector?
     
@@ -54,7 +62,7 @@ class CalendarController : UIViewController, JTCalendarDelegate {
         scrollView.manager?.delegate = self
         scrollView.manager?.settings.pageViewNumberOfWeeks = 5
         scrollView.manager?.contentView = scrollView
-        scrollView.manager?.setDate(currentDate)
+        scrollView.manager?.setDate(delegate?.startingDate())
         updateMonthLabelWithDate(manager.date())
         
         weekDayView.manager = scrollView.manager!
@@ -65,7 +73,7 @@ class CalendarController : UIViewController, JTCalendarDelegate {
         let view = dayView as! JTCalendarDayView
         view.dotView.backgroundColor = UIColor(red: 0.0 / 255.0, green: 25.0 / 255.0, blue: 64.0 / 255.0, alpha: 1.0)
         view.circleView.backgroundColor = UIColor(red: 197.0 / 255.0, green: 213.0 / 255.0, blue: 228 / 255.0, alpha: 1.0)
-        view.circleView.hidden = !NSCalendar.currentCalendar().isDateInToday(view.date)
+        view.circleView.hidden = !NSCalendar.currentCalendar().isDate(view.date, inSameDayAsDate: manager.date())
         
         view.dotView.hidden = !delegate!.hasPostingDate(view.date)
         
@@ -83,12 +91,25 @@ class CalendarController : UIViewController, JTCalendarDelegate {
         view.toggleDot()
     }
     
+    func calendarBuildDayView(calendar: JTCalendarManager!) -> UIView! {
+        return ZHCalendarDayView()
+    }
+
+    
     func updateMonthLabelWithDate(date: NSDate) {
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMM YYYY"
         
         monthLabel.text = formatter.stringFromDate(date)
+        
+    }
+    
+    func calendar(calendar: JTCalendarManager, didLongPressDayView dayView: UIView!) {
+        let view = dayView as! JTCalendarDayView
+        manager.setDate(view.date)
+        delegate?.didChangeStartingDate(view.date)
+        manager.reload()
         
     }
     

@@ -34,6 +34,8 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
     
     var cardHolderMatrix = [ (Int, Int) ](count: 9 * 6, repeatedValue: (0, 0))
     
+    var calendarDate = NSDate()
+    
     @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -75,6 +77,14 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
     
     func hasPostingDate(date: NSDate) -> Bool {
         return postingDates.contains(date)
+    }
+    
+    func didChangeStartingDate(date: NSDate) {
+        calendarDate = date
+    }
+    
+    func startingDate() -> NSDate {
+        return calendarDate
     }
     
     func didSwipeUp() {

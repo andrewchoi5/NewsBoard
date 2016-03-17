@@ -27,6 +27,7 @@
 		39022CFA1C8A513300464BC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022CF91C8A513300464BC1 /* libz.tbd */; };
 		39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
 		39022D051C8A549500464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
+		391212E81C9B470900C05BDB /* ZHCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */; };
 		392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF11E1C762FCF00090214 /* AppDelegate.swift */; };
 		392CF1211C762FCF00090214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1201C762FCF00090214 /* LoginViewController.swift */; };
 		392CF1241C762FCF00090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1221C762FCF00090214 /* Main.storyboard */; };
@@ -53,7 +54,7 @@
 		3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61EFE1C981122002C7E12 /* Card.swift */; };
 		3964FF4F1C9A55A2002B5AE8 /* DataConverters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */; };
 		3964FF511C9A5618002B5AE8 /* NSJSONSerializationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */; };
-		3964FF531C9A5666002B5AE8 /* CouchDBInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF521C9A5666002B5AE8 /* CouchDBInterface.swift */; };
+		3964FF531C9A5666002B5AE8 /* CloudantDBInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */; };
 		3964FF551C9A5680002B5AE8 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF541C9A5680002B5AE8 /* NSDataExt.swift */; };
 		3964FF571C9A5695002B5AE8 /* NSDateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF561C9A5695002B5AE8 /* NSDateExt.swift */; };
 		3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF581C9A56AA002B5AE8 /* StringExt.swift */; };
@@ -104,6 +105,7 @@
 		39022CF71C8A512900464BC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		39022CF91C8A513300464BC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
+		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
 		392CF11B1C762FCF00090214 /* IBMBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IBMBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		392CF11E1C762FCF00090214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		392CF1201C762FCF00090214 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -152,7 +154,7 @@
 		394CD68C1C92140700AB28F1 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConverters.swift; sourceTree = "<group>"; };
 		3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSJSONSerializationExt.swift; sourceTree = "<group>"; };
-		3964FF521C9A5666002B5AE8 /* CouchDBInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchDBInterface.swift; sourceTree = "<group>"; };
+		3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudantDBInterface.swift; sourceTree = "<group>"; };
 		3964FF541C9A5680002B5AE8 /* NSDataExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExt.swift; sourceTree = "<group>"; };
 		3964FF561C9A5695002B5AE8 /* NSDateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExt.swift; sourceTree = "<group>"; };
 		3964FF581C9A56AA002B5AE8 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -271,7 +273,7 @@
 				3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */,
 				3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */,
 				39EB93E81C7E49BF0053F73F /* APIManager.swift */,
-				3964FF521C9A5666002B5AE8 /* CouchDBInterface.swift */,
+				3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */,
 				39EB93E41C7E3D500053F73F /* ServerInterface.swift */,
 				39826A9A1C8CDAFC00674734 /* SessionInformation.swift */,
 				39EB93EA1C7E50750053F73F /* ArticleParser.swift */,
@@ -280,6 +282,7 @@
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
 				399A75011C88C86F007778B0 /* PosterController.swift */,
 				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
+				391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
 				39EB93E61C7E45C60053F73F /* ArticlePosterController.swift */,
 				39EB93B01C7D896A0053F73F /* VideoPostController.swift */,
@@ -573,6 +576,7 @@
 				39EB94051C7E66600053F73F /* UIImage+WebP.m in Sources */,
 				39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */,
 				3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */,
+				391212E81C9B470900C05BDB /* ZHCalendarDayView.swift in Sources */,
 				39EB93FA1C7E66600053F73F /* NSData+ImageContentType.m in Sources */,
 				39EB93E71C7E45C60053F73F /* ArticlePosterController.swift in Sources */,
 				39EB93AF1C7D87BD0053F73F /* UINavigationExt.swift in Sources */,
@@ -589,7 +593,7 @@
 				394CD6861C91825500AB28F1 /* JTCalendarPageView.m in Sources */,
 				39EB93F81C7E66600053F73F /* TBXML+HTTP.m in Sources */,
 				3964FF4F1C9A55A2002B5AE8 /* DataConverters.swift in Sources */,
-				3964FF531C9A5666002B5AE8 /* CouchDBInterface.swift in Sources */,
+				3964FF531C9A5666002B5AE8 /* CloudantDBInterface.swift in Sources */,
 				394CD6871C91825500AB28F1 /* JTCalendarWeekDayView.m in Sources */,
 				39EB93E91C7E49BF0053F73F /* APIManager.swift in Sources */,
 				394CD6841C91825500AB28F1 /* JTCalendarDayView.m in Sources */,
