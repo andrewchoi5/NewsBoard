@@ -16,3 +16,9 @@ class PosterController : UIViewController {
     
     
 }
+
+class PlaceholderPosterController : PosterController {
+    
+    
+    
+}

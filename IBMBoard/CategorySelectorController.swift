@@ -9,29 +9,31 @@
 import Foundation
 import UIKit
 
+private let placeholderSegueIdentifier = "placeholderSegue"
+
 class CategorySelectorController : UICollectionViewController {
     
     let cellsPerRow = 2
     var optionImagesArray = [
-                                ("Polling","polling"),
-                                ("","news"),
-                                ("Announcements","announcement"),
-                                ("New Idea","idea"),
-                                ("Technical Question","technical"),
-                                ("RFP","handshake"),
-                                ("Video","video"),
-                                ("Guest Visit","visitor")
+                                ("Polling",            "polling"),
+                                ("",                   "news"),
+                                ("Announcements",      "announcement"),
+                                ("New Idea",           "idea"),
+                                ("Technical Question", "technical"),
+                                ("RFP",                "handshake"),
+                                ("Video",              "video"),
+                                ("Guest Visit",        "visitor")
     
     ]
     
-    var pollingSegueIdentifier       = "pollingSegue"
+    var pollingSegueIdentifier       = placeholderSegueIdentifier
     var newsSegueIdentifier          = "newsSegue"
     var announcementSegueIdentifier  = "announcementSegue"
     var ideaSegueIdentifier          = "ideaSegue"
-    var questionSegueIdentifier      = "questionSegue"
+    var questionSegueIdentifier      = placeholderSegueIdentifier
     var rfpSegueIdentifier           = "rfpSegue"
     var videoSegueIdentifier         = "videoSegue"
-    var guestSegueIdentifier         = "guestSegue"
+    var guestSegueIdentifier         = placeholderSegueIdentifier
     
     var selectedCardSpace : Card!
     
@@ -77,7 +79,7 @@ class CategorySelectorController : UICollectionViewController {
             case 6: segueIdentifier = videoSegueIdentifier;         selectedCardSpace.type = .Video
             case 7: segueIdentifier = guestSegueIdentifier;         selectedCardSpace.type = .Guest
             
-           default: segueIdentifier = videoSegueIdentifier;         selectedCardSpace.type = .Video
+           default: segueIdentifier = placeholderSegueIdentifier;   selectedCardSpace.type = .Default
         }
         
         self.performSegueWithIdentifier(segueIdentifier, sender: self)

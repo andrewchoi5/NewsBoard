@@ -43,3 +43,41 @@ class ArticlePosterController : PosterController, UITextFieldDelegate {
     }
 
 }
+
+class IdeaPostController : PosterController, UITextFieldDelegate {
+    
+    @IBOutlet weak var ideaTitle: UITextField!
+    @IBOutlet weak var ideaSummary: UITextView!
+    
+    @IBAction func didPushPostIdeaButton(sender: UIButton) {
+        
+        selectedCardSpace.info["ideaTitle"] = ideaTitle.text!
+        selectedCardSpace.info["ideaPreview"] = ideaSummary.text!
+        
+        ServerInterface.postCard(selectedCardSpace, completion: nil)
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
+    
+}
+
+class RFPPostController : PosterController, UITextFieldDelegate {
+    
+    @IBOutlet weak var RFPTitle: UITextField!
+    @IBOutlet weak var RFPSummary: UITextView!
+    
+    @IBAction func didPushPostRFPButton(sender: UIButton) {
+        
+        selectedCardSpace.info["RFPTitle"] = RFPTitle.text!
+        selectedCardSpace.info["RFPPreview"] = RFPSummary.text!
+        
+        ServerInterface.postCard(selectedCardSpace, completion: nil)
+        
+        self.navigationController?.popViewControllerAnimated(true)
+
+    }
+
+    
+}

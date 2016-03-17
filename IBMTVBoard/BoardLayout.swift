@@ -26,11 +26,11 @@ class BoardLayout : UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        if(delegate == nil) {
+        if delegate == nil  {
             return nil
         }
         
-        if(dataSource == nil) {
+        if dataSource == nil {
             return nil
         }
         
@@ -54,8 +54,12 @@ class BoardLayout : UICollectionViewFlowLayout {
     override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         
         let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
-        attributes?.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(4.0, 4.0), CGFloat(M_PI))
-//        attributes?.center = CGPointMake(CGRectGetMidX(self.collectionView!.bounds), CGRectGetMaxY(self.collectionView!.bounds))
+        attributes!.alpha = 0.0
+        
+        let size = self.collectionView!.frame.size
+        attributes!.center = CGPointMake(size.width / 2.0, size.height / 2.0)
+        //        attributes?.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(4.0, 4.0), CGFloat(M_PI))
+        //        attributes?.center = CGPointMake(CGRectGetMidX(self.collectionView!.bounds), CGRectGetMaxY(self.collectionView!.bounds))
         return attributes
     }
     
@@ -63,20 +67,21 @@ class BoardLayout : UICollectionViewFlowLayout {
     override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         
         let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
-        var flyUpTransform = CATransform3DIdentity;
-        flyUpTransform.m34 = 1.0 / -20000;
-        flyUpTransform = CATransform3DTranslate(flyUpTransform, 0, 0, 19500);
-        attributes?.transform3D = flyUpTransform;
+        attributes?.frame
+//        var flyUpTransform = CATransform3DIdentity;
+//        flyUpTransform.m34 = 1.0 / -20000;
+//        flyUpTransform = CATransform3DTranslate(flyUpTransform, 0, 0, 19500);
+//        attributes?.transform3D = flyUpTransform;
         return attributes
         
     }
     
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        if(delegate == nil) {
+        if delegate == nil {
             return nil
         }
         
-        if(dataSource == nil) {
+        if dataSource == nil {
             return nil
         }
         

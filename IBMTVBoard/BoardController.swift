@@ -38,12 +38,12 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         UIApplication.sharedApplication().openURL(stringURL)
         
-//        timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
     }
     
     func reload() {
         ServerInterface.getAllPostsForToday({ (cards) in
-                self.cardList = CardTestSets.requirementsDemo() //cards
+                self.cardList = CardTestSets.requirementsDemo()
                 self.collectionView.reloadData()
                 self.collectionView!.setCollectionViewLayout(BoardLayout(), animated: true)
                 self.firstLoadCompletionRoutine()
