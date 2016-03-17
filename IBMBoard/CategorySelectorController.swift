@@ -16,7 +16,7 @@ class CategorySelectorController : UICollectionViewController {
     let cellsPerRow = 2
     var optionImagesArray = [
                                 ("Polling",            "polling"),
-                                ("",                   "news"),
+                                ("News Article",       "news"),
                                 ("Announcements",      "announcement"),
                                 ("New Idea",           "idea"),
                                 ("Technical Question", "technical"),
