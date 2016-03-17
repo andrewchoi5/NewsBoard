@@ -28,6 +28,12 @@
 		39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
 		39022D051C8A549500464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
 		391212E81C9B470900C05BDB /* ZHCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */; };
+		391212E91C9B616800C05BDB /* CloudantDBInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */; };
+		391212EA1C9B619200C05BDB /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF541C9A5680002B5AE8 /* NSDataExt.swift */; };
+		391212EB1C9B61EF00C05BDB /* DataConverters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */; };
+		391212EC1C9B620000C05BDB /* NSDateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF561C9A5695002B5AE8 /* NSDateExt.swift */; };
+		391212ED1C9B621000C05BDB /* NSJSONSerializationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */; };
+		391212EE1C9B621700C05BDB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF581C9A56AA002B5AE8 /* StringExt.swift */; };
 		392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF11E1C762FCF00090214 /* AppDelegate.swift */; };
 		392CF1211C762FCF00090214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1201C762FCF00090214 /* LoginViewController.swift */; };
 		392CF1241C762FCF00090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1221C762FCF00090214 /* Main.storyboard */; };
@@ -630,13 +636,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				392CF1551C76424500090214 /* BoardController.swift in Sources */,
+				391212ED1C9B621000C05BDB /* NSJSONSerializationExt.swift in Sources */,
+				391212EA1C9B619200C05BDB /* NSDataExt.swift in Sources */,
+				391212EB1C9B61EF00C05BDB /* DataConverters.swift in Sources */,
+				391212EC1C9B620000C05BDB /* NSDateExt.swift in Sources */,
 				39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */,
+				391212EE1C9B621700C05BDB /* StringExt.swift in Sources */,
 				39022CE61C895C5F00464BC1 /* SDWebImageManager.m in Sources */,
 				39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */,
 				39022CE51C895C5F00464BC1 /* SDWebImageDownloaderOperation.m in Sources */,
 				39022CEE1C895C5F00464BC1 /* UIView+WebCacheOperation.m in Sources */,
 				39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */,
 				39C61EFF1C981122002C7E12 /* Card.swift in Sources */,
+				391212E91C9B616800C05BDB /* CloudantDBInterface.swift in Sources */,
 				39022CE81C895C5F00464BC1 /* UIButton+WebCache.m in Sources */,
 				39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */,
 				39022CE71C895C5F00464BC1 /* SDWebImagePrefetcher.m in Sources */,
@@ -811,7 +823,7 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -828,7 +840,7 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

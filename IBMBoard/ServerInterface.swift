@@ -93,8 +93,8 @@ public class ServerInterface {
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             
             dispatch_async(dispatch_get_main_queue(), {
-            
-                let result = String(data: data!, encoding: NSUTF8StringEncoding)!
+//                guard let responseData = data else { return }
+//                let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
                 guard let handler = completion else { return }
                 handler()
             
@@ -121,11 +121,9 @@ public class ServerInterface {
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 // TODO: Fix random crash that occurs when data is nil
-                let result = String(data: data!, encoding: NSUTF8StringEncoding)!
-                if data == nil {
-                    
-                }
-                completion(cards: DocumentToCardConverter.getCards((QueryDeserializer.getDocuments(data!))))
+                guard let responseData = data else { return }
+//                let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
+                completion(cards: DocumentToCardConverter.getCards((QueryDeserializer.getDocuments(responseData))))
             })
         }).resume()
     }
