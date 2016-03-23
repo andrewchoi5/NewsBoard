@@ -73,8 +73,8 @@ class CalendarController : UIViewController, ZHCalendarDelegate {
         let view = dayView as! JTCalendarDayView
         view.dotView.backgroundColor = UIColor(red: 0.0 / 255.0, green: 25.0 / 255.0, blue: 64.0 / 255.0, alpha: 1.0)
         view.circleView.backgroundColor = UIColor(red: 197.0 / 255.0, green: 213.0 / 255.0, blue: 228 / 255.0, alpha: 1.0)
-        view.circleView.hidden = !NSCalendar.currentCalendar().isDate(view.date, inSameDayAsDate: manager.date())
-        
+        view.circleView.hidden = !NSCalendar.currentCalendar().isDate(view.date, inSameDayAsDate: delegate!.startingDate())
+
         view.dotView.hidden = !delegate!.hasPostingDate(view.date)
         
     }

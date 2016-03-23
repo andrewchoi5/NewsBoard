@@ -125,9 +125,8 @@ class VideoCardCell : CardCell {
         super.applyCardContent(card)
         titleLabel.text = card.info["videoTitle"] as? String
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String)) { (image, error, cacheType, url) -> Void in
-            if error == nil {
-                self.greyBox.hidden = false
-            }
+            self.greyBox.hidden = error != nil
+                
         }
     }
     

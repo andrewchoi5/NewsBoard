@@ -172,29 +172,26 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         return Card(corner: minimumElement + 1, aWidth: width, aHeight: height)
     }
     
-    // TODO: Optimize this function
-    func isRectangular(var spaces: Set<Int>) -> Bool {
-        var cellsInEachColumn = Dictionary<Int,Int>()
-        while !spaces.isEmpty {
-            let index = spaces.removeFirst() % cellsPerRow
-            if(cellsInEachColumn[ index ] == nil) {
-                cellsInEachColumn[index] = 1
-                
-            } else {
-                cellsInEachColumn[index] = cellsInEachColumn[index]! + 1
-                
-            }
-        }
-                
-        // Quick & dirty way to see if all values in cellsInEachColumn are the same
-        var indexCount = 0
-        var sampleIndex = 0
-        for (_, count) in cellsInEachColumn {
-            sampleIndex = count
-            indexCount += count
+    func isRectangular(spaces: Set<Int>) -> Bool {
+        if spaces.count <= 0 {
+            return false
         }
         
-        return Double(indexCount) / Double(sampleIndex) == Double(cellsInEachColumn.count)
+        var combinedRect = CGRectZero
+        
+        for space in spaces {
+            let x = CGFloat(space % cellsPerRow)
+            let y = CGFloat(Int(floor(Double(space) / Double(cellsPerRow))) + 1)
+            let width = CGFloat(1)
+            let height = CGFloat(1)
+            
+            let rect = CGRectMake(x, y, width, height)
+            
+            combinedRect = (CGRectEqualToRect(combinedRect, CGRectZero)) ?  rect : CGRectUnion(combinedRect, rect)
+            
+        }
+        
+        return spaces.count == Int(combinedRect.width * combinedRect.height)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

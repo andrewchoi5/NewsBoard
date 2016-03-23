@@ -120,7 +120,6 @@ public class ServerInterface {
         
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             dispatch_async(dispatch_get_main_queue(), {
-                // TODO: Fix random crash that occurs when data is nil
                 guard let responseData = data else { return }
 //                let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
                 completion(cards: DocumentToCardConverter.getCards((QueryDeserializer.getDocuments(responseData))))

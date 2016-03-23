@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39022CDE1C895C3800464BC1 /* SDWebImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* SDWebImageExt.swift */; };
+		39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */; };
 		39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
 		39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
 		39022CE21C895C5F00464BC1 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A87B1C7D29C900DFC0F5 /* SDWebImageCompat.m */; };
@@ -76,9 +76,10 @@
 		39D878581C766F21007E0CD5 /* DefaultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878571C766F21007E0CD5 /* DefaultCellView.swift */; };
 		39E5A8641C77DF9F00DFC0F5 /* CategorySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */; };
 		39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */; };
+		39EB53F01C9B721200B7FE85 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB53EF1C9B721200B7FE85 /* CardManager.swift */; };
 		39EB93AF1C7D87BD0053F73F /* UINavigationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */; };
 		39EB93B11C7D896A0053F73F /* VideoPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B01C7D896A0053F73F /* VideoPostController.swift */; };
-		39EB93B31C7D8A880053F73F /* SDWebImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* SDWebImageExt.swift */; };
+		39EB93B31C7D8A880053F73F /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */; };
 		39EB93E51C7E3D500053F73F /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
 		39EB93E71C7E45C60053F73F /* ArticlePosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E61C7E45C60053F73F /* ArticlePosterController.swift */; };
 		39EB93E91C7E49BF0053F73F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E81C7E49BF0053F73F /* APIManager.swift */; };
@@ -207,9 +208,10 @@
 		39E5A8941C7D29C900DFC0F5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		39E5A8951C7D29C900DFC0F5 /* WebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebImage.h; path = SDWebImage/SDWebImage/WebImage.h; sourceTree = "<group>"; };
 		39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IBMBoard-Bridging-Header.h"; sourceTree = "<group>"; };
+		39EB53EF1C9B721200B7FE85 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationExt.swift; sourceTree = "<group>"; };
 		39EB93B01C7D896A0053F73F /* VideoPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPostController.swift; sourceTree = "<group>"; };
-		39EB93B21C7D8A880053F73F /* SDWebImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDWebImageExt.swift; sourceTree = "<group>"; };
+		39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
 		39EB93E41C7E3D500053F73F /* ServerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerInterface.swift; sourceTree = "<group>"; };
 		39EB93E61C7E45C60053F73F /* ArticlePosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlePosterController.swift; sourceTree = "<group>"; };
 		39EB93E81C7E49BF0053F73F /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				39830FEB1C8AD6B600313AFC /* PostViewerController.swift */,
 				39EB94111C84ABB10053F73F /* BoardLayout.swift */,
 				392CF1521C76424500090214 /* AppDelegate.swift */,
+				39EB53EF1C9B721200B7FE85 /* CardManager.swift */,
 				392CF1541C76424500090214 /* BoardController.swift */,
 				392CF1561C76424500090214 /* Main.storyboard */,
 				392CF1591C76424500090214 /* Assets.xcassets */,
@@ -388,7 +391,7 @@
 				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
 				3964FF561C9A5695002B5AE8 /* NSDateExt.swift */,
 				3964FF581C9A56AA002B5AE8 /* StringExt.swift */,
-				39EB93B21C7D8A880053F73F /* SDWebImageExt.swift */,
+				39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */,
 				39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */,
 			);
 			name = Extensions;
@@ -595,7 +598,7 @@
 				39EB94001C7E66600053F73F /* SDWebImageManager.m in Sources */,
 				39EB93EB1C7E50750053F73F /* ArticleParser.swift in Sources */,
 				39EB94071C7E66600053F73F /* UIImageView+WebCache.m in Sources */,
-				39EB93B31C7D8A880053F73F /* SDWebImageExt.swift in Sources */,
+				39EB93B31C7D8A880053F73F /* UIImageViewExt.swift in Sources */,
 				394CD6861C91825500AB28F1 /* JTCalendarPageView.m in Sources */,
 				39EB93F81C7E66600053F73F /* TBXML+HTTP.m in Sources */,
 				3964FF4F1C9A55A2002B5AE8 /* DataConverters.swift in Sources */,
@@ -636,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				392CF1551C76424500090214 /* BoardController.swift in Sources */,
+				39EB53F01C9B721200B7FE85 /* CardManager.swift in Sources */,
 				391212ED1C9B621000C05BDB /* NSJSONSerializationExt.swift in Sources */,
 				391212EA1C9B619200C05BDB /* NSDataExt.swift in Sources */,
 				391212EB1C9B61EF00C05BDB /* DataConverters.swift in Sources */,
@@ -661,7 +665,7 @@
 				392CF1531C76424500090214 /* AppDelegate.swift in Sources */,
 				39022CE21C895C5F00464BC1 /* SDWebImageCompat.m in Sources */,
 				39EB940E1C80FE240053F73F /* CardCell.swift in Sources */,
-				39022CDE1C895C3800464BC1 /* SDWebImageExt.swift in Sources */,
+				39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */,
 				39022CEA1C895C5F00464BC1 /* UIImage+MultiFormat.m in Sources */,
 				39022CEC1C895C5F00464BC1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				39C61F041C98168F002C7E12 /* CardFactory.swift in Sources */,

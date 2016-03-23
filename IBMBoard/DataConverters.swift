@@ -88,7 +88,7 @@ class QuerySerializer : NSJSONSerialization {
     class func getData(query: Query) -> NSData {
         let query =
         [
-            "selector":query.selector,
+            "selector":query.selectors,
             "fields":query.fields,
             "sort":query.sort,
             "limit":query.limit

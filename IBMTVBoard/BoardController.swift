@@ -25,6 +25,9 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let layout = BoardLayout()
+    
     var cardList =  [Card]()
     
     
@@ -34,19 +37,26 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         self.reload()
 
         let id = "ruwxZfiC9dI"
-        let stringURL = NSURL(string: "http://www.youtube.com/v/\(id)")!
+        let URL = NSURL(string: "http://www.youtube.com/v/\(id)")!
+        if UIApplication.sharedApplication().canOpenURL(URL) {
+            UIApplication.sharedApplication().openURL(URL)
+        }
         
-        UIApplication.sharedApplication().openURL(stringURL)
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
+//        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
     }
+    
+//    func addCard() {
+//        self.collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
+//        self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
+//
+//    }
     
     func reload() {
         ServerInterface.getAllPostsForToday({ (cards) in
-                self.cardList = CardTestSets.requirementsDemo()
-                self.collectionView.reloadData()
-                self.collectionView!.setCollectionViewLayout(BoardLayout(), animated: true)
-                self.firstLoadCompletionRoutine()
+            self.cardList = CardTestSets.requirementsDemo()
+            self.collectionView.reloadData()
+            self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
+            self.firstLoadCompletionRoutine()
         })
     }
     
@@ -55,7 +65,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             
             self.cardList = cards
             self.collectionView.reloadData()
-            self.collectionView!.setCollectionViewLayout(BoardLayout(), animated: true)
+            self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
 
         })
     }

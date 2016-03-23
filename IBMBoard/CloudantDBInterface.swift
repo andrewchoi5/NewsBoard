@@ -13,10 +13,10 @@ class PostsForDateInterval : Query {
     init(fromDate firstDate: NSDate, toDate secondDate: NSDate) {
         super.init()
         
-        self.addSelector("_id", comparator: "$gt", value: 0)
-        self.addSelector("card.postDates", comparator: "$in", value: [firstDate.shortDateString(), secondDate.shortDateString()])
+        self.addSelector("_id", .GreaterThan, 0)
+        self.addSelector("card.postDates", .In, [ firstDate.shortDateString(), secondDate.shortDateString() ])
         self.addField("card")
-        self.addSortingParameter("_id", direction: .Ascending)
+        self.addSortingParameter("_id", ordered: .Ascending)
 //        self.limitToNumberOfResults(1)
     }
 }
@@ -27,9 +27,17 @@ enum QuerySortDirection : String {
     case Descending = "desc"
 }
 
+enum QueryComparatorOperator : String {
+    
+    case Equals = "$eq"
+    case GreaterThan = "$gt"
+    case In = "$in"
+    
+}
+
 class Query : NSObject {
     
-    var selector = [String : [String : AnyObject]]()
+    var selectors = [String : [String : AnyObject]]()
     var fields = [ String ]()
     var sort = [[String : String]]()
     var limit = 25
@@ -40,11 +48,15 @@ class Query : NSObject {
         self.addField("_id")
         self.addField("_rev")
         self.addField("_attachments")
-        self.addSelector("hidden", comparator: "$eq", value: 0)
+        self.addSelector("hidden", comparator: .Equals, value: 0)
     }
     
-    func addSelector(fieldName : String, comparator: String, value: AnyObject) {
-        selector[fieldName] = [comparator : value]
+    func addSelector(fieldName : String, comparator: QueryComparatorOperator, value: AnyObject) {
+        selectors[fieldName] = [comparator.rawValue : value]
+    }
+    
+    func addSelector(fieldName : String, _ comparator: QueryComparatorOperator, _ value: AnyObject) {
+        selectors[fieldName] = [comparator.rawValue : value]
     }
     
     func addField(fieldName: String) {
@@ -55,9 +67,10 @@ class Query : NSObject {
         fields.appendContentsOf(fieldNames)
     }
     
-    func addSortingParameter(fieldName: String, direction: QuerySortDirection) {
+    func addSortingParameter(fieldName: String, ordered direction: QuerySortDirection) {
         sort.append([ fieldName : direction.rawValue ])
     }
+    
     
     func limitToNumberOfResults(num : Int) {
         limit = num
@@ -70,6 +83,11 @@ class Document : NSObject {
     var infoKey : String!
     var info = [String : AnyObject]()
     var attachments = [ String : [ String : AnyObject ] ]()
+    
+    override var hashValue: Int {
+        return revision.hashValue ^ id.hashValue
+    }
+    
     
     init(dictionary : [ String : AnyObject ]) {
         super.init()
@@ -139,4 +157,8 @@ class Document : NSObject {
         super.init()
         
     }
+}
+
+func ==(lhs: Document, rhs: Document) -> Bool {
+    return lhs.revision == rhs.revision && lhs.id == rhs.id
 }
