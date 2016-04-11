@@ -287,6 +287,16 @@ class Card : Document {
         
     }
     
+    func setBoardPostingDates(postingDates: Set<BoardDate>) {
+        var boardDateSet = Set<BoardDate>()
+        for date in postingDates {
+            boardDateSet.insert(date)
+        }
+        self.datesAppearing = boardDateSet
+        
+    }
+    
+    
     func setPostingDates(postingDates: Set<NSDate>) {
         var boardDateSet = Set<BoardDate>()
         for date in postingDates {

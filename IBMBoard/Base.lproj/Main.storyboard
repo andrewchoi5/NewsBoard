@@ -10,7 +10,7 @@
         <!--Navigation Controller-->
         <scene sceneID="zQb-PR-gbB">
             <objects>
-                <navigationController hidesBarsOnSwipe="YES" id="QnW-b8-0fL" sceneMemberID="viewController">
+                <navigationController id="QnW-b8-0fL" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BJj-O3-rCn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -944,6 +944,7 @@
                                 </cells>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="qHj-es-kGg" id="XJe-pK-A5w"/>
@@ -978,7 +979,7 @@
                                 <rect key="frame" x="349" y="156" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
-                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA6-Qz-dMA">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA6-Qz-dMA">
                                 <rect key="frame" x="0.0" y="296" width="736" height="54"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -1043,6 +1044,7 @@
                         <outlet property="activityIndicator" destination="IcO-OX-EP6" id="fKn-KK-aRp"/>
                         <outlet property="calendarButton" destination="NqP-x9-B1E" id="d2B-0i-PLA"/>
                         <outlet property="collectionView" destination="8UH-W9-sPh" id="8ox-b1-Mv8"/>
+                        <outlet property="gridView" destination="U7D-Gt-7IR" id="sEJ-5W-S4F"/>
                         <outlet property="toolBar" destination="AA6-Qz-dMA" id="lEG-FV-hNL"/>
                         <segue destination="v1k-AI-dtd" kind="show" identifier="completedSpaceSelectionSegue" id="J6H-1j-AbP"/>
                     </connections>

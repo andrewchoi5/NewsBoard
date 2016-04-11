@@ -297,29 +297,11 @@
 			isa = PBXGroup;
 			children = (
 				3964FF5A1C9A62E0002B5AE8 /* Extensions */,
-				3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */,
-				3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */,
-				393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */,
-				393C88CD1CB8427E009DA1AA /* GridView.swift */,
-				39EB93E81C7E49BF0053F73F /* APIManager.swift */,
-				3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */,
-				39EB93E41C7E3D500053F73F /* ServerInterface.swift */,
-				396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */,
-				39826A9A1C8CDAFC00674734 /* SessionInformation.swift */,
-				39EB93EA1C7E50750053F73F /* ArticleParser.swift */,
+				39B61D661CBC56B400CDB05A /* Views */,
+				39B61D651CBC569700CDB05A /* Authenticaton */,
+				39B61D641CBC566A00CDB05A /* Model */,
+				39B61D671CBC56D600CDB05A /* Controllers */,
 				392CF11E1C762FCF00090214 /* AppDelegate.swift */,
-				392CF1201C762FCF00090214 /* LoginViewController.swift */,
-				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
-				399A75011C88C86F007778B0 /* PosterController.swift */,
-				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
-				391584AB1CAB96B200E37F99 /* ProgressControl.swift */,
-				391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */,
-				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
-				39EB93E61C7E45C60053F73F /* ArticlePosterController.swift */,
-				39EB93B01C7D896A0053F73F /* VideoPostController.swift */,
-				396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */,
-				396AB10C1CAF225600B91FF9 /* SignUpController.swift */,
-				39EB940B1C7FC8030053F73F /* AnnouncementPostController.swift */,
 				392CF1221C762FCF00090214 /* Main.storyboard */,
 				392CF1271C762FCF00090214 /* LaunchScreen.storyboard */,
 				392CF1251C762FCF00090214 /* Assets.xcassets */,
@@ -429,6 +411,64 @@
 				39D878571C766F21007E0CD5 /* DefaultCellView.swift */,
 			);
 			name = "Space Selector Cells";
+			sourceTree = "<group>";
+		};
+		39B61D631CBC564900CDB05A /* Posters */ = {
+			isa = PBXGroup;
+			children = (
+				399A75011C88C86F007778B0 /* PosterController.swift */,
+				39EB93E61C7E45C60053F73F /* ArticlePosterController.swift */,
+				39EB93B01C7D896A0053F73F /* VideoPostController.swift */,
+				39EB940B1C7FC8030053F73F /* AnnouncementPostController.swift */,
+			);
+			name = Posters;
+			sourceTree = "<group>";
+		};
+		39B61D641CBC566A00CDB05A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39826A9A1C8CDAFC00674734 /* SessionInformation.swift */,
+				39EB93EA1C7E50750053F73F /* ArticleParser.swift */,
+				396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */,
+				39EB93E41C7E3D500053F73F /* ServerInterface.swift */,
+				3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */,
+				39EB93E81C7E49BF0053F73F /* APIManager.swift */,
+				3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		39B61D651CBC569700CDB05A /* Authenticaton */ = {
+			isa = PBXGroup;
+			children = (
+				392CF1201C762FCF00090214 /* LoginViewController.swift */,
+				396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */,
+				396AB10C1CAF225600B91FF9 /* SignUpController.swift */,
+			);
+			name = Authenticaton;
+			sourceTree = "<group>";
+		};
+		39B61D661CBC56B400CDB05A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */,
+				393C88CD1CB8427E009DA1AA /* GridView.swift */,
+				391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */,
+				391584AB1CAB96B200E37F99 /* ProgressControl.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		39B61D671CBC56D600CDB05A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				39B61D631CBC564900CDB05A /* Posters */,
+				393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */,
+				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
+				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
+				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {

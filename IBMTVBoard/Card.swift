@@ -8,34 +8,43 @@
 
 import UIKit
 
-class BoardDate : NSObject {
+class BoardDate {
     
     private var date = NSDate()
     
     init(withDate aDate: NSDate) {
-        super.init()
         
         date = aDate
-    }
-    
-    override var hashValue : Int {
-        return date.shortDateString().hashValue
-    
     }
     
     func incrementByDay() {
         date = date.dateWithDayAdded()
     }
     
+    func underlyingDate() -> NSDate {
+        return date
+    }
+    
     func shortDateString() -> String {
         return date.shortDateString()
     }
     
-    override init() {
-        super.init()
+    init() {
         
     }
     
+}
+
+extension BoardDate : Equatable {}
+func ==(lhs: BoardDate, rhs: BoardDate) -> Bool {
+    return lhs.shortDateString() == rhs.shortDateString()
+}
+
+extension BoardDate : Hashable {
+    var hashValue : Int {
+        return date.shortDateString().hashValue
+        
+    }
 }
 
 extension Card {

@@ -11,17 +11,18 @@ import UIKit
 
 class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, PostDateSelector {
     
-    var emptyCellIdentifier = "emptyCell"
-    var lockedCellIdentifier = "lockedCell"
-    var crossedCellIdentifier = "crossedCell"
-    var completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
-    var calenderPopoverSegue = "calenderPopoverSegue"
+    let emptyCellIdentifier = "emptyCell"
+    let lockedCellIdentifier = "lockedCell"
+    let crossedCellIdentifier = "crossedCell"
+    let completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
+    let calenderPopoverSegue = "calenderPopoverSegue"
     
     @IBOutlet weak var calendarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var gridView: GridView!
     
-    var postingDates = Set<NSDate>()
+    var postingDates = Set<BoardDate>()
     
     var emptyCardSpace : Card!
     
@@ -34,27 +35,18 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     
     var cardHolderMatrix = [ (Int, Int) ](count: 9 * 6, repeatedValue: (0, 0))
     
-    var calendarDate = NSDate()
+    var calendarDate = BoardDate()
     
     @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func configureCurrentDateLabel() {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "dd/MM/yy"
         
-        calendarButton.title = formatter.stringFromDate(NSDate())
-        
-        self.collectionView?.allowsMultipleSelection = true
-        
-        
-        ServerInterface.getCardsUntilDate(JTDateHelper().addToDate(NSDate(), days: 14)) { (cards) in
-            self.cardList = cards
-            self.reloadData()
-            self.finishedReloading()
-        }
-        
+        calendarButton.title = formatter.stringFromDate(calendarDate.underlyingDate())
+    }
+    
+    func addGesturesRecognizers() {
         let swipeUp = UISwipeGestureRecognizer()
         swipeUp.direction = .Up
         swipeUp.addTarget(self, action: #selector(SpaceSelectorController.didSwipeUp))
@@ -67,25 +59,49 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
         self.collectionView.addGestureRecognizer(swipeDown)
     }
     
+    func loadCards() {
+        ServerInterface.getCardsUntilDate(JTDateHelper().addToDate(calendarDate.underlyingDate(), days: 14)) { (cards) in
+            self.cardList = cards
+            self.reloadData()
+            self.finishedReloading()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureCurrentDateLabel()
+        addGesturesRecognizers()
+        loadCards()
+        
+        self.postingDates.insert(calendarDate)
+        
+
+    }
+    
+    // Start Delegate Methods
+    
     func didAddPostingDate(date: NSDate) {
-        postingDates.insert(date)
+        postingDates.insert(BoardDate(withDate: date))
     }
     
     func didRemovePostingDate(date: NSDate) {
-        postingDates.remove(date)
+        postingDates.remove(BoardDate(withDate: date))
     }
     
     func hasPostingDate(date: NSDate) -> Bool {
-        return postingDates.contains(date)
+        return postingDates.contains(BoardDate(withDate: date))
     }
     
     func didChangeStartingDate(date: NSDate) {
-        calendarDate = date
+        calendarDate = BoardDate(withDate: date)
     }
     
     func startingDate() -> NSDate {
-        return calendarDate
+        return calendarDate.underlyingDate()
     }
+    
+    // End Delegate Methods
     
     func didSwipeUp() {
         // Replace with animation later
@@ -98,7 +114,6 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     }
     
     func finishedReloading() {
-        
         activityIndicator.stopAnimating()
         collectionView?.userInteractionEnabled = true
         
@@ -144,10 +159,18 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
             self.presentViewController(alert, animated: true, completion: nil)
             print("Error: Select an appropriate rectangular area before submitting")
             return
+            
+        } else if(self.postingDates.count == 0) {
+            let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+            let alert = UIAlertController(title: "Select a Date", message: "Please select at least one day to make post on!", preferredStyle: .Alert)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+            
         }
         
         emptyCardSpace = makeCardWithSpaces(selectedSpaces)
-        emptyCardSpace.setPostingDates(self.postingDates)
+        emptyCardSpace.setBoardPostingDates(self.postingDates)
         
         print("Spaces selected: \(selectedSpaces)")
         print("Space selected: \(emptyCardSpace)")
@@ -160,7 +183,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
         let rect = CGRectForSpaces(spaces)
         let width = Int(rect.width)
         let height = Int(rect.height)
-        let topLeftCorner = Int(rect.origin.x) + Int(rect.origin.y) * cellsPerRow
+        let topLeftCorner = Int(rect.origin.x) + Int(rect.origin.y - 1.0) * cellsPerRow + 1
         return Card(corner: topLeftCorner , aWidth: width, aHeight: height)
     }
     
@@ -187,6 +210,10 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     }
     
     func isRectangular(spaces: Set<Int>) -> Bool {
+        if spaces.count == 0 {
+            return false
+        }
+        
         let rect = CGRectForSpaces(spaces)
         return spaces.count == Int(rect.width * rect.height)
     }
