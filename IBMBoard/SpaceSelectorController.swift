@@ -145,7 +145,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     }
  
     func rotateToLandscapeIfNeeded() {
-        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+        if(UIDeviceOrientationIsPortraitOrUnknown(UIDevice.currentDevice().orientation)) {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
         }
     }

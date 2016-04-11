@@ -72,6 +72,7 @@
 		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
+		39B61D691CBC622C00CDB05A /* UIDeviceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */; };
 		39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
 		39C61EFF1C981122002C7E12 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61EFE1C981122002C7E12 /* Card.swift */; };
 		39C61F041C98168F002C7E12 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61F031C98168F002C7E12 /* CardFactory.swift */; };
@@ -183,6 +184,7 @@
 		39826A9A1C8CDAFC00674734 /* SessionInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformation.swift; sourceTree = "<group>"; };
 		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
+		39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
 		39C61EFE1C981122002C7E12 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		39C61F031C98168F002C7E12 /* CardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
 		39D878531C765067007E0CD5 /* SpaceSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceSelectorController.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		3964FF5A1C9A62E0002B5AE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */,
 				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
 				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
 				3964FF561C9A5695002B5AE8 /* NSDateExt.swift */,
@@ -655,6 +658,7 @@
 				39EB94051C7E66600053F73F /* UIImage+WebP.m in Sources */,
 				39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */,
 				3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */,
+				39B61D691CBC622C00CDB05A /* UIDeviceExt.swift in Sources */,
 				391212E81C9B470900C05BDB /* ZHCalendarDayView.swift in Sources */,
 				39EB93FA1C7E66600053F73F /* NSData+ImageContentType.m in Sources */,
 				39EB93E71C7E45C60053F73F /* ArticlePosterController.swift in Sources */,
