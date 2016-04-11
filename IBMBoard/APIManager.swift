@@ -25,14 +25,18 @@ public class APIManager {
                                                     "source"
     ]
     
-    public static func getArbitraryVideoTitle(videoURL: String, maxLength: UInt) -> String {
-        if videoURL == "" {
+    public static func getArbitraryVideoTitle(videoURLString: String, maxLength: UInt) -> String {
+        if videoURLString == "" {
             return ""
         }
-        let string = String(data: NSData(contentsOfURL: NSURL(string: videoURL)!)!, encoding: NSUTF8StringEncoding)
-        string?.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
         
-        let parsedXML = TBXML(XMLString: string)
+        guard let url = NSURL(string: videoURLString) else { return "" }
+        guard let urlContentsData = NSData(contentsOfURL: url)  else { return "" }
+        guard let contentsString = String(data: urlContentsData, encoding: NSUTF8StringEncoding) else { return "" }
+        
+        contentsString.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
+        
+        let parsedXML = TBXML(XMLString: contentsString)
         
         return APIManager.collectVideoTitle(parsedXML.rootXMLElement)
     }
@@ -41,14 +45,18 @@ public class APIManager {
         return collectedTitle
     }
     
-    public static func getArbitraryTextArticlePreview(articleURL: String) -> String {
+    public static func getArbitraryTextArticlePreview(articleURLString: String) -> String {
 //        let parser = ArticleParser(contentsOfURL: NSURL(string: articleURL)!)!
 //        parser.parse()
         if articleURL == "" {
             return noPreviewText
         }
-        let string = String(data: NSData(contentsOfURL: NSURL(string: articleURL)!)!, encoding: NSUTF8StringEncoding)
-        string?.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
+        
+        guard let url = NSURL(string: articleURLString) else { return "" }
+        guard let urlContentsData = NSData(contentsOfURL: url)  else { return "" }
+        guard let contentsString = String(data: urlContentsData, encoding: NSUTF8StringEncoding) else { return "" }
+        
+        contentsString.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
 //        string = string?.stringByReplacingOccurrencesOfString("/>", withString: ">")
         
 //        let encodedData = NSData(contentsOfURL: NSURL(string: articleURL)!)!
@@ -66,7 +74,7 @@ public class APIManager {
 //
 //        print(attributedString)
         
-        var parsedXML = TBXML(XMLString: string)
+        var parsedXML = TBXML(XMLString: contentsString)
         var previewText = APIManager.collectPreviewArticleText(parsedXML.rootXMLElement)
         if(previewText == "") {
             previewText = noPreviewText
