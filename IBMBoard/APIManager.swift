@@ -14,7 +14,7 @@ public class APIManager {
     public static var indent = 0
     public static let maxTagScans = 100000
     public static var totalTagScans = 0
-    public static var collectedTitle = "Testing Article Title"
+    public static var collectedTitle = "Could not find article title"
     public static let noPreviewText = "Could not generate preview of article"
     
     public static var container = Set<String>()
