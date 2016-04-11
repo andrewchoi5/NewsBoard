@@ -72,7 +72,7 @@ class LoginViewController: BoardViewController {
     
     func rotateToPortraitIfNeeded() {
         if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-            UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+            UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
         }
     }
     
