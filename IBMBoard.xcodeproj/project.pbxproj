@@ -23,8 +23,6 @@
 		39022CEC1C895C5F00464BC1 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8901C7D29C900DFC0F5 /* UIImageView+HighlightedWebCache.m */; };
 		39022CED1C895C5F00464BC1 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8921C7D29C900DFC0F5 /* UIImageView+WebCache.m */; };
 		39022CEE1C895C5F00464BC1 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8941C7D29C900DFC0F5 /* UIView+WebCacheOperation.m */; };
-		39022CF81C8A512900464BC1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022CF71C8A512900464BC1 /* ImageIO.framework */; };
-		39022CFA1C8A513300464BC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39022CF91C8A513300464BC1 /* libz.tbd */; };
 		39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
 		39022D051C8A549500464BC1 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022D031C8A545B00464BC1 /* VideoAPIManager.swift */; };
 		391212E81C9B470900C05BDB /* ZHCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */; };
@@ -34,6 +32,7 @@
 		391212EC1C9B620000C05BDB /* NSDateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF561C9A5695002B5AE8 /* NSDateExt.swift */; };
 		391212ED1C9B621000C05BDB /* NSJSONSerializationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */; };
 		391212EE1C9B621700C05BDB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF581C9A56AA002B5AE8 /* StringExt.swift */; };
+		391584AC1CAB96B200E37F99 /* ProgressControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391584AB1CAB96B200E37F99 /* ProgressControl.swift */; };
 		392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF11E1C762FCF00090214 /* AppDelegate.swift */; };
 		392CF1211C762FCF00090214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1201C762FCF00090214 /* LoginViewController.swift */; };
 		392CF1241C762FCF00090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1221C762FCF00090214 /* Main.storyboard */; };
@@ -43,6 +42,8 @@
 		392CF1551C76424500090214 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
 		392CF1581C76424500090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1561C76424500090214 /* Main.storyboard */; };
 		392CF15A1C76424500090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
+		393C88CC1CB5C82C009DA1AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */; };
+		393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CD1CB8427E009DA1AA /* GridView.swift */; };
 		394606C01C91605F00E2633C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6591C91819200AB28F1 /* JTCalendarManager.m */; };
 		394CD6621C91819200AB28F1 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD65B1C91819200AB28F1 /* JTCalendarSettings.m */; };
@@ -64,6 +65,9 @@
 		3964FF551C9A5680002B5AE8 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF541C9A5680002B5AE8 /* NSDataExt.swift */; };
 		3964FF571C9A5695002B5AE8 /* NSDateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF561C9A5695002B5AE8 /* NSDateExt.swift */; };
 		3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF581C9A56AA002B5AE8 /* StringExt.swift */; };
+		396AB10D1CAF225600B91FF9 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB10C1CAF225600B91FF9 /* SignUpController.swift */; };
+		396AB10F1CAF4B7B00B91FF9 /* EmailServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */; };
+		396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */; };
 		39826A9B1C8CDAFC00674734 /* SessionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39826A9A1C8CDAFC00674734 /* SessionInformation.swift */; };
 		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
@@ -74,6 +78,9 @@
 		39D878541C765067007E0CD5 /* SpaceSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878531C765067007E0CD5 /* SpaceSelectorController.swift */; };
 		39D878561C766026007E0CD5 /* EmptyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878551C766026007E0CD5 /* EmptyCellView.swift */; };
 		39D878581C766F21007E0CD5 /* DefaultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878571C766F21007E0CD5 /* DefaultCellView.swift */; };
+		39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DC847E1CAC804200F2DB4F /* CFNetwork.framework */; };
+		39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DC84801CAC804900F2DB4F /* Security.framework */; };
+		39DC84A21CAC885B00F2DB4F /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DC84A11CAC885B00F2DB4F /* MailCore.framework */; };
 		39E5A8641C77DF9F00DFC0F5 /* CategorySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */; };
 		39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */; };
 		39EB53F01C9B721200B7FE85 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB53EF1C9B721200B7FE85 /* CardManager.swift */; };
@@ -109,10 +116,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		39022CF71C8A512900464BC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
-		39022CF91C8A513300464BC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
+		391584AB1CAB96B200E37F99 /* ProgressControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControl.swift; sourceTree = "<group>"; };
 		392CF11B1C762FCF00090214 /* IBMBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IBMBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		392CF11E1C762FCF00090214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		392CF1201C762FCF00090214 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,12 @@
 		392CF1571C76424500090214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		392CF1591C76424500090214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		392CF15B1C76424500090214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		393C88CD1CB8427E009DA1AA /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		393E099C1CADABF300988EAA /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/IBMBoard-grmfviqfqtvusxbhfwkrinklckbk/Build/Products/Debug-iphonesimulator/MailCore.framework"; sourceTree = "<group>"; };
+		393E099E1CADAC1E00988EAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		393E09A01CADAC2300988EAA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		393E09A31CADB4E400988EAA /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../mailcore2/build-mac/build/Debug/MailCore.framework"; sourceTree = "<group>"; };
 		394CD6561C91819200AB28F1 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendar.h; path = JTCalendar/JTCalendar/JTCalendar.h; sourceTree = "<group>"; };
 		394CD6571C91819200AB28F1 /* JTCalendarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegate.h; path = JTCalendar/JTCalendar/JTCalendarDelegate.h; sourceTree = "<group>"; };
 		394CD6581C91819200AB28F1 /* JTCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendarManager.h; path = JTCalendar/JTCalendar/JTCalendarManager.h; sourceTree = "<group>"; };
@@ -165,6 +177,9 @@
 		3964FF541C9A5680002B5AE8 /* NSDataExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExt.swift; sourceTree = "<group>"; };
 		3964FF561C9A5695002B5AE8 /* NSDateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExt.swift; sourceTree = "<group>"; };
 		3964FF581C9A56AA002B5AE8 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		396AB10C1CAF225600B91FF9 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailServerInterface.swift; sourceTree = "<group>"; };
+		396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVerificationController.swift; sourceTree = "<group>"; };
 		39826A9A1C8CDAFC00674734 /* SessionInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformation.swift; sourceTree = "<group>"; };
 		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
@@ -173,6 +188,9 @@
 		39D878531C765067007E0CD5 /* SpaceSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceSelectorController.swift; sourceTree = "<group>"; };
 		39D878551C766026007E0CD5 /* EmptyCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCellView.swift; sourceTree = "<group>"; };
 		39D878571C766F21007E0CD5 /* DefaultCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCellView.swift; sourceTree = "<group>"; };
+		39DC847E1CAC804200F2DB4F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		39DC84801CAC804900F2DB4F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		39DC84A11CAC885B00F2DB4F /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../mailcore2/build-mac/build/Debug-iphoneos/MailCore.framework"; sourceTree = "<group>"; };
 		39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectorController.swift; sourceTree = "<group>"; };
 		39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		39E5A8761C7D29C900DFC0F5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -233,6 +251,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39DC84A21CAC885B00F2DB4F /* MailCore.framework in Frameworks */,
+				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
+				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
 				39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */,
 			);
@@ -242,8 +263,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39022CFA1C8A513300464BC1 /* libz.tbd in Frameworks */,
-				39022CF81C8A512900464BC1 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,9 +299,12 @@
 				3964FF5A1C9A62E0002B5AE8 /* Extensions */,
 				3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */,
 				3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */,
+				393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */,
+				393C88CD1CB8427E009DA1AA /* GridView.swift */,
 				39EB93E81C7E49BF0053F73F /* APIManager.swift */,
 				3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */,
 				39EB93E41C7E3D500053F73F /* ServerInterface.swift */,
+				396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */,
 				39826A9A1C8CDAFC00674734 /* SessionInformation.swift */,
 				39EB93EA1C7E50750053F73F /* ArticleParser.swift */,
 				392CF11E1C762FCF00090214 /* AppDelegate.swift */,
@@ -290,10 +312,13 @@
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
 				399A75011C88C86F007778B0 /* PosterController.swift */,
 				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
+				391584AB1CAB96B200E37F99 /* ProgressControl.swift */,
 				391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
 				39EB93E61C7E45C60053F73F /* ArticlePosterController.swift */,
 				39EB93B01C7D896A0053F73F /* VideoPostController.swift */,
+				396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */,
+				396AB10C1CAF225600B91FF9 /* SignUpController.swift */,
 				39EB940B1C7FC8030053F73F /* AnnouncementPostController.swift */,
 				392CF1221C762FCF00090214 /* Main.storyboard */,
 				392CF1271C762FCF00090214 /* LaunchScreen.storyboard */,
@@ -409,8 +434,13 @@
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39022CF91C8A513300464BC1 /* libz.tbd */,
-				39022CF71C8A512900464BC1 /* ImageIO.framework */,
+				393E09A31CADB4E400988EAA /* MailCore.framework */,
+				393E09A01CADAC2300988EAA /* Security.framework */,
+				393E099E1CADAC1E00988EAA /* CFNetwork.framework */,
+				393E099C1CADABF300988EAA /* MailCore.framework */,
+				39DC84A11CAC885B00F2DB4F /* MailCore.framework */,
+				39DC84801CAC804900F2DB4F /* Security.framework */,
+				39DC847E1CAC804200F2DB4F /* CFNetwork.framework */,
 				39EB94091C7E67950053F73F /* libz.tbd */,
 				39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */,
 			);
@@ -596,7 +626,9 @@
 				39D878541C765067007E0CD5 /* SpaceSelectorController.swift in Sources */,
 				39EB94021C7E66600053F73F /* UIButton+WebCache.m in Sources */,
 				39EB94001C7E66600053F73F /* SDWebImageManager.m in Sources */,
+				396AB10D1CAF225600B91FF9 /* SignUpController.swift in Sources */,
 				39EB93EB1C7E50750053F73F /* ArticleParser.swift in Sources */,
+				396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */,
 				39EB94071C7E66600053F73F /* UIImageView+WebCache.m in Sources */,
 				39EB93B31C7D8A880053F73F /* UIImageViewExt.swift in Sources */,
 				394CD6861C91825500AB28F1 /* JTCalendarPageView.m in Sources */,
@@ -607,13 +639,16 @@
 				39EB93E91C7E49BF0053F73F /* APIManager.swift in Sources */,
 				394CD6841C91825500AB28F1 /* JTCalendarDayView.m in Sources */,
 				39EB93F71C7E66600053F73F /* TBXML+Compression.m in Sources */,
+				393C88CC1CB5C82C009DA1AA /* BoardViewController.swift in Sources */,
 				3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */,
 				394CD66D1C9181EF00AB28F1 /* JTCalendarScrollManager.m in Sources */,
 				39EB94061C7E66600053F73F /* UIImageView+HighlightedWebCache.m in Sources */,
+				396AB10F1CAF4B7B00B91FF9 /* EmailServerInterface.swift in Sources */,
 				39EB93FE1C7E66600053F73F /* SDWebImageDownloader.m in Sources */,
 				3964FF551C9A5680002B5AE8 /* NSDataExt.swift in Sources */,
 				39EB94011C7E66600053F73F /* SDWebImagePrefetcher.m in Sources */,
 				394CD68D1C92140700AB28F1 /* CalendarController.swift in Sources */,
+				391584AC1CAB96B200E37F99 /* ProgressControl.swift in Sources */,
 				394CD6631C91819200AB28F1 /* JTDateHelper.m in Sources */,
 				394CD6881C91825500AB28F1 /* JTCalendarWeekView.m in Sources */,
 				39EB93B11C7D896A0053F73F /* VideoPostController.swift in Sources */,
@@ -621,6 +656,7 @@
 				399A75001C87AB80007778B0 /* CardCell.swift in Sources */,
 				39EB93FB1C7E66600053F73F /* SDImageCache.m in Sources */,
 				39EB93FF1C7E66600053F73F /* SDWebImageDownloaderOperation.m in Sources */,
+				393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */,
 				39E5A8641C77DF9F00DFC0F5 /* CategorySelectorController.swift in Sources */,
 				39EB940C1C7FC8030053F73F /* AnnouncementPostController.swift in Sources */,
 				399A75021C88C86F007778B0 /* PosterController.swift in Sources */,
@@ -793,8 +829,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-lctemplate-ios",
+					"-letpan-ios",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-lresolv",
+					"-stdlib=libc++",
+					"-Obj",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
@@ -806,8 +861,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-lctemplate-ios",
+					"-letpan-ios",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-lresolv",
+					"-stdlib=libc++",
+					"-Obj",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
@@ -822,6 +896,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -839,6 +914,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

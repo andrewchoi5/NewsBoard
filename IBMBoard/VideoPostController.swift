@@ -32,7 +32,7 @@ class VideoPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["videoURL"] = videoLink.text!
         selectedCardSpace.info["videoTitle"] = videoTitle.text!
         
-        ServerInterface.postCard(selectedCardSpace, completion: nil)
+        ServerInterface.addCard(selectedCardSpace, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
         
     }

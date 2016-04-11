@@ -16,4 +16,15 @@ extension String {
         return formatter.dateFromString(self)!
     }
     
+    func boardDateFromShortString() -> BoardDate {
+        
+        return BoardDate(withDate: self.dateFromShortString())
+        
+    }
+    
+    func base64EncodedString() -> String {
+        guard let stringData = self.dataUsingEncoding(NSUTF8StringEncoding) else { return "" }
+        return stringData.base64EncodedString()
+    }
+    
 }

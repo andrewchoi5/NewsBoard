@@ -16,4 +16,17 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
     
+
+    func isSameDayAs(anotherDate : NSDate) -> Bool {
+        
+        return NSCalendar.currentCalendar().isDate(self, inSameDayAsDate: anotherDate)
+        
+    }
+    
+    func dateWithDayAdded() -> NSDate {
+        guard let newDate = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 1, toDate: self, options: NSCalendarOptions(rawValue: 0)) else { return NSDate() }
+        return newDate
+    
+    }
+    
 }

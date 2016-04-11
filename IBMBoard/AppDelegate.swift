@@ -7,20 +7,34 @@
 //
 
 import UIKit
+import WebKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        UITabBar.appearance().barTintColor = UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 1.0)
+        UIToolbar.appearance().backgroundColor = UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [
+        
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        
+        ]
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, forState: .Normal)
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+
         // Credentials
         let APIKey = "llyespecietwersimartayth"
         let APIPassword = "26acdf29a791400f22b4e3e7df556d52eda31f82"
         let APIHost = "b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com"
+
         let APIRealm = "Cloudant Private Database"
         
         // Network Layer Specifics
@@ -29,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let APIAuthenticationMethod = NSURLAuthenticationMethodHTTPBasic
         
         // Add key to local storage
-        NSURLCredentialStorage.sharedCredentialStorage().setCredential(NSURLCredential(user: APIKey, password: APIPassword, persistence: .ForSession), forProtectionSpace: NSURLProtectionSpace(host: APIHost, port: APIPort, `protocol`: APIProtocol, realm: APIRealm, authenticationMethod: APIAuthenticationMethod))
+        NSURLCredentialStorage.sharedCredentialStorage().setCredential(NSURLCredential(user: APIKey, password: APIPassword, persistence: .ForSession), forProtectionSpace: NSURLProtectionSpace(host: APIHost, port: APIPort, protocol: APIProtocol, realm: APIRealm, authenticationMethod: APIAuthenticationMethod))
         
         return true
     }

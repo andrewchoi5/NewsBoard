@@ -37,7 +37,7 @@ class ArticlePosterController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["articleTitle"] = articleTitle.text!
         selectedCardSpace.info["articlePreviewText"] = articlePreviewBody.text
         
-        ServerInterface.postCard(selectedCardSpace, completion: nil)
+        ServerInterface.addCard(selectedCardSpace, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
         
     }
@@ -54,7 +54,7 @@ class IdeaPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["ideaTitle"] = ideaTitle.text!
         selectedCardSpace.info["ideaPreview"] = ideaSummary.text!
         
-        ServerInterface.postCard(selectedCardSpace, completion: nil)
+        ServerInterface.addCard(selectedCardSpace, completion: nil)
         
         self.navigationController?.popViewControllerAnimated(true)
         
@@ -73,7 +73,7 @@ class RFPPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["RFPTitle"] = RFPTitle.text!
         selectedCardSpace.info["RFPPreview"] = RFPSummary.text!
         
-        ServerInterface.postCard(selectedCardSpace, completion: nil)
+        ServerInterface.addCard(selectedCardSpace, completion: nil)
         
         self.navigationController?.popViewControllerAnimated(true)
 

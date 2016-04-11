@@ -11,9 +11,12 @@ import UIKit
 
 private let placeholderSegueIdentifier = "placeholderSegue"
 
-class CategorySelectorController : UICollectionViewController {
+class CategorySelectorController : BoardViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    @IBOutlet var collectionView: UICollectionView!
     
     let cellsPerRow = 2
+    let cellsPerColumn = 4
     var optionImagesArray = [
                                 ("Polling",            "polling"),
                                 ("News Article",       "news"),
@@ -58,15 +61,15 @@ class CategorySelectorController : UICollectionViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSizeMake((self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow), (self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow))
+        return CGSizeMake((self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow), (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn))
         
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return optionImagesArray.count
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var segueIdentifier = ""
         switch indexPath.row {
             
@@ -85,7 +88,7 @@ class CategorySelectorController : UICollectionViewController {
         self.performSegueWithIdentifier(segueIdentifier, sender: self)
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("typeCell", forIndexPath: indexPath)
         (cell.viewWithTag(2) as! UILabel).text = optionImagesArray[ indexPath.row ].0

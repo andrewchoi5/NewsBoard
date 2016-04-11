@@ -11,8 +11,8 @@ import UIKit
 
 class BoardController: UIViewController, BoardLayoutDelegate {
 
-    let cellsPerRow = 9
-    let cellsPerColumn = 6
+    let cellsPerRow = 7
+    let cellsPerColumn = 4
     
     let DefaultCardCellIdentifier = "defaultCardCell"
     let AnnouncementCardCellIdentifier = "announcementCardCell"
@@ -52,8 +52,9 @@ class BoardController: UIViewController, BoardLayoutDelegate {
 //    }
     
     func reload() {
-        ServerInterface.getAllPostsForToday({ (cards) in
-            self.cardList = CardTestSets.requirementsDemo()
+        ServerInterface.getAllCardsForToday({ (cards) in
+//            self.cardList = CardTestSets.requirementsDemo()
+            self.cardList = cards
             self.collectionView.reloadData()
             self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
             self.firstLoadCompletionRoutine()
@@ -61,7 +62,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     }
     
     func backgroundReload() {
-        ServerInterface.getAllPostsForToday({ (cards) in
+        ServerInterface.getAllCardsForToday({ (cards) in
             
             self.cardList = cards
             self.collectionView.reloadData()

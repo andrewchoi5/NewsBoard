@@ -29,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let APIAuthenticationMethod = NSURLAuthenticationMethodHTTPBasic
         
         // Add key to local storage
-        NSURLCredentialStorage.sharedCredentialStorage().setCredential(NSURLCredential(user: APIKey, password: APIPassword, persistence: .ForSession), forProtectionSpace: NSURLProtectionSpace(host: APIHost, port: APIPort, `protocol`: APIProtocol, realm: APIRealm, authenticationMethod: APIAuthenticationMethod))
+        NSURLCredentialStorage.sharedCredentialStorage().setCredential(NSURLCredential(user: APIKey, password: APIPassword, persistence: .ForSession), forProtectionSpace: NSURLProtectionSpace(host: APIHost, port: APIPort, protocol: APIProtocol, realm: APIRealm, authenticationMethod: APIAuthenticationMethod))
+        
+        
         
         return true
     }

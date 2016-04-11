@@ -21,9 +21,13 @@ extension UIAlertController {
 
 
 extension UINavigationController {
+    // NOTE: By default UINavigationController relies on it's implementation of these methods rather than
+    // invoking the methods of the currently visible view controller (or the view controller on top of the stack).
+    // The code below was made to remedy that.
+    
     public override func shouldAutorotate() -> Bool {
         if let viewController = visibleViewController {
-            if viewController.respondsToSelector("shouldAutorotate") {
+            if viewController.respondsToSelector(#selector(UIViewController.shouldAutorotate)) {
                 return viewController.shouldAutorotate()
             }
         }
@@ -32,7 +36,7 @@ extension UINavigationController {
     
     public override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         if let viewController = visibleViewController {
-            if viewController.respondsToSelector("preferredInterfaceOrientationForPresentation") {
+            if viewController.respondsToSelector(#selector(UIViewController.preferredInterfaceOrientationForPresentation)) {
                 return viewController.preferredInterfaceOrientationForPresentation()
             }
         }
@@ -41,10 +45,19 @@ extension UINavigationController {
     
     public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if let viewController = visibleViewController {
-            if viewController.respondsToSelector("supportedInterfaceOrientations") {
+            if viewController.respondsToSelector(#selector(UIViewController.supportedInterfaceOrientations)) {
                 return viewController.supportedInterfaceOrientations()
             }
         }
         return .AllButUpsideDown
+    }
+    
+    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        if let viewController = visibleViewController {
+            if viewController.respondsToSelector(#selector(UIViewController.preferredStatusBarStyle)) {
+                return viewController.preferredStatusBarStyle()
+            }
+        }
+        return .Default
     }
 }

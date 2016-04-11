@@ -8,45 +8,82 @@
 
 import Foundation
 
-class DocumentSerializer : NSJSONSerialization {
+class CouchDBSerializer : NSObject {
     class func getData(document: Document) -> NSData {
-        return NSJSONSerialization.dataWithJSONObject(DocumentSerializer.getJSONObject(document))
+        return NSJSONSerialization.dataWithJSONObject(CouchDBSerializer.getJSONObject(document))
         
     }
     
     class func getJSONObject(document: Document) -> AnyObject {
-        var documentJSONObject = [ String : AnyObject ]()
-        if document.hasAttachments() {
-            documentJSONObject["_attachments"] = document.attachments
+        var documentJSONDict = DocumentSerializer.getDocumentJSONDict(document)
+        if document is Card {
+            documentJSONDict["card"] = CardSerializer.getCardJSONDict(document as! Card)
+            
         }
-        documentJSONObject["hidden"] = 0
-        return documentJSONObject
+        
+        if document is Account {
+            documentJSONDict["account"] =  AccountSerializer.getAccountJSONDict(document as! Account)
+
+        }
+
+        return documentJSONDict
     }
 }
 
-class CardSerializer : DocumentSerializer {
+class DocumentSerializer : NSObject {
+    class func getDocumentJSONDict(document : Document) -> [ String : AnyObject ] {
+        var documentJSONDict = [ String : AnyObject ]()
+        if document.hasAttachments() {
+            documentJSONDict["_attachments"] = document.attachments
+            
+        }
+        documentJSONDict["hidden"] = 0
+        if let id = document.id {
+            documentJSONDict["_id"] = id
+            
+        }
+        if let revision = document.revision {
+            documentJSONDict["_rev"] = revision
+            
+        }
+        
+        return documentJSONDict
+    }
     
-    override class func getJSONObject(card : Document) -> AnyObject {
-        var document = super.getJSONObject(card) as! [ String : AnyObject ]
-        document["card"] =  [
-            "type":(card as! Card).type.rawValue,
-            "info":(card as! Card).info,
-            "postDates": (card as! Card).postDateStrings(),
+
+}
+
+class CardSerializer : NSObject {
+    
+    class func getCardJSONDict(card : Card) -> [String : AnyObject] {
+        return [
+            "type":card.type.rawValue,
+            "info":card.info,
+            "postDates": card.postDateStrings(),
             "space":[
-                "topLeftCorner":(card as! Card).space.topLeftCorner,
-                "width":(card as! Card).space.width,
-                "height":(card as! Card).space.height
+                "topLeftCorner":card.space.topLeftCorner,
+                "width":card.space.width,
+                "height":card.space.height
             ]
         ]
-        return document
     }
     
-    override class func getData(card: Document) -> NSData {
-        return NSJSONSerialization.dataWithJSONObject(CardSerializer.getJSONObject(card))
-    }
 }
 
-class QueryDeserializer : NSJSONSerialization {
+class AccountSerializer : NSObject {
+    
+    class func getAccountJSONDict(account : Account) -> [String : AnyObject] {
+        return [
+            "email":account.email,
+            "password":account.password,
+            "verificationCode":account.verificationCode,
+            "verified":account.verified,
+        ]
+    }
+    
+}
+
+class QueryDeserializer {
     
     class func getDocuments(data: NSData) -> [Document] {
         let JSONdocuments = (NSJSONSerialization.JSONObjectWithData(data) as! [ String : [ AnyObject ] ])["docs"]!
@@ -56,6 +93,19 @@ class QueryDeserializer : NSJSONSerialization {
         }
         
         return objectDocuments
+    }
+    
+}
+
+class ServerResponseDeserializer {
+    
+    class func getResponse(data: NSData) -> ServerResponse {
+        guard let responseDict = NSJSONSerialization.JSONObjectWithData(data) as? [ String : AnyObject ] else {
+            return NullServerResponse()
+        }
+        
+        return ServerResponse(withDictionary: responseDict)
+        
     }
     
 }
@@ -72,18 +122,19 @@ class DocumentToCardConverter {
     }
 }
 
-//class AllPostsQuery : Query {
-//
-//    override init() {
-//        super.init()
-//
-//        self.addSelector("_id", comparator: "$gt", value: 0)
-//        self.addField("card")
-//        self.addSortingParameter("_id", direction: .Ascending)
-//    }
-//}
+class DocumentToAccountConverter {
+    
+    class func getAccounts(documents: [Document]) -> [Account] {
+        var cards = [Account]()
+        for document in documents {
+            cards.append(Account(document: document))
+        }
+        
+        return cards
+    }
+}
 
-class QuerySerializer : NSJSONSerialization {
+class QuerySerializer {
     
     class func getData(query: Query) -> NSData {
         let query =

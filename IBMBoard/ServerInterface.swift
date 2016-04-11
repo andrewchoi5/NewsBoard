@@ -20,7 +20,6 @@ class DelegateProxy : NSObject, NSURLSessionTaskDelegate {
     override init() {
         super.init()
         
-        
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
@@ -37,9 +36,22 @@ class DelegateProxy : NSObject, NSURLSessionTaskDelegate {
 
 public class ServerInterface {
     
-    static let serverURL = "https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com/ibmboard"
-    static let currentSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: DelegateProxy(), delegateQueue: nil)
+    static let serverURL = "https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com"
+
+    // TODO: Replace these with another account
+    static let defaultEmailSender = "ibmboard@gmail.com"
+    static let defaultEmailServer = "smtp.gmail.com"
+    static let defaultEmailPassword = "dsjhdsjhadsjh"
+    
+    static let currentSession = NSURLSession(configuration: ServerInterface.sessionConfiguration(), delegate: DelegateProxy(), delegateQueue: NSOperationQueue.mainQueue())
     static let delegateProxy = currentSession.delegate as! DelegateProxy
+    
+    static func sessionConfiguration() -> NSURLSessionConfiguration {
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        config.timeoutIntervalForRequest = 120.0
+        config.timeoutIntervalForResource = 120.0
+        return config
+    }
     
     static func requestWithURL(url: NSURL) -> NSMutableURLRequest {
         return NSMutableURLRequest(URL: url)
@@ -78,60 +90,188 @@ public class ServerInterface {
         return request
     }
     
-//    static func doQuery(query : Query) {
-//        NSURLSession.sharedSession().dataTaskWithRequest(postJSONRequestWithURLString("\(serverURL)/"), completionHandler: { (data, response, error) in
-//            
-//            let result = String(data: data!, encoding: NSUTF8StringEncoding)!
-//            
-//        }).resume()
-//    }
+}
+
+extension ServerInterface {
     
-    static func postCard(cardContent: Card, completion: ((Void) -> Void)?) {
-        let request = postJSONRequestWithURLString("\(serverURL)/")
-        request.HTTPBody = CardSerializer.getData(cardContent)
+    static func addDocument(document: Document, toDatabase dbName: String, completion: ((Void) -> Void)?) {
+        let request = postJSONRequestWithURLString("\(serverURL)/\(dbName)")
+        request.HTTPBody = CouchDBSerializer.getData(document)
         
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
             
-            dispatch_async(dispatch_get_main_queue(), {
-//                guard let responseData = data else { return }
-//                let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
-                guard let handler = completion else { return }
-                handler()
+            guard let responseData = data else { return }
+            guard let handler = completion else { return }
+            guard let metaData = ServerResponseDeserializer.getResponse(responseData).documentMetaData else {                 handler()
+                return
+            }
+            document.updateWithDocumentMetaData(metaData)
+            handler()
             
-            })
+        }).resume()
+    }
+    
+    static func getDocuments(withQuery query : Query, inDatabase dbName: String, completion : ([ Document ]) -> Void) {
+        
+        let request = postJSONRequestWithURLString("\(serverURL)/\(dbName)/_find")
+        request.HTTPBody = QuerySerializer.getData(query)
+        
+        ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+            guard let responseData = data else { return }
+//            let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
             
+            completion(QueryDeserializer.getDocuments(responseData))
         }).resume()
         
     }
     
-    static func deleteCard(cardContent: Card, completion: ((Void) -> Void)) {
-        let urlString = "\(serverURL)/\(cardContent.id)?rev=\(cardContent.revision)"
+    static func updateDocument(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+        let request = putJSONRequestWithURLString("\(serverURL)/\(dbName)/\(document.id)")
+        request.HTTPBody = CouchDBSerializer.getData(document)
+        
+        ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+//            let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
+//            guard let responseData = data else { return }
+            guard let handler = completion else { return }
+            handler()
+            
+        }).resume()
+    }
+    
+    static func deleteDocument(document: Document, completion: ((Void) -> Void)) {
+        let urlString = "\(serverURL)/\(document.id)?rev=\(document.revision)"
         
         ServerInterface.currentSession.dataTaskWithRequest(deleteJSONRequestWithURLString(urlString), completionHandler: { (data, response, error) in
-            dispatch_async(dispatch_get_main_queue(), {
                 completion()
-            })
         }).resume()
     }
+}
+
+struct DocumentMetaData {
     
-    static func getPostsFromDate(firstDate : NSDate, toDate secondDate : NSDate, completion: (cards: [Card]) -> Void) {
-        let request = postJSONRequestWithURLString("\(serverURL)/_find")
-        request.HTTPBody = QuerySerializer.getData(PostsForDateInterval(fromDate: firstDate, toDate: secondDate))
+    var id : String!
+    var revision : String!
+    
+    init(withDictionary dictionary: [ String : AnyObject ]) {
+        id = dictionary["id"] as! String
+        revision = dictionary["rev"] as! String
         
-        ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-            dispatch_async(dispatch_get_main_queue(), {
-                guard let responseData = data else { return }
-//                let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
-                completion(cards: DocumentToCardConverter.getCards((QueryDeserializer.getDocuments(responseData))))
-            })
-        }).resume()
+    }
+}
+
+class NullServerResponse : ServerResponse {
+    override var wasSuccessful: Bool {
+        return false
     }
     
-    static func getPostsUntilDate(date: NSDate, completion: (cards: [Card]) -> Void) {
-        ServerInterface.getPostsFromDate(NSDate(), toDate: date, completion: completion)
+    
+    override init() {
+        super.init()
+        
+        documentMetaData = nil
+        info = [ String : AnyObject ]()
     }
     
-    static func getAllPostsForToday(completion: (cards: [Card]) -> Void) {
-        ServerInterface.getPostsFromDate(NSDate(), toDate: NSDate(), completion: completion)
+}
+
+class ServerResponse : NSObject {
+    
+    var wasSuccessful : Bool {
+        return info[ "ok" ] as! Bool
+    }
+    
+    var documentMetaData : DocumentMetaData?
+    var info : [ String : AnyObject ]!
+    
+    init(withDictionary dictionary: [ String : AnyObject ]) {
+        super.init()
+        
+        info = dictionary
+        documentMetaData = DocumentMetaData(withDictionary: dictionary)
+    }
+    
+    override init() {
+        super.init()
+        
+    }
+}
+
+enum AuthenticationResult : Int {
+    case Success
+    case Unverified
+    case Failure
+    
+}
+
+extension ServerInterface {
+    
+    static func addAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
+        ServerInterface.addDocument(account, toDatabase: "accounts", completion: completion)
+        
+    }
+    
+    static func updateAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
+        ServerInterface.updateDocument(account, inDatabase: "accounts", completion: completion)
+        
+    }
+    
+    static func checkIfEmailExists(withEmail email: String, completion: ((Bool) -> Void)) {
+        ServerInterface.getAccountWithEmail(withEmail: email) { (accounts) in
+            completion( accounts.count > 0 )
+        }
+        
+    }
+    
+    static func getAccountWithEmailAndPassword(withEmail email: String, andPassword password: String, completion: (([ Account ]) -> Void)) {
+        ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email, andPassword: password), inDatabase: "accounts") { (documents) in
+            completion( DocumentToAccountConverter.getAccounts( documents ) )
+        }
+        
+    }
+    
+    static func getAccountWithEmail(withEmail email: String, completion: (([ Account ]) -> Void)) {
+        ServerInterface.getAccountWithEmailAndPassword(withEmail: email, andPassword: "", completion: completion)
+        
+    }
+    
+    static func authenticateWithEmail(email: String, andPassword password: String, completion: (AuthenticationResult) -> Void) {
+        ServerInterface.getAccountWithEmailAndPassword(withEmail: email, andPassword: password) { (accounts) in
+            var result : AuthenticationResult!
+            if accounts.count == 0 {
+                result = .Failure
+                
+            } else if !accounts.first!.verified {
+                result = .Unverified
+                
+            } else {
+                result = .Success
+                
+            }
+            completion( result )
+        }
+    }
+    
+    static func addCard(card: Card, completion: ((Void) -> Void)?) {
+        ServerInterface.addDocument(card, toDatabase: "ibmboard", completion: completion)
+        
+    }
+
+    
+    static func getCardsFromDate(firstDate : NSDate, toDate secondDate : NSDate, completion: ([Card]) -> Void) {
+        ServerInterface.getDocuments(withQuery: CardsForDateInterval(fromDate: firstDate, toDate: secondDate),inDatabase: "ibmboard") { (documents) in
+                completion(DocumentToCardConverter.getCards(documents))
+                
+        }
+        
+    }
+    
+    static func getCardsUntilDate(date: NSDate, completion: (cards: [Card]) -> Void) {
+        ServerInterface.getCardsFromDate(NSDate(), toDate: date, completion: completion)
+        
+    }
+    
+    static func getAllCardsForToday(completion: (cards: [Card]) -> Void) {
+        ServerInterface.getCardsFromDate(NSDate(), toDate: NSDate(), completion: completion)
+        
     }
 }

@@ -716,13 +716,66 @@
 			}
 			continue;
 		}
-		
-		
+        
+//        if(strncmp(elementNameStart,"link",4) == 0) {
+//            continue;
+//        }
+//        
+        if(strncmp(elementNameStart,"script",6) == 0) {
+            NSLog(@"");
+        }
+        
 		// is this element opening and closing
 		BOOL selfClosingElement = NO;
 		if (*(elementEnd-1) == '/') {
 			selfClosingElement = YES;
-		}
+            
+        } else if(strncmp(elementNameStart,"area",4) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"base",4) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"br",2) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"col",3) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"hr",2) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"embed",5) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"img",3) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"input",5) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"keygen",6) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"link",4) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"meta",4) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"param",5) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"source",6) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"track",5) == 0) {
+            selfClosingElement = YES;
+            
+        } else if(strncmp(elementNameStart,"wbr",3) == 0) {
+            selfClosingElement = YES;
+            
+        }
 		
 		
 		// create new xmlElement struct

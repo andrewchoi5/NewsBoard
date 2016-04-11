@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BoardViewController {
 
     @IBOutlet weak var emailID: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
         
         emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
@@ -45,11 +45,22 @@ class LoginViewController: UIViewController {
             
         }
         
-        if(emailID.hasText() && emailID.text == "zhaque@ca.ibm.com" && password.text == "123") {
-            
-            self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
-            
-        }
+        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+
+        
+//        ServerInterface.authenticateWithEmail(emailID.text!, andPassword: password.text!) { (result) in
+//            if result == .Success {
+//                self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+//                
+//            } else if result == .Unverified {
+//                
+//                
+//            } else {
+//                
+//                
+//            }
+//
+//        }
         
     }
 

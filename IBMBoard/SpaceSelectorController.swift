@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, PostDateSelector {
+class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, PostDateSelector {
     
     var emptyCellIdentifier = "emptyCell"
     var lockedCellIdentifier = "lockedCell"
@@ -25,8 +25,8 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
     
     var emptyCardSpace : Card!
     
-    let cellsPerRow = 9
-    let cellsPerColumn = 6
+    let cellsPerRow = 7
+    let cellsPerColumn = 4
     
     var selectedSpaces = Set<Int>()
     
@@ -49,7 +49,7 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         self.collectionView?.allowsMultipleSelection = true
         
         
-        ServerInterface.getPostsUntilDate(JTDateHelper().addToDate(NSDate(), days: 14)) { (cards) in
+        ServerInterface.getCardsUntilDate(JTDateHelper().addToDate(NSDate(), days: 14)) { (cards) in
             self.cardList = cards
             self.reloadData()
             self.finishedReloading()
@@ -57,11 +57,11 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         
         let swipeUp = UISwipeGestureRecognizer()
         swipeUp.direction = .Up
-        swipeUp.addTarget(self, action: "didSwipeUp")
+        swipeUp.addTarget(self, action: #selector(SpaceSelectorController.didSwipeUp))
         
         let swipeDown = UISwipeGestureRecognizer()
         swipeDown.direction = .Down
-        swipeDown.addTarget(self, action: "didSwipeDown")
+        swipeDown.addTarget(self, action: #selector(SpaceSelectorController.didSwipeDown))
         
         self.collectionView.addGestureRecognizer(swipeUp)
         self.collectionView.addGestureRecognizer(swipeDown)
@@ -116,7 +116,7 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
                     cardHolderMatrix[ startIndex + (yIndex * cellsPerRow) + xIndex ] = (1, cardNumber)
                 }
             }
-            cardNumber++
+            cardNumber += 1
         }
         
         self.collectionView?.reloadData()
@@ -146,7 +146,7 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
             return
         }
         
-        emptyCardSpace = makeSelectedSpaceTuple(selectedSpaces)
+        emptyCardSpace = makeCardWithSpaces(selectedSpaces)
         emptyCardSpace.setPostingDates(self.postingDates)
         
         print("Spaces selected: \(selectedSpaces)")
@@ -156,32 +156,24 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         
     }
     
-    func makeSelectedSpaceTuple(var spaces: Set<Int>) -> Card {
-        var minimumElement = Int.max
-        var maximumElement = Int.min
-        while !spaces.isEmpty {
-            let element = spaces.removeFirst()
-            minimumElement = min(element, minimumElement)
-            maximumElement = max(element, maximumElement)
-            
-        }
-        
-        let width = maximumElement % cellsPerRow - minimumElement % cellsPerRow + 1
-        let height = (maximumElement - width + 1 - minimumElement) / cellsPerRow + 1
-        
-        return Card(corner: minimumElement + 1, aWidth: width, aHeight: height)
+    func makeCardWithSpaces(spaces: Set<Int>) -> Card {
+        let rect = CGRectForSpaces(spaces)
+        let width = Int(rect.width)
+        let height = Int(rect.height)
+        let topLeftCorner = Int(rect.origin.x) + Int(rect.origin.y) * cellsPerRow
+        return Card(corner: topLeftCorner , aWidth: width, aHeight: height)
     }
     
-    func isRectangular(spaces: Set<Int>) -> Bool {
+    func CGRectForSpaces(spaces: Set<Int>) -> CGRect {
         if spaces.count <= 0 {
-            return false
+            return CGRectZero
         }
         
         var combinedRect = CGRectZero
         
         for space in spaces {
             let x = CGFloat(space % cellsPerRow)
-            let y = CGFloat(Int(floor(Double(space) / Double(cellsPerRow))) + 1)
+            let y = CGFloat(Int(floor(Double( space ) / Double( cellsPerRow ))) + 1)
             let width = CGFloat(1)
             let height = CGFloat(1)
             
@@ -191,12 +183,25 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
             
         }
         
-        return spaces.count == Int(combinedRect.width * combinedRect.height)
+        return combinedRect
+    }
+    
+    func isRectangular(spaces: Set<Int>) -> Bool {
+        let rect = CGRectForSpaces(spaces)
+        return spaces.count == Int(rect.width * rect.height)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSizeMake((self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow), (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn))
+        let superviewHeight = self.collectionView!.frame.size.height
+        let superviewWidth = self.collectionView!.frame.size.width
+        let vLineWidths = CGFloat(0) // CGFloat(cellsPerRow - 1) * 0.5
+        let hLineWidths = CGFloat(0) // CGFloat(cellsPerColumn - 1) * 0.5
+    
+        let width = (superviewWidth - vLineWidths) / CGFloat(cellsPerRow)
+        let height = (superviewHeight - hLineWidths) / CGFloat(cellsPerColumn)
+        
+        return CGSizeMake(width, height)
         
     }
 
@@ -215,7 +220,7 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         selectedSpaces.insert(indexPath.row)
 
         if(isRectangular(selectedSpaces)) {
-            print("Space selected: \(makeSelectedSpaceTuple(selectedSpaces))")
+            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
             
         }
         
@@ -229,7 +234,7 @@ class SpaceSelectorController : UIViewController, UICollectionViewDelegateFlowLa
         
         selectedSpaces.remove(indexPath.row)
         if(isRectangular(selectedSpaces)) {
-            print("Space selected: \(makeSelectedSpaceTuple(selectedSpaces))")
+            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
             
         }
 

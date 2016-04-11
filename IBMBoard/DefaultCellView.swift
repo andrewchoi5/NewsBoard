@@ -15,8 +15,9 @@ class DefaultCellView : UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.layer.borderColor = UIColor.lightGrayColor().CGColor
-        self.layer.borderWidth = 1.0
+        
+//        self.layer.borderColor = UIColor(white: 2.0 / 3.0, alpha: 0.5).CGColor
+//        self.layer.borderWidth = 0.5
         
     }
     

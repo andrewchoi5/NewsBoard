@@ -55,7 +55,7 @@ class CalendarController : UIViewController, ZHCalendarDelegate {
         
         let gestureRecognizer = UISwipeGestureRecognizer()
         gestureRecognizer.direction = .Down
-        gestureRecognizer.addTarget(self, action: "swipedDown")
+        gestureRecognizer.addTarget(self, action: #selector(CalendarController.swipedDown))
         view.addGestureRecognizer(gestureRecognizer)
         
         scrollView.manager = manager
