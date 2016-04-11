@@ -32,9 +32,9 @@ public class APIManager {
         
         guard let url = NSURL(string: videoURLString) else { return "" }
         guard let urlContentsData = NSData(contentsOfURL: url)  else { return "" }
-        guard let contentsString = String(data: urlContentsData, encoding: NSUTF8StringEncoding) else { return "" }
+        guard var contentsString = String(data: urlContentsData, encoding: NSUTF8StringEncoding) else { return "" }
         
-        contentsString.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
+        contentsString = contentsString.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
         
         let parsedXML = TBXML(XMLString: contentsString)
         
@@ -48,15 +48,15 @@ public class APIManager {
     public static func getArbitraryTextArticlePreview(articleURLString: String) -> String {
 //        let parser = ArticleParser(contentsOfURL: NSURL(string: articleURL)!)!
 //        parser.parse()
-        if articleURL == "" {
+        if articleURLString == "" {
             return noPreviewText
         }
         
         guard let url = NSURL(string: articleURLString) else { return "" }
         guard let urlContentsData = NSData(contentsOfURL: url)  else { return "" }
-        guard let contentsString = String(data: urlContentsData, encoding: NSUTF8StringEncoding) else { return "" }
+        guard var contentsString = String(data: urlContentsData, encoding: NSUTF8StringEncoding) else { return "" }
         
-        contentsString.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
+        contentsString = contentsString.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
 //        string = string?.stringByReplacingOccurrencesOfString("/>", withString: ">")
         
 //        let encodedData = NSData(contentsOfURL: NSURL(string: articleURL)!)!
