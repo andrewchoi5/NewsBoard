@@ -17,6 +17,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     let completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
     let calenderPopoverSegue = "calenderPopoverSegue"
     
+    @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var calendarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var toolBar: UIToolbar!
@@ -115,6 +116,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     
     func finishedReloading() {
         activityIndicator.stopAnimating()
+        loadingScreen.alpha = 0.0
         collectionView?.userInteractionEnabled = true
         
     }

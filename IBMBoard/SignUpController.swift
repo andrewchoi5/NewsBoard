@@ -73,6 +73,10 @@ class SignUpController : UIViewController, UITextFieldDelegate {
         registerDelegates()
         
         emailField.keyboardType = .EmailAddress
+        
+        emailField.isInvalid = true
+        passwordField.isInvalid = true
+        confirmPasswordField.isInvalid = true
     }
     
     @IBAction func didAttemptRegistration() {

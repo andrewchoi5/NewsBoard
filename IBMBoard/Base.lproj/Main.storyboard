@@ -472,21 +472,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="7LK-XC-1oH">
-                        <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="wfl-G5-zOw" customClass="ProgressControl" customModule="IBMBoard" customModuleProvider="target">
-                            <rect key="frame" x="130.5" y="6.5" width="114" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="stages">
-                                    <integer key="value" value="3"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="selectedStage">
-                                    <integer key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Select post type" id="7LK-XC-1oH"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -979,6 +965,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqf-UA-Hhg">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="350"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IcO-OX-EP6">
                                 <rect key="frame" x="349" y="156" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1007,15 +997,19 @@
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="eqf-UA-Hhg" firstAttribute="centerY" secondItem="byt-7F-rLS" secondAttribute="centerY" id="2y2-j1-rAu"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="height" secondItem="8UH-W9-sPh" secondAttribute="height" id="4HB-Ne-prQ"/>
+                            <constraint firstItem="eqf-UA-Hhg" firstAttribute="centerX" secondItem="byt-7F-rLS" secondAttribute="centerX" id="Acl-VG-eLs"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="width" secondItem="byt-7F-rLS" secondAttribute="width" id="DRd-Za-vyh"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="height" secondItem="byt-7F-rLS" secondAttribute="height" id="EIx-n6-dPn"/>
                             <constraint firstItem="IcO-OX-EP6" firstAttribute="centerY" secondItem="byt-7F-rLS" secondAttribute="centerY" id="IAl-tI-CkZ"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="leading" secondItem="byt-7F-rLS" secondAttribute="leadingMargin" constant="-20" id="KrI-wY-6tO"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="centerY" secondItem="8UH-W9-sPh" secondAttribute="centerY" id="Pkh-53-o6H"/>
                             <constraint firstItem="AA6-Qz-dMA" firstAttribute="width" secondItem="byt-7F-rLS" secondAttribute="width" id="Qg3-hn-fTi"/>
+                            <constraint firstItem="eqf-UA-Hhg" firstAttribute="width" secondItem="8UH-W9-sPh" secondAttribute="width" id="R4a-wd-obV"/>
                             <constraint firstItem="amK-Bn-Hjf" firstAttribute="top" secondItem="AA6-Qz-dMA" secondAttribute="bottom" id="Spk-mI-Izu"/>
                             <constraint firstItem="IcO-OX-EP6" firstAttribute="centerX" secondItem="byt-7F-rLS" secondAttribute="centerX" id="VGj-YW-eWp"/>
+                            <constraint firstItem="eqf-UA-Hhg" firstAttribute="height" secondItem="8UH-W9-sPh" secondAttribute="height" id="XRt-bP-gs7"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="centerX" secondItem="8UH-W9-sPh" secondAttribute="centerX" id="dh6-ao-HG8"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="top" secondItem="YOE-xc-AiB" secondAttribute="bottom" id="eEJ-gs-zFs"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="width" secondItem="8UH-W9-sPh" secondAttribute="width" id="sSh-QW-EeM"/>
@@ -1037,6 +1031,7 @@
                         <outlet property="calendarButton" destination="NqP-x9-B1E" id="d2B-0i-PLA"/>
                         <outlet property="collectionView" destination="8UH-W9-sPh" id="8ox-b1-Mv8"/>
                         <outlet property="gridView" destination="U7D-Gt-7IR" id="sEJ-5W-S4F"/>
+                        <outlet property="loadingScreen" destination="eqf-UA-Hhg" id="uTJ-8m-xeV"/>
                         <outlet property="toolBar" destination="AA6-Qz-dMA" id="lEG-FV-hNL"/>
                         <segue destination="v1k-AI-dtd" kind="show" identifier="completedSpaceSelectionSegue" id="J6H-1j-AbP"/>
                     </connections>
