@@ -231,6 +231,7 @@
 		39E5A8921C7D29C900DFC0F5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		39E5A8931C7D29C900DFC0F5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		39E5A8941C7D29C900DFC0F5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		39E5A8951C7D29C900DFC0F5 /* WebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebImage.h; path = WebImage.h; sourceTree = "<group>"; };
 		39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IBMBoard-Bridging-Header.h"; sourceTree = "<group>"; };
 		39EB53EF1C9B721200B7FE85 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationExt.swift; sourceTree = "<group>"; };
