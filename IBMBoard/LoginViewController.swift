@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailID: RoundedTextBox!
     @IBOutlet weak var password: RoundedTextBox!
@@ -23,8 +23,50 @@ class LoginViewController: UIViewController {
     static var LoginSuccessfulSegue = "LoginSuccessfulSegue"
     
     
+    func registerDelegates() {
+        emailID.delegate = self
+        password.delegate = self
+        
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == emailID.textField {
+            if textField.text! == "" {
+                emailID.showInvalid()
+                
+            } else {
+                emailID.showNormal()
+                
+            }
+            
+        } else if textField == password.textField {
+            if textField.text! == "" {
+                password.showInvalid()
+                
+            } else {
+                password.showNormal()
+                
+            }
+            
+        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == emailID.textField {
+            emailID.showFocussed()
+            
+        } else if textField == password.textField {
+            password.showFocussed()
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerDelegates()
+        
+        emailID.keyboardType = .EmailAddress
         
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
         

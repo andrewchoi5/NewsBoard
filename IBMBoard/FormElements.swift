@@ -108,6 +108,13 @@ public func defaultFontOfSize(size: Double) -> UIFont {
 @IBDesignable class RoundedTextBox : UIView {
     
     let textField = UITextField()
+    weak var delegate : UITextFieldDelegate?
+    var isInvalid = false
+    @IBInspectable var keyboardType : UIKeyboardType = .Default {
+        didSet {
+            textField.keyboardType = keyboardType
+        }
+    }
     
     var text : String? {
         get {
@@ -181,16 +188,33 @@ public func defaultFontOfSize(size: Double) -> UIFont {
         
     }
     
+    func showInvalid() {
+        isInvalid = true
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor(red: 253.0 / 255.0, green: 103.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0).CGColor
+    }
+    
+    func showFocussed() {
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 1.0).CGColor
+    }
+    
+    func showNormal() {
+        isInvalid = false
+        self.layer.borderColor = nil
+        self.layer.borderWidth = 0.0
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        textField.delegate = self
         textField.frame = CGRectInset(self.bounds, insets.width, insets.height)
         textField.secureTextEntry = self.secureTextEntry
         textField.textColor = textColor
-        textField.tintColor = UIColor.whiteColor()
-//        textField.backgroundColor = UIColor.redColor()
+        textField.tintColor = textColor
         self.layer.cornerRadius = self.frame.size.height / 2
-
+        
         let placeholderString = NSMutableAttributedString(string: placeholderText)
 
         placeholderString.addAttribute(NSFontAttributeName, value: defaultFontOfSize(placeholderSize), range:NSMakeRange(0, placeholderString.length))
@@ -198,5 +222,61 @@ public func defaultFontOfSize(size: Double) -> UIFont {
         
         textField.attributedPlaceholder = placeholderString
         
+    }
+}
+
+extension RoundedTextBox : UITextFieldDelegate {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        guard let delegateObject = delegate else { return true }
+        guard let method = delegateObject.textFieldShouldBeginEditing else { return true }
+        
+        return method(textField)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        guard let delegateObject = delegate else { return }
+        guard let method = delegateObject.textFieldDidBeginEditing else { return }
+
+        method(textField)
+
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        guard let delegateObject = delegate else { return true }
+        guard let method = delegateObject.textFieldShouldEndEditing else { return true }
+
+        return method(textField)
+
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        guard let delegateObject = delegate else { return }
+        guard let method = delegateObject.textFieldDidEndEditing else { return }
+        
+        method(textField)
+
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let delegateObject = delegate else { return true }
+        guard let method = delegateObject.textField else { return true }
+
+        return method(textField, shouldChangeCharactersInRange: range, replacementString: string)
+    }
+    
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        guard let delegateObject = delegate else { return true }
+        guard let method = delegateObject.textFieldShouldBeginEditing else { return true }
+
+        return method(textField)
+
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        guard let delegateObject = delegate else { return true }
+        guard let method = delegateObject.textFieldShouldBeginEditing else { return true }
+        
+        return method(textField)
+
     }
 }

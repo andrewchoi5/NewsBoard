@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SignUpController : UIViewController {
+class SignUpController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: RoundedTextBox!
     @IBOutlet weak var passwordField: RoundedTextBox!
@@ -17,10 +17,74 @@ class SignUpController : UIViewController {
     
     var newAccount : Account!
     
+    func registerDelegates() {
+        emailField.delegate = self
+        passwordField.delegate = self
+        confirmPasswordField.delegate = self
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == emailField.textField {
+            if textField.text! == "" {
+                emailField.showInvalid()
+                
+            } else {
+                emailField.showNormal()
+                
+            }
+            
+        } else if textField == passwordField.textField {
+            if textField.text! == "" {
+                passwordField.showInvalid()
+                
+            } else {
+                passwordField.showNormal()
+                
+            }
+            
+        } else if textField == confirmPasswordField.textField {
+            if textField.text! == "" {
+                confirmPasswordField.showInvalid()
+                
+            } else {
+                confirmPasswordField.showNormal()
+                
+            }
+            
+        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == emailField.textField {
+            emailField.showFocussed()
+            
+        } else if textField == passwordField.textField {
+            passwordField.showFocussed()
+            
+        } else if textField == confirmPasswordField.textField {
+            confirmPasswordField.showFocussed()
+            
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        registerDelegates()
+        
+        emailField.keyboardType = .EmailAddress
+    }
+    
     @IBAction func didAttemptRegistration() {
+        
+        if emailField.isInvalid || passwordField.isInvalid || confirmPasswordField.isInvalid {
+            return
+        }
         
         if confirmPasswordField.text != passwordField.text {
             errorDialogue("Passwords must match")
+            confirmPasswordField.showInvalid()
+            return
         }
         
         
