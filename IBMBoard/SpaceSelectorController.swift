@@ -26,14 +26,14 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     
     var emptyCardSpace : Card!
     
-    let cellsPerRow = 7
-    let cellsPerColumn = 4
+    static let cellsPerRow = 7
+    static let cellsPerColumn = 4
     
+    var cardHolderMatrix = [ (Int, Int) ](count: SpaceSelectorController.cellsPerRow * SpaceSelectorController.cellsPerColumn, repeatedValue: (0, 0))
+
     var selectedSpaces = Set<Int>()
     
     var cardList = [ Card ]()
-    
-    var cardHolderMatrix = [ (Int, Int) ](count: 9 * 6, repeatedValue: (0, 0))
     
     var calendarDate = BoardDate()
     
@@ -120,7 +120,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     }
     
     func reloadData() {
-        cardHolderMatrix = [ (Int, Int) ](count: 9 * 6, repeatedValue: (0, 0))
+        cardHolderMatrix = [ (Int, Int) ](count: SpaceSelectorController.cellsPerRow * SpaceSelectorController.cellsPerColumn, repeatedValue: (0, 0))
         
         var cardNumber = 0
         
@@ -128,7 +128,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
             let startIndex = card.space.topLeftCorner - 1
             for xIndex in 0 ..< card.space.width {
                 for yIndex in 0 ..< card.space.height {
-                    cardHolderMatrix[ startIndex + (yIndex * cellsPerRow) + xIndex ] = (1, cardNumber)
+                    cardHolderMatrix[ startIndex + (yIndex * SpaceSelectorController.cellsPerRow) + xIndex ] = (1, cardNumber)
                 }
             }
             cardNumber += 1
@@ -183,7 +183,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
         let rect = CGRectForSpaces(spaces)
         let width = Int(rect.width)
         let height = Int(rect.height)
-        let topLeftCorner = Int(rect.origin.x) + Int(rect.origin.y - 1.0) * cellsPerRow + 1
+        let topLeftCorner = Int(rect.origin.x) + Int(rect.origin.y - 1.0) * SpaceSelectorController.cellsPerRow + 1
         return Card(corner: topLeftCorner , aWidth: width, aHeight: height)
     }
     
@@ -195,8 +195,8 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
         var combinedRect = CGRectZero
         
         for space in spaces {
-            let x = CGFloat(space % cellsPerRow)
-            let y = CGFloat(Int(floor(Double( space ) / Double( cellsPerRow ))) + 1)
+            let x = CGFloat(space % SpaceSelectorController.cellsPerRow)
+            let y = CGFloat(Int(floor(Double( space ) / Double( SpaceSelectorController.cellsPerRow ))) + 1)
             let width = CGFloat(1)
             let height = CGFloat(1)
             
@@ -222,19 +222,18 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
         
         let superviewHeight = self.collectionView!.frame.size.height
         let superviewWidth = self.collectionView!.frame.size.width
-        let vLineWidths = CGFloat(0) // CGFloat(cellsPerRow - 1) * 0.5
-        let hLineWidths = CGFloat(0) // CGFloat(cellsPerColumn - 1) * 0.5
+        let vLineWidths = CGFloat(SpaceSelectorController.cellsPerRow - 1) * 0.5 // CGFloat(0) //
+        let hLineWidths = CGFloat(SpaceSelectorController.cellsPerColumn - 1) * 0.5 // CGFloat(0) //
     
-        let width = (superviewWidth - vLineWidths) / CGFloat(cellsPerRow)
-        let height = (superviewHeight - hLineWidths) / CGFloat(cellsPerColumn)
-        
-        return CGSizeMake(width, height)
+        let width = (superviewWidth - vLineWidths) / CGFloat(SpaceSelectorController.cellsPerRow)
+        let height = (superviewHeight - hLineWidths) / CGFloat(SpaceSelectorController.cellsPerColumn)
+        return CGSizeMake(ceil(width), ceil(height))
         
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return cellsPerRow * cellsPerColumn
+        return SpaceSelectorController.cellsPerRow * SpaceSelectorController.cellsPerColumn
         
     }
     
@@ -293,7 +292,6 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
         }
                 
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
-        cell.setPhoto(UIImage(named: "\(cardNumber % 8 + 1)")!)
         return cell
     }
     
@@ -314,7 +312,7 @@ class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlo
     }
 
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [ .LandscapeLeft, .LandscapeRight ]
+        return .Landscape
     }
     
     override func shouldAutorotate() -> Bool {

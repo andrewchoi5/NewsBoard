@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class DefaultCellView : UICollectionViewCell {
-    @IBOutlet weak var photoView: UIImageView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,14 +23,14 @@ class DefaultCellView : UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if(photoView != nil) {
-            photoView.layer.cornerRadius = photoView.frame.size.width / 2            
-        }
+//        if(photoView != nil) {
+//            photoView.layer.cornerRadius = photoView.frame.size.width / 2            
+//        }
     }
     
-    func setPhoto(image: UIImage) {
-        guard let view = photoView else { return }
-        view.image = image
-    }
+//    func setPhoto(image: UIImage) {
+//        guard let view = photoView else { return }
+//        view.image = image
+//    }
     
 }

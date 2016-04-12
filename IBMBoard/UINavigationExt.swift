@@ -9,6 +9,42 @@
 import Foundation
 import UIKit
 
+class NavigationDelegate : NSObject, UINavigationControllerDelegate {
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        
+        
+        
+    }
+
+    
+    func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        
+        print("")
+        
+        return .All
+    }
+
+    
+}
+
+class NavigationController : UINavigationController {
+    
+    weak var navDelegate = NavigationDelegate()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        delegate = navDelegate
+    }
+    
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+        delegate = navDelegate
+        
+    }
+    
+}
+
 extension UIAlertController {
     public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.AllButUpsideDown
@@ -21,7 +57,7 @@ extension UIAlertController {
 
 
 extension UINavigationController {
-    // NOTE: By default UINavigationController relies on it's implementation of these methods rather than
+    // NOTE: By default, UINavigationController relies on it's own implementation of these methods rather than
     // invoking the methods of the currently visible view controller (or the view controller on top of the stack).
     // The code below was made to remedy that.
     

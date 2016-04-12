@@ -42,6 +42,8 @@
 		392CF1551C76424500090214 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
 		392CF1581C76424500090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1561C76424500090214 /* Main.storyboard */; };
 		392CF15A1C76424500090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
+		393426B41CBC95430089F48F /* FormElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393426B31CBC95430089F48F /* FormElements.swift */; };
+		393426B61CBCA4860089F48F /* roboto_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393426B51CBC9FEB0089F48F /* roboto_regular.ttf */; };
 		393C88CC1CB5C82C009DA1AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */; };
 		393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CD1CB8427E009DA1AA /* GridView.swift */; };
 		394606C01C91605F00E2633C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
@@ -133,6 +135,8 @@
 		392CF1571C76424500090214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		392CF1591C76424500090214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		392CF15B1C76424500090214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		393426B31CBC95430089F48F /* FormElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormElements.swift; sourceTree = "<group>"; };
+		393426B51CBC9FEB0089F48F /* roboto_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_regular.ttf; sourceTree = "<group>"; };
 		393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		393C88CD1CB8427E009DA1AA /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		393E099C1CADABF300988EAA /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/IBMBoard-grmfviqfqtvusxbhfwkrinklckbk/Build/Products/Debug-iphonesimulator/MailCore.framework"; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 		392CF1121C762FCF00090214 = {
 			isa = PBXGroup;
 			children = (
+				393426B51CBC9FEB0089F48F /* roboto_regular.ttf */,
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
 				39022D031C8A545B00464BC1 /* VideoAPIManager.swift */,
 				394CD6671C9181A300AB28F1 /* JTCalendar */,
@@ -457,6 +462,7 @@
 				3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */,
 				393C88CD1CB8427E009DA1AA /* GridView.swift */,
 				391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */,
+				393426B31CBC95430089F48F /* FormElements.swift */,
 				391584AB1CAB96B200E37F99 /* ProgressControl.swift */,
 			);
 			name = Views;
@@ -624,6 +630,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				393426B61CBCA4860089F48F /* roboto_regular.ttf in Resources */,
 				392CF1291C762FCF00090214 /* LaunchScreen.storyboard in Resources */,
 				392CF1261C762FCF00090214 /* Assets.xcassets in Resources */,
 				394606C01C91605F00E2633C /* Assets.xcassets in Resources */,
@@ -696,6 +703,7 @@
 				394CD6631C91819200AB28F1 /* JTDateHelper.m in Sources */,
 				394CD6881C91825500AB28F1 /* JTCalendarWeekView.m in Sources */,
 				39EB93B11C7D896A0053F73F /* VideoPostController.swift in Sources */,
+				393426B41CBC95430089F48F /* FormElements.swift in Sources */,
 				394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */,
 				399A75001C87AB80007778B0 /* CardCell.swift in Sources */,
 				39EB93FB1C7E66600053F73F /* SDImageCache.m in Sources */,
@@ -873,6 +881,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
@@ -896,6 +905,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Debug;
@@ -905,6 +915,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
@@ -928,6 +939,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Release;

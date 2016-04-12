@@ -8,10 +8,10 @@
 
 import UIKit
 
-class LoginViewController: BoardViewController {
+class LoginViewController: UIViewController {
 
-    @IBOutlet weak var emailID: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var emailID: RoundedTextBox!
+    @IBOutlet weak var password: RoundedTextBox!
     @IBOutlet weak var rememberCredentials: UISwitch!
     
     var userDefaults = NSUserDefaults.standardUserDefaults()
@@ -25,7 +25,7 @@ class LoginViewController: BoardViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
         
         emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
@@ -77,7 +77,7 @@ class LoginViewController: BoardViewController {
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [ .Portrait ]
+        return .Portrait 
     }
     
     override func shouldAutorotate() -> Bool {

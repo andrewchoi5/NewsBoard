@@ -98,7 +98,7 @@ class CategorySelectorController : BoardViewController, UICollectionViewDataSour
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [ .Portrait ]
+        return .Portrait
     }
     
     override func shouldAutorotate() -> Bool {

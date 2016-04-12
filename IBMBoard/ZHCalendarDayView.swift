@@ -15,7 +15,7 @@ class ZHCalendarDayView : JTCalendarDayView {
         super.commonInit()
         
         let longPress = UILongPressGestureRecognizer()
-        longPress.addTarget(self, action: "handleLongPress")
+        longPress.addTarget(self, action: #selector(ZHCalendarDayView.handleLongPress))
         longPress.minimumPressDuration = 0.5
         self.addGestureRecognizer(longPress)
     }
@@ -24,7 +24,7 @@ class ZHCalendarDayView : JTCalendarDayView {
         guard let delegate = manager!.delegate else { return }
         guard let ZHDelegate = delegate as? ZHCalendarDelegate else { return }
         
-        if ZHDelegate.respondsToSelector("calendar:didLongPressDayView:") {
+        if ZHDelegate.respondsToSelector(#selector(ZHCalendarDelegate.calendar(_:didLongPressDayView:))) {
             ZHDelegate.calendar!(self.manager!, didLongPressDayView: self)
         }
     }

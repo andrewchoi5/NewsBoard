@@ -77,6 +77,7 @@ class GridView : UIView {
         for i in 1..<rows {
             let line = makeHorizontalLine(self.frame.size.width, color: gridLineColor)
             line.center.y = rowHeight * CGFloat(i)
+//            line.frame = CGRectIntegral(line.frame)
             self.addSubview(line)
             
         }
@@ -84,6 +85,7 @@ class GridView : UIView {
         for i in 1..<columns {
             let line = makeVerticalLine(self.frame.size.height, color: gridLineColor)
             line.center.x = columnWidth * CGFloat(i)
+//            line.frame = CGRectIntegral(line.frame)
             self.addSubview(line)
             
         }
@@ -94,6 +96,7 @@ class GridView : UIView {
                 let x = columnWidth * CGFloat(j)
                 let y = rowHeight * CGFloat(i)
                 cross.center = CGPointMake(x,y)
+//                cross.frame = CGRectIntegral(cross.frame)
                 self.addSubview(cross)
             }
         }

@@ -11,9 +11,9 @@ import UIKit
 
 class SignUpController : UIViewController {
     
-    @IBOutlet weak var confirmPasswordField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: RoundedTextBox!
+    @IBOutlet weak var passwordField: RoundedTextBox!
+    @IBOutlet weak var confirmPasswordField: RoundedTextBox!
     
     var newAccount : Account!
     
