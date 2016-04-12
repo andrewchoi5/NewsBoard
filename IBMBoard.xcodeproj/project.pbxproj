@@ -67,6 +67,7 @@
 		3964FF551C9A5680002B5AE8 /* NSDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF541C9A5680002B5AE8 /* NSDataExt.swift */; };
 		3964FF571C9A5695002B5AE8 /* NSDateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF561C9A5695002B5AE8 /* NSDateExt.swift */; };
 		3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF581C9A56AA002B5AE8 /* StringExt.swift */; };
+		396871B51CBD18C900D6869B /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396871B41CBD18C900D6869B /* UIViewExt.swift */; };
 		396AB10D1CAF225600B91FF9 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB10C1CAF225600B91FF9 /* SignUpController.swift */; };
 		396AB10F1CAF4B7B00B91FF9 /* EmailServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */; };
 		396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */; };
@@ -183,6 +184,7 @@
 		3964FF541C9A5680002B5AE8 /* NSDataExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataExt.swift; sourceTree = "<group>"; };
 		3964FF561C9A5695002B5AE8 /* NSDateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExt.swift; sourceTree = "<group>"; };
 		3964FF581C9A56AA002B5AE8 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		396871B41CBD18C900D6869B /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		396AB10C1CAF225600B91FF9 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailServerInterface.swift; sourceTree = "<group>"; };
 		396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVerificationController.swift; sourceTree = "<group>"; };
@@ -231,7 +233,6 @@
 		39E5A8921C7D29C900DFC0F5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		39E5A8931C7D29C900DFC0F5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		39E5A8941C7D29C900DFC0F5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		39E5A8951C7D29C900DFC0F5 /* WebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebImage.h; path = WebImage.h; sourceTree = "<group>"; };
 		39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IBMBoard-Bridging-Header.h"; sourceTree = "<group>"; };
 		39EB53EF1C9B721200B7FE85 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationExt.swift; sourceTree = "<group>"; };
@@ -402,6 +403,7 @@
 		3964FF5A1C9A62E0002B5AE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				396871B41CBD18C900D6869B /* UIViewExt.swift */,
 				39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */,
 				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
 				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
@@ -715,6 +717,7 @@
 				399A75021C88C86F007778B0 /* PosterController.swift in Sources */,
 				394CD6621C91819200AB28F1 /* JTCalendarSettings.m in Sources */,
 				39EB94041C7E66600053F73F /* UIImage+MultiFormat.m in Sources */,
+				396871B51CBD18C900D6869B /* UIViewExt.swift in Sources */,
 				39EB94081C7E66600053F73F /* UIView+WebCacheOperation.m in Sources */,
 				39EB93FC1C7E66600053F73F /* SDWebImageCompat.m in Sources */,
 				392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */,

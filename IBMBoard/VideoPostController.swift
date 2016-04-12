@@ -18,7 +18,6 @@ class VideoPostController : PosterController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     func textFieldDidEndEditing(textField: UITextField) {

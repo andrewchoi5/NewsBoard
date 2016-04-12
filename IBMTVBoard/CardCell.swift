@@ -45,6 +45,10 @@ class CardCell : UICollectionViewCell {
         
     }
     
+    func updateCardContent(card: Card) {
+        
+    }
+    
     func focus() {
         oldColor = self.backgroundColor
         self.backgroundColor = UIColor.redColor()
@@ -93,40 +97,6 @@ class AnnouncementCardCell : CardCell {
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
     
-        if let image = card.attachedImage {
-            progressBar.hidden = true
-            announcementPhoto.image = image
-            hasPhoto = true
-            
-        } else if let imageURL = card.attachedImageURLString {
-            announcementPhoto.sd_setImageWithURLString(imageURL, progressBlock: { (expectedSize, totalSize) in
-                self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
-                
-                }, completion: {(image, error, cacheType, url) in
-                    if self.progressBar != nil {
-                        self.progressBar.removeFromSuperview()
-                    }
-                
-            })
-            hasPhoto = true
-            
-        } else if let userProvidedURL = card.userProvidedURL {
-            announcementPhoto.sd_setImageWithURLString(userProvidedURL.absoluteString, progressBlock: { (expectedSize, totalSize) in
-                self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
-                
-                }, completion: {(image, error, cacheType, url) in
-                    if self.progressBar != nil {
-                        self.progressBar.removeFromSuperview()
-                    }
-                    
-            })
-            hasPhoto = true
-            
-        } else {
-            self.progressBar.removeFromSuperview()
-            
-        }
-        
         if let title = card.info["announcementTitle"] as? String {
             titleLabel.text = title
             
@@ -137,12 +107,62 @@ class AnnouncementCardCell : CardCell {
         
         announcementText.text =  card.info["announcementText"] as? String
         
+        if let image = card.attachedImage {
+            progressBar.hidden = true
+            announcementPhoto.image = image
+            hasPhoto = true
+            
+        } else if let imageURL = card.attachedImageURLString {
+            announcementPhoto.sd_setImageWithURLString(imageURL, progressBlock: { (expectedSize, totalSize) in
+                self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
+                
+                }, completion: {(image, error, cacheType, url) in
+                    self.progressBar.hidden = true
+                
+            })
+            hasPhoto = true
+            
+        } else if let userProvidedURL = card.userProvidedURL {
+            announcementPhoto.sd_setImageWithURLString(userProvidedURL.absoluteString, progressBlock: { (expectedSize, totalSize) in
+                self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
+                
+                }, completion: {(image, error, cacheType, url) in
+                    self.progressBar.hidden = true
+                    
+            })
+            hasPhoto = true
+            
+        } else {
+            self.progressBar.hidden = true
+            
+        }
+        
     }
     
     func hidePhoto() {
         if let constraint = announcementText.constraintWithID(AnnouncementCardCell.photoHeightConstraintID) {
-            announcementText.removeConstraint(constraint)
+            constraint.active = false
         }
+    }
+    
+    func showPhoto() {
+        if let constraint = announcementText.constraintWithID(AnnouncementCardCell.photoHeightConstraintID) {
+            constraint.active = true
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        showPhoto()
+        self.announcementPhoto.image = nil
+//        self.announcementPhoto.frame = CGRectMake(8.0, 152.0, 530.0, 259.0) // CGRectZero //
+//        self.announcementText.frame = CGRectMake(31.0, 97.0, 495.0, 33.0) // CGRectZero //
+//        self.titleLabel.frame = CGRectMake(92.0, 8.0, 446.0, 70.0) // CGRectZero // 
+//        self.titleLabel.text = "Title"
+//        self.announcementText.text = "Message Body"
+//        self.setNeedsUpdateConstraints()
+//        self.setNeedsDisplay()
     }
     
     override func updateConstraints() {
@@ -150,6 +170,7 @@ class AnnouncementCardCell : CardCell {
         
         if !hasPhoto {
             hidePhoto()
+            
         }
     }
 }

@@ -28,8 +28,9 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     
     let layout = BoardLayout()
     
-    var cardList =  [Card]()
+    var cardList =  [ Card ]()
     
+    var cardToCellMapping = [ Card : CardCell ]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             UIApplication.sharedApplication().openURL(URL)
         }
         
-//        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "backgroundReload", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(BoardController.backgroundReload), userInfo: nil, repeats: true)
     }
     
 //    func addCard() {
@@ -64,9 +65,21 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     func backgroundReload() {
         ServerInterface.getAllCardsForToday({ (cards) in
             
-            self.cardList = cards
-            self.collectionView.reloadData()
-            self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
+            
+            for card in cards {
+                if let cell = self.cardToCellMapping[ card ] {
+                    cell.updateCardContent(card)
+                    
+                } else {
+                    self.cardList.append(card)
+                    let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
+                    self.collectionView.insertItemsAtIndexPaths([indexPath])
+                }
+                
+            }
+            
+//            self.collectionView.reloadData()
+//            self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
 
         })
     }
@@ -132,6 +145,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         // TODO: Get photo of user, using random samples
         cell.userPhoto.image = UIImage(named: "\(indexPath.row % 8 + 1)")
         cell.applyCardContent(cardList[ indexPath.row ])
+        cardToCellMapping[ cardList[ indexPath.row ] ] = cell
         return cell
     }
     

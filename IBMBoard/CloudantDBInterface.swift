@@ -110,16 +110,12 @@ class Query : NSObject {
     }
 }
 
-class Document : NSObject {
+class Document {
     var id : String!
     var revision : String!
     var infoKey : String!
     var info = [String : AnyObject]()
     var attachments = [ String : [ String : AnyObject ] ]()
-    
-    override var hashValue: Int {
-        return revision.hashValue ^ id.hashValue
-    }
     
     func updateWithDocumentMetaData(metaData : DocumentMetaData) {
         id = metaData.id
@@ -128,7 +124,6 @@ class Document : NSObject {
     }
     
     init(dictionary : [ String : AnyObject ]) {
-        super.init()
         
         id = dictionary["_id"] as! String
         revision = dictionary["_rev"] as! String
@@ -147,7 +142,6 @@ class Document : NSObject {
     }
     
     init(document : Document) {
-        super.init()
         
         id = document.id
         revision = document.revision
@@ -191,11 +185,19 @@ class Document : NSObject {
         return attachments
     }
     
-    override init() {
-        super.init()
+    init() {
         
     }
 }
+
+extension Document : Hashable {
+    var hashValue: Int {
+        return revision.hashValue ^ id.hashValue
+        
+    }
+}
+
+extension Document : Equatable { }
 
 func ==(lhs: Document, rhs: Document) -> Bool {
     return lhs.revision == rhs.revision && lhs.id == rhs.id
