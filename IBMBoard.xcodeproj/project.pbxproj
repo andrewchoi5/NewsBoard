@@ -139,6 +139,7 @@
 		393426B51CBC9FEB0089F48F /* roboto_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_regular.ttf; sourceTree = "<group>"; };
 		393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		393C88CD1CB8427E009DA1AA /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		393CF2221CBCE65600817892 /* WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImage.h; sourceTree = "<group>"; };
 		393E099C1CADABF300988EAA /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/IBMBoard-grmfviqfqtvusxbhfwkrinklckbk/Build/Products/Debug-iphonesimulator/MailCore.framework"; sourceTree = "<group>"; };
 		393E099E1CADAC1E00988EAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		393E09A01CADAC2300988EAA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -230,7 +231,6 @@
 		39E5A8921C7D29C900DFC0F5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		39E5A8931C7D29C900DFC0F5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		39E5A8941C7D29C900DFC0F5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		39E5A8951C7D29C900DFC0F5 /* WebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebImage.h; path = SDWebImage/SDWebImage/WebImage.h; sourceTree = "<group>"; };
 		39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IBMBoard-Bridging-Header.h"; sourceTree = "<group>"; };
 		39EB53EF1C9B721200B7FE85 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationExt.swift; sourceTree = "<group>"; };
@@ -530,7 +530,7 @@
 				39E5A8921C7D29C900DFC0F5 /* UIImageView+WebCache.m */,
 				39E5A8931C7D29C900DFC0F5 /* UIView+WebCacheOperation.h */,
 				39E5A8941C7D29C900DFC0F5 /* UIView+WebCacheOperation.m */,
-				39E5A8951C7D29C900DFC0F5 /* WebImage.h */,
+				393CF2221CBCE65600817892 /* WebImage.h */,
 			);
 			name = SDWebImage;
 			sourceTree = "<group>";
