@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D45E3D01CBD7344007B8DF3 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */; };
+		2D45E3D11CBD7344007B8DF3 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */; };
 		39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
 		39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
@@ -84,8 +86,6 @@
 		39D878581C766F21007E0CD5 /* DefaultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D878571C766F21007E0CD5 /* DefaultCellView.swift */; };
 		39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DC847E1CAC804200F2DB4F /* CFNetwork.framework */; };
 		39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DC84801CAC804900F2DB4F /* Security.framework */; };
-		39E4E2FA1CBD66450043692A /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E4E2F91CBD66450043692A /* MailCore.framework */; };
-		39E4E2FB1CBD66450043692A /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39E4E2F91CBD66450043692A /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39E5A8641C77DF9F00DFC0F5 /* CategorySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */; };
 		39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */; };
 		39EB53F01C9B721200B7FE85 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB53EF1C9B721200B7FE85 /* CardManager.swift */; };
@@ -127,7 +127,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				39E4E2FB1CBD66450043692A /* MailCore.framework in Embed Frameworks */,
+				2D45E3D11CBD7344007B8DF3 /* MailCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +135,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "/Users/afrolkin/Library/Developer/Xcode/DerivedData/IBMBoard-clhlvtyykkuamkaheylhyjsazeec/Build/Products/Debug-iphoneos/MailCore.framework"; sourceTree = "<absolute>"; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
 		391584AB1CAB96B200E37F99 /* ProgressControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControl.swift; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 		39DC847E1CAC804200F2DB4F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		39DC84801CAC804900F2DB4F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		39DC84A11CAC885B00F2DB4F /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../mailcore2/build-mac/build/Debug-iphoneos/MailCore.framework"; sourceTree = "<group>"; };
-		39E4E2F91CBD66450043692A /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "/Users/zamiulhaque/Library/Developer/Xcode/DerivedData/IBMBoard-awtfhoyspnjzunbhtgjzjprsqqzj/Build/Products/Debug-iphoneos/MailCore.framework"; sourceTree = "<absolute>"; };
 		39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectorController.swift; sourceTree = "<group>"; };
 		39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		39E5A8761C7D29C900DFC0F5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -276,9 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
-				39E4E2FA1CBD66450043692A /* MailCore.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
+				2D45E3D01CBD7344007B8DF3 /* MailCore.framework in Frameworks */,
 				39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +296,7 @@
 		392CF1121C762FCF00090214 = {
 			isa = PBXGroup;
 			children = (
-				39E4E2F91CBD66450043692A /* MailCore.framework */,
+				2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */,
 				393426B51CBC9FEB0089F48F /* roboto_regular.ttf */,
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
 				39022D031C8A545B00464BC1 /* VideoAPIManager.swift */,
@@ -927,7 +927,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69a17924-fe60-4253-a3f9-eb12fff5752e";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Debug;
@@ -961,7 +961,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69a17924-fe60-4253-a3f9-eb12fff5752e";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Release;
