@@ -44,7 +44,7 @@
 		392CF15A1C76424500090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		393426B41CBC95430089F48F /* FormElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393426B31CBC95430089F48F /* FormElements.swift */; };
 		393426B61CBCA4860089F48F /* roboto_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393426B51CBC9FEB0089F48F /* roboto_regular.ttf */; };
-		393C88CC1CB5C82C009DA1AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */; };
+		393C88CC1CB5C82C009DA1AA /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */; };
 		393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CD1CB8427E009DA1AA /* GridView.swift */; };
 		394606C01C91605F00E2633C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6591C91819200AB28F1 /* JTCalendarManager.m */; };
@@ -153,7 +153,7 @@
 		392CF15B1C76424500090214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		393426B31CBC95430089F48F /* FormElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormElements.swift; sourceTree = "<group>"; };
 		393426B51CBC9FEB0089F48F /* roboto_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_regular.ttf; sourceTree = "<group>"; };
-		393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		393C88CD1CB8427E009DA1AA /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		393CF2221CBCE65600817892 /* WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImage.h; sourceTree = "<group>"; };
 		393E099C1CADABF300988EAA /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/IBMBoard-grmfviqfqtvusxbhfwkrinklckbk/Build/Products/Debug-iphonesimulator/MailCore.framework"; sourceTree = "<group>"; };
@@ -492,7 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				39B61D631CBC564900CDB05A /* Posters */,
-				393C88CB1CB5C82C009DA1AA /* BoardViewController.swift */,
+				393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */,
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
 				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
@@ -711,7 +711,7 @@
 				39EB93E91C7E49BF0053F73F /* APIManager.swift in Sources */,
 				394CD6841C91825500AB28F1 /* JTCalendarDayView.m in Sources */,
 				39EB93F71C7E66600053F73F /* TBXML+Compression.m in Sources */,
-				393C88CC1CB5C82C009DA1AA /* BoardViewController.swift in Sources */,
+				393C88CC1CB5C82C009DA1AA /* GradientViewController.swift in Sources */,
 				3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */,
 				394CD66D1C9181EF00AB28F1 /* JTCalendarScrollManager.m in Sources */,
 				39EB94061C7E66600053F73F /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -971,12 +971,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ef34587b-1d27-42d6-9358-3521968f642c";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
@@ -989,12 +990,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ef34587b-1d27-42d6-9358-3521968f642c";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;

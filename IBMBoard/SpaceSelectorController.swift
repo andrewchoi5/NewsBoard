@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SpaceSelectorController : BoardViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, PostDateSelector {
+class SpaceSelectorController : GradientViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, PostDateSelector {
     
     let emptyCellIdentifier = "emptyCell"
     let lockedCellIdentifier = "lockedCell"

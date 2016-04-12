@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BoardViewController : UIViewController {
+class GradientViewController : UIViewController {
     
     var gradientBackgroundStartColor = UIColor(red: 193.0 / 255.0, green: 225.0 / 255.0, blue: 251.0 / 255.0, alpha: 1.0)
     var gradientBackgroundEndColor = UIColor(red: 249.0 / 255.0, green: 251.0 / 255.0, blue: 215.0 / 255.0, alpha: 1.0)

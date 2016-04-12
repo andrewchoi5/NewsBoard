@@ -11,7 +11,7 @@ import UIKit
 
 private let placeholderSegueIdentifier = "placeholderSegue"
 
-class CategorySelectorController : BoardViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CategorySelectorController : GradientViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
