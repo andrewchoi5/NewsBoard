@@ -13,6 +13,7 @@ class AnnouncementPostController : PosterController, UIImagePickerControllerDele
     @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var announcementPhotoURL: UITextField!
     
     var selectedImage : UIImage?
     
@@ -30,9 +31,14 @@ class AnnouncementPostController : PosterController, UIImagePickerControllerDele
         
         guard let title = announcementTitle.text else { return }
         guard let text = announcementText.text else { return }
+        if let userPhotoURLString = announcementPhotoURL.text {
+            guard let _ = NSURL(string: userPhotoURLString) else { return }
+            selectedCardSpace.info["userPhotoURL"] = userPhotoURLString
+        }
 
         selectedCardSpace.info["announcementTitle"] = title
         selectedCardSpace.info["announcementText"] = text
+
         
         if let image = selectedImage {
             selectedCardSpace.addPNGImage(image)

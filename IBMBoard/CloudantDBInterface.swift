@@ -235,6 +235,13 @@ class Card : Document {
     
     var type : CardCellType!
     var space : Space!
+    var userProvidedURL : NSURL? {
+        guard let userProvidedURLString = self.info["userPhotoURL"] as? String else { return nil }
+        guard let URL = NSURL(string: userProvidedURLString) else { return nil }
+        
+        return URL
+    }
+    
     var attachedImageURLString : String? {
         guard let attachmentName = super.getAttachments().keys.first else { return nil }
         return "\(ServerInterface.serverURL)/ibmboard/\(self.id)/\(attachmentName)"

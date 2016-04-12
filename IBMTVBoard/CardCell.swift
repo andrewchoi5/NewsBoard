@@ -110,6 +110,18 @@ class AnnouncementCardCell : CardCell {
             })
             hasPhoto = true
             
+        } else if let userProvidedURL = card.userProvidedURL {
+            announcementPhoto.sd_setImageWithURLString(userProvidedURL.absoluteString, progressBlock: { (expectedSize, totalSize) in
+                self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
+                
+                }, completion: {(image, error, cacheType, url) in
+                    if self.progressBar != nil {
+                        self.progressBar.removeFromSuperview()
+                    }
+                    
+            })
+            hasPhoto = true
+            
         } else {
             self.progressBar.removeFromSuperview()
             

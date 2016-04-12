@@ -29,8 +29,8 @@ class VideoAPIManager {
     }
     
     static func getAPIURL(urlString: String) -> NSURL {
-        let url = NSURL(string: urlString)
-        guard let sanitizedURL = url else { return NSURL() }
+        let trimmedString = urlString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        guard let sanitizedURL = NSURL(string: trimmedString) else { return NSURL() }
         guard let sanitizedHost = sanitizedURL.host else { return NSURL() }
         guard let sanitizedQuery = sanitizedURL.query else { return NSURL() }
         if(sanitizedHost.containsString("youtube")) {
