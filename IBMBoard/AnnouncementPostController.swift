@@ -10,6 +10,7 @@ import Foundation
 
 class AnnouncementPostController : PosterController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLSessionTaskDelegate {
     
+    @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
     @IBOutlet weak var progressBar: UIProgressView!
     
@@ -27,7 +28,12 @@ class AnnouncementPostController : PosterController, UIImagePickerControllerDele
             return
         }
         
-        selectedCardSpace.info["announcementText"] = announcementText.text!
+        guard let title = announcementTitle.text else { return }
+        guard let text = announcementText.text else { return }
+
+        selectedCardSpace.info["announcementTitle"] = title
+        selectedCardSpace.info["announcementText"] = text
+        
         if let image = selectedImage {
             selectedCardSpace.addPNGImage(image)
         }

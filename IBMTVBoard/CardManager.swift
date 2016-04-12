@@ -34,7 +34,7 @@ class CardDataServer : NSObject {
     init(withClient aClient: CardDataClient) {
         super.init()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "backgroundCheck", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(CardDataServer.backgroundCheck), userInfo: nil, repeats: true)
         
         client = aClient
     }

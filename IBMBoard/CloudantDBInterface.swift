@@ -237,7 +237,7 @@ class Card : Document {
     var space : Space!
     var attachedImageURLString : String {
         guard let attachmentName = super.getAttachments().keys.first else { return "" }
-        return "\(ServerInterface.serverURL)/\(self.id)/\(attachmentName)"
+        return "\(ServerInterface.serverURL)/ibmboard/\(self.id)/\(attachmentName)"
     }
     
     var attachedImage : UIImage? {
