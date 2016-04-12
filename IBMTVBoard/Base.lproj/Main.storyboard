@@ -304,9 +304,9 @@
                                                             <color key="trackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </progressView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu2-NF-vj9">
-                                                            <rect key="frame" x="31" y="97" width="507" height="33"/>
+                                                            <rect key="frame" x="31" y="97" width="495" height="33"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="4On-IH-PuK"/>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" identifier="messageBodyHeightConstraint" id="4On-IH-PuK"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -340,7 +340,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="bbG-e3-fXi" secondAttribute="trailing" constant="3" id="KKQ-iu-wqD"/>
                                             <constraint firstItem="bbG-e3-fXi" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" constant="3" id="QqE-mP-Zpo"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="tUe-8Q-FMK" secondAttribute="trailing" constant="-5" id="R7S-nC-mmj"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="bu2-NF-vj9" secondAttribute="trailing" constant="3" id="cF1-w5-M1Z"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="bu2-NF-vj9" secondAttribute="trailing" constant="15" id="cF1-w5-M1Z"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="tUe-8Q-FMK" secondAttribute="bottom" constant="-5" id="lLV-l5-KF6"/>
                                         </constraints>
                                         <connections>

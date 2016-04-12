@@ -235,8 +235,8 @@ class Card : Document {
     
     var type : CardCellType!
     var space : Space!
-    var attachedImageURLString : String {
-        guard let attachmentName = super.getAttachments().keys.first else { return "" }
+    var attachedImageURLString : String? {
+        guard let attachmentName = super.getAttachments().keys.first else { return nil }
         return "\(ServerInterface.serverURL)/ibmboard/\(self.id)/\(attachmentName)"
     }
     

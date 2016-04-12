@@ -62,11 +62,33 @@ class CardCell : UICollectionViewCell {
     }
 }
 
+extension UIView {
+    
+    func constraintWithID(ID: String) -> NSLayoutConstraint? {
+        if ID == "" {
+            return nil
+        }
+        
+        for constraint in constraints {
+            if constraint.identifier == ID {
+                return constraint
+            }
+        }
+        
+        return nil
+    }
+    
+}
+
 class AnnouncementCardCell : CardCell {
+    
+    static let photoHeightConstraintID = "messageBodyHeightConstraint"
     
     @IBOutlet weak var announcementPhoto: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var announcementText: UILabel!
+    
+    private var hasPhoto : Bool = false
     
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
@@ -74,9 +96,10 @@ class AnnouncementCardCell : CardCell {
         if let image = card.attachedImage {
             progressBar.hidden = true
             announcementPhoto.image = image
+            hasPhoto = true
             
-        } else {
-            announcementPhoto.sd_setImageWithURLString(card.attachedImageURLString, progressBlock: { (expectedSize, totalSize) in
+        } else if let imageURL = card.attachedImageURLString {
+            announcementPhoto.sd_setImageWithURLString(imageURL, progressBlock: { (expectedSize, totalSize) in
                 self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
                 
                 }, completion: {(image, error, cacheType, url) in
@@ -85,6 +108,11 @@ class AnnouncementCardCell : CardCell {
                     }
                 
             })
+            hasPhoto = true
+            
+        } else {
+            self.progressBar.removeFromSuperview()
+            
         }
         
         if let title = card.info["announcementTitle"] as? String {
@@ -97,6 +125,20 @@ class AnnouncementCardCell : CardCell {
         
         announcementText.text =  card.info["announcementText"] as? String
         
+    }
+    
+    func hidePhoto() {
+        if let constraint = announcementText.constraintWithID(AnnouncementCardCell.photoHeightConstraintID) {
+            announcementText.removeConstraint(constraint)
+        }
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        
+        if !hasPhoto {
+            hidePhoto()
+        }
     }
 }
 
