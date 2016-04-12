@@ -29,7 +29,6 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     let layout = BoardLayout()
     
     var cardList =  [ Card ]()
-    
     var cardToCellMapping = [ Card : CardCell ]()
     
     override func viewDidLoad() {
@@ -43,32 +42,15 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             UIApplication.sharedApplication().openURL(URL)
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(BoardController.backgroundReload), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
     }
-    
-//    func addCard() {
-//        self.collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
-//        self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
-//
-//    }
     
     func reload() {
         ServerInterface.getAllCardsForToday({ (cards) in
-//            self.cardList = CardTestSets.requirementsDemo()
-            self.cardList = cards
-            self.collectionView.reloadData()
-            self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
-            self.firstLoadCompletionRoutine()
-        })
-    }
-    
-    func backgroundReload() {
-        ServerInterface.getAllCardsForToday({ (cards) in
-            
             
             for card in cards {
                 if let cell = self.cardToCellMapping[ card ] {
-                    cell.updateCardContent(card)
+                    cell.applyCardContent(card)
                     
                 } else {
                     self.cardList.append(card)
@@ -78,9 +60,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
                 
             }
             
-//            self.collectionView.reloadData()
-//            self.collectionView!.setCollectionViewLayout(self.layout, animated: true)
-
+            self.firstLoadCompletionRoutine()
         })
     }
     
