@@ -1131,10 +1131,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atV-jq-ePB" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="54"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atV-jq-ePB" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="64" width="383" height="54"/>
                                 <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="RKX-Ci-Izu"/>
+                                </constraints>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1142,15 +1145,21 @@
                                     <outlet property="delegate" destination="Rsj-Ek-DKz" id="0wQ-tZ-yvX"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-dh-GcE">
-                                <rect key="frame" x="20" y="117" width="355" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-dh-GcE">
+                                <rect key="frame" x="16" y="117" width="363" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="es5-6q-u7q"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="22M-Vi-Xci" customClass="FormTextView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="167" width="375" height="250"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="22M-Vi-Xci" customClass="FormTextView" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="167" width="383" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="JAl-tn-wHU"/>
+                                </constraints>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1158,6 +1167,17 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="atV-jq-ePB" firstAttribute="top" secondItem="Ety-Og-5Sr" secondAttribute="bottom" id="3kR-Bt-PCT"/>
+                            <constraint firstItem="22M-Vi-Xci" firstAttribute="top" secondItem="9gL-dh-GcE" secondAttribute="bottom" constant="-4" id="64I-9H-r2j"/>
+                            <constraint firstItem="9gL-dh-GcE" firstAttribute="top" secondItem="atV-jq-ePB" secondAttribute="bottom" constant="-1" id="BaW-az-sre"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9gL-dh-GcE" secondAttribute="leading" id="QZM-pU-0ie"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="atV-jq-ePB" secondAttribute="trailing" constant="-20" id="fQC-Ul-Rtj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9gL-dh-GcE" secondAttribute="trailing" constant="-20" id="kif-LW-KHf"/>
+                            <constraint firstItem="atV-jq-ePB" firstAttribute="leading" secondItem="RNX-Wx-Ery" secondAttribute="leadingMargin" constant="-20" id="o9D-h4-zHu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="22M-Vi-Xci" secondAttribute="trailing" constant="-20" id="tyq-h3-oeR"/>
+                            <constraint firstItem="22M-Vi-Xci" firstAttribute="leading" secondItem="RNX-Wx-Ery" secondAttribute="leadingMargin" constant="-20" id="z5K-wm-aQb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Proposal" id="q5H-B5-MPj">
                         <barButtonItem key="backBarButtonItem" title="Back" id="iTq-Qr-Cqq"/>
