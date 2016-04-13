@@ -504,7 +504,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Rsj-Ek-DKz" id="dnl-x8-2il"/>
@@ -594,21 +594,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFs-7m-0QL" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="54"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="jZ6-cS-dQB" id="wg5-KY-P9B"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-bl-9kA">
-                                <rect key="frame" x="20" y="172" width="355" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4KR-C8-uLT" customClass="FormTextView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="225" width="375" height="278"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -621,15 +615,21 @@
                                 </connections>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5yg-x5-26V" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="118" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="54"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="jZ6-cS-dQB" id="xR3-CI-jVj"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-bl-9kA">
+                                <rect key="frame" x="20" y="172" width="355" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -666,9 +666,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-FQ-bmS" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-FQ-bmS" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="118" width="375" height="54"/>
                                 <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="t19-JN-Avf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Add picture">
@@ -678,13 +681,16 @@
                                     <action selector="didPushPhotoAlbumButton:" destination="NvT-Dn-yoj" eventType="primaryActionTriggered" id="mNO-SP-baE"/>
                                 </connections>
                             </button>
-                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Exu-55-CaY">
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Exu-55-CaY">
                                 <rect key="frame" x="66" y="594" width="253" height="2"/>
                             </progressView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hMD-E0-zRp" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hMD-E0-zRp" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="54"/>
                                 <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="gDE-Yp-o8j"/>
+                                </constraints>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -692,24 +698,13 @@
                                     <outlet property="delegate" destination="Rsj-Ek-DKz" id="v5b-6F-Ira"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Announcement body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIG-v8-MfI">
-                                <rect key="frame" x="20" y="225" width="355" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ioi-sh-QbJ" customClass="FormTextView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="281" width="375" height="236"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-aB-s7N" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-aB-s7N" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="172" width="375" height="54"/>
                                 <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="vXz-KN-BQa"/>
+                                </constraints>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL"/>
@@ -717,8 +712,44 @@
                                     <outlet property="delegate" destination="Rsj-Ek-DKz" id="WjF-sB-PGR"/>
                                 </connections>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ioi-sh-QbJ" customClass="FormTextView" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="281" width="375" height="236"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcement body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIG-v8-MfI">
+                                <rect key="frame" x="20" y="225" width="355" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yIG-v8-MfI" firstAttribute="leading" secondItem="LNq-4p-iXV" secondAttribute="leadingMargin" constant="4" id="2tB-FW-fv9"/>
+                            <constraint firstItem="zDY-FQ-bmS" firstAttribute="leading" secondItem="Yn2-aB-s7N" secondAttribute="leading" id="4PW-iH-Zgd"/>
+                            <constraint firstItem="ioi-sh-QbJ" firstAttribute="top" secondItem="Yn2-aB-s7N" secondAttribute="bottom" constant="55" id="9xK-Iu-HLU"/>
+                            <constraint firstItem="hMD-E0-zRp" firstAttribute="leading" secondItem="LNq-4p-iXV" secondAttribute="leading" id="DbE-Dk-t8D"/>
+                            <constraint firstItem="Yn2-aB-s7N" firstAttribute="trailing" secondItem="yIG-v8-MfI" secondAttribute="trailing" id="EZI-BJ-XPb"/>
+                            <constraint firstItem="yIG-v8-MfI" firstAttribute="top" secondItem="zDY-FQ-bmS" secondAttribute="bottom" constant="53" id="GqO-uO-NID"/>
+                            <constraint firstItem="Exu-55-CaY" firstAttribute="top" secondItem="ioi-sh-QbJ" secondAttribute="bottom" constant="77" id="HWg-FS-laV"/>
+                            <constraint firstItem="Yn2-aB-s7N" firstAttribute="leading" secondItem="ioi-sh-QbJ" secondAttribute="leading" id="JT2-M0-x62"/>
+                            <constraint firstItem="zDY-FQ-bmS" firstAttribute="top" secondItem="hMD-E0-zRp" secondAttribute="bottom" id="PtO-Bp-rNh"/>
+                            <constraint firstItem="hMD-E0-zRp" firstAttribute="leading" secondItem="zDY-FQ-bmS" secondAttribute="leading" id="QQR-i1-YSW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Exu-55-CaY" secondAttribute="trailing" constant="40" id="Rt3-sO-BRP"/>
+                            <constraint firstItem="hMD-E0-zRp" firstAttribute="top" secondItem="4fy-4O-W3e" secondAttribute="bottom" id="Tpt-ia-V5v"/>
+                            <constraint firstItem="Exu-55-CaY" firstAttribute="leading" secondItem="LNq-4p-iXV" secondAttribute="leadingMargin" constant="50" id="dKt-PA-BFO"/>
+                            <constraint firstItem="Yn2-aB-s7N" firstAttribute="top" secondItem="zDY-FQ-bmS" secondAttribute="bottom" id="di5-iS-GDr"/>
+                            <constraint firstItem="iZ2-0x-c0A" firstAttribute="top" secondItem="Exu-55-CaY" secondAttribute="bottom" constant="71" id="qnt-6i-LvE"/>
+                            <constraint firstItem="yIG-v8-MfI" firstAttribute="trailing" secondItem="ioi-sh-QbJ" secondAttribute="trailing" id="tX6-1Z-Di9"/>
+                            <constraint firstItem="ioi-sh-QbJ" firstAttribute="top" secondItem="yIG-v8-MfI" secondAttribute="bottom" constant="2" id="tab-hb-lLS"/>
+                            <constraint firstItem="hMD-E0-zRp" firstAttribute="trailing" secondItem="zDY-FQ-bmS" secondAttribute="trailing" id="uh1-Fn-C0R"/>
+                            <constraint firstAttribute="trailing" secondItem="hMD-E0-zRp" secondAttribute="trailing" id="ybp-pc-oxE"/>
+                            <constraint firstItem="zDY-FQ-bmS" firstAttribute="trailing" secondItem="Yn2-aB-s7N" secondAttribute="trailing" id="ydJ-zP-wRx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Announcement" id="e7H-vo-iMF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IVd-gG-b9C"/>
