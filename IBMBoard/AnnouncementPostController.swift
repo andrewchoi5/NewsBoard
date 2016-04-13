@@ -14,16 +14,19 @@ class AnnouncementPostController : PosterController, UIImagePickerControllerDele
     @IBOutlet weak var announcementText: UITextView!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var announcementPhotoURL: UITextField!
+    @IBOutlet weak var announcementPostButton: UIBarButtonItem!
     
     var selectedImage : UIImage?
     
+    let greenTint = UIColor(red: 92/255.0, green: 255.0/255.0, blue: 111/255.0, alpha: 255.0/255.0)
+    let greyTint = UIColor(red: 63/255.0, green: 69.0/255.0, blue: 77/255.0, alpha: 255.0/255.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        announcementPostButton.tintColor = greyTint
     }
     
-    @IBAction func didPushPostButton(sender: UIButton) {
+    @IBAction func didPushPostButton(sender: UIBarButtonItem) {
         
         if !progressBar.hidden {
             return
