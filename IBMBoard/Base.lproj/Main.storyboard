@@ -614,9 +614,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFs-7m-0QL" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFs-7m-0QL" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="118" width="375" height="54"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="rds-yM-uR1"/>
+                                </constraints>
                                 <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -624,7 +627,26 @@
                                     <outlet property="delegate" destination="jZ6-cS-dQB" id="wg5-KY-P9B"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4KR-C8-uLT" customClass="FormTextView" customModule="IBMBoard" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-bl-9kA">
+                                <rect key="frame" x="20" y="172" width="355" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5yg-x5-26V" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="54"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="dMh-j3-rnR"/>
+                                </constraints>
+                                <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jZ6-cS-dQB" id="xR3-CI-jVj"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4KR-C8-uLT" customClass="FormTextView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="225" width="375" height="278"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -635,24 +657,24 @@
                                     <outlet property="delegate" destination="jZ6-cS-dQB" id="2VE-VZ-Ezm"/>
                                 </connections>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5yg-x5-26V" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="54"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="jZ6-cS-dQB" id="xR3-CI-jVj"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-bl-9kA">
-                                <rect key="frame" x="20" y="172" width="355" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QFs-7m-0QL" firstAttribute="leading" secondItem="4KR-C8-uLT" secondAttribute="leading" id="1g2-pb-Gfv"/>
+                            <constraint firstAttribute="trailing" secondItem="5yg-x5-26V" secondAttribute="trailing" id="5fc-95-Dsk"/>
+                            <constraint firstItem="5yg-x5-26V" firstAttribute="leading" secondItem="QFs-7m-0QL" secondAttribute="leading" id="EGI-qv-e8P"/>
+                            <constraint firstItem="rsQ-tB-7nS" firstAttribute="top" secondItem="SMm-bl-9kA" secondAttribute="bottom" constant="441" id="Nek-VX-QgU"/>
+                            <constraint firstItem="SMm-bl-9kA" firstAttribute="top" secondItem="QFs-7m-0QL" secondAttribute="bottom" id="Nqq-dT-tlG"/>
+                            <constraint firstItem="5yg-x5-26V" firstAttribute="trailing" secondItem="QFs-7m-0QL" secondAttribute="trailing" id="OhO-cM-YSx"/>
+                            <constraint firstItem="rsQ-tB-7nS" firstAttribute="top" secondItem="4KR-C8-uLT" secondAttribute="bottom" constant="164" id="WWK-mU-ihG"/>
+                            <constraint firstItem="SMm-bl-9kA" firstAttribute="leading" secondItem="hSr-V7-asZ" secondAttribute="leadingMargin" constant="4" id="YGB-lT-v64"/>
+                            <constraint firstItem="5yg-x5-26V" firstAttribute="top" secondItem="JSV-qy-pJF" secondAttribute="bottom" id="ds2-9G-Kdi"/>
+                            <constraint firstItem="5yg-x5-26V" firstAttribute="leading" secondItem="hSr-V7-asZ" secondAttribute="leading" id="hWJ-UP-m5d"/>
+                            <constraint firstItem="QFs-7m-0QL" firstAttribute="trailing" secondItem="SMm-bl-9kA" secondAttribute="trailing" id="j6A-Kd-BkH"/>
+                            <constraint firstItem="4KR-C8-uLT" firstAttribute="top" secondItem="QFs-7m-0QL" secondAttribute="bottom" constant="53" id="oOa-jj-4Ab"/>
+                            <constraint firstItem="SMm-bl-9kA" firstAttribute="trailing" secondItem="4KR-C8-uLT" secondAttribute="trailing" id="sxV-Jk-n7k"/>
+                            <constraint firstItem="QFs-7m-0QL" firstAttribute="top" secondItem="5yg-x5-26V" secondAttribute="bottom" id="yHw-RO-4NP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Article" id="gdh-A6-JfU">
                         <barButtonItem key="backBarButtonItem" title="Back" id="yNq-2v-OAq"/>
