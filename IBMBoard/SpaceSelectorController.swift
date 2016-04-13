@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class SpaceSelectorController : GradientViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, PostDateSelector {
+internal let cellsPerRow = 7
+internal let cellsPerColumn = 4
+
+class SpaceSelectorController : GradientViewController {
     
     let emptyCellIdentifier = "emptyCell"
     let lockedCellIdentifier = "lockedCell"
@@ -17,28 +20,22 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
     let completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
     let calenderPopoverSegue = "calenderPopoverSegue"
     
+    
     @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var calendarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var gridView: GridView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
     
     var postingDates = Set<BoardDate>()
-    
     var emptyCardSpace : Card!
-    
-    static let cellsPerRow = 7
-    static let cellsPerColumn = 4
-    
-    var cardHolderMatrix = [ (Int, Int) ](count: SpaceSelectorController.cellsPerRow * SpaceSelectorController.cellsPerColumn, repeatedValue: (0, 0))
-
+    var cardHolderMatrix = [ (Int, Int) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, 0))
     var selectedSpaces = Set<Int>()
-    
     var cardList = [ Card ]()
-    
     var calendarDate = BoardDate()
     
-    @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
     
     func configureCurrentDateLabel() {
         let formatter = NSDateFormatter()
@@ -80,30 +77,6 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
 
     }
     
-    // Start Delegate Methods
-    
-    func didAddPostingDate(date: NSDate) {
-        postingDates.insert(BoardDate(withDate: date))
-    }
-    
-    func didRemovePostingDate(date: NSDate) {
-        postingDates.remove(BoardDate(withDate: date))
-    }
-    
-    func hasPostingDate(date: NSDate) -> Bool {
-        return postingDates.contains(BoardDate(withDate: date))
-    }
-    
-    func didChangeStartingDate(date: NSDate) {
-        calendarDate = BoardDate(withDate: date)
-    }
-    
-    func startingDate() -> NSDate {
-        return calendarDate.underlyingDate()
-    }
-    
-    // End Delegate Methods
-    
     func didSwipeUp() {
         // Replace with animation later
         toolBar.hidden = false
@@ -122,7 +95,7 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
     }
     
     func reloadData() {
-        cardHolderMatrix = [ (Int, Int) ](count: SpaceSelectorController.cellsPerRow * SpaceSelectorController.cellsPerColumn, repeatedValue: (0, 0))
+        cardHolderMatrix = [ (Int, Int) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, 0))
         
         var cardNumber = 0
         
@@ -130,7 +103,7 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
             let startIndex = card.space.topLeftCorner - 1
             for xIndex in 0 ..< card.space.width {
                 for yIndex in 0 ..< card.space.height {
-                    cardHolderMatrix[ startIndex + (yIndex * SpaceSelectorController.cellsPerRow) + xIndex ] = (1, cardNumber)
+                    cardHolderMatrix[ startIndex + (yIndex * cellsPerRow) + xIndex ] = (1, cardNumber)
                 }
             }
             cardNumber += 1
@@ -185,7 +158,7 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
         let rect = CGRectForSpaces(spaces)
         let width = Int(rect.width)
         let height = Int(rect.height)
-        let topLeftCorner = Int(rect.origin.x) + Int(rect.origin.y - 1.0) * SpaceSelectorController.cellsPerRow + 1
+        let topLeftCorner = Int(rect.origin.x) + Int(rect.origin.y - 1.0) * cellsPerRow + 1
         return Card(corner: topLeftCorner , aWidth: width, aHeight: height)
     }
     
@@ -197,8 +170,8 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
         var combinedRect = CGRectZero
         
         for space in spaces {
-            let x = CGFloat(space % SpaceSelectorController.cellsPerRow)
-            let y = CGFloat(Int(floor(Double( space ) / Double( SpaceSelectorController.cellsPerRow ))) + 1)
+            let x = CGFloat(space % cellsPerRow)
+            let y = CGFloat(Int(floor(Double( space ) / Double( cellsPerRow ))) + 1)
             let width = CGFloat(1)
             let height = CGFloat(1)
             
@@ -218,95 +191,6 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
         
         let rect = CGRectForSpaces(spaces)
         return spaces.count == Int(rect.width * rect.height)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let superviewHeight = self.collectionView!.frame.size.height
-        let superviewWidth = self.collectionView!.frame.size.width
-        let vLineWidths = CGFloat(SpaceSelectorController.cellsPerRow - 1) * 0.5 // CGFloat(0) //
-        let hLineWidths = CGFloat(SpaceSelectorController.cellsPerColumn - 1) * 0.5 // CGFloat(0) //
-    
-        let width = (superviewWidth - vLineWidths) / CGFloat(SpaceSelectorController.cellsPerRow)
-        let height = (superviewHeight - hLineWidths) / CGFloat(SpaceSelectorController.cellsPerColumn)
-        return CGSizeMake(ceil(width), ceil(height))
-        
-    }
-
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return SpaceSelectorController.cellsPerRow * SpaceSelectorController.cellsPerColumn
-        
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        if !isEmptyCell(indexPath) {
-            return
-        }
-        
-        selectedSpaces.insert(indexPath.row)
-
-        if(isRectangular(selectedSpaces)) {
-            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
-            
-        }
-        
-    }
-    
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        if !isEmptyCell(indexPath) {
-            return
-            
-        }
-        
-        selectedSpaces.remove(indexPath.row)
-        if(isRectangular(selectedSpaces)) {
-            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
-            
-        }
-
-    }
-
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cellType = cardHolderMatrix[ indexPath.row ].0
-        let cardNumber = cardHolderMatrix[ indexPath.row ].1
-        
-        var identifier = ""
-        
-        if cellType == 0 {
-            identifier = emptyCellIdentifier
-            
-        } else if cellType == 1 {
-            identifier = lockedCellIdentifier
-            
-        } else if cellType == 2 {
-            if SessionInformation.currentSession.hasAdminRights() {
-                
-                
-            } else {
-                identifier = crossedCellIdentifier
-                
-            }
-            
-        }
-                
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        
-        return 0.0
-        
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        
-        return 0.0
-        
     }
     
     func isEmptyCell(indexPath: NSIndexPath) -> Bool {
@@ -337,4 +221,129 @@ class SpaceSelectorController : GradientViewController, UICollectionViewDelegate
         }
 
     }
+}
+
+extension SpaceSelectorController : PostDateSelector {
+    func didAddPostingDate(date: NSDate) {
+        postingDates.insert(BoardDate(withDate: date))
+    }
+    
+    func didRemovePostingDate(date: NSDate) {
+        postingDates.remove(BoardDate(withDate: date))
+    }
+    
+    func hasPostingDate(date: NSDate) -> Bool {
+        return postingDates.contains(BoardDate(withDate: date))
+    }
+    
+    func didChangeStartingDate(date: NSDate) {
+        calendarDate = BoardDate(withDate: date)
+    }
+    
+    func startingDate() -> NSDate {
+        return calendarDate.underlyingDate()
+    }
+    
+}
+
+extension SpaceSelectorController : UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cellsPerRow * cellsPerColumn
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cellType = cardHolderMatrix[ indexPath.row ].0
+        let cardNumber = cardHolderMatrix[ indexPath.row ].1
+        
+        var identifier = ""
+        
+        if cellType == 0 {
+            identifier = emptyCellIdentifier
+            
+        } else if cellType == 1 {
+            identifier = lockedCellIdentifier
+            
+        } else if cellType == 2 {
+            if SessionInformation.currentSession.hasAdminRights() {
+                
+                
+            } else {
+                identifier = crossedCellIdentifier
+                
+            }
+            
+        }
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
+        return cell
+    }
+}
+
+
+extension SpaceSelectorController : UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        if !isEmptyCell(indexPath) {
+            return
+        }
+        
+        selectedSpaces.insert(indexPath.row)
+        doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
+        
+        if(isRectangular(selectedSpaces) && postingDates.count > 0) {
+            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
+            
+        }
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        if !isEmptyCell(indexPath) {
+            return
+            
+        }
+        
+        selectedSpaces.remove(indexPath.row)
+        
+        doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
+        
+        
+        if(isRectangular(selectedSpaces) && postingDates.count > 0) {
+            
+            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
+            
+        }
+        
+    }
+    
+}
+
+extension SpaceSelectorController : UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let superviewHeight = self.collectionView!.frame.size.height
+        let superviewWidth = self.collectionView!.frame.size.width
+        let vLineWidths = CGFloat(cellsPerRow - 1) * 0.5 // CGFloat(0) //
+        let hLineWidths = CGFloat(cellsPerColumn - 1) * 0.5 // CGFloat(0) //
+        
+        let width = (superviewWidth - vLineWidths) / CGFloat(cellsPerRow)
+        let height = (superviewHeight - hLineWidths) / CGFloat(cellsPerColumn)
+        return CGSizeMake(ceil(width), ceil(height))
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        
+        return 0.0
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        
+        return 0.0
+        
+    }
+    
 }

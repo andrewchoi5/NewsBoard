@@ -102,7 +102,8 @@ extension ServerInterface {
             
             guard let responseData = data else { return }
             guard let handler = completion else { return }
-            guard let metaData = ServerResponseDeserializer.getResponse(responseData).documentMetaData else {                 handler()
+            guard let metaData = ServerResponseDeserializer.getResponse(responseData).documentMetaData else {
+                handler()
                 return
             }
             document.updateWithDocumentMetaData(metaData)
@@ -125,17 +126,32 @@ extension ServerInterface {
         
     }
     
-    static func updateDocument(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+    static func updateDocumentWithMetaData(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
         let request = putJSONRequestWithURLString("\(serverURL)/\(dbName)/\(document.id)")
         request.HTTPBody = CouchDBSerializer.getData(document)
         
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-//            let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
-//            guard let responseData = data else { return }
+            //            let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
+            //            guard let responseData = data else { return }
             guard let handler = completion else { return }
             handler()
             
         }).resume()
+    }
+    
+    static func updateDocumentWithNoMetaData(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+        ServerInterface.updateDocumentWithMetaData(document, inDatabase: dbName, completion: completion)
+        
+    }
+    
+    static func updateDocument(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+        if document.hasNoMetaData() {
+            ServerInterface.updateDocumentWithNoMetaData(document, inDatabase: dbName, completion: completion)
+            
+        } else {
+            ServerInterface.updateDocumentWithMetaData(document, inDatabase: dbName, completion: completion)
+            
+        }
     }
     
     static func deleteDocument(document: Document, completion: ((Void) -> Void)) {
@@ -196,71 +212,17 @@ class ServerResponse : NSObject {
     }
 }
 
-enum AuthenticationResult : Int {
-    case Success
-    case Unverified
-    case Failure
-    
-}
-
 extension ServerInterface {
-    
-    static func addAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
-        ServerInterface.addDocument(account, toDatabase: "accounts", completion: completion)
-        
-    }
-    
-    static func updateAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
-        ServerInterface.updateDocument(account, inDatabase: "accounts", completion: completion)
-        
-    }
-    
-    static func checkIfEmailExists(withEmail email: String, completion: ((Bool) -> Void)) {
-        ServerInterface.getAccountWithEmail(withEmail: email) { (accounts) in
-            completion( accounts.count > 0 )
-        }
-        
-    }
-    
-    static func getAccountWithEmailAndPassword(withEmail email: String, andPassword password: String, completion: (([ Account ]) -> Void)) {
-        ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email, andPassword: password), inDatabase: "accounts") { (documents) in
-            completion( DocumentToAccountConverter.getAccounts( documents ) )
-        }
-        
-    }
-    
-    static func getAccountWithEmail(withEmail email: String, completion: (([ Account ]) -> Void)) {
-        ServerInterface.getAccountWithEmailAndPassword(withEmail: email, andPassword: "", completion: completion)
-        
-    }
-    
-    static func authenticateWithEmail(email: String, andPassword password: String, completion: (AuthenticationResult) -> Void) {
-        ServerInterface.getAccountWithEmailAndPassword(withEmail: email, andPassword: password) { (accounts) in
-            var result : AuthenticationResult!
-            if accounts.count == 0 {
-                result = .Failure
-                
-            } else if !accounts.first!.verified {
-                result = .Unverified
-                
-            } else {
-                result = .Success
-                
-            }
-            completion( result )
-        }
-    }
-    
     static func addCard(card: Card, completion: ((Void) -> Void)?) {
         ServerInterface.addDocument(card, toDatabase: "ibmboard", completion: completion)
         
     }
-
+    
     
     static func getCardsFromDate(firstDate : NSDate, toDate secondDate : NSDate, completion: ([Card]) -> Void) {
         ServerInterface.getDocuments(withQuery: CardsForDateInterval(fromDate: firstDate, toDate: secondDate),inDatabase: "ibmboard") { (documents) in
-                completion(DocumentToCardConverter.getCards(documents))
-                
+            completion(DocumentToCardConverter.getCards(documents))
+            
         }
         
     }
@@ -274,4 +236,46 @@ extension ServerInterface {
         ServerInterface.getCardsFromDate(NSDate(), toDate: NSDate(), completion: completion)
         
     }
+    
+}
+
+
+extension ServerInterface {
+    
+    static func addAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
+        ServerInterface.addDocument(account, toDatabase: "accounts", completion: completion)
+        
+    }
+    
+    static func updateAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
+        ServerInterface.updateDocument(account, inDatabase: "accounts", completion: completion)
+        
+    }
+    
+    static func getAccountsWithEmailAndPassword(withEmail email: String, andPassword password: String, completion: ([ Account ]) -> Void) {
+        ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email, andPassword: password), inDatabase: "accounts") { (documents) in
+            completion( DocumentToAccountConverter.getAccounts( documents ) )
+        }
+        
+    }
+    
+    static func getAccountWithEmail(withEmail email: String, andPassword password: String, completion: ( Account? ) -> Void) {
+        ServerInterface.getAccountsWithEmailAndPassword(withEmail: email, andPassword: password) { (accounts) in
+            completion(accounts.first)
+        }
+        
+    }
+    
+    static func getAccountWithEmail(withEmail email: String, completion: ( Account? ) -> Void) {
+        ServerInterface.getAccountWithEmail(withEmail: email, andPassword: "", completion: completion)
+        
+    }
+    
+    static func checkIfEmailExists(withEmail email: String, completion: ((Bool) -> Void)) {
+        ServerInterface.getAccountWithEmail(withEmail: email) { (account) in
+            completion( account != nil )
+        }
+        
+    }
+    
 }

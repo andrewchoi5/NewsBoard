@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D45E3D01CBD7344007B8DF3 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */; };
-		2D45E3D11CBD7344007B8DF3 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */; };
 		39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
 		39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
@@ -77,6 +75,9 @@
 		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
+		39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */; };
+		39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; };
+		39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39B61D691CBC622C00CDB05A /* UIDeviceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */; };
 		39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
 		39C61EFF1C981122002C7E12 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61EFE1C981122002C7E12 /* Card.swift */; };
@@ -121,13 +122,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		39E4E2FC1CBD66450043692A /* Embed Frameworks */ = {
+		39AE8D551CBF11C2000F0D39 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2D45E3D11CBD7344007B8DF3 /* MailCore.framework in Embed Frameworks */,
+				39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +136,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "/Users/afrolkin/Library/Developer/Xcode/DerivedData/IBMBoard-clhlvtyykkuamkaheylhyjsazeec/Build/Products/Debug-iphoneos/MailCore.framework"; sourceTree = "<absolute>"; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
 		391584AB1CAB96B200E37F99 /* ProgressControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControl.swift; sourceTree = "<group>"; };
@@ -157,10 +157,8 @@
 		393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		393C88CD1CB8427E009DA1AA /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		393CF2221CBCE65600817892 /* WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImage.h; sourceTree = "<group>"; };
-		393E099C1CADABF300988EAA /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/IBMBoard-grmfviqfqtvusxbhfwkrinklckbk/Build/Products/Debug-iphonesimulator/MailCore.framework"; sourceTree = "<group>"; };
 		393E099E1CADAC1E00988EAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		393E09A01CADAC2300988EAA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		393E09A31CADB4E400988EAA /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../mailcore2/build-mac/build/Debug/MailCore.framework"; sourceTree = "<group>"; };
 		394CD6561C91819200AB28F1 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendar.h; path = JTCalendar/JTCalendar/JTCalendar.h; sourceTree = "<group>"; };
 		394CD6571C91819200AB28F1 /* JTCalendarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegate.h; path = JTCalendar/JTCalendar/JTCalendarDelegate.h; sourceTree = "<group>"; };
 		394CD6581C91819200AB28F1 /* JTCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendarManager.h; path = JTCalendar/JTCalendar/JTCalendarManager.h; sourceTree = "<group>"; };
@@ -207,6 +205,8 @@
 		39826A9A1C8CDAFC00674734 /* SessionInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformation.swift; sourceTree = "<group>"; };
 		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
+		39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPresenter.swift; sourceTree = "<group>"; };
+		39AE8D521CBF11C2000F0D39 /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MailCore.framework"; sourceTree = "<absolute>"; };
 		39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
 		39C61EFE1C981122002C7E12 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		39C61F031C98168F002C7E12 /* CardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
@@ -215,7 +215,6 @@
 		39D878571C766F21007E0CD5 /* DefaultCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCellView.swift; sourceTree = "<group>"; };
 		39DC847E1CAC804200F2DB4F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		39DC84801CAC804900F2DB4F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		39DC84A11CAC885B00F2DB4F /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../mailcore2/build-mac/build/Debug-iphoneos/MailCore.framework"; sourceTree = "<group>"; };
 		39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectorController.swift; sourceTree = "<group>"; };
 		39E5A8651C7D17EA00DFC0F5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		39E5A8761C7D29C900DFC0F5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -278,7 +277,7 @@
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
-				2D45E3D01CBD7344007B8DF3 /* MailCore.framework in Frameworks */,
+				39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */,
 				39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +295,6 @@
 		392CF1121C762FCF00090214 = {
 			isa = PBXGroup;
 			children = (
-				2D45E3CF1CBD7344007B8DF3 /* MailCore.framework */,
 				393426B51CBC9FEB0089F48F /* roboto_regular.ttf */,
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
 				39022D031C8A545B00464BC1 /* VideoAPIManager.swift */,
@@ -492,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				39B61D631CBC564900CDB05A /* Posters */,
+				39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */,
 				393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */,
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
@@ -503,11 +502,9 @@
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				393E09A31CADB4E400988EAA /* MailCore.framework */,
+				39AE8D521CBF11C2000F0D39 /* MailCore.framework */,
 				393E09A01CADAC2300988EAA /* Security.framework */,
 				393E099E1CADAC1E00988EAA /* CFNetwork.framework */,
-				393E099C1CADABF300988EAA /* MailCore.framework */,
-				39DC84A11CAC885B00F2DB4F /* MailCore.framework */,
 				39DC84801CAC804900F2DB4F /* Security.framework */,
 				39DC847E1CAC804200F2DB4F /* CFNetwork.framework */,
 				39EB94091C7E67950053F73F /* libz.tbd */,
@@ -579,7 +576,7 @@
 				392CF1171C762FCF00090214 /* Sources */,
 				392CF1181C762FCF00090214 /* Frameworks */,
 				392CF1191C762FCF00090214 /* Resources */,
-				39E4E2FC1CBD66450043692A /* Embed Frameworks */,
+				39AE8D551CBF11C2000F0D39 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -710,6 +707,7 @@
 				394CD6871C91825500AB28F1 /* JTCalendarWeekDayView.m in Sources */,
 				39EB93E91C7E49BF0053F73F /* APIManager.swift in Sources */,
 				394CD6841C91825500AB28F1 /* JTCalendarDayView.m in Sources */,
+				39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */,
 				39EB93F71C7E66600053F73F /* TBXML+Compression.m in Sources */,
 				393C88CC1CB5C82C009DA1AA /* GradientViewController.swift in Sources */,
 				3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */,
@@ -904,7 +902,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mailcore2/build-mac",
+				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -938,7 +939,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mailcore2/build-mac",
+				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PosterController : UIViewController {
+class PosterController : KeyboardPresenter {
     
     var selectedCardSpace : Card = Card()
 

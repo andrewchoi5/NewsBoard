@@ -1,5 +1,5 @@
 //
-//  BoardViewController.swift
+//  GradientViewController.swift
 //  IBMBoard
 //
 //  Created by Zamiul Haque on 2016-04-06.

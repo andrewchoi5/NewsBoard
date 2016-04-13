@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
 
     @IBOutlet weak var emailID: RoundedTextBox!
     @IBOutlet weak var password: RoundedTextBox!
@@ -19,9 +19,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     static var RememberCredentialsKey = "RememberCredentialsKey"
     static var LoginUsernameKey = "LoginUsernameKey"
     static var LoginPasswordKey = "LoginPasswordKey"
-    
     static var LoginSuccessfulSegue = "LoginSuccessfulSegue"
     
+    var userAccount : Account!
     
     func registerDelegates() {
         emailID.delegate = self
@@ -61,17 +61,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func didPresentKeyboardWithFrame(frame: CGRect) {
+        self.view.constraintWithID("logoToEmailIDConstraint")!.constant += 70.0
+        self.view.setNeedsUpdateConstraints()
+    }
+    
+    override func didDismissKeyboard() {
+        self.view.constraintWithID("logoToEmailIDConstraint")!.constant -= 70.0
+        self.view.setNeedsUpdateConstraints()
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerDelegates()
         
         emailID.keyboardType = .EmailAddress
+        emailID.autocapitalizationType = .None
+        emailID.autocorrectionType = .No
+        emailID.spellCheckingType = .No
         
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
-        
         emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
-        
         password.text = userDefaults.stringForKey(LoginViewController.LoginPasswordKey)
 
     }
@@ -80,29 +92,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if(rememberCredentials.on) {
             userDefaults.setBool(true, forKey: LoginViewController.RememberCredentialsKey)
-            
             userDefaults.setObject(emailID.text, forKey: LoginViewController.LoginUsernameKey)
-            
             userDefaults.setObject(password.text, forKey: LoginViewController.LoginPasswordKey)
             
         }
         
-        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+//        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
 
-        
-//        ServerInterface.authenticateWithEmail(emailID.text!, andPassword: password.text!) { (result) in
-//            if result == .Success {
-//                self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
-//                
-//            } else if result == .Unverified {
-//                
-//                
-//            } else {
-//                
-//                
-//            }
-//
-//        }
+        ServerInterface.getAccountWithEmail(withEmail: emailID.text!, andPassword: password.text!) { (account) in
+            
+            if account == nil {
+                self.emailID.showInvalid()
+                self.password.showInvalid()
+                return
+            }
+            
+            self.userAccount = account!
+            
+            if !account!.verified {
+                self.performSegueWithIdentifier("reverificationSegue", sender: self)
+                return
+                
+            }
+            
+            self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+
+        }
         
     }
 
@@ -128,6 +143,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return .Portrait
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        
+        if segue.identifier == "reverificationSegue" {
+            (segue.destinationViewController as! AccountVerificationController).accountToVerify = userAccount
+            
+        }
     }
 }
 

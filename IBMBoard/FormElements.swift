@@ -110,9 +110,60 @@ public func defaultFontOfSize(size: Double) -> UIFont {
     let textField = UITextField()
     weak var delegate : UITextFieldDelegate?
     var isInvalid = false
-    @IBInspectable var keyboardType : UIKeyboardType = .Default {
-        didSet {
-            textField.keyboardType = keyboardType
+    
+    var secureTextEntry : Bool {
+        get { return textField.secureTextEntry }
+        set(value) {
+            textField.secureTextEntry = value
+        }
+    }
+    
+    var autocapitalizationType : UITextAutocapitalizationType {
+        get { return textField.autocapitalizationType }
+        set(value) {
+            textField.autocapitalizationType = value
+        }
+    }
+    
+    var autocorrectionType : UITextAutocorrectionType {
+        get { return textField.autocorrectionType }
+        set(value) {
+            textField.autocorrectionType = value
+        }
+    }
+    
+    var spellCheckingType : UITextSpellCheckingType {
+        get { return textField.spellCheckingType }
+        set(value) {
+            textField.spellCheckingType = value
+        }
+    }
+    
+    var keyboardType : UIKeyboardType {
+        get { return textField.keyboardType }
+        set(value) {
+            textField.keyboardType = value
+        }
+    }
+    
+    var keyboardAppearance : UIKeyboardAppearance {
+        get { return textField.keyboardAppearance }
+        set(value) {
+            textField.keyboardAppearance = value
+        }
+    }
+    
+    var returnKeyType : UIReturnKeyType {
+        get { return textField.returnKeyType }
+        set(value) {
+            textField.returnKeyType = value
+        }
+    }
+    
+    @IBInspectable var enablesReturnKeyAutomatically : Bool {
+        get { return textField.enablesReturnKeyAutomatically }
+        set(value) {
+            textField.enablesReturnKeyAutomatically = value
         }
     }
     
@@ -125,39 +176,33 @@ public func defaultFontOfSize(size: Double) -> UIFont {
         }
     }
     
-    @IBInspectable var secureTextEntry : Bool = false {
-        didSet {
-            self.setNeedsDisplay()
-        }
-    }
-    
     @IBInspectable var textColor : UIColor = UIColor.whiteColor() {
         didSet {
-            self.setNeedsDisplay()
+//            self.setNeedsDisplay()
         }
     }
     
     @IBInspectable var placeholderText : String = "Placeholder Text" {
         didSet {
-            self.setNeedsDisplay()
+//            self.setNeedsDisplay()
         }
     }
     
     @IBInspectable var insets : CGSize = CGSizeMake(10.0,10.0) {
         didSet {
-            self.setNeedsDisplay()
+//            self.setNeedsDisplay()
         }
     }
     
     @IBInspectable var placeholderColor : UIColor = UIColor.whiteColor() {
         didSet {
-            self.setNeedsDisplay()
+//            self.setNeedsDisplay()
         }
     }
     
     @IBInspectable var placeholderSize : Double = 12.0 {
         didSet {
-            self.setNeedsDisplay()
+//            self.setNeedsDisplay()
         }
     }
     
@@ -182,6 +227,9 @@ public func defaultFontOfSize(size: Double) -> UIFont {
     
     func commonInit() {
 //        self.layer.addSublayer(makeBottomBorder())
+//        self.addTarget(self, action: "textField", forControlEvents: .)
+//        self.userInteractionEnabled = false
+//        textField.userInteractionEnabled = true
         self.clipsToBounds = false
         self.addSubview(textField)
 
@@ -210,9 +258,9 @@ public func defaultFontOfSize(size: Double) -> UIFont {
         
         textField.delegate = self
         textField.frame = CGRectInset(self.bounds, insets.width, insets.height)
-        textField.secureTextEntry = self.secureTextEntry
         textField.textColor = textColor
         textField.tintColor = textColor
+        textField.keyboardAppearance = .Dark
         self.layer.cornerRadius = self.frame.size.height / 2
         
         let placeholderString = NSMutableAttributedString(string: placeholderText)

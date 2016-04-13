@@ -9,20 +9,22 @@
 import Foundation
 import UIKit
 
-class AccountVerificationController : UIViewController {
+class AccountVerificationController : KeyboardPresenter {
     var accountToVerify : Account!
     
-    @IBOutlet weak var verificationCodeText: UITextField!
+    @IBOutlet weak var verificationCodeText: RoundedTextBox!
     
     @IBAction func didAttemptToVerify() {
         
         guard let code = verificationCodeText.text else { return }
         if accountToVerify.verifyWithCode(code) {
+            accountToVerify.verified = false
             ServerInterface.updateAccount(withAccount: accountToVerify, completion: {
                 self.performSegueWithIdentifier("verificationSuccessSegue", sender: self)
             })
             
         } else {
+            verificationCodeText.showInvalid()
             errorDialogue("Your verification code is invalid")
             
         }
@@ -32,4 +34,15 @@ class AccountVerificationController : UIViewController {
         print(message)
     }
     
+    override func didDismissKeyboard() {
+        self.view.constraintWithID("centerVerificationCodeConstraint")!.constant += 40.0
+    }
+    
+    override func didPresentKeyboardWithFrame(frame: CGRect) {
+        self.view.constraintWithID("centerVerificationCodeConstraint")!.constant -= 40.0
+    }
+    
+    @IBAction func prepareForUnwind(segue : UIStoryboardSegue) {
+    
+    }    
 }

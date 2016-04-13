@@ -51,26 +51,26 @@ class BoardLayout : UICollectionViewFlowLayout {
         return attributesArray
     }
     
-    override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        
-        let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
-        attributes!.alpha = 0.0
-        
-//        let size = self.collectionView!.frame.size
-//        attributes!.center = CGPointMake(size.width / 2.0, size.height / 2.0)
-        //        attributes?.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(4.0, 4.0), CGFloat(M_PI))
-        //        attributes?.center = CGPointMake(CGRectGetMidX(self.collectionView!.bounds), CGRectGetMaxY(self.collectionView!.bounds))
-        return attributes
-    }
+//    override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+//        
+//        let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
+//        attributes!.alpha = 0.0
+//        
+////        let size = self.collectionView!.frame.size
+////        attributes!.center = CGPointMake(size.width / 2.0, size.height / 2.0)
+//        //        attributes?.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(4.0, 4.0), CGFloat(M_PI))
+//        //        attributes?.center = CGPointMake(CGRectGetMidX(self.collectionView!.bounds), CGRectGetMaxY(self.collectionView!.bounds))
+//        return attributes
+//    }
     
     
-    override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        
-        let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
-        attributes?.alpha = 1.0
-        return attributes
-        
-    }
+//    override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+//        
+//        let attributes = self.collectionView?.layoutAttributesForItemAtIndexPath(itemIndexPath)
+//        attributes?.alpha = 1.0
+//        return attributes
+//        
+//    }
     
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         if delegate == nil {

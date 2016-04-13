@@ -20,6 +20,19 @@ class CardsForDateInterval : Query {
     }
 }
 
+class DocumentQuery : Query {
+    
+    init(document: Document) {
+        super.init()
+        
+        if document.infoKey != nil {
+            
+        }
+        
+    }
+    
+}
+
 class AccountQuery : Query {
     
     override init() {
@@ -47,8 +60,6 @@ class AccountQuery : Query {
         
         self.addSelector("account.verificationCode", .Equals, aCode)
     }
-    
-    
     
 }
 
@@ -123,6 +134,10 @@ class Document {
         
     }
     
+    func hasNoMetaData() -> Bool {
+        return id == nil && revision == nil
+    }
+    
     init(dictionary : [ String : AnyObject ]) {
         
         id = dictionary["_id"] as! String
@@ -148,6 +163,16 @@ class Document {
         infoKey = document.infoKey
         info = document.info
         attachments = document.attachments
+    }
+    
+    var revisionNumber : Int {
+        guard let rangeOfDash = revision.rangeOfString("-") else { return 0 }
+        guard let number = Int(revision.substringToIndex(rangeOfDash.endIndex.predecessor())) else { return 0 }
+        return number
+    }
+    
+    func isOlderRevisionThan(document: Document) -> Bool {
+        return self.revisionNumber < document.revisionNumber
     }
     
     func addAttachment(attachmentData: NSData, mimeType: String, name: String) {
@@ -192,7 +217,7 @@ class Document {
 
 extension Document : Hashable {
     var hashValue: Int {
-        return revision.hashValue ^ id.hashValue
+        return id.hashValue
         
     }
 }
@@ -200,7 +225,7 @@ extension Document : Hashable {
 extension Document : Equatable { }
 
 func ==(lhs: Document, rhs: Document) -> Bool {
-    return lhs.revision == rhs.revision && lhs.id == rhs.id
+    return lhs.id == rhs.id
 }
 
 struct Space {
@@ -324,6 +349,10 @@ class Card : Document {
                 
     }
     
+    func isOlderCardThan(card: Card) -> Bool {
+        return self.isOlderRevisionThan(card)
+    }
+    
     override init() {
         super.init()
         
@@ -354,7 +383,7 @@ class Account : Document {
     }
     
     override init(document: Document) {
-        super.init()
+        super.init(document: document)
         
         email = document.info["email"] as! String
         password = document.info["password"] as! String

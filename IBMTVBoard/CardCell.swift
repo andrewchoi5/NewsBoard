@@ -156,13 +156,6 @@ class AnnouncementCardCell : CardCell {
         
         showPhoto()
         self.announcementPhoto.image = nil
-//        self.announcementPhoto.frame = CGRectMake(8.0, 152.0, 530.0, 259.0) // CGRectZero //
-//        self.announcementText.frame = CGRectMake(31.0, 97.0, 495.0, 33.0) // CGRectZero //
-//        self.titleLabel.frame = CGRectMake(92.0, 8.0, 446.0, 70.0) // CGRectZero // 
-//        self.titleLabel.text = "Title"
-//        self.announcementText.text = "Message Body"
-//        self.setNeedsUpdateConstraints()
-//        self.setNeedsDisplay()
     }
     
     override func updateConstraints() {

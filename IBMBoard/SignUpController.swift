@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SignUpController : UIViewController, UITextFieldDelegate {
+class SignUpController : KeyboardPresenter, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: RoundedTextBox!
     @IBOutlet weak var passwordField: RoundedTextBox!
@@ -67,12 +67,27 @@ class SignUpController : UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func didPresentKeyboardWithFrame(frame: CGRect) {
+        self.view.constraintWithID("SignUpToBottomGuideConstraint")!.constant += 110.0
+        self.view.setNeedsUpdateConstraints()
+    }
+    
+    override func didDismissKeyboard() {
+        self.view.constraintWithID("SignUpToBottomGuideConstraint")!.constant -= 110.0
+        self.view.setNeedsUpdateConstraints()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerDelegates()
         
         emailField.keyboardType = .EmailAddress
+        emailField.autocapitalizationType = .None
+        emailField.autocorrectionType = .No
+        emailField.spellCheckingType = .No
+        emailField.keyboardAppearance = .Dark
         
         emailField.isInvalid = true
         passwordField.isInvalid = true
@@ -100,7 +115,7 @@ class SignUpController : UIViewController, UITextFieldDelegate {
                 ServerInterface.addAccount(withAccount: self.newAccount, completion: {
 //                  
                     ServerInterface.sendVerificationEmailToAccount(self.newAccount)
-                    self.performSegueWithIdentifier("signUpSuccessSegue", sender: self)
+                    self.performSegueWithIdentifier("verificationSegue", sender: self)
                     print("Account added")
                 })
                 
@@ -116,7 +131,7 @@ class SignUpController : UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         
-        if segue.identifier == "signUpSuccessSegue" {
+        if segue.identifier == "verificationSegue" {
             
             (segue.destinationViewController as! AccountVerificationController).accountToVerify = newAccount
             
