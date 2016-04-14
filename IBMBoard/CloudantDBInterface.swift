@@ -20,19 +20,6 @@ class CardsForDateInterval : Query {
     }
 }
 
-class DocumentQuery : Query {
-    
-    init(document: Document) {
-        super.init()
-        
-        if document.infoKey != nil {
-            
-        }
-        
-    }
-    
-}
-
 class AccountQuery : Query {
     
     override init() {
@@ -51,7 +38,7 @@ class AccountQuery : Query {
         self.init()
         
         self.addSelector("account.email", .Equals, anEmail)
-        self.addSelector("account.password", .Equals, aPassword)
+        self.addSelector("account.password", .Equals, Account.hashPassword(aPassword))
         
     }
     
@@ -361,6 +348,8 @@ class Card : Document {
 }
 
 class Account : Document {
+    private static let hashSalt = "$2a$10$r6zvKtUDo4yvnc2u3Gww6u"
+    
     var email : String!
     var password : String!
     var verified = false
@@ -378,7 +367,7 @@ class Account : Document {
         super.init()
         
         email = anEmail
-        password = aPassword
+        password = Account.hashPassword(aPassword)
         
     }
     
@@ -388,6 +377,11 @@ class Account : Document {
         email = document.info["email"] as! String
         password = document.info["password"] as! String
         verified = document.info["verified"] as! Bool
+    }
+    
+    static func hashPassword(password: String) -> String {
+        return password.hashedString(withSalt: Account.hashSalt)
+        
     }
     
     static func testAccount() -> Account {

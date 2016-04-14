@@ -27,4 +27,9 @@ extension String {
         return stringData.base64EncodedString()
     }
     
+    func hashedString(withSalt salt: String) -> String {
+        return JFBCrypt.hashPassword(self, withSalt: salt)
+        
+    }
+    
 }

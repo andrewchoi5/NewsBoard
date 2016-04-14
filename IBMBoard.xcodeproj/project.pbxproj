@@ -46,6 +46,8 @@
 		393426B61CBCA4860089F48F /* roboto_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393426B51CBC9FEB0089F48F /* roboto_regular.ttf */; };
 		393C88CC1CB5C82C009DA1AA /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */; };
 		393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CD1CB8427E009DA1AA /* GridView.swift */; };
+		393CB2141CBF47F500648B5B /* JFBCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB1BB1CBF47F500648B5B /* JFBCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		393CB2331CBF47F500648B5B /* JFRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB2021CBF47F500648B5B /* JFRandom.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		394606C01C91605F00E2633C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6591C91819200AB28F1 /* JTCalendarManager.m */; };
 		394CD6621C91819200AB28F1 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD65B1C91819200AB28F1 /* JTCalendarSettings.m */; };
@@ -156,6 +158,98 @@
 		393426B51CBC9FEB0089F48F /* roboto_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_regular.ttf; sourceTree = "<group>"; };
 		393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		393C88CD1CB8427E009DA1AA /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		393CB1B61CBF47F500648B5B /* JFAes256Codec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFAes256Codec.h; path = JFCommon/JFAes256Codec.h; sourceTree = "<group>"; };
+		393CB1B71CBF47F500648B5B /* JFAes256Codec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFAes256Codec.m; path = JFCommon/JFAes256Codec.m; sourceTree = "<group>"; };
+		393CB1B81CBF47F500648B5B /* JFBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFBase64.h; path = JFCommon/JFBase64.h; sourceTree = "<group>"; };
+		393CB1B91CBF47F500648B5B /* JFBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFBase64.m; path = JFCommon/JFBase64.m; sourceTree = "<group>"; };
+		393CB1BA1CBF47F500648B5B /* JFBCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFBCrypt.h; path = JFCommon/JFBCrypt.h; sourceTree = "<group>"; };
+		393CB1BB1CBF47F500648B5B /* JFBCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFBCrypt.m; path = JFCommon/JFBCrypt.m; sourceTree = "<group>"; };
+		393CB1BC1CBF47F500648B5B /* JFBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFBox.h; path = JFCommon/JFBox.h; sourceTree = "<group>"; };
+		393CB1BD1CBF47F500648B5B /* JFBoxDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFBoxDecoder.h; path = JFCommon/JFBoxDecoder.h; sourceTree = "<group>"; };
+		393CB1BE1CBF47F500648B5B /* JFBoxDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFBoxDecoder.m; path = JFCommon/JFBoxDecoder.m; sourceTree = "<group>"; };
+		393CB1BF1CBF47F500648B5B /* JFBoxDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFBoxDefines.h; path = JFCommon/JFBoxDefines.h; sourceTree = "<group>"; };
+		393CB1C01CBF47F500648B5B /* JFBoxEncodable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFBoxEncodable.h; path = JFCommon/JFBoxEncodable.h; sourceTree = "<group>"; };
+		393CB1C11CBF47F500648B5B /* JFBoxEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFBoxEncoder.h; path = JFCommon/JFBoxEncoder.h; sourceTree = "<group>"; };
+		393CB1C21CBF47F500648B5B /* JFBoxEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFBoxEncoder.m; path = JFCommon/JFBoxEncoder.m; sourceTree = "<group>"; };
+		393CB1C31CBF47F500648B5B /* JFColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFColorUtil.h; path = JFCommon/JFColorUtil.h; sourceTree = "<group>"; };
+		393CB1C41CBF47F500648B5B /* JFColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFColorUtil.m; path = JFCommon/JFColorUtil.m; sourceTree = "<group>"; };
+		393CB1C51CBF47F500648B5B /* JFCoordinateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFCoordinateFormatter.h; path = JFCommon/JFCoordinateFormatter.h; sourceTree = "<group>"; };
+		393CB1C61CBF47F500648B5B /* JFCoordinateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFCoordinateFormatter.m; path = JFCommon/JFCoordinateFormatter.m; sourceTree = "<group>"; };
+		393CB1C71CBF47F500648B5B /* JFDeviceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFDeviceDetector.h; path = JFCommon/JFDeviceDetector.h; sourceTree = "<group>"; };
+		393CB1C81CBF47F500648B5B /* JFDeviceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFDeviceDetector.m; path = JFCommon/JFDeviceDetector.m; sourceTree = "<group>"; };
+		393CB1C91CBF47F500648B5B /* JFGC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFGC.h; path = JFCommon/JFGC.h; sourceTree = "<group>"; };
+		393CB1CA1CBF47F500648B5B /* JFGuidGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFGuidGenerator.h; path = JFCommon/JFGuidGenerator.h; sourceTree = "<group>"; };
+		393CB1CB1CBF47F500648B5B /* JFGuidGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFGuidGenerator.m; path = JFCommon/JFGuidGenerator.m; sourceTree = "<group>"; };
+		393CB1CC1CBF47F500648B5B /* JFGuidUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFGuidUtil.h; path = JFCommon/JFGuidUtil.h; sourceTree = "<group>"; };
+		393CB1CD1CBF47F500648B5B /* JFGuidUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFGuidUtil.m; path = JFCommon/JFGuidUtil.m; sourceTree = "<group>"; };
+		393CB1CE1CBF47F500648B5B /* JFICloudUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFICloudUtil.h; path = JFCommon/JFICloudUtil.h; sourceTree = "<group>"; };
+		393CB1CF1CBF47F500648B5B /* JFICloudUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFICloudUtil.m; path = JFCommon/JFICloudUtil.m; sourceTree = "<group>"; };
+		393CB1D01CBF47F500648B5B /* JFImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFImageUtil.h; path = JFCommon/JFImageUtil.h; sourceTree = "<group>"; };
+		393CB1D11CBF47F500648B5B /* JFImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFImageUtil.m; path = JFCommon/JFImageUtil.m; sourceTree = "<group>"; };
+		393CB1D21CBF47F500648B5B /* JFInterruptableActionPerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFInterruptableActionPerformer.h; path = JFCommon/JFInterruptableActionPerformer.h; sourceTree = "<group>"; };
+		393CB1D31CBF47F500648B5B /* JFInterruptableActionPerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFInterruptableActionPerformer.m; path = JFCommon/JFInterruptableActionPerformer.m; sourceTree = "<group>"; };
+		393CB1D41CBF47F500648B5B /* JFLocaleMatchUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFLocaleMatchUtil.h; path = JFCommon/JFLocaleMatchUtil.h; sourceTree = "<group>"; };
+		393CB1D51CBF47F500648B5B /* JFLocaleMatchUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFLocaleMatchUtil.m; path = JFCommon/JFLocaleMatchUtil.m; sourceTree = "<group>"; };
+		393CB1D61CBF47F500648B5B /* JFMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFMacros.h; path = JFCommon/JFMacros.h; sourceTree = "<group>"; };
+		393CB1D71CBF47F500648B5B /* JFNetworkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFNetworkUtil.h; path = JFCommon/JFNetworkUtil.h; sourceTree = "<group>"; };
+		393CB1D81CBF47F500648B5B /* JFNetworkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFNetworkUtil.m; path = JFCommon/JFNetworkUtil.m; sourceTree = "<group>"; };
+		393CB1D91CBF47F500648B5B /* JFNoCutPasteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFNoCutPasteTextField.h; path = JFCommon/JFNoCutPasteTextField.h; sourceTree = "<group>"; };
+		393CB1DA1CBF47F500648B5B /* JFNoCutPasteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFNoCutPasteTextField.m; path = JFCommon/JFNoCutPasteTextField.m; sourceTree = "<group>"; };
+		393CB1DB1CBF47F500648B5B /* JFOpenGLAdvanceable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLAdvanceable.h; path = JFCommon/JFOpenGLAdvanceable.h; sourceTree = "<group>"; };
+		393CB1DC1CBF47F500648B5B /* JFOpenGLCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLCamera.h; path = JFCommon/JFOpenGLCamera.h; sourceTree = "<group>"; };
+		393CB1DD1CBF47F500648B5B /* JFOpenGLCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLCamera.m; path = JFCommon/JFOpenGLCamera.m; sourceTree = "<group>"; };
+		393CB1DE1CBF47F500648B5B /* JFOpenGLCStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLCStructs.h; path = JFCommon/JFOpenGLCStructs.h; sourceTree = "<group>"; };
+		393CB1DF1CBF47F500648B5B /* JFOpenGLMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLMatrix.h; path = JFCommon/JFOpenGLMatrix.h; sourceTree = "<group>"; };
+		393CB1E01CBF47F500648B5B /* JFOpenGLMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLMatrix.m; path = JFCommon/JFOpenGLMatrix.m; sourceTree = "<group>"; };
+		393CB1E11CBF47F500648B5B /* JFOpenGLPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLPoint.h; path = JFCommon/JFOpenGLPoint.h; sourceTree = "<group>"; };
+		393CB1E21CBF47F500648B5B /* JFOpenGLPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLPoint.m; path = JFCommon/JFOpenGLPoint.m; sourceTree = "<group>"; };
+		393CB1E31CBF47F500648B5B /* JFOpenGLPositionable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLPositionable.h; path = JFCommon/JFOpenGLPositionable.h; sourceTree = "<group>"; };
+		393CB1E41CBF47F500648B5B /* JFOpenGLQuad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLQuad.h; path = JFCommon/JFOpenGLQuad.h; sourceTree = "<group>"; };
+		393CB1E51CBF47F500648B5B /* JFOpenGLQuad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLQuad.m; path = JFCommon/JFOpenGLQuad.m; sourceTree = "<group>"; };
+		393CB1E61CBF47F500648B5B /* JFOpenGLRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLRenderable.h; path = JFCommon/JFOpenGLRenderable.h; sourceTree = "<group>"; };
+		393CB1E71CBF47F500648B5B /* JFOpenGLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLScene.h; path = JFCommon/JFOpenGLScene.h; sourceTree = "<group>"; };
+		393CB1E81CBF47F500648B5B /* JFOpenGLScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLScene.m; path = JFCommon/JFOpenGLScene.m; sourceTree = "<group>"; };
+		393CB1E91CBF47F500648B5B /* JFOpenGLTextureImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLTextureImage.h; path = JFCommon/JFOpenGLTextureImage.h; sourceTree = "<group>"; };
+		393CB1EA1CBF47F500648B5B /* JFOpenGLTextureImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLTextureImage.m; path = JFCommon/JFOpenGLTextureImage.m; sourceTree = "<group>"; };
+		393CB1EB1CBF47F500648B5B /* JFOpenGLTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLTriangle.h; path = JFCommon/JFOpenGLTriangle.h; sourceTree = "<group>"; };
+		393CB1EC1CBF47F500648B5B /* JFOpenGLTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLTriangle.m; path = JFCommon/JFOpenGLTriangle.m; sourceTree = "<group>"; };
+		393CB1ED1CBF47F500648B5B /* JFOpenGLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLUtil.h; path = JFCommon/JFOpenGLUtil.h; sourceTree = "<group>"; };
+		393CB1EE1CBF47F500648B5B /* JFOpenGLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLUtil.m; path = JFCommon/JFOpenGLUtil.m; sourceTree = "<group>"; };
+		393CB1EF1CBF47F500648B5B /* JFOpenGLVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLVertex.h; path = JFCommon/JFOpenGLVertex.h; sourceTree = "<group>"; };
+		393CB1F01CBF47F500648B5B /* JFOpenGLVertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLVertex.m; path = JFCommon/JFOpenGLVertex.m; sourceTree = "<group>"; };
+		393CB1F11CBF47F500648B5B /* JFOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFOpenGLView.h; path = JFCommon/JFOpenGLView.h; sourceTree = "<group>"; };
+		393CB1F21CBF47F500648B5B /* JFOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFOpenGLView.m; path = JFCommon/JFOpenGLView.m; sourceTree = "<group>"; };
+		393CB1F31CBF47F500648B5B /* JFPopularityCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPopularityCache.h; path = JFCommon/JFPopularityCache.h; sourceTree = "<group>"; };
+		393CB1F41CBF47F500648B5B /* JFPopularityCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFPopularityCache.m; path = JFCommon/JFPopularityCache.m; sourceTree = "<group>"; };
+		393CB1F51CBF47F500648B5B /* JFPopularityCacheable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPopularityCacheable.h; path = JFCommon/JFPopularityCacheable.h; sourceTree = "<group>"; };
+		393CB1F61CBF47F500648B5B /* JFPropertyAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPropertyAnimatable.h; path = JFCommon/JFPropertyAnimatable.h; sourceTree = "<group>"; };
+		393CB1F71CBF47F500648B5B /* JFPropertyAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JFPropertyAnimatable.swift; path = JFCommon/JFPropertyAnimatable.swift; sourceTree = "<group>"; };
+		393CB1F81CBF47F500648B5B /* JFPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPropertyAnimation.h; path = JFCommon/JFPropertyAnimation.h; sourceTree = "<group>"; };
+		393CB1F91CBF47F500648B5B /* JFPropertyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFPropertyAnimation.m; path = JFCommon/JFPropertyAnimation.m; sourceTree = "<group>"; };
+		393CB1FA1CBF47F500648B5B /* JFPropertyAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JFPropertyAnimation.swift; path = JFCommon/JFPropertyAnimation.swift; sourceTree = "<group>"; };
+		393CB1FB1CBF47F500648B5B /* JFPropertyAnimationAdvancementArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPropertyAnimationAdvancementArray.h; path = JFCommon/JFPropertyAnimationAdvancementArray.h; sourceTree = "<group>"; };
+		393CB1FC1CBF47F500648B5B /* JFPropertyAnimationAdvancementArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFPropertyAnimationAdvancementArray.m; path = JFCommon/JFPropertyAnimationAdvancementArray.m; sourceTree = "<group>"; };
+		393CB1FD1CBF47F500648B5B /* JFPropertyAnimationDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPropertyAnimationDefines.h; path = JFCommon/JFPropertyAnimationDefines.h; sourceTree = "<group>"; };
+		393CB1FE1CBF47F500648B5B /* JFPropertyAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPropertyAnimator.h; path = JFCommon/JFPropertyAnimator.h; sourceTree = "<group>"; };
+		393CB1FF1CBF47F500648B5B /* JFPropertyAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFPropertyAnimator.m; path = JFCommon/JFPropertyAnimator.m; sourceTree = "<group>"; };
+		393CB2001CBF47F500648B5B /* JFPropertyAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JFPropertyAnimator.swift; path = JFCommon/JFPropertyAnimator.swift; sourceTree = "<group>"; };
+		393CB2011CBF47F500648B5B /* JFRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFRandom.h; path = JFCommon/JFRandom.h; sourceTree = "<group>"; };
+		393CB2021CBF47F500648B5B /* JFRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFRandom.m; path = JFCommon/JFRandom.m; sourceTree = "<group>"; };
+		393CB2031CBF47F500648B5B /* JFScrollViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFScrollViewUtil.h; path = JFCommon/JFScrollViewUtil.h; sourceTree = "<group>"; };
+		393CB2041CBF47F500648B5B /* JFScrollViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFScrollViewUtil.m; path = JFCommon/JFScrollViewUtil.m; sourceTree = "<group>"; };
+		393CB2051CBF47F500648B5B /* JFSocketReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFSocketReader.h; path = JFCommon/JFSocketReader.h; sourceTree = "<group>"; };
+		393CB2061CBF47F500648B5B /* JFSocketReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFSocketReader.m; path = JFCommon/JFSocketReader.m; sourceTree = "<group>"; };
+		393CB2071CBF47F500648B5B /* JFSocketWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFSocketWriter.h; path = JFCommon/JFSocketWriter.h; sourceTree = "<group>"; };
+		393CB2081CBF47F500648B5B /* JFSocketWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFSocketWriter.m; path = JFCommon/JFSocketWriter.m; sourceTree = "<group>"; };
+		393CB2091CBF47F500648B5B /* JFSqliteUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFSqliteUtil.h; path = JFCommon/JFSqliteUtil.h; sourceTree = "<group>"; };
+		393CB20A1CBF47F500648B5B /* JFSqliteUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFSqliteUtil.m; path = JFCommon/JFSqliteUtil.m; sourceTree = "<group>"; };
+		393CB20B1CBF47F500648B5B /* JFTextExportable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFTextExportable.h; path = JFCommon/JFTextExportable.h; sourceTree = "<group>"; };
+		393CB20C1CBF47F500648B5B /* JFTextExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFTextExporter.h; path = JFCommon/JFTextExporter.h; sourceTree = "<group>"; };
+		393CB20D1CBF47F500648B5B /* JFTextExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFTextExporter.m; path = JFCommon/JFTextExporter.m; sourceTree = "<group>"; };
+		393CB20E1CBF47F500648B5B /* JFUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFUserDefaults.h; path = JFCommon/JFUserDefaults.h; sourceTree = "<group>"; };
+		393CB20F1CBF47F500648B5B /* JFUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFUserDefaults.m; path = JFCommon/JFUserDefaults.m; sourceTree = "<group>"; };
+		393CB2101CBF47F500648B5B /* JFViewPositionUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFViewPositionUtil.h; path = JFCommon/JFViewPositionUtil.h; sourceTree = "<group>"; };
+		393CB2111CBF47F500648B5B /* JFViewPositionUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFViewPositionUtil.m; path = JFCommon/JFViewPositionUtil.m; sourceTree = "<group>"; };
 		393CF2221CBCE65600817892 /* WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImage.h; sourceTree = "<group>"; };
 		393E099E1CADAC1E00988EAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		393E09A01CADAC2300988EAA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -298,6 +392,7 @@
 				393426B51CBC9FEB0089F48F /* roboto_regular.ttf */,
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
 				39022D031C8A545B00464BC1 /* VideoAPIManager.swift */,
+				393CB1B51CBF47E200648B5B /* Utilities */,
 				394CD6671C9181A300AB28F1 /* JTCalendar */,
 				39EB93F51C7E65E30053F73F /* TBXML */,
 				39E5A8B81C7D29D900DFC0F5 /* SDWebImage */,
@@ -350,6 +445,105 @@
 				392CF15B1C76424500090214 /* Info.plist */,
 			);
 			path = IBMTVBoard;
+			sourceTree = "<group>";
+		};
+		393CB1B51CBF47E200648B5B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				393CB1B61CBF47F500648B5B /* JFAes256Codec.h */,
+				393CB1B71CBF47F500648B5B /* JFAes256Codec.m */,
+				393CB1B81CBF47F500648B5B /* JFBase64.h */,
+				393CB1B91CBF47F500648B5B /* JFBase64.m */,
+				393CB1BA1CBF47F500648B5B /* JFBCrypt.h */,
+				393CB1BB1CBF47F500648B5B /* JFBCrypt.m */,
+				393CB1BC1CBF47F500648B5B /* JFBox.h */,
+				393CB1BD1CBF47F500648B5B /* JFBoxDecoder.h */,
+				393CB1BE1CBF47F500648B5B /* JFBoxDecoder.m */,
+				393CB1BF1CBF47F500648B5B /* JFBoxDefines.h */,
+				393CB1C01CBF47F500648B5B /* JFBoxEncodable.h */,
+				393CB1C11CBF47F500648B5B /* JFBoxEncoder.h */,
+				393CB1C21CBF47F500648B5B /* JFBoxEncoder.m */,
+				393CB1C31CBF47F500648B5B /* JFColorUtil.h */,
+				393CB1C41CBF47F500648B5B /* JFColorUtil.m */,
+				393CB1C51CBF47F500648B5B /* JFCoordinateFormatter.h */,
+				393CB1C61CBF47F500648B5B /* JFCoordinateFormatter.m */,
+				393CB1C71CBF47F500648B5B /* JFDeviceDetector.h */,
+				393CB1C81CBF47F500648B5B /* JFDeviceDetector.m */,
+				393CB1C91CBF47F500648B5B /* JFGC.h */,
+				393CB1CA1CBF47F500648B5B /* JFGuidGenerator.h */,
+				393CB1CB1CBF47F500648B5B /* JFGuidGenerator.m */,
+				393CB1CC1CBF47F500648B5B /* JFGuidUtil.h */,
+				393CB1CD1CBF47F500648B5B /* JFGuidUtil.m */,
+				393CB1CE1CBF47F500648B5B /* JFICloudUtil.h */,
+				393CB1CF1CBF47F500648B5B /* JFICloudUtil.m */,
+				393CB1D01CBF47F500648B5B /* JFImageUtil.h */,
+				393CB1D11CBF47F500648B5B /* JFImageUtil.m */,
+				393CB1D21CBF47F500648B5B /* JFInterruptableActionPerformer.h */,
+				393CB1D31CBF47F500648B5B /* JFInterruptableActionPerformer.m */,
+				393CB1D41CBF47F500648B5B /* JFLocaleMatchUtil.h */,
+				393CB1D51CBF47F500648B5B /* JFLocaleMatchUtil.m */,
+				393CB1D61CBF47F500648B5B /* JFMacros.h */,
+				393CB1D71CBF47F500648B5B /* JFNetworkUtil.h */,
+				393CB1D81CBF47F500648B5B /* JFNetworkUtil.m */,
+				393CB1D91CBF47F500648B5B /* JFNoCutPasteTextField.h */,
+				393CB1DA1CBF47F500648B5B /* JFNoCutPasteTextField.m */,
+				393CB1DB1CBF47F500648B5B /* JFOpenGLAdvanceable.h */,
+				393CB1DC1CBF47F500648B5B /* JFOpenGLCamera.h */,
+				393CB1DD1CBF47F500648B5B /* JFOpenGLCamera.m */,
+				393CB1DE1CBF47F500648B5B /* JFOpenGLCStructs.h */,
+				393CB1DF1CBF47F500648B5B /* JFOpenGLMatrix.h */,
+				393CB1E01CBF47F500648B5B /* JFOpenGLMatrix.m */,
+				393CB1E11CBF47F500648B5B /* JFOpenGLPoint.h */,
+				393CB1E21CBF47F500648B5B /* JFOpenGLPoint.m */,
+				393CB1E31CBF47F500648B5B /* JFOpenGLPositionable.h */,
+				393CB1E41CBF47F500648B5B /* JFOpenGLQuad.h */,
+				393CB1E51CBF47F500648B5B /* JFOpenGLQuad.m */,
+				393CB1E61CBF47F500648B5B /* JFOpenGLRenderable.h */,
+				393CB1E71CBF47F500648B5B /* JFOpenGLScene.h */,
+				393CB1E81CBF47F500648B5B /* JFOpenGLScene.m */,
+				393CB1E91CBF47F500648B5B /* JFOpenGLTextureImage.h */,
+				393CB1EA1CBF47F500648B5B /* JFOpenGLTextureImage.m */,
+				393CB1EB1CBF47F500648B5B /* JFOpenGLTriangle.h */,
+				393CB1EC1CBF47F500648B5B /* JFOpenGLTriangle.m */,
+				393CB1ED1CBF47F500648B5B /* JFOpenGLUtil.h */,
+				393CB1EE1CBF47F500648B5B /* JFOpenGLUtil.m */,
+				393CB1EF1CBF47F500648B5B /* JFOpenGLVertex.h */,
+				393CB1F01CBF47F500648B5B /* JFOpenGLVertex.m */,
+				393CB1F11CBF47F500648B5B /* JFOpenGLView.h */,
+				393CB1F21CBF47F500648B5B /* JFOpenGLView.m */,
+				393CB1F31CBF47F500648B5B /* JFPopularityCache.h */,
+				393CB1F41CBF47F500648B5B /* JFPopularityCache.m */,
+				393CB1F51CBF47F500648B5B /* JFPopularityCacheable.h */,
+				393CB1F61CBF47F500648B5B /* JFPropertyAnimatable.h */,
+				393CB1F71CBF47F500648B5B /* JFPropertyAnimatable.swift */,
+				393CB1F81CBF47F500648B5B /* JFPropertyAnimation.h */,
+				393CB1F91CBF47F500648B5B /* JFPropertyAnimation.m */,
+				393CB1FA1CBF47F500648B5B /* JFPropertyAnimation.swift */,
+				393CB1FB1CBF47F500648B5B /* JFPropertyAnimationAdvancementArray.h */,
+				393CB1FC1CBF47F500648B5B /* JFPropertyAnimationAdvancementArray.m */,
+				393CB1FD1CBF47F500648B5B /* JFPropertyAnimationDefines.h */,
+				393CB1FE1CBF47F500648B5B /* JFPropertyAnimator.h */,
+				393CB1FF1CBF47F500648B5B /* JFPropertyAnimator.m */,
+				393CB2001CBF47F500648B5B /* JFPropertyAnimator.swift */,
+				393CB2011CBF47F500648B5B /* JFRandom.h */,
+				393CB2021CBF47F500648B5B /* JFRandom.m */,
+				393CB2031CBF47F500648B5B /* JFScrollViewUtil.h */,
+				393CB2041CBF47F500648B5B /* JFScrollViewUtil.m */,
+				393CB2051CBF47F500648B5B /* JFSocketReader.h */,
+				393CB2061CBF47F500648B5B /* JFSocketReader.m */,
+				393CB2071CBF47F500648B5B /* JFSocketWriter.h */,
+				393CB2081CBF47F500648B5B /* JFSocketWriter.m */,
+				393CB2091CBF47F500648B5B /* JFSqliteUtil.h */,
+				393CB20A1CBF47F500648B5B /* JFSqliteUtil.m */,
+				393CB20B1CBF47F500648B5B /* JFTextExportable.h */,
+				393CB20C1CBF47F500648B5B /* JFTextExporter.h */,
+				393CB20D1CBF47F500648B5B /* JFTextExporter.m */,
+				393CB20E1CBF47F500648B5B /* JFUserDefaults.h */,
+				393CB20F1CBF47F500648B5B /* JFUserDefaults.m */,
+				393CB2101CBF47F500648B5B /* JFViewPositionUtil.h */,
+				393CB2111CBF47F500648B5B /* JFViewPositionUtil.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		394CD6671C9181A300AB28F1 /* JTCalendar */ = {
@@ -697,6 +891,7 @@
 				39EB94001C7E66600053F73F /* SDWebImageManager.m in Sources */,
 				396AB10D1CAF225600B91FF9 /* SignUpController.swift in Sources */,
 				39EB93EB1C7E50750053F73F /* ArticleParser.swift in Sources */,
+				393CB2141CBF47F500648B5B /* JFBCrypt.m in Sources */,
 				396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */,
 				39EB94071C7E66600053F73F /* UIImageView+WebCache.m in Sources */,
 				39EB93B31C7D8A880053F73F /* UIImageViewExt.swift in Sources */,
@@ -735,6 +930,7 @@
 				39EB94041C7E66600053F73F /* UIImage+MultiFormat.m in Sources */,
 				396871B51CBD18C900D6869B /* UIViewExt.swift in Sources */,
 				39EB94081C7E66600053F73F /* UIView+WebCacheOperation.m in Sources */,
+				393CB2331CBF47F500648B5B /* JFRandom.m in Sources */,
 				39EB93FC1C7E66600053F73F /* SDWebImageCompat.m in Sources */,
 				392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */,
 				394CD6851C91825500AB28F1 /* JTCalendarMenuView.m in Sources */,

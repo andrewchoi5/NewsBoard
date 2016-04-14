@@ -22,5 +22,6 @@
 #import "TBXML+Compression.h"
 #import "TBXML+HTTP.h"
 #import "JTCalendar.h"
+#import "JFBCrypt.h"
 
 #endif /* IBMBoard_Bridging_Header_h */
