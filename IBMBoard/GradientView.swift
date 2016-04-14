@@ -17,6 +17,7 @@ class GradientView : UIView {
             self.setNeedsDisplay()
         }
     }
+    
     @IBInspectable var endingColor : UIColor = UIColor.blackColor() {
         didSet {
             self.setNeedsDisplay()
@@ -28,12 +29,12 @@ class GradientView : UIView {
             self.setNeedsDisplay()
         }
     }
+    
     @IBInspectable var endingPoint : CGPoint = CGPointMake(0.5, 1.0) {
         didSet {
             self.setNeedsDisplay()
         }
     }
-    
     
     private var gradientLayer = CAGradientLayer()
     

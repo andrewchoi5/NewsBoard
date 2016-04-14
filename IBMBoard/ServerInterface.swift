@@ -203,11 +203,13 @@ extension ServerInterface {
         }
     }
     
-    static func deleteDocument(document: Document, completion: ((Void) -> Void)) {
-        let urlString = "\(serverURL)/\(document.id)?rev=\(document.revision)"
+    static func deleteDocument(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+        let urlString = "\(serverURL)/\(dbName)/\(document.id)?rev=\(document.revision)"
         
         ServerInterface.currentSession.dataTaskWithRequest(deleteJSONRequestWithURLString(urlString), completionHandler: { (data, response, error) in
-                completion()
+            guard let handler = completion else { return }
+            handler()
+        
         }).resume()
     }
 }
@@ -218,6 +220,10 @@ extension ServerInterface {
         
     }
     
+    static func deleteCard(card: Card, completion: ((Void) -> Void)?) {
+        ServerInterface.deleteDocument(card, inDatabase: "ibmboard", completion: completion)
+        
+    }
     
     static func getCardsFromDate(firstDate : NSDate, toDate secondDate : NSDate, completion: ([Card]) -> Void) {
         ServerInterface.getDocuments(withQuery: CardsForDateInterval(fromDate: firstDate, toDate: secondDate),inDatabase: "ibmboard") { (documents) in

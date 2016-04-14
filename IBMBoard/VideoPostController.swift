@@ -46,8 +46,7 @@ class VideoPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["videoTitle"] = videoTitle.text!
         
         ServerInterface.addCard(selectedCardSpace, completion: nil)
-        self.navigationController?.popViewControllerAnimated(true)
-        
+        self.finishedCreatingPost()
     }
     
     func loadPreview() {

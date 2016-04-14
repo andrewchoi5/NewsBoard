@@ -11,11 +11,13 @@ import UIKit
 
 @IBDesignable
 class ProgressControl : UIView {
+    
     @IBInspectable var stages : UInt = 3 {
         didSet {
             commonInit()
         }
     }
+    
     @IBInspectable var selectedStage : UInt = 1 {
         didSet {
             commonInit()
@@ -27,11 +29,13 @@ class ProgressControl : UIView {
             commonInit()
         }
     }
+    
     @IBInspectable var deselectedStageColor : UIColor = UIColor.grayColor() {
         didSet {
             commonInit()
         }
     }
+    
     @IBInspectable var selectedStageColor : UIColor = UIColor.whiteColor() {
         didSet {
             commonInit()

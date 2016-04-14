@@ -13,7 +13,10 @@ class PosterController : KeyboardPresenter {
     
     var selectedCardSpace : Card = Card()
 
-    
+    func finishedCreatingPost() {
+        self.performSegueWithIdentifier("backToLoginSegue", sender: self)
+        
+    }
     
 }
 
