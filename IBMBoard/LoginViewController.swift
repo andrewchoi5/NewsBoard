@@ -90,6 +90,11 @@ class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
 
     @IBAction func loginPressed() {
         
+        emailID.endEditing(true)
+        password.endEditing(true)
+        
+        emailID.text = emailID.text?.lowercaseString
+        
         if(rememberCredentials.on) {
             userDefaults.setBool(true, forKey: LoginViewController.RememberCredentialsKey)
             userDefaults.setObject(emailID.text, forKey: LoginViewController.LoginUsernameKey)
@@ -99,7 +104,7 @@ class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
         
 //        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
 
-        ServerInterface.getAccountWithEmail(withEmail: emailID.text!, andPassword: password.text!) { (account) in
+        ServerInterface.getAccount(withEmail: emailID.text!, andPassword: password.text!) { (account) in
             
             if account == nil {
                 self.emailID.showInvalid()
@@ -152,6 +157,10 @@ class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
             (segue.destinationViewController as! AccountVerificationController).accountToVerify = userAccount
             
         }
+    }
+    
+    @IBAction func unwindToLogin(segue : UIStoryboardSegue) {
+        
     }
 }
 

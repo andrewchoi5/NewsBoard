@@ -11,14 +11,12 @@ import UIKit
 
 class AccountVerificationController : KeyboardPresenter {
     var accountToVerify : Account!
-    
     @IBOutlet weak var verificationCodeText: RoundedTextBox!
     
     @IBAction func didAttemptToVerify() {
         
         guard let code = verificationCodeText.text else { return }
         if accountToVerify.verifyWithCode(code) {
-            accountToVerify.verified = false
             ServerInterface.updateAccount(withAccount: accountToVerify, completion: {
                 self.performSegueWithIdentifier("verificationSuccessSegue", sender: self)
             })
@@ -41,8 +39,5 @@ class AccountVerificationController : KeyboardPresenter {
     override func didPresentKeyboardWithFrame(frame: CGRect) {
         self.view.constraintWithID("centerVerificationCodeConstraint")!.constant -= 40.0
     }
-    
-    @IBAction func prepareForUnwind(segue : UIStoryboardSegue) {
-    
-    }    
+
 }

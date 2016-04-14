@@ -95,17 +95,33 @@ class SignUpController : KeyboardPresenter, UITextFieldDelegate {
     }
     
     @IBAction func didAttemptRegistration() {
+        emailField.endEditing(true)
+        passwordField.endEditing(true)
+        confirmPasswordField.endEditing(true)
+
+        emailField.text = emailField.text?.lowercaseString
         
-        if emailField.isInvalid || passwordField.isInvalid || confirmPasswordField.isInvalid {
+        if emailField.isInvalid {
+            emailField.showInvalid()
+            return
+        }
+        
+        if passwordField.isInvalid {
+            passwordField.showInvalid()
+            return
+        }
+        
+        if confirmPasswordField.isInvalid {
+            confirmPasswordField.showInvalid()
             return
         }
         
         if confirmPasswordField.text != passwordField.text {
             errorDialogue("Passwords must match")
+            passwordField.showInvalid()
             confirmPasswordField.showInvalid()
             return
         }
-        
         
         ServerInterface.checkIfEmailExists(withEmail: emailField.text!) { (emailExists) in
             
@@ -113,13 +129,14 @@ class SignUpController : KeyboardPresenter, UITextFieldDelegate {
                 self.newAccount = Account(withEmail:self.emailField.text!, andPassword:self.passwordField.text!)
                 
                 ServerInterface.addAccount(withAccount: self.newAccount, completion: {
-//                  
+                  
                     ServerInterface.sendVerificationEmailToAccount(self.newAccount)
                     self.performSegueWithIdentifier("verificationSegue", sender: self)
                     print("Account added")
                 })
                 
             } else {
+                self.emailField.showInvalid()
                 self.errorDialogue("Email already exists")
                 
             }

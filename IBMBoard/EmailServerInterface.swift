@@ -12,7 +12,7 @@ extension ServerInterface {
     
     static func sendVerificationEmailToAccount(account : Account) {
         
-        let verificationEmailText = "Welcome to IBM Board!<br>To complete your account registration, please enter the verification code in the page that is prompting for it.<br><br>Verification Code: <b>\(account.verificationCode)</b><br><br>Please do not reply to this email."
+        let verificationEmailText = "Welcome to IBM Board!<br>To complete your account registration, please enter this verification code in the page that is prompting for it.<br><br>Verification Code: <b>\(account.verificationCode)</b><br><br>Please do not reply to this email."
         
         let session = MCOSMTPSession()
         session.hostname = defaultEmailServer

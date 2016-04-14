@@ -252,28 +252,38 @@ extension ServerInterface {
         
     }
     
-    static func getAccountsWithEmailAndPassword(withEmail email: String, andPassword password: String, completion: ([ Account ]) -> Void) {
+    static func getAccounts(withEmail email: String, andPassword password: String, completion: ([ Account ]) -> Void) {
         ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email, andPassword: password), inDatabase: "accounts") { (documents) in
             completion( DocumentToAccountConverter.getAccounts( documents ) )
         }
         
     }
     
-    static func getAccountWithEmail(withEmail email: String, andPassword password: String, completion: ( Account? ) -> Void) {
-        ServerInterface.getAccountsWithEmailAndPassword(withEmail: email, andPassword: password) { (accounts) in
+    static func getAccounts(withEmail email: String, completion: ([ Account ]) -> Void) {
+        ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email), inDatabase: "accounts") { (documents) in
+            completion( DocumentToAccountConverter.getAccounts( documents ) )
+        }
+        
+    }
+    
+    static func getAccount(withEmail email: String, andPassword password: String, completion: ( Account? ) -> Void) {
+        ServerInterface.getAccounts(withEmail: email, andPassword: password) { (accounts) in
             completion(accounts.first)
         }
         
     }
     
-    static func getAccountWithEmail(withEmail email: String, completion: ( Account? ) -> Void) {
-        ServerInterface.getAccountWithEmail(withEmail: email, andPassword: "", completion: completion)
-        
+    static func getAccount(withEmail email: String, completion: ( Account? ) -> Void) {
+        ServerInterface.getAccounts(withEmail: email) { (accounts) in
+            completion(accounts.first)
+            
+        }
     }
     
     static func checkIfEmailExists(withEmail email: String, completion: ((Bool) -> Void)) {
-        ServerInterface.getAccountWithEmail(withEmail: email) { (account) in
+        ServerInterface.getAccount(withEmail: email) { (account) in
             completion( account != nil )
+            
         }
         
     }

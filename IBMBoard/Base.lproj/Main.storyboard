@@ -126,7 +126,7 @@
                                         <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Need Help?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev4-fP-rFG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need Help?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev4-fP-rFG">
                                         <rect key="frame" x="302" y="16" width="71.5" height="16.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="hlt-vP-dHd"/>
@@ -218,7 +218,9 @@
                             <constraint firstItem="EWV-m1-IQW" firstAttribute="width" secondItem="QVn-Tf-nF3" secondAttribute="width" id="yXH-U9-c4i"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="C6A-cK-3hx"/>
+                    <navigationItem key="navigationItem" id="C6A-cK-3hx">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="3LF-pP-vDQ"/>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -265,6 +267,22 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Verification Code"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the verification code we have sent to your email " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ois-KX-yP4">
+                                <rect key="frame" x="66" y="259" width="282" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="wPu-ux-Kt2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bjc-C1-6ON">
+                                <rect key="frame" x="158" y="120" width="97" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="QTM-Ni-Ig6"/>
+                                    <constraint firstAttribute="height" constant="76" id="qcn-FK-8iH"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYL-Bv-Orb" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="39" y="380" width="335" height="48"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.58431372549019611" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
@@ -285,22 +303,6 @@
                                     <action selector="didAttemptToVerify" destination="rkC-1O-pOD" eventType="primaryActionTriggered" id="jhS-8K-B5E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the verification code we have sent to your email " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ois-KX-yP4">
-                                <rect key="frame" x="66" y="259" width="282" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="282" id="wPu-ux-Kt2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bjc-C1-6ON">
-                                <rect key="frame" x="158" y="120" width="97" height="76"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="QTM-Ni-Ig6"/>
-                                    <constraint firstAttribute="height" constant="76" id="qcn-FK-8iH"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -315,13 +317,11 @@
                             <constraint firstItem="Bjc-C1-6ON" firstAttribute="centerX" secondItem="lBm-wx-kPi" secondAttribute="centerX" id="y5o-PR-lrc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Email Verification" prompt="" id="sCk-eN-MZI">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="mpd-1c-jEz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Email Verification" id="bp2-bC-zIa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="verificationCodeText" destination="dGQ-L7-eXP" id="MPd-Fb-leb"/>
-                        <segue destination="jG3-sx-wMD" kind="unwind" identifier="verificationSuccessSegue" unwindAction="prepareForUnwind:" id="K8k-iO-OMC"/>
+                        <segue destination="jG3-sx-wMD" kind="unwind" identifier="verificationSuccessSegue" unwindAction="unwindToLogin:" id="VZt-AO-oE6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b73-Xe-T1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -472,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Cs-db-3O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970.5" y="1299.5"/>
+            <point key="canvasLocation" x="990.5" y="1351.5"/>
         </scene>
         <!--Video Poster View Controller-->
         <scene sceneID="ioU-oU-ePm">
