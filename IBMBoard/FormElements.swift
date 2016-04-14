@@ -331,26 +331,11 @@ extension RoundedTextBox : UITextFieldDelegate {
 }
 
 @IBDesignable class FormTextField : UITextField {
-    @IBInspectable var highlightedColor : UIColor!
-    var oldBackgroundColor : UIColor!
-    var gradientBackgroundStartColor = UIColor(red: 193.0 / 255.0, green: 225.0 / 255.0, blue: 251.0 / 255.0, alpha: 1.0)
-    var gradientBackgroundEndColor = UIColor(red: 249.0 / 255.0, green: 251.0 / 255.0, blue: 215.0 / 255.0, alpha: 1.0)
-    
-    var backgroundLayer : CAGradientLayer!
     let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20);
-
-    func addGradientBackground() {
-        backgroundLayer = CAGradientLayer()
-        backgroundLayer.colors = [gradientBackgroundStartColor.CGColor, gradientBackgroundEndColor.CGColor]
-        backgroundLayer.startPoint = CGPointMake(0, 0.5);
-        backgroundLayer.endPoint = CGPointMake(1.0, 0.5);
-        self.layer.insertSublayer(backgroundLayer, atIndex: 0)
-    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-        
     }
     
     func useUnderline() {
@@ -368,33 +353,9 @@ extension RoundedTextBox : UITextFieldDelegate {
         commonInit()
     }
     
-    func didHighlight() {
-        oldBackgroundColor = self.backgroundColor
-        self.backgroundColor = highlightedColor
-    }
-    
-    func didUnhighlight() {
-        self.backgroundColor = oldBackgroundColor
-        
-    }
     
     func commonInit() {
-        oldBackgroundColor = self.backgroundColor
-        addGradientBackground()
-        reverseBackgroundGradient()
         useUnderline()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        backgroundLayer.frame = self.bounds
-        
-    }
-    
-    func reverseBackgroundGradient() {
-        backgroundLayer.colors = backgroundLayer.colors?.reverse()
-        self.setNeedsLayout()
-        
     }
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
@@ -410,23 +371,7 @@ extension RoundedTextBox : UITextFieldDelegate {
     }
 }
 
-@IBDesignable class FormButton : UIButton {
-    @IBInspectable var highlightedColor : UIColor!
-    var oldBackgroundColor : UIColor!
-    var gradientBackgroundStartColor = UIColor(red: 193.0 / 255.0, green: 225.0 / 255.0, blue: 251.0 / 255.0, alpha: 1.0)
-    var gradientBackgroundEndColor = UIColor(red: 249.0 / 255.0, green: 251.0 / 255.0, blue: 215.0 / 255.0, alpha: 1.0)
-    
-    var backgroundLayer : CAGradientLayer!
-    let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20);
-    
-    func addGradientBackground() {
-        backgroundLayer = CAGradientLayer()
-        backgroundLayer.colors = [gradientBackgroundStartColor.CGColor, gradientBackgroundEndColor.CGColor]
-        backgroundLayer.startPoint = CGPointMake(0, 0.5);
-        backgroundLayer.endPoint = CGPointMake(1.0, 0.5);
-        self.layer.insertSublayer(backgroundLayer, atIndex: 0)
-    }
-    
+@IBDesignable class FormButton : UIButton {    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -447,36 +392,32 @@ extension RoundedTextBox : UITextFieldDelegate {
         commonInit()
     }
     
-    func didHighlight() {
-        oldBackgroundColor = self.backgroundColor
-        self.backgroundColor = highlightedColor
-    }
-    
-    func didUnhighlight() {
-        self.backgroundColor = oldBackgroundColor
-        
-    }
-    
     func commonInit() {
-        oldBackgroundColor = self.backgroundColor
-        addGradientBackground()
-        reverseBackgroundGradient()
         useUnderline()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        backgroundLayer.frame = self.bounds
-        
-    }
-    
-    func reverseBackgroundGradient() {
-        backgroundLayer.colors = backgroundLayer.colors?.reverse()
-        self.setNeedsLayout()
-        
     }
 }
 
+@IBDesignable class FormLabel : UILabel {
+    let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20);
+    
+    override func drawTextInRect(rect: CGRect) {
+        super.drawTextInRect(UIEdgeInsetsInsetRect(rect, padding))
+    }
+    
+    override func intrinsicContentSize() -> CGSize {
+        let superContentSize = super.intrinsicContentSize()
+        let width = superContentSize.width + padding.left + padding.right
+        let heigth = superContentSize.height + padding.top + padding.bottom
+        return CGSize(width: width, height: heigth)
+    }
+    
+    override func sizeThatFits(size: CGSize) -> CGSize {
+        let superSizeThatFits = super.sizeThatFits(size)
+        let width = superSizeThatFits.width + padding.left + padding.right
+        let heigth = superSizeThatFits.height + padding.top + padding.bottom
+        return CGSize(width: width, height: heigth)
+    }
+}
 
 @IBDesignable class FormTextView: UITextView
 {
