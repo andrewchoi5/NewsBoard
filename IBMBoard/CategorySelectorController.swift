@@ -11,7 +11,7 @@ import UIKit
 
 private let placeholderSegueIdentifier = "placeholderSegue"
 
-class CategorySelectorController : GradientViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CategorySelectorController : UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -59,44 +59,6 @@ class CategorySelectorController : GradientViewController, UICollectionViewDataS
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        return CGSizeMake((self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow), (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn))
-        
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return optionImagesArray.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        var segueIdentifier = ""
-        switch indexPath.row {
-            
-            case 0: segueIdentifier = pollingSegueIdentifier;       selectedCardSpace.type = .Polling
-            case 1: segueIdentifier = newsSegueIdentifier;          selectedCardSpace.type = .NewsArticle
-            case 2: segueIdentifier = announcementSegueIdentifier;  selectedCardSpace.type = .Announcement
-            case 3: segueIdentifier = ideaSegueIdentifier;          selectedCardSpace.type = .Idea
-            case 4: segueIdentifier = questionSegueIdentifier;      selectedCardSpace.type = .Question
-            case 5: segueIdentifier = rfpSegueIdentifier;           selectedCardSpace.type = .RFP
-            case 6: segueIdentifier = videoSegueIdentifier;         selectedCardSpace.type = .Video
-            case 7: segueIdentifier = guestSegueIdentifier;         selectedCardSpace.type = .Guest
-            
-           default: segueIdentifier = placeholderSegueIdentifier;   selectedCardSpace.type = .Default
-        }
-        
-        self.performSegueWithIdentifier(segueIdentifier, sender: self)
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("typeCell", forIndexPath: indexPath)
-        (cell.viewWithTag(2) as! UILabel).text = optionImagesArray[ indexPath.row ].0
-        (cell.viewWithTag(1) as! UIImageView).image = UIImage(named: optionImagesArray[ indexPath.row ].1)
-        
-        return cell
-    }
-    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return .Portrait
     }
@@ -114,3 +76,54 @@ class CategorySelectorController : GradientViewController, UICollectionViewDataS
         vc.selectedCardSpace = selectedCardSpace
     }
 }
+
+extension CategorySelectorController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        return CGSizeMake((self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow), (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn))
+        
+    }
+    
+}
+
+extension CategorySelectorController : UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return optionImagesArray.count
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("typeCell", forIndexPath: indexPath)
+        (cell.viewWithTag(2) as! UILabel).text = optionImagesArray[ indexPath.row ].0
+        (cell.viewWithTag(1) as! UIImageView).image = UIImage(named: optionImagesArray[ indexPath.row ].1)
+        
+        return cell
+        
+    }
+    
+}
+
+extension CategorySelectorController : UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var segueIdentifier = ""
+        switch indexPath.row {
+            case 0: segueIdentifier = pollingSegueIdentifier;       selectedCardSpace.type = .Polling
+            case 1: segueIdentifier = newsSegueIdentifier;          selectedCardSpace.type = .NewsArticle
+            case 2: segueIdentifier = announcementSegueIdentifier;  selectedCardSpace.type = .Announcement
+            case 3: segueIdentifier = ideaSegueIdentifier;          selectedCardSpace.type = .Idea
+            case 4: segueIdentifier = questionSegueIdentifier;      selectedCardSpace.type = .Question
+            case 5: segueIdentifier = rfpSegueIdentifier;           selectedCardSpace.type = .RFP
+            case 6: segueIdentifier = videoSegueIdentifier;         selectedCardSpace.type = .Video
+            case 7: segueIdentifier = guestSegueIdentifier;         selectedCardSpace.type = .Guest
+                
+            default: segueIdentifier = placeholderSegueIdentifier;   selectedCardSpace.type = .Default
+        }
+        
+        self.performSegueWithIdentifier(segueIdentifier, sender: self)
+    }
+}
+

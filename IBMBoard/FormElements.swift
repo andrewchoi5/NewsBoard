@@ -261,6 +261,7 @@ public func defaultFontOfSize(size: Double) -> UIFont {
         textField.textColor = textColor
         textField.tintColor = textColor
         textField.keyboardAppearance = .Dark
+        textField.enablesReturnKeyAutomatically = false
         self.layer.cornerRadius = self.frame.size.height / 2
         
         let placeholderString = NSMutableAttributedString(string: placeholderText)

@@ -44,7 +44,7 @@
 		392CF15A1C76424500090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		393426B41CBC95430089F48F /* FormElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393426B31CBC95430089F48F /* FormElements.swift */; };
 		393426B61CBCA4860089F48F /* roboto_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393426B51CBC9FEB0089F48F /* roboto_regular.ttf */; };
-		393C88CC1CB5C82C009DA1AA /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */; };
+		393C88CC1CB5C82C009DA1AA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* GradientView.swift */; };
 		393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CD1CB8427E009DA1AA /* GridView.swift */; };
 		393CB2141CBF47F500648B5B /* JFBCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB1BB1CBF47F500648B5B /* JFBCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		393CB2331CBF47F500648B5B /* JFRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB2021CBF47F500648B5B /* JFRandom.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -158,7 +158,7 @@
 		392CF15B1C76424500090214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		393426B31CBC95430089F48F /* FormElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormElements.swift; sourceTree = "<group>"; };
 		393426B51CBC9FEB0089F48F /* roboto_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_regular.ttf; sourceTree = "<group>"; };
-		393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
+		393C88CB1CB5C82C009DA1AA /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		393C88CD1CB8427E009DA1AA /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		393CB1B61CBF47F500648B5B /* JFAes256Codec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFAes256Codec.h; path = JFCommon/JFAes256Codec.h; sourceTree = "<group>"; };
 		393CB1B71CBF47F500648B5B /* JFAes256Codec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFAes256Codec.m; path = JFCommon/JFAes256Codec.m; sourceTree = "<group>"; };
@@ -676,6 +676,7 @@
 				3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */,
 				393C88CD1CB8427E009DA1AA /* GridView.swift */,
 				391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */,
+				393C88CB1CB5C82C009DA1AA /* GradientView.swift */,
 				393426B31CBC95430089F48F /* FormElements.swift */,
 				391584AB1CAB96B200E37F99 /* ProgressControl.swift */,
 			);
@@ -687,7 +688,6 @@
 			children = (
 				39B61D631CBC564900CDB05A /* Posters */,
 				39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */,
-				393C88CB1CB5C82C009DA1AA /* GradientViewController.swift */,
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
 				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
@@ -906,7 +906,7 @@
 				394CD6841C91825500AB28F1 /* JTCalendarDayView.m in Sources */,
 				39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */,
 				39EB93F71C7E66600053F73F /* TBXML+Compression.m in Sources */,
-				393C88CC1CB5C82C009DA1AA /* GradientViewController.swift in Sources */,
+				393C88CC1CB5C82C009DA1AA /* GradientView.swift in Sources */,
 				3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */,
 				394CD66D1C9181EF00AB28F1 /* JTCalendarScrollManager.m in Sources */,
 				39EB94061C7E66600053F73F /* UIImageView+HighlightedWebCache.m in Sources */,

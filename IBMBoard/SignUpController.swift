@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SignUpController : KeyboardPresenter, UITextFieldDelegate {
+class SignUpController : KeyboardPresenter {
     
     @IBOutlet weak var emailField: RoundedTextBox!
     @IBOutlet weak var passwordField: RoundedTextBox!
@@ -21,50 +21,6 @@ class SignUpController : KeyboardPresenter, UITextFieldDelegate {
         emailField.delegate = self
         passwordField.delegate = self
         confirmPasswordField.delegate = self
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if textField == emailField.textField {
-            if textField.text! == "" {
-                emailField.showInvalid()
-                
-            } else {
-                emailField.showNormal()
-                
-            }
-            
-        } else if textField == passwordField.textField {
-            if textField.text! == "" {
-                passwordField.showInvalid()
-                
-            } else {
-                passwordField.showNormal()
-                
-            }
-            
-        } else if textField == confirmPasswordField.textField {
-            if textField.text! == "" {
-                confirmPasswordField.showInvalid()
-                
-            } else {
-                confirmPasswordField.showNormal()
-                
-            }
-            
-        }
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if textField == emailField.textField {
-            emailField.showFocussed()
-            
-        } else if textField == passwordField.textField {
-            passwordField.showFocussed()
-            
-        } else if textField == confirmPasswordField.textField {
-            confirmPasswordField.showFocussed()
-            
-        }
     }
     
     override func didPresentKeyboardWithFrame(frame: CGRect) {
@@ -157,6 +113,54 @@ class SignUpController : KeyboardPresenter, UITextFieldDelegate {
     
     func errorDialogue(message : String) {
         print(message)
+    }
+    
+}
+
+extension SignUpController : UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == emailField.textField {
+            if textField.text! == "" {
+                emailField.showInvalid()
+                
+            } else {
+                emailField.showNormal()
+                
+            }
+            
+        } else if textField == passwordField.textField {
+            if textField.text! == "" {
+                passwordField.showInvalid()
+                
+            } else {
+                passwordField.showNormal()
+                
+            }
+            
+        } else if textField == confirmPasswordField.textField {
+            if textField.text! == "" {
+                confirmPasswordField.showInvalid()
+                
+            } else {
+                confirmPasswordField.showNormal()
+                
+            }
+            
+        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == emailField.textField {
+            emailField.showFocussed()
+            
+        } else if textField == passwordField.textField {
+            passwordField.showFocussed()
+            
+        } else if textField == confirmPasswordField.textField {
+            confirmPasswordField.showFocussed()
+            
+        }
     }
     
 }

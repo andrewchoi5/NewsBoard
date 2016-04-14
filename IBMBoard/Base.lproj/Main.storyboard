@@ -337,7 +337,7 @@
                         <viewControllerLayoutGuide type="top" id="NOv-xZ-j7H"/>
                         <viewControllerLayoutGuide type="bottom" id="KyR-df-0Ll"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QlO-Kq-Bxe">
+                    <view key="view" contentMode="scaleToFill" id="QlO-Kq-Bxe" userLabel="Gradient View" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -452,6 +452,14 @@
                             <constraint firstItem="oZS-Sm-lwW" firstAttribute="centerY" secondItem="QlO-Kq-Bxe" secondAttribute="centerY" id="xAV-vi-FoZ"/>
                             <constraint firstItem="oZS-Sm-lwW" firstAttribute="width" secondItem="QlO-Kq-Bxe" secondAttribute="width" id="zip-7D-h3H"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                <color key="value" red="0.72941176470588232" green="0.88627450980392153" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                <color key="value" red="0.8901960784313725" green="0.95686274509803915" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Select a post type" id="c53-MM-WFn">
@@ -472,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Cs-db-3O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990.5" y="1351.5"/>
+            <point key="canvasLocation" x="990.5" y="1293.5"/>
         </scene>
         <!--Video Poster View Controller-->
         <scene sceneID="ioU-oU-ePm">
@@ -913,7 +921,7 @@
                         <viewControllerLayoutGuide type="top" id="YOE-xc-AiB"/>
                         <viewControllerLayoutGuide type="bottom" id="amK-Bn-Hjf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="byt-7F-rLS">
+                    <view key="view" contentMode="scaleToFill" id="byt-7F-rLS" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="64" width="667" height="311"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1034,6 +1042,14 @@
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="width" secondItem="8UH-W9-sPh" secondAttribute="width" id="sSh-QW-EeM"/>
                             <constraint firstItem="AA6-Qz-dMA" firstAttribute="leading" secondItem="byt-7F-rLS" secondAttribute="leadingMargin" constant="-20" id="y8A-RJ-a1i"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                <color key="value" red="0.75686274509803919" green="0.88235294117647056" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                <color key="value" red="0.97647058823529409" green="0.98431372549019602" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Select space and date" id="7Iw-Sh-Rdv">

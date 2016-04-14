@@ -12,7 +12,7 @@ import UIKit
 internal let cellsPerRow = 7
 internal let cellsPerColumn = 4
 
-class SpaceSelectorController : GradientViewController {
+class SpaceSelectorController : UIViewController {
     
     let emptyCellIdentifier = "emptyCell"
     let lockedCellIdentifier = "lockedCell"

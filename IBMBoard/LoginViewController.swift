@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
+class LoginViewController: KeyboardPresenter {
 
     @IBOutlet weak var emailID: RoundedTextBox!
     @IBOutlet weak var password: RoundedTextBox!
@@ -27,38 +27,6 @@ class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
         emailID.delegate = self
         password.delegate = self
         
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if textField == emailID.textField {
-            if textField.text! == "" {
-                emailID.showInvalid()
-                
-            } else {
-                emailID.showNormal()
-                
-            }
-            
-        } else if textField == password.textField {
-            if textField.text! == "" {
-                password.showInvalid()
-                
-            } else {
-                password.showNormal()
-                
-            }
-            
-        }
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if textField == emailID.textField {
-            emailID.showFocussed()
-            
-        } else if textField == password.textField {
-            password.showFocussed()
-            
-        }
     }
     
     override func didPresentKeyboardWithFrame(frame: CGRect) {
@@ -88,6 +56,13 @@ class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
 
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        emailID.showNormal()
+        password.showNormal()
+    }
+    
     @IBAction func loginPressed() {
         
         emailID.endEditing(true)
@@ -164,3 +139,38 @@ class LoginViewController: KeyboardPresenter, UITextFieldDelegate {
     }
 }
 
+extension LoginViewController : UITextFieldDelegate {
+
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == emailID.textField {
+            if textField.text! == "" {
+                emailID.showInvalid()
+                
+            } else {
+                emailID.showNormal()
+                
+            }
+            
+        } else if textField == password.textField {
+            if textField.text! == "" {
+                password.showInvalid()
+                
+            } else {
+                password.showNormal()
+                
+            }
+            
+        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == emailID.textField {
+            emailID.showFocussed()
+            
+        } else if textField == password.textField {
+            password.showFocussed()
+            
+        }
+    }
+
+}

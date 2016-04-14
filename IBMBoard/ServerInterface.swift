@@ -92,6 +92,55 @@ public class ServerInterface {
     
 }
 
+struct DocumentMetaData {
+    
+    var id : String!
+    var revision : String!
+    
+    init(withDictionary dictionary: [ String : AnyObject ]) {
+        id = dictionary["id"] as! String
+        revision = dictionary["rev"] as! String
+        
+    }
+}
+
+class NullServerResponse : ServerResponse {
+    override var wasSuccessful: Bool {
+        return false
+    }
+    
+    
+    override init() {
+        super.init()
+        
+        documentMetaData = nil
+        info = [ String : AnyObject ]()
+    }
+    
+}
+
+class ServerResponse : NSObject {
+    
+    var wasSuccessful : Bool {
+        return info[ "ok" ] as! Bool
+    }
+    
+    var documentMetaData : DocumentMetaData?
+    var info : [ String : AnyObject ]!
+    
+    init(withDictionary dictionary: [ String : AnyObject ]) {
+        super.init()
+        
+        info = dictionary
+        documentMetaData = DocumentMetaData(withDictionary: dictionary)
+    }
+    
+    override init() {
+        super.init()
+        
+    }
+}
+
 extension ServerInterface {
     
     static func addDocument(document: Document, toDatabase dbName: String, completion: ((Void) -> Void)?) {
@@ -163,55 +212,6 @@ extension ServerInterface {
     }
 }
 
-struct DocumentMetaData {
-    
-    var id : String!
-    var revision : String!
-    
-    init(withDictionary dictionary: [ String : AnyObject ]) {
-        id = dictionary["id"] as! String
-        revision = dictionary["rev"] as! String
-        
-    }
-}
-
-class NullServerResponse : ServerResponse {
-    override var wasSuccessful: Bool {
-        return false
-    }
-    
-    
-    override init() {
-        super.init()
-        
-        documentMetaData = nil
-        info = [ String : AnyObject ]()
-    }
-    
-}
-
-class ServerResponse : NSObject {
-    
-    var wasSuccessful : Bool {
-        return info[ "ok" ] as! Bool
-    }
-    
-    var documentMetaData : DocumentMetaData?
-    var info : [ String : AnyObject ]!
-    
-    init(withDictionary dictionary: [ String : AnyObject ]) {
-        super.init()
-        
-        info = dictionary
-        documentMetaData = DocumentMetaData(withDictionary: dictionary)
-    }
-    
-    override init() {
-        super.init()
-        
-    }
-}
-
 extension ServerInterface {
     static func addCard(card: Card, completion: ((Void) -> Void)?) {
         ServerInterface.addDocument(card, toDatabase: "ibmboard", completion: completion)
@@ -276,14 +276,13 @@ extension ServerInterface {
     static func getAccount(withEmail email: String, completion: ( Account? ) -> Void) {
         ServerInterface.getAccounts(withEmail: email) { (accounts) in
             completion(accounts.first)
-            
         }
+        
     }
     
     static func checkIfEmailExists(withEmail email: String, completion: ((Bool) -> Void)) {
         ServerInterface.getAccount(withEmail: email) { (account) in
             completion( account != nil )
-            
         }
         
     }
