@@ -31,7 +31,7 @@ class SpaceSelectorController : UIViewController {
     
     var postingDates = Set<BoardDate>()
     var emptyCardSpace : Card!
-    var cardHolderMatrix = [ (Int, Int) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, 0))
+    var cardHolderMatrix = [ (Int, Card?) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, nil))
     var selectedSpaces = Set<Int>()
     var cardList = [ Card ]()
     var calendarDate = BoardDate()
@@ -57,7 +57,8 @@ class SpaceSelectorController : UIViewController {
         self.collectionView.addGestureRecognizer(swipeDown)
     }
     
-    func loadCards() {
+    func reloadCards() {
+        self.beginReloading()
         ServerInterface.getCardsUntilDate(JTDateHelper().addToDate(calendarDate.underlyingDate(), days: 14)) { (cards) in
             self.cardList = cards
             self.reloadData()
@@ -70,7 +71,7 @@ class SpaceSelectorController : UIViewController {
         
         configureCurrentDateLabel()
         addGesturesRecognizers()
-        loadCards()
+        reloadCards()
         
         self.postingDates.insert(calendarDate)
         
@@ -87,6 +88,12 @@ class SpaceSelectorController : UIViewController {
         toolBar.hidden = true
     }
     
+    func beginReloading() {
+        activityIndicator.startAnimating()
+        loadingScreen.alpha = 0.4
+        collectionView?.userInteractionEnabled = false
+    }
+    
     func finishedReloading() {
         activityIndicator.stopAnimating()
         loadingScreen.alpha = 0.0
@@ -95,18 +102,15 @@ class SpaceSelectorController : UIViewController {
     }
     
     func reloadData() {
-        cardHolderMatrix = [ (Int, Int) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, 0))
-        
-        var cardNumber = 0
+        cardHolderMatrix = [ (Int, Card?) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, nil))
         
         for card in cardList {
             let startIndex = card.space.topLeftCorner - 1
             for xIndex in 0 ..< card.space.width {
                 for yIndex in 0 ..< card.space.height {
-                    cardHolderMatrix[ startIndex + (yIndex * cellsPerRow) + xIndex ] = (1, cardNumber)
+                    cardHolderMatrix[ startIndex + (yIndex * cellsPerRow) + xIndex ] = (1, card)
                 }
             }
-            cardNumber += 1
         }
         
         self.collectionView?.reloadData()
@@ -209,6 +213,14 @@ class SpaceSelectorController : UIViewController {
         return .LandscapeLeft
     }
     
+    func deleteCard(recognizer : CardDeletionGesture) {
+        ServerInterface.deleteCard(recognizer.associatedCard) {
+            self.reloadCards()
+            
+        }
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == completedSpaceSelectionSegue {
             let vc = segue.destinationViewController as! CategorySelectorController
@@ -221,6 +233,12 @@ class SpaceSelectorController : UIViewController {
         }
 
     }
+}
+
+class CardDeletionGesture : UILongPressGestureRecognizer {
+    
+    var associatedCard : Card!
+    
 }
 
 extension SpaceSelectorController : PostDateSelector {
@@ -247,6 +265,7 @@ extension SpaceSelectorController : PostDateSelector {
 }
 
 extension SpaceSelectorController : UICollectionViewDataSource {
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellsPerRow * cellsPerColumn
         
@@ -255,12 +274,16 @@ extension SpaceSelectorController : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cellType = cardHolderMatrix[ indexPath.row ].0
-        let cardNumber = cardHolderMatrix[ indexPath.row ].1
+        let card = cardHolderMatrix[ indexPath.row ].1
+        
+        let deletionGesture = CardDeletionGesture(target: self, action: #selector(deleteCard))
+        deletionGesture.associatedCard = card
         
         var identifier = ""
         
         if cellType == 0 {
             identifier = emptyCellIdentifier
+            deletionGesture.enabled = false
             
         } else if cellType == 1 {
             identifier = lockedCellIdentifier
@@ -277,6 +300,7 @@ extension SpaceSelectorController : UICollectionViewDataSource {
         }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
+        cell.addGestureRecognizer(deletionGesture)
         return cell
     }
 }
