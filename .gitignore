@@ -23,3 +23,5 @@ xcuserdata
 *.xcuserstate
 
 *.DS_STORE
+
+SDWebImage
