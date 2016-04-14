@@ -23,6 +23,18 @@ class GradientView : UIView {
         }
     }
     
+    @IBInspectable var startingPoint : CGPoint = CGPointMake(0.5, 0) {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
+    @IBInspectable var endingPoint : CGPoint = CGPointMake(0.5, 1.0) {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
+    
+    
     private var gradientLayer = CAGradientLayer()
     
     override init(frame: CGRect) {
@@ -50,9 +62,15 @@ class GradientView : UIView {
     }
     
     func addGradientLayer() {
-        gradientLayer.colors = [startingColor.CGColor, endingColor.CGColor]
         self.layer.insertSublayer(gradientLayer, atIndex: 0)
         
+    }
+    
+    func configureLayer() {
+        gradientLayer.colors = [startingColor.CGColor, endingColor.CGColor]
+        gradientLayer.startPoint = startingPoint
+        gradientLayer.endPoint = endingPoint
+        gradientLayer.frame = self.bounds
     }
     
     func reverseGradient() {
@@ -64,7 +82,6 @@ class GradientView : UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        gradientLayer.colors = [startingColor.CGColor, endingColor.CGColor]
-        gradientLayer.frame = self.bounds
+        configureLayer()
     }
 }

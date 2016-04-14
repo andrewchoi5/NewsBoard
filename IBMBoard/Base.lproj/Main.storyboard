@@ -462,7 +462,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Select a post type" id="c53-MM-WFn">
+                    <navigationItem key="navigationItem" title="Select post type" id="c53-MM-WFn">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dcq-Ro-fMI"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
