@@ -48,6 +48,8 @@
 		393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CD1CB8427E009DA1AA /* GridView.swift */; };
 		393CB2141CBF47F500648B5B /* JFBCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB1BB1CBF47F500648B5B /* JFBCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		393CB2331CBF47F500648B5B /* JFRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB2021CBF47F500648B5B /* JFRandom.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		393CB23C1CBF4E3C00648B5B /* JFBCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB1BB1CBF47F500648B5B /* JFBCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		393CB23D1CBF4E4D00648B5B /* JFRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB2021CBF47F500648B5B /* JFRandom.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		394606C01C91605F00E2633C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6591C91819200AB28F1 /* JTCalendarManager.m */; };
 		394CD6621C91819200AB28F1 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD65B1C91819200AB28F1 /* JTCalendarSettings.m */; };
@@ -968,12 +970,14 @@
 				39022CE31C895C5F00464BC1 /* SDWebImageDecoder.m in Sources */,
 				392CF1531C76424500090214 /* AppDelegate.swift in Sources */,
 				39022CE21C895C5F00464BC1 /* SDWebImageCompat.m in Sources */,
+				393CB23D1CBF4E4D00648B5B /* JFRandom.m in Sources */,
 				39EB940E1C80FE240053F73F /* CardCell.swift in Sources */,
 				39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */,
 				39022CEA1C895C5F00464BC1 /* UIImage+MultiFormat.m in Sources */,
 				39022CEC1C895C5F00464BC1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				39C61F041C98168F002C7E12 /* CardFactory.swift in Sources */,
 				39022CE91C895C5F00464BC1 /* UIImage+GIF.m in Sources */,
+				393CB23C1CBF4E3C00648B5B /* JFBCrypt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
