@@ -52,8 +52,7 @@ class AnnouncementPostController : PosterController, UIImagePickerControllerDele
         ServerInterface.delegateProxy.forwardMessagesTo(self)
         
         ServerInterface.addCard(selectedCardSpace, completion: {
-            self.navigationController?.popViewControllerAnimated(true)
-
+            self.finishedCreatingPost()
         
         })
         

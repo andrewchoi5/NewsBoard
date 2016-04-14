@@ -214,6 +214,7 @@ class SpaceSelectorController : UIViewController {
     }
     
     func deleteCard(recognizer : CardDeletionGesture) {
+        recognizer.enabled = false
         ServerInterface.deleteCard(recognizer.associatedCard) {
             self.reloadCards()
             

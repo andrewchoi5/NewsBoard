@@ -583,9 +583,11 @@
                         <outlet property="videoPostButton" destination="aic-yQ-ouz" id="jwY-f2-mjD"/>
                         <outlet property="videoPreview" destination="Tzs-Ca-zqt" id="yhh-lF-bk3"/>
                         <outlet property="videoTitle" destination="aIR-3v-DPG" id="dfj-3p-1So"/>
+                        <segue destination="2ze-bQ-jSn" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="xf2-dp-mXV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86f-Qh-ygK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2ze-bQ-jSn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="965.5" y="2083.5"/>
         </scene>
@@ -622,8 +624,12 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="e7Y-ER-Bl1"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="kP6-ke-J1E" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="anl-i0-j7B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yab-cL-bsj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="kP6-ke-J1E" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="504.5" y="2831.5"/>
         </scene>
@@ -720,9 +726,11 @@
                         <outlet property="articlePostButton" destination="h9d-DZ-UDK" id="nac-6p-F0s"/>
                         <outlet property="articlePreviewBody" destination="4KR-C8-uLT" id="r5C-Ve-FWU"/>
                         <outlet property="articleTitle" destination="5yg-x5-26V" id="UaD-7W-9Jf"/>
+                        <segue destination="wBw-8u-weH" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="kxg-Tl-SNT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFk-dK-PBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wBw-8u-weH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="964.5" y="2831.5"/>
         </scene>
@@ -843,9 +851,11 @@
                         <outlet property="announcementText" destination="ioi-sh-QbJ" id="bbj-Na-6dO"/>
                         <outlet property="announcementTitle" destination="hMD-E0-zRp" id="LKX-jb-36s"/>
                         <outlet property="progressBar" destination="Exu-55-CaY" id="GzY-wF-WUt"/>
+                        <segue destination="ufm-Tk-oJS" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="eg1-ha-XEo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMg-vd-qxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ufm-Tk-oJS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="509.5" y="2083.5"/>
         </scene>
@@ -922,9 +932,11 @@
                         <outlet property="ideaPostButton" destination="FQc-aG-1PX" id="FGj-Zq-MN3"/>
                         <outlet property="ideaSummary" destination="KTi-cv-gk6" id="aLC-1r-TUi"/>
                         <outlet property="ideaTitle" destination="3YU-Mm-v5b" id="zJf-Nv-USM"/>
+                        <segue destination="upl-7n-vER" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="9uG-nQ-bEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rah-U3-b7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="upl-7n-vER" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1511.5" y="2083.5"/>
         </scene>
@@ -1234,11 +1246,13 @@
                         <outlet property="RFPPostButton" destination="Bpj-Zt-LfX" id="5mx-b9-Taq"/>
                         <outlet property="RFPSummary" destination="22M-Vi-Xci" id="inU-E9-CX3"/>
                         <outlet property="RFPTitle" destination="atV-jq-ePB" id="Byh-Zp-uWc"/>
+                        <segue destination="XD1-AS-3ts" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="Kej-57-1XZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8B-wx-kcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XD1-AS-3ts" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1516.5" y="2831.5"/>
+            <point key="canvasLocation" x="1511.5" y="2831.5"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="Vd3-ik-3LB">

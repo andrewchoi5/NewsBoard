@@ -54,7 +54,7 @@ class ArticlePosterController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["articlePreviewText"] = articlePreviewBody.text
         
         ServerInterface.addCard(selectedCardSpace, completion: nil)
-        self.navigationController?.popViewControllerAnimated(true)
+        self.finishedCreatingPost()
         
     }
 
@@ -79,7 +79,7 @@ class IdeaPostController : PosterController, UITextFieldDelegate {
         
         ServerInterface.addCard(selectedCardSpace, completion: nil)
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.finishedCreatingPost()
         
     }
     
@@ -105,7 +105,7 @@ class RFPPostController : PosterController, UITextFieldDelegate {
         
         ServerInterface.addCard(selectedCardSpace, completion: nil)
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.finishedCreatingPost()
 
     }
 
