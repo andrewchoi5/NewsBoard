@@ -335,28 +335,33 @@ extension RoundedTextBox : UITextFieldDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    func useUnderline() {
-        let border = CALayer()
-        let borderWidth = CGFloat(0.5)
-        border.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 1.0).CGColor
-        border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width, self.frame.size.height)
-        border.borderWidth = borderWidth
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
     }
     
+    var border = CALayer();
     
-    func commonInit() {
-        useUnderline()
+    @IBInspectable var underline : Bool = false  {
+        didSet {
+            self.didSetUnderline()
+        }
     }
+    
+    func didSetUnderline() {
+        if (underline) {
+            let borderWidth = CGFloat(0.5)
+            border.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 0.5).CGColor
+            border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width, self.frame.size.height)
+            border.borderWidth = borderWidth
+            self.layer.addSublayer(border)
+            self.layer.masksToBounds = true
+        } else {
+            border.removeFromSuperlayer();
+        }
+    }
+
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)
@@ -371,29 +376,36 @@ extension RoundedTextBox : UITextFieldDelegate {
     }
 }
 
-@IBDesignable class FormButton : UIButton {    
+@IBDesignable class FormButton : UIButton {
+    
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
     }
     
-    func useUnderline() {
-        let border = CALayer()
-        let borderWidth = CGFloat(0.5)
-        border.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 1.0).CGColor
-        border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width, self.frame.size.height)
-        border.borderWidth = borderWidth
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
+    var border = CALayer();
+    
+    @IBInspectable var underline : Bool = false  {
+        didSet {
+            self.didSetUnderline()
+        }
+    }
+
+    func didSetUnderline() {
+        if (underline) {
+            let borderWidth = CGFloat(0.5)
+            border.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 0.5).CGColor
+            border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width, self.frame.size.height)
+            border.borderWidth = borderWidth
+            self.layer.addSublayer(border)
+            self.layer.masksToBounds = true
+        } else {
+            border.removeFromSuperlayer();
+        }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
-    }
-    
-    func commonInit() {
-        useUnderline()
     }
 }
 
@@ -417,48 +429,5 @@ extension RoundedTextBox : UITextFieldDelegate {
         let heigth = superSizeThatFits.height + padding.top + padding.bottom
         return CGSize(width: width, height: heigth)
     }
-}
-
-@IBDesignable class FormTextView: UITextView
-{
-    var gradientBackgroundStartColor = UIColor(red: 193.0 / 255.0, green: 225.0 / 255.0, blue: 251.0 / 255.0, alpha: 1.0)
-    var gradientBackgroundEndColor = UIColor(red: 249.0 / 255.0, green: 251.0 / 255.0, blue: 215.0 / 255.0, alpha: 1.0)
     
-    var backgroundLayer : CAGradientLayer!
-    let padding = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20);
-    
-    func addGradientBackground() {
-        backgroundLayer = CAGradientLayer()
-        backgroundLayer.colors = [gradientBackgroundStartColor.CGColor, gradientBackgroundEndColor.CGColor]
-        backgroundLayer.startPoint = CGPointMake(0, 0.5);
-        backgroundLayer.endPoint = CGPointMake(1.0, 0.5);
-        self.layer.insertSublayer(backgroundLayer, atIndex: 0)
-    }
-    
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer : textContainer)
-        commonInit()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        backgroundLayer.frame = self.bounds
-    }
-    
-    func reverseBackgroundGradient() {
-        backgroundLayer.colors = backgroundLayer.colors?.reverse()
-        self.setNeedsLayout()
-    }
-
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        commonInit()
-    }
-    
-    func commonInit() {
-        addGradientBackground()
-        reverseBackgroundGradient()
-        self.textContainerInset = padding
-    }
 }
