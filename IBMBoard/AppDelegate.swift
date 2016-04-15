@@ -30,20 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, forState: .Normal)
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
 
-        // Credentials
-        let APIKey = "llyespecietwersimartayth"
-        let APIPassword = "26acdf29a791400f22b4e3e7df556d52eda31f82"
-        let APIHost = "b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com"
-
-        let APIRealm = "Cloudant Private Database"
-        
-        // Network Layer Specifics
-        let APIPort = 443
-        let APIProtocol = NSURLProtectionSpaceHTTPS
-        let APIAuthenticationMethod = NSURLAuthenticationMethodHTTPBasic
-        
-        // Add key to local storage
-        NSURLCredentialStorage.sharedCredentialStorage().setCredential(NSURLCredential(user: APIKey, password: APIPassword, persistence: .ForSession), forProtectionSpace: NSURLProtectionSpace(host: APIHost, port: APIPort, protocol: APIProtocol, realm: APIRealm, authenticationMethod: APIAuthenticationMethod))
+        ServerInterface.initializeCredentials()
         
         return true
     }

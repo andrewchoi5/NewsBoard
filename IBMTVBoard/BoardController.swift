@@ -112,7 +112,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         let blockWidth = (self.collectionView?.frame.size.width)! / CGFloat(cellsPerRow)
         let blockHeight = (self.collectionView?.frame.size.height)! / CGFloat(cellsPerColumn)
         let xPos = CGFloat((cell.space.topLeftCorner - 1) % cellsPerRow) * blockWidth
-        let yPos = CGFloat(cell.space.topLeftCorner / cellsPerRow) * blockHeight
+        let yPos = CGFloat((cell.space.topLeftCorner - 1) / cellsPerRow) * blockHeight
         let width = blockWidth * CGFloat(cell.space.width)
         let height = blockHeight * CGFloat(cell.space.height)
         
