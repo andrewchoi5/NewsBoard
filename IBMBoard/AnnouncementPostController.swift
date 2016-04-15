@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AnnouncementPostController : PosterController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLSessionTaskDelegate {
+class AnnouncementPostController : PosterController {
     
     @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
@@ -58,12 +58,21 @@ class AnnouncementPostController : PosterController, UIImagePickerControllerDele
         
     }
     
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.progressBar.setProgress(Float(totalBytesSent) / Float(totalBytesExpectedToSend), animated: true)
-        })
+    @IBAction func didPushPhotoAlbumButton(sender: UIButton) {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .SavedPhotosAlbum
+        vc.delegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
+}
+
+extension AnnouncementPostController : UINavigationControllerDelegate { }
+
+extension AnnouncementPostController : UIImagePickerControllerDelegate {
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         picker.dismissViewControllerAnimated(true, completion: nil)
@@ -74,14 +83,14 @@ class AnnouncementPostController : PosterController, UIImagePickerControllerDele
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
+}
+
+extension AnnouncementPostController : NSURLSessionTaskDelegate {
     
-    @IBAction func didPushPhotoAlbumButton(sender: UIButton) {
-        
-        let vc = UIImagePickerController()
-        vc.sourceType = .SavedPhotosAlbum
-        vc.delegate = self
-        
-        self.presentViewController(vc, animated: true, completion: nil)
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.progressBar.setProgress(Float(totalBytesSent) / Float(totalBytesExpectedToSend), animated: true)
+        })
     }
     
 }

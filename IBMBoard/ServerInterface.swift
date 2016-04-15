@@ -36,15 +36,30 @@ class DelegateProxy : NSObject, NSURLSessionTaskDelegate {
 
 public class ServerInterface {
     
-    static let serverURL = "https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com"
-
-    // TODO: Replace these with another account
+    // Credentials
+    static let APIKey = "llyespecietwersimartayth"
+    static let APIPassword = "26acdf29a791400f22b4e3e7df556d52eda31f82"
+    static let APIHost = "b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com"
+    static let APIRealm = "Cloudant Private Database"
+    
+    // Network Layer Specifics
+    static let APIPort = 443
+    static let APIProtocol = NSURLProtectionSpaceHTTPS
+    static let APIAuthenticationMethod = NSURLAuthenticationMethodHTTPBasic
+    
     static let defaultEmailSender = "ibmboard@gmail.com"
     static let defaultEmailServer = "smtp.gmail.com"
     static let defaultEmailPassword = "dsjhdsjhadsjh"
     
+    static let serverURL = "https://b66668a3-bd4d-4e32-88cc-eb1e0bff350b-bluemix.cloudant.com"
+    
     static let currentSession = NSURLSession(configuration: ServerInterface.sessionConfiguration(), delegate: DelegateProxy(), delegateQueue: NSOperationQueue.mainQueue())
     static let delegateProxy = currentSession.delegate as! DelegateProxy
+    
+    // NOTE: Method must be called before any attempt to connect to server
+    static func initializeCredentials() {
+        NSURLCredentialStorage.sharedCredentialStorage().setCredential(NSURLCredential(user: APIKey, password: APIPassword, persistence: .ForSession), forProtectionSpace: NSURLProtectionSpace(host: APIHost, port: APIPort, protocol: APIProtocol, realm: APIRealm, authenticationMethod: APIAuthenticationMethod))
+    }
     
     static func sessionConfiguration() -> NSURLSessionConfiguration {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
