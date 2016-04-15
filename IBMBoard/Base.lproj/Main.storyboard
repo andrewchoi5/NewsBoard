@@ -923,7 +923,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hMV-U1-mdd" firstAttribute="leading" secondItem="LNq-4p-iXV" secondAttribute="leadingMargin" constant="-20" id="3AQ-43-mlf"/>
                             <constraint firstItem="hMV-U1-mdd" firstAttribute="top" secondItem="4fy-4O-W3e" secondAttribute="bottom" id="bPR-OL-LNX"/>

@@ -351,8 +351,8 @@ extension RoundedTextBox : UITextFieldDelegate {
     
     func didSetUnderline() {
         if (underline) {
-            let borderWidth = CGFloat(0.5)
-            border.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 0.5).CGColor
+            let borderWidth = CGFloat(1)
+            border.borderColor = UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 0.3).CGColor
             border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width * 2, self.frame.size.height)
             border.borderWidth = borderWidth
             self.layer.addSublayer(border)
@@ -393,8 +393,8 @@ extension RoundedTextBox : UITextFieldDelegate {
 
     func didSetUnderline() {
         if (underline) {
-            let borderWidth = CGFloat(0.5)
-            border.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 0.5).CGColor
+            let borderWidth = CGFloat(1)
+            border.borderColor = UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 0.3).CGColor
             border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width * 2, self.frame.size.height)
             border.borderWidth = borderWidth
             self.layer.addSublayer(border)
