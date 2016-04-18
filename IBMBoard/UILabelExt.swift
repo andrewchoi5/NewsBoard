@@ -10,8 +10,8 @@ import Foundation
 
 extension UILabel {
     
-    func kern(kerningValue:CGFloat) {
-        self.attributedText =  NSAttributedString(string: self.text ?? "", attributes: [NSKernAttributeName:kerningValue, NSFontAttributeName:font, NSForegroundColorAttributeName:self.textColor])
+    func setKern(kerningValue: CGFloat) {
+        self.attributedText =  NSAttributedString(string: text ?? "", attributes: [NSKernAttributeName:kerningValue, NSFontAttributeName: font, NSForegroundColorAttributeName: textColor])
     }
     
 }

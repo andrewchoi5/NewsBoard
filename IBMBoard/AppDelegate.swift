@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ServerInterface.initializeCredentials()
         
+//        ServerInterface.sendVerificationEmailToAccount(Account.testAccount())
+        
         return true
     }
 

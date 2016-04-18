@@ -89,7 +89,7 @@ class SignUpController : KeyboardPresenter {
                 
                 ServerInterface.addAccount(self.newAccount, completion: {
                     self.hideLoading()
-                    ServerInterface.sendVerificationEmailToAccount(self.newAccount)
+                    ServerInterface.sendVerificationEmailToAccount(self.newAccount, completion: nil)
                     self.performSegueWithIdentifier("verificationSegue", sender: self)
                     print("Account added")
                 })

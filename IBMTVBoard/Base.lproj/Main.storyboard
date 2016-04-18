@@ -394,16 +394,7 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.minificationFilter" value="kCAFilterTrilinear"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANNOUNCEMENT" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-8F-TwI">
-                                                            <rect key="frame" x="122" y="33" width="371" height="70"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="CCW-Bi-3ZC"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                                            <color key="textColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JaX-Ko-ACa">
+                                                        <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JaX-Ko-ACa">
                                                             <rect key="frame" x="85" y="197" width="366" height="10"/>
                                                             <color key="progressTintColor" red="0.16862745100000001" green="0.43529411759999997" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="trackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -421,6 +412,15 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANNOUNCEMENT" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-8F-TwI">
+                                                            <rect key="frame" x="122" y="33" width="371" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="CCW-Bi-3ZC"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                            <color key="textColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
