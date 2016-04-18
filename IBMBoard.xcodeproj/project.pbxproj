@@ -82,6 +82,7 @@
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
 		39A8BA8C1CC4E78900307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
 		39A8BA8D1CC4E96100307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
+		39A8BA8E1CC5381400307E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1251C762FCF00090214 /* Assets.xcassets */; };
 		39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */; };
 		39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; };
 		39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -936,6 +937,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				392CF15A1C76424500090214 /* Assets.xcassets in Resources */,
+				39A8BA8E1CC5381400307E95 /* Assets.xcassets in Resources */,
 				392CF1581C76424500090214 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

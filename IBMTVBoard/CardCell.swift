@@ -116,7 +116,7 @@ class AnnouncementCardCell : CardCell {
             hasPhoto = true
             
         } else if let imageURL = card.attachedImageURL {
-            announcementPhoto.sd_setImageWithURL(imageURL, progressBlock: { (expectedSize, totalSize) in
+            announcementPhoto.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "emptyProfilePic")!, progressBlock: { (expectedSize, totalSize) in
                 self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
                 
                 }, completion: {(image, error, cacheType, url) in

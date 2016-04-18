@@ -392,7 +392,8 @@ class Account : Document {
     var password : String!
     var verified = false
     var verificationCode : String {
-        let rawCode = String(email.hashValue ^ password.hashValue)
+        let hashes : UInt = UInt(email.hashValue ^ password.hashValue)
+        let rawCode = String(hashes)
         return rawCode.substringWithRange(Range<String.Index>(start: rawCode.startIndex, end: rawCode.startIndex.advancedBy(6)))
     }
     
