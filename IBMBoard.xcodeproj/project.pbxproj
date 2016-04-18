@@ -77,6 +77,7 @@
 		396AB10F1CAF4B7B00B91FF9 /* EmailServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */; };
 		396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */; };
 		39826A9B1C8CDAFC00674734 /* SessionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39826A9A1C8CDAFC00674734 /* SessionInformation.swift */; };
+		3982DD911CC5672100691A39 /* Simple-Line-Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */; };
 		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
@@ -320,6 +321,7 @@
 		396AB10E1CAF4B7B00B91FF9 /* EmailServerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailServerInterface.swift; sourceTree = "<group>"; };
 		396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVerificationController.swift; sourceTree = "<group>"; };
 		39826A9A1C8CDAFC00674734 /* SessionInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformation.swift; sourceTree = "<group>"; };
+		3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Simple-Line-Icons.ttf"; sourceTree = "<group>"; };
 		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
 		39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 		39D7E2D81CC4296100B02FEC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */,
 				39D7E2D91CC4298600B02FEC /* Roboto-Black.ttf */,
 				39D7E2DA1CC4298600B02FEC /* Roboto-BlackItalic.ttf */,
 				39D7E2DB1CC4298600B02FEC /* Roboto-Bold.ttf */,
@@ -909,6 +912,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3982DD911CC5672100691A39 /* Simple-Line-Icons.ttf in Resources */,
 				39D7E2E81CC429AF00B02FEC /* Roboto-Black.ttf in Resources */,
 				39D7E2E91CC429AF00B02FEC /* Roboto-BlackItalic.ttf in Resources */,
 				39D7E2EA1CC429AF00B02FEC /* Roboto-Bold.ttf in Resources */,
