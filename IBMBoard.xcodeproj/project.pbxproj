@@ -87,7 +87,6 @@
 		39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */; };
 		39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; };
 		39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		39B61D691CBC622C00CDB05A /* UIDeviceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */; };
 		39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
 		39C61EFF1C981122002C7E12 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61EFE1C981122002C7E12 /* Card.swift */; };
 		39C61F041C98168F002C7E12 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61F031C98168F002C7E12 /* CardFactory.swift */; };
@@ -327,7 +326,6 @@
 		39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPresenter.swift; sourceTree = "<group>"; };
 		39AE8D521CBF11C2000F0D39 /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MailCore.framework"; sourceTree = "<absolute>"; };
-		39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
 		39C61EFE1C981122002C7E12 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		39C61F031C98168F002C7E12 /* CardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
 		39D7E2D61CC4163900B02FEC /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
@@ -657,7 +655,6 @@
 			children = (
 				39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */,
 				396871B41CBD18C900D6869B /* UIViewExt.swift */,
-				39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */,
 				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
 				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
 				3964FF561C9A5695002B5AE8 /* NSDateExt.swift */,
@@ -964,7 +961,6 @@
 				39EB94051C7E66600053F73F /* UIImage+WebP.m in Sources */,
 				39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */,
 				3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */,
-				39B61D691CBC622C00CDB05A /* UIDeviceExt.swift in Sources */,
 				391212E81C9B470900C05BDB /* ZHCalendarDayView.swift in Sources */,
 				39EB93FA1C7E66600053F73F /* NSData+ImageContentType.m in Sources */,
 				39EB93E71C7E45C60053F73F /* ArticlePosterController.swift in Sources */,

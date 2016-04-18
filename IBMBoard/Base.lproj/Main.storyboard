@@ -942,7 +942,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Post" id="h9d-DZ-UDK">
                             <color key="tintColor" red="0.24705882352941178" green="0.91534710570469791" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="didPushPostArticleButton:" destination="jZ6-cS-dQB" id="tQ3-n6-9HE"/>
+                                <action selector="didPushPostArticleButton" destination="jZ6-cS-dQB" id="Jps-yY-qoz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

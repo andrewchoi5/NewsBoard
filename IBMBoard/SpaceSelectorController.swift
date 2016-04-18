@@ -20,7 +20,6 @@ class SpaceSelectorController : UIViewController {
     let completedSpaceSelectionSegue = "completedSpaceSelectionSegue"
     let calenderPopoverSegue = "calenderPopoverSegue"
     
-    
     @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var calendarButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -157,9 +156,9 @@ class SpaceSelectorController : UIViewController {
     }
  
     func rotateToLandscapeIfNeeded() {
-        if(UIDeviceOrientationIsPortraitOrUnknown(UIDevice.currentDevice().orientation)) {
+//        if(!UIDeviceOrientationIsPortraitOrUnknown(UIDevice.currentDevice().orientation)) {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
-        }
+//        }
     }
     
     @IBAction func didFinishSelectingSpace(sender: AnyObject) {
@@ -234,18 +233,22 @@ class SpaceSelectorController : UIViewController {
     
     func isEmptyCell(indexPath: NSIndexPath) -> Bool {
         return collectionView!.cellForItemAtIndexPath(indexPath)!.reuseIdentifier == emptyCellIdentifier
+        
     }
 
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return .Landscape
+        
     }
     
     override func shouldAutorotate() -> Bool {
         return true
+        
     }
     
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return .LandscapeLeft
+        
     }
     
     func deleteCard(recognizer : CardDeletionGesture) {

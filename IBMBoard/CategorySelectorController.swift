@@ -54,7 +54,7 @@ class CategorySelectorController : UIViewController {
     }
     
     func rotateToPortraitIfNeeded() {
-        if(UIDeviceOrientationIsLandscapeOrUnknown(UIDevice.currentDevice().orientation)) {
+        if(!UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
         }
     }
