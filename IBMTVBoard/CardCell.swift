@@ -45,9 +45,14 @@ class CardCell : UICollectionViewCell {
     }
     
     func applyCardContent(card: Card) {
-        userPhoto.sd_setImageWithURL(card.userProfileImageURL) { (image, error, cacheType, url) in
-            // TODO: Put activity indicator logic here
+        ServerInterface.getAccount(associatedWithCard: card) { (account) in
+            self.userPhoto.sd_setImageWithURL(account?.profilePictureURL) { (image, error, cacheType, url) in
+                // TODO: Put activity indicator logic here
+                
+            }
+            
         }
+
         
     }
     

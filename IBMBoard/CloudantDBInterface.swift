@@ -58,8 +58,9 @@ class AccountQuery : Query {
     convenience init(withCard card: Card) {
         self.init()
         
-        self.addSelector("account.associatedCardID", .Equals, card.id)
+        self.addSelector("_id", .Equals, card.associatedAccountID)
     }
+
     
 }
 
@@ -297,7 +298,7 @@ struct Space {
 
 class Card : Document {
     
-    var userProfileImageURL : NSURL!
+    var associatedAccountID : String!
     var type : CardCellType!
     var space : Space!
     var userProvidedURL : NSURL? {
@@ -345,7 +346,7 @@ class Card : Document {
         type = CardCellType(rawValue: document.info["type"] as! Int)
         info = document.info["info"] as! [String : AnyObject]
         space = Space(dictionary: document.info["space"]  as! [String : Int])
-        userProfileImageURL = NSURL(string: document.info["userProfileImageURL"] as! String)
+        associatedAccountID = document.info["associatedAccountID"] as! String
         setDatesWithTimestamps(document.info["postDates"] as? [ String ])
         
     }
