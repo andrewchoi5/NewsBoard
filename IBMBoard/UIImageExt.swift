@@ -53,7 +53,7 @@ extension UIImage {
         
         CGContextConcatCTM(context, transform)
         
-        if self.imageOrientation == .RightMirrored {
+        if self.imageOrientation == .RightMirrored || self.imageOrientation == .LeftMirrored || self.imageOrientation == .Left || self.imageOrientation == .Right {
             CGContextDrawImage(context, CGRectMake(0, 0, self.size.height, self.size.width), self.CGImage)
             
         } else {
