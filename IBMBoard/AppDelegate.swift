@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         UIBarButtonItem.appearance().setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, forState: .Normal)
+        
+        
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
 
         ServerInterface.initializeCredentials()

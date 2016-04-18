@@ -36,7 +36,9 @@ class ArticlePosterController : PosterController, UITextFieldDelegate {
         if (articleLink.text! != "" && articleTitle.text != "") {
             articlePostButton.enabled = true;
             articlePostButton.tintColor = greenTint
+            
         } else {
+            
             articlePostButton.enabled = false;
             articlePostButton.tintColor = greyTint
         }

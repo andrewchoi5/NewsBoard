@@ -112,8 +112,8 @@ class AnnouncementCardCell : CardCell {
             announcementPhoto.image = image
             hasPhoto = true
             
-        } else if let imageURL = card.attachedImageURLString {
-            announcementPhoto.sd_setImageWithURLString(imageURL, progressBlock: { (expectedSize, totalSize) in
+        } else if let imageURL = card.attachedImageURL {
+            announcementPhoto.sd_setImageWithURL(imageURL, progressBlock: { (expectedSize, totalSize) in
                 self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
                 
                 }, completion: {(image, error, cacheType, url) in

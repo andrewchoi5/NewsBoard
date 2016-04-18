@@ -57,6 +57,20 @@ class SpaceSelectorController : UIViewController {
         self.collectionView.addGestureRecognizer(swipeDown)
     }
     
+    @IBAction func goNextDay(sender: AnyObject) {
+        calendarDate.incrementByDay()
+        configureCurrentDateLabel()
+        self.reloadCards()
+        
+    }
+    
+    @IBAction func goPreviousDay(sender: AnyObject) {
+        calendarDate.decrementByDay()
+        configureCurrentDateLabel()
+        self.reloadCards()
+        
+    }
+    
     func reloadCards() {
         self.beginReloading()
         ServerInterface.getCardsUntilDate(JTDateHelper().addToDate(calendarDate.underlyingDate(), days: 14)) { (cards) in
@@ -72,6 +86,25 @@ class SpaceSelectorController : UIViewController {
         configureCurrentDateLabel()
         addGesturesRecognizers()
         reloadCards()
+        
+        
+        let normalAttributes = [
+            
+            NSForegroundColorAttributeName: UIColor.mainAccentGreen()
+            
+        ]
+        
+        let disabledAttributes = [
+            
+            NSForegroundColorAttributeName: UIColor.secondaryTextColor()
+            
+        ]
+        
+        doneButton.enabled = false
+        calendarButton.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -10.0), forBarMetrics: .Default)
+        doneButton.setTitleTextAttributes(normalAttributes, forState: .Normal)
+        doneButton.setTitleTextAttributes(disabledAttributes, forState: .Disabled)
+
         
         self.postingDates.insert(calendarDate)
         

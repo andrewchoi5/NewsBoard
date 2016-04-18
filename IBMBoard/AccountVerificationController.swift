@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 
 class AccountVerificationController : KeyboardPresenter {
-    var accountToVerify : Account!
     @IBOutlet weak var verificationCodeText: RoundedTextBox!
+    var accountToVerify : Account!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func didAttemptToVerify() {
         
         guard let code = verificationCodeText.text else { return }
+        self.showLoading()
         if accountToVerify.verifyWithCode(code) {
-            ServerInterface.updateAccount(withAccount: accountToVerify, completion: {
+            ServerInterface.updateAccount(accountToVerify, completion: {
+                self.hideLoading()
                 self.performSegueWithIdentifier("verificationSuccessSegue", sender: self)
             })
             
@@ -32,12 +35,32 @@ class AccountVerificationController : KeyboardPresenter {
         print(message)
     }
     
+    func showLoading() {
+        activityIndicator.startAnimating()
+        
+    }
+    
+    func hideLoading() {
+        activityIndicator.stopAnimating()
+        
+    }
+    
     override func didDismissKeyboard() {
         self.view.constraintWithID("centerVerificationCodeConstraint")!.constant += 40.0
     }
     
     override func didPresentKeyboardWithFrame(frame: CGRect) {
         self.view.constraintWithID("centerVerificationCodeConstraint")!.constant -= 40.0
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        
+        if segue.identifier == "verificationSuccessSegue" {
+            
+            (segue.destinationViewController as! ProfilePictureController).accountForProfilePicture = accountToVerify
+            
+        }
     }
 
 }

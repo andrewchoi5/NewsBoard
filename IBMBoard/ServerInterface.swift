@@ -195,9 +195,13 @@ extension ServerInterface {
         request.HTTPBody = CouchDBSerializer.getData(document)
         
         ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-            //            let result = String(data: responseData, encoding: NSUTF8StringEncoding)!
-            //            guard let responseData = data else { return }
+            guard let responseData = data else { return }
             guard let handler = completion else { return }
+            guard let metaData = ServerResponseDeserializer.getResponse(responseData).documentMetaData else {
+                handler()
+                return
+            }
+            document.updateWithDocumentMetaData(metaData)
             handler()
             
         }).resume()
@@ -263,12 +267,12 @@ extension ServerInterface {
 
 extension ServerInterface {
     
-    static func addAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
+    static func addAccount(account: Account, completion: ((Void) -> Void)?) {
         ServerInterface.addDocument(account, toDatabase: "accounts", completion: completion)
         
     }
     
-    static func updateAccount(withAccount account: Account, completion: ((Void) -> Void)?) {
+    static func updateAccount(account: Account, completion: ((Void) -> Void)?) {
         ServerInterface.updateDocument(account, inDatabase: "accounts", completion: completion)
         
     }

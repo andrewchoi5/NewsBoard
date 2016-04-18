@@ -150,51 +150,86 @@ class Document {
         infoKey = document.infoKey
         info = document.info
         attachments = document.attachments
+        
     }
     
     var revisionNumber : Int {
         guard let rangeOfDash = revision.rangeOfString("-") else { return 0 }
         guard let number = Int(revision.substringToIndex(rangeOfDash.endIndex.predecessor())) else { return 0 }
         return number
+        
     }
     
     func isOlderRevisionThan(document: Document) -> Bool {
         return self.revisionNumber < document.revisionNumber
-    }
-    
-    func addAttachment(attachmentData: NSData, mimeType: String, name: String) {
-        self.attachments[name] =
-            [
-                "content_type" : mimeType,
-                "data" : attachmentData.base64EncodedString()
-        ]
-    }
-    
-    func addAttachment(attachmentData: NSData, mimeType: String) {
-        self.addAttachment(attachmentData, mimeType: mimeType, name: "attachment\(attachments.count + 1)")
         
     }
     
-    func addJPEGImage(image: UIImage, compressionRatio: CGFloat) {
-        guard let imageData = UIImageJPEGRepresentation(image, compressionRatio) else { return }
-        self.addAttachment(imageData, mimeType: "image/jpeg")
+    func setAttachment(withName name: String, andMIMEType mimeType: String, andData data: NSData) {
+        self.attachments[name] =
+            [
+                "content_type" : mimeType,
+                "data" : data.base64EncodedString()
+        ]
     }
     
-    func addPNGImage(image: UIImage) {
-        guard let imageData = UIImagePNGRepresentation(image) else { return }
-        self.addAttachment(imageData, mimeType: "image/png")
+    func addAttachment(withMIMEType mimeType: String, andData data: NSData) {
+        self.setAttachment(withName: "attachment\(attachments.count + 1)", andMIMEType: mimeType, andData: data)
+        
     }
     
-    func addJPEGImage(image: UIImage) {
-        self.addJPEGImage(image, compressionRatio: 0.5)
+    private func attachJPEGImage(withName name: String, andData data: NSData) {
+        self.setAttachment(withName: name, andMIMEType: "image/jpeg", andData: data)
+        
+    }
+    
+    func attachJPEGImage(withName name: String, withImage image: UIImage, andCompressionRatio ratio: CGFloat) {
+        guard let data = UIImageJPEGRepresentation(image, ratio) else { return }
+        self.attachJPEGImage(withName: name, andData: data)
+        
+    }
+    
+    func attachJPEGImage(withName name: String, andImage image: UIImage) {
+        self.attachJPEGImage(withName: name, withImage: image, andCompressionRatio: 0.5)
+        
+    }
+    
+    func attachJPEGImage(image: UIImage) {
+        self.attachJPEGImage(withName: "attachment\(attachments.count + 1)", andImage: image)
+        
+    }
+    
+    func attachPNGImage(withName name: String, andImage image: UIImage) {
+        guard let data = UIImagePNGRepresentation(image) else { return }
+        self.addAttachment(withMIMEType: "image/png", andData: data)
+        
+    }
+    
+    func attachPNGImage(image: UIImage) {
+        self.attachPNGImage(withName: "attachment\(attachments.count + 1)", andImage: image)
+        
     }
     
     func hasAttachments() -> Bool {
         return attachments.count > 0
     }
     
-    func getAttachments() -> [ String : AnyObject ] {
+    func getAttachmentData(withName name: String) -> NSData? {
+        guard let attachment = attachments[ name ] else { return nil }
+        guard let base64String = attachment["data"] as? String else { return nil }
+        guard let data = NSData(base64EncodedString: base64String, options: .IgnoreUnknownCharacters) else { return nil }
+        return data
+        
+    }
+    
+    func getAttachmentURL(withName name: String, inDatabase dbName: String) -> NSURL? {
+        return NSURL(string: "\(ServerInterface.serverURL)/\(dbName)/\(self.id)/\(name)")
+        
+    }
+    
+    func getAttachmentsDictionary() -> [ String : AnyObject ] {
         return attachments
+        
     }
     
     init() {
@@ -256,19 +291,18 @@ class Card : Document {
         return URL
     }
     
-    var attachedImageURLString : String? {
-        guard let attachmentName = super.getAttachments().keys.first else { return nil }
-        return "\(ServerInterface.serverURL)/ibmboard/\(self.id)/\(attachmentName)"
+    var attachedImageURL : NSURL? {
+        guard let name = super.getAttachmentsDictionary().keys.first else { return nil }
+        return self.getAttachmentURL(withName: name, inDatabase: "ibmboard")
+        
     }
     
     var attachedImage : UIImage? {
-        
-        guard let attachment = super.getAttachments().values.first as? [ String : AnyObject ] else { return nil }
-        guard let base64String = attachment["data"] as? String else { return nil }
-        guard let data = NSData(base64EncodedString: base64String, options: .IgnoreUnknownCharacters) else { return nil }
+        guard let name = super.getAttachmentsDictionary().keys.first else { return nil }
+        guard let data = self.getAttachmentData(withName: name) else { return nil }
         guard let image = UIImage(data: data) else { return nil }
-        
         return image
+        
     }
     
     internal var datesAppearing = Set<BoardDate>()
@@ -354,7 +388,23 @@ class Account : Document {
     var password : String!
     var verified = false
     var verificationCode : String {
-        return String(email.hashValue ^ password.hashValue).base64EncodedString().stringByReplacingOccurrencesOfString("=", withString: "")
+        let rawCode = String(email.hashValue ^ password.hashValue)
+        return rawCode.substringWithRange(Range<String.Index>(start: rawCode.startIndex, end: rawCode.startIndex.advancedBy(6)))
+    }
+    
+    var profilePictureURL : NSURL? {
+        return self.getAttachmentURL(withName: "profilePicture", inDatabase: "accounts")
+
+    }
+    
+    func setProfilePicture(image : UIImage) {
+        self.attachJPEGImage(withName: "profilePicture", andImage: image)
+        
+    }
+    
+    func hasProfilePicture() -> Bool {
+        return self.hasAttachments()
+        
     }
     
     func verifyWithCode(code : String) -> Bool {
@@ -377,15 +427,26 @@ class Account : Document {
         email = document.info["email"] as! String
         password = document.info["password"] as! String
         verified = document.info["verified"] as! Bool
+        
     }
     
     static func hashPassword(password: String) -> String {
         return password.hashedString(withSalt: Account.hashSalt)
         
     }
-    
+}
+
+extension Account {
     static func testAccount() -> Account {
-        return Account(withEmail: "zamiul.haque.1@gmail.com", andPassword: "testing123")
+        return Account(withEmail: "zamiul.haque.1@gmail.com", andPassword: "test")
         
     }
+    
+    static func testVerifiedAccount() -> Account {
+        let account = Account.testAccount()
+        account.verified = true
+        return account
+        
+    }
+    
 }

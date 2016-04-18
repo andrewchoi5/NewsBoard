@@ -49,7 +49,7 @@ extension CardFactory {
     
     class func makePictureAnnouncementCard(space: Space, _ title: String, _ messageBody: String, _ picture: UIImage) -> Card {
         let card = makeAnnouncementCard(space, title, messageBody)
-        card.addPNGImage(picture)
+        card.attachPNGImage(picture)
         return card
         
     }

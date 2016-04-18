@@ -10,8 +10,12 @@ import Foundation
 import UIKit
 
 public func defaultFontOfSize(size: Double) -> UIFont {
-    
     return UIFont(name:"Roboto", size: CGFloat(size))!
+    
+}
+
+public func defaultBoldFontOfSize(size: Double) -> UIFont {
+    return UIFont(name:"Roboto-bold", size: CGFloat(size))!
     
 }
 
@@ -331,7 +335,7 @@ extension RoundedTextBox : UITextFieldDelegate {
 }
 
 @IBDesignable class FormTextField : UITextField {
-    let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20);
+    @IBInspectable var padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -428,6 +432,90 @@ extension RoundedTextBox : UITextFieldDelegate {
         let width = superSizeThatFits.width + padding.left + padding.right
         let heigth = superSizeThatFits.height + padding.top + padding.bottom
         return CGSize(width: width, height: heigth)
+    }
+    
+}
+
+@IBDesignable class ExpandableTextView : UITextView {
+    @IBInspectable var padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    @IBInspectable var numberOfLines : Int = 0
+    @IBInspectable var borderWidth : Double = 0.0
+    @IBInspectable var borderColor : UIColor = UIColor.redColor() // UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 0.3)
+    
+    private var border = UIView()
+    private var placeholderMode = true
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        commonInit()
+
+    }
+    
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        
+        commonInit()
+        
+    }
+    
+    func commonInit() {
+        self.dataDetectorTypes = .None
+        self.autocorrectionType = .No
+        self.keyboardAppearance = .Dark
+        self.enablesReturnKeyAutomatically = false
+        border.backgroundColor = borderColor
+        border.frame.size.height = CGFloat(borderWidth)
+        self.textContainer.heightTracksTextView = true
+        self.textContainerInset = padding
+        self.clipsToBounds = true
+        self.delegate = self
+        self.addSubview(border)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        border.frame = CGRectMake(padding.left, self.frame.size.height - CGFloat(borderWidth), self.frame.size.width, self.frame.size.height)
+
+    }
+    
+    func adjustToHeightOfText() {
+        self.frame.size.height = self.sizeThatFits(self.frame.size).height
+
+    }
+}
+
+extension ExpandableTextView : UITextViewDelegate {
+    
+    func textViewDidChange(textView: UITextView) {
+        adjustToHeightOfText()
+        textView.setNeedsDisplay()
+        
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if numberOfLines <= 0 {
+            return true
+        }
+        
+        if placeholderMode {
+            textView.text = ""
+//            textView.font
+            placeholderMode = false
+        }
+        
+        let oldText = self.text
+        self.text = "\(self.text)\(text)"
+        let currentNumberOfLines = Int(round(self.sizeThatFits(self.frame.size).height / textView.font!.lineHeight))
+        self.text = oldText
+        if currentNumberOfLines <= self.numberOfLines || text == "" {
+            return true
+            
+        } else {
+            return false
+            
+        }
     }
     
 }

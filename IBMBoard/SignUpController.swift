@@ -11,6 +11,7 @@ import UIKit
 
 class SignUpController : KeyboardPresenter {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailField: RoundedTextBox!
     @IBOutlet weak var passwordField: RoundedTextBox!
     @IBOutlet weak var confirmPasswordField: RoundedTextBox!
@@ -79,25 +80,38 @@ class SignUpController : KeyboardPresenter {
             return
         }
         
+        
+        showLoading()
         ServerInterface.checkIfEmailExists(withEmail: emailField.text!) { (emailExists) in
             
             if !emailExists {
                 self.newAccount = Account(withEmail:self.emailField.text!, andPassword:self.passwordField.text!)
                 
-                ServerInterface.addAccount(withAccount: self.newAccount, completion: {
-                  
+                ServerInterface.addAccount(self.newAccount, completion: {
+                    self.hideLoading()
                     ServerInterface.sendVerificationEmailToAccount(self.newAccount)
                     self.performSegueWithIdentifier("verificationSegue", sender: self)
                     print("Account added")
                 })
                 
             } else {
+                self.hideLoading()
                 self.emailField.showInvalid()
                 self.errorDialogue("Email already exists")
                 
             }
             
         }
+        
+    }
+    
+    func showLoading() {
+        activityIndicator.startAnimating()
+        
+    }
+    
+    func hideLoading() {
+        activityIndicator.stopAnimating()
         
     }
     

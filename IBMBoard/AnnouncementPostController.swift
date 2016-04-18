@@ -10,6 +10,7 @@ import Foundation
 
 class AnnouncementPostController : PosterController {
     
+    @IBOutlet weak var addPictureButton: FormButton!
     @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -44,7 +45,7 @@ class AnnouncementPostController : PosterController {
 
         
         if let image = selectedImage {
-            selectedCardSpace.addPNGImage(image)
+            selectedCardSpace.attachPNGImage(image)
         }
         
         progressBar.hidden = false
@@ -76,6 +77,7 @@ extension AnnouncementPostController : UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         picker.dismissViewControllerAnimated(true, completion: nil)
+        addPictureButton.setTitle("Change picture", forState: .Normal)
         
     }
     

@@ -29,4 +29,10 @@ extension NSDate {
     
     }
     
+    func dateWithDaySubtracted() -> NSDate {
+        guard let newDate = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: -1, toDate: self, options: NSCalendarOptions(rawValue: 0)) else { return NSDate() }
+        return newDate
+        
+    }
+    
 }

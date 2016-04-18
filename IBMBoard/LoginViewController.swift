@@ -14,6 +14,7 @@ class LoginViewController: KeyboardPresenter {
     @IBOutlet weak var password: RoundedTextBox!
     @IBOutlet weak var rememberCredentials: UISwitch!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var userDefaults = NSUserDefaults.standardUserDefaults()
     
     static var RememberCredentialsKey = "RememberCredentialsKey"
@@ -63,8 +64,18 @@ class LoginViewController: KeyboardPresenter {
         password.showNormal()
     }
     
-    @IBAction func loginPressed() {
+    func showLoading() {
+        activityIndicator.startAnimating()
         
+    }
+    
+    func hideLoading() {
+        activityIndicator.stopAnimating()
+        
+    }
+    
+    @IBAction func loginPressed() {
+        self.showLoading()
         emailID.endEditing(true)
         password.endEditing(true)
         
@@ -78,9 +89,8 @@ class LoginViewController: KeyboardPresenter {
         }
         
 //        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
-
         ServerInterface.getAccount(withEmail: emailID.text!, andPassword: password.text!) { (account) in
-            
+            self.hideLoading()
             if account == nil {
                 self.emailID.showInvalid()
                 self.password.showInvalid()
@@ -89,8 +99,14 @@ class LoginViewController: KeyboardPresenter {
             
             self.userAccount = account!
             
-            if !account!.verified {
+            if !self.userAccount.verified {
                 self.performSegueWithIdentifier("reverificationSegue", sender: self)
+                return
+                
+            }
+            
+            if !self.userAccount.hasProfilePicture() {
+                self.performSegueWithIdentifier("profilePictureSegue", sender: self)
                 return
                 
             }
@@ -130,6 +146,11 @@ class LoginViewController: KeyboardPresenter {
         
         if segue.identifier == "reverificationSegue" {
             (segue.destinationViewController as! AccountVerificationController).accountToVerify = userAccount
+            
+        }
+        
+        if segue.identifier == "profilePictureSegue" {
+            (segue.destinationViewController as! ProfilePictureController).accountForProfilePicture = userAccount
             
         }
     }

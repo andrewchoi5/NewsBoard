@@ -32,6 +32,12 @@ extension UIImageView {
         self.sd_setImageWithURL(NSURL(string: url)!, placeholderImage:nil, options:SDWebImageOptions(rawValue: 0), progress:progressBlock, completed:completion)
         
     }
+        
+    public func sd_setImageWithURL(url : NSURL, progressBlock : SDWebImageDownloaderProgressBlock, completion:SDWebImageCompletionBlock) {
+        self.sd_setImageWithURL(url, placeholderImage:nil, options:SDWebImageOptions(rawValue: 0), progress:progressBlock, completed:completion)
+
+    }
+
 }
 
 extension UIImageView {

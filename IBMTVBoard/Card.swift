@@ -21,6 +21,12 @@ class BoardDate {
         date = date.dateWithDayAdded()
     }
     
+    func decrementByDay() {
+        date = date.dateWithDaySubtracted()
+        
+    }
+    
+    
     func underlyingDate() -> NSDate {
         return date
     }

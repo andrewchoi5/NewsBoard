@@ -124,5 +124,11 @@ class CalendarController : UIViewController, ZHCalendarDelegate {
         updateMonthLabelWithDate(calendar.date())
         
     }
+    
+    @IBAction func didPushDoneButton() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
 
 }

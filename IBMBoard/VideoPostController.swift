@@ -32,10 +32,12 @@ class VideoPostController : PosterController, UITextFieldDelegate {
         // enable post button if fields are not empty
         if (videoLink.text! != "" && videoTitle.text != "") {
             videoPostButton.enabled = true;
-             videoPostButton.tintColor = greenTint
+            videoPostButton.tintColor = greenTint
+            
         } else {
             videoPostButton.enabled = false;
             videoPostButton.tintColor = greyTint
+            
         }
         
     }
