@@ -19,7 +19,14 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
-            <string>Roboto-Regular</string>
+        </mutableArray>
+        <mutableArray key="Simple-Line-Icons.ttf">
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -100,7 +107,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="e1c-F1-aSY">
                                                             <rect key="frame" x="117" y="33" width="396" height="70"/>
-                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -203,6 +210,15 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIDEO" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-9b-4n4">
                                                             <rect key="frame" x="117" y="33" width="395" height="70"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                            <color key="textColor" red="0.36078431370000003" green="1" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="2I9-2a-WJ9">
+                                                            <rect key="frame" x="174" y="111" width="34" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="5XI-Ay-nEr"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="20"/>
                                                             <color key="textColor" red="0.36078431370000003" green="1" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -314,6 +330,15 @@
                                                             <color key="textColor" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="wy3-cI-q6j">
+                                                            <rect key="frame" x="143" y="96" width="40" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="nJ7-Y8-D9p"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="20"/>
+                                                            <color key="textColor" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -421,6 +446,15 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="2tq-CH-gFY">
+                                                            <rect key="frame" x="151" y="93" width="34" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="liS-gK-9Ds"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="20"/>
+                                                            <color key="textColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -544,6 +578,15 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="JEo-bR-XAp">
+                                                            <rect key="frame" x="140" y="69" width="40" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="51e-82-3iL"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="20"/>
+                                                            <color key="textColor" red="0.9166579279" green="0.28326866610000001" blue="0.092150796980000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -652,6 +695,15 @@
                                                             <rect key="frame" x="118" y="33" width="395" height="70"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" red="1" green="0.93791946308724827" blue="0.24336723993288589" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="mys-01-AfJ">
+                                                            <rect key="frame" x="192" y="85" width="40" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="D0d-Ch-Kdg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="20"/>
+                                                            <color key="textColor" red="1" green="0.93791946309999996" blue="0.2433672399" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
