@@ -28,6 +28,7 @@ class CardCell : UICollectionViewCell {
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var cardGradientBorderView: GradientView!
+    @IBOutlet weak var cardTypeLabel: UILabel!
     
     var oldColor : UIColor!
     
@@ -40,6 +41,7 @@ class CardCell : UICollectionViewCell {
         cardBackgroundView.layer.shadowRadius = 2.0
         cardBackgroundView.layer.shadowOffset = CGSizeMake(-1.0, 5.0)
         
+        cardTypeLabel.kern(2.0);
     }
     
     func applyCardContent(card: Card) {
