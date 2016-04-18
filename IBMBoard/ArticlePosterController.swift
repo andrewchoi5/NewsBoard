@@ -80,7 +80,6 @@ class IdeaPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["ideaPreview"] = ideaSummary.text!
         
         ServerInterface.addCard(selectedCardSpace, completion: nil)
-        
         self.finishedCreatingPost()
         
     }

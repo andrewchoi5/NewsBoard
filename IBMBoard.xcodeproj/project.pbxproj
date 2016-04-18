@@ -80,6 +80,8 @@
 		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
+		39A8BA8C1CC4E78900307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
+		39A8BA8D1CC4E96100307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
 		39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */; };
 		39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; };
 		39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -319,6 +321,7 @@
 		39826A9A1C8CDAFC00674734 /* SessionInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformation.swift; sourceTree = "<group>"; };
 		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
+		39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPresenter.swift; sourceTree = "<group>"; };
 		39AE8D521CBF11C2000F0D39 /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MailCore.framework"; sourceTree = "<absolute>"; };
 		39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
@@ -649,6 +652,7 @@
 		3964FF5A1C9A62E0002B5AE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */,
 				396871B41CBD18C900D6869B /* UIViewExt.swift */,
 				39B61D681CBC622C00CDB05A /* UIDeviceExt.swift */,
 				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
@@ -972,6 +976,7 @@
 				39DDBCBC1CC47885004FED02 /* ProfilePictureController.swift in Sources */,
 				396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */,
 				39EB94071C7E66600053F73F /* UIImageView+WebCache.m in Sources */,
+				39A8BA8C1CC4E78900307E95 /* UIImageExt.swift in Sources */,
 				39EB93B31C7D8A880053F73F /* UIImageViewExt.swift in Sources */,
 				394CD6861C91825500AB28F1 /* JTCalendarPageView.m in Sources */,
 				39EB93F81C7E66600053F73F /* TBXML+HTTP.m in Sources */,
@@ -1050,6 +1055,7 @@
 				393CB23D1CBF4E4D00648B5B /* JFRandom.m in Sources */,
 				39EB940E1C80FE240053F73F /* CardCell.swift in Sources */,
 				39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */,
+				39A8BA8D1CC4E96100307E95 /* UIImageExt.swift in Sources */,
 				39022CEA1C895C5F00464BC1 /* UIImage+MultiFormat.m in Sources */,
 				39022CEC1C895C5F00464BC1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				39C61F041C98168F002C7E12 /* CardFactory.swift in Sources */,

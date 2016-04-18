@@ -63,33 +63,26 @@ class BoardController: UIViewController, BoardLayoutDelegate {
                 
             }
             
-            var cardsForDeletion = [ Int ]()
-            var cardsForUpdating = [ (Card, Int) ]()
-            
             for index in 0..<self.cardList.count {
                 let oldCard = self.cardList[ index ]
-                if deletedCards.contains(oldCard) {
-                    cardsForDeletion.append(index)
-                    
-                } else if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
-                    cardsForUpdating.append((card, index))
-                    
+                if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
+                    let indexPath = NSIndexPath(forRow: index, inSection:0)
+                    self.cardList[ index ] = card
+                    self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
                 }
             }
 
-            for index in cardsForDeletion {
-                let indexPath = NSIndexPath(forRow: index, inSection:0)
-                self.cardList.removeAtIndex(index)
-                self.collectionView.deleteItemsAtIndexPaths([indexPath])
+            var deleted = 0
+            for index in 0..<self.cardList.count {
+                let realIndex = index - deleted
+                let oldCard = self.cardList[ realIndex ]
+                if deletedCards.contains(oldCard) {
+                    let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
+                    self.cardList.removeAtIndex(realIndex)
+                    self.collectionView.deleteItemsAtIndexPaths([indexPath])
+                    deleted += 1
+                }
             }
-            
-            for (card, index) in cardsForUpdating {
-                let indexPath = NSIndexPath(forRow: index, inSection:0)
-                self.cardList[ index ] = card
-                self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
-                
-            }
-
             
             self.firstLoadCompletionRoutine()
         })

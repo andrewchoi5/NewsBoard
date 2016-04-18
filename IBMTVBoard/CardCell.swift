@@ -118,6 +118,11 @@ class AnnouncementCardCell : CardCell {
                 
                 }, completion: {(image, error, cacheType, url) in
                     self.progressBar.hidden = true
+                    // NOTE : Delete here
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        self.announcementPhoto.image = self.announcementPhoto.image?.orientedCorrectly()
+//                        
+//                    })
                 
             })
             hasPhoto = true

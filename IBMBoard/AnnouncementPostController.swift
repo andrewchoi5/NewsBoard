@@ -10,6 +10,7 @@ import Foundation
 
 class AnnouncementPostController : PosterController {
     
+    @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var addPictureButton: FormButton!
     @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
@@ -18,6 +19,7 @@ class AnnouncementPostController : PosterController {
     @IBOutlet weak var announcementPostButton: UIBarButtonItem!
     
     var selectedImage : UIImage?
+    var actionSheet : UIAlertController!
     
     let greenTint = UIColor(red: 92/255.0, green: 255.0/255.0, blue: 111/255.0, alpha: 255.0/255.0)
     let greyTint = UIColor(red: 63/255.0, green: 69.0/255.0, blue: 77/255.0, alpha: 255.0/255.0)
@@ -25,6 +27,46 @@ class AnnouncementPostController : PosterController {
     override func viewDidLoad() {
         super.viewDidLoad()
         announcementPostButton.tintColor = greyTint
+        
+        createActionSheet()
+
+    }
+    
+    func showLoading() {
+        ServerInterface.delegateProxy.forwardMessagesTo(self)
+        loadingScreen.alpha = 0.7
+        progressBar.hidden = false
+        self.view.userInteractionEnabled = false
+    }
+    
+    func hideLoading() {
+        ServerInterface.delegateProxy.forwardMessagesTo(nil)
+        loadingScreen.alpha = 0
+        progressBar.hidden = true
+        self.view.userInteractionEnabled = true
+    }
+    
+    func createActionSheet() {
+        actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .ActionSheet)
+        actionSheet.addAction(UIAlertAction.init(title: "Take Picture"
+            , style: .Default, handler: { (action) in
+                
+                self.presentCameraImageController()
+
+        }))
+        
+        actionSheet.addAction(UIAlertAction.init(title: "Choose from Album", style: .Default, handler: { (action) in
+            
+            self.presentPhotoAlbumController()
+
+        }))
+        
+        actionSheet.addAction(UIAlertAction.init(title: "Cancel", style: .Cancel, handler: { (action) in
+            
+            self.actionSheet.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
     }
     
     @IBAction func didPushPostButton(sender: UIBarButtonItem) {
@@ -48,24 +90,37 @@ class AnnouncementPostController : PosterController {
             selectedCardSpace.attachPNGImage(image)
         }
         
-        progressBar.hidden = false
         
-        ServerInterface.delegateProxy.forwardMessagesTo(self)
-        
+        self.showLoading()
         ServerInterface.addCard(selectedCardSpace, completion: {
+            self.hideLoading()
             self.finishedCreatingPost()
         
         })
         
     }
     
-    @IBAction func didPushPhotoAlbumButton(sender: UIButton) {
-        
+    func presentPhotoAlbumController() {
         let vc = UIImagePickerController()
         vc.sourceType = .SavedPhotosAlbum
         vc.delegate = self
         
         self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func presentCameraImageController() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .Camera
+        vc.delegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func didPushAddPictureButton(sender: UIButton) {
+        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+        
     }
     
 }
@@ -75,7 +130,7 @@ extension AnnouncementPostController : UINavigationControllerDelegate { }
 extension AnnouncementPostController : UIImagePickerControllerDelegate {
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        selectedImage = info[ UIImagePickerControllerOriginalImage ] as? UIImage
         picker.dismissViewControllerAnimated(true, completion: nil)
         addPictureButton.setTitle("Change picture", forState: .Normal)
         

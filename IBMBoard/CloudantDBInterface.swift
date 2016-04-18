@@ -184,7 +184,8 @@ class Document {
     }
     
     func attachJPEGImage(withName name: String, withImage image: UIImage, andCompressionRatio ratio: CGFloat) {
-        guard let data = UIImageJPEGRepresentation(image, ratio) else { return }
+        guard let reorientedImage = image.orientedCorrectly() else { return }
+        guard let data = UIImageJPEGRepresentation(reorientedImage, ratio) else { return }
         self.attachJPEGImage(withName: name, andData: data)
         
     }
@@ -200,7 +201,8 @@ class Document {
     }
     
     func attachPNGImage(withName name: String, andImage image: UIImage) {
-        guard let data = UIImagePNGRepresentation(image) else { return }
+        guard let reorientedImage = image.orientedCorrectly() else { return }
+        guard let data = UIImagePNGRepresentation(reorientedImage) else { return }
         self.addAttachment(withMIMEType: "image/png", andData: data)
         
     }
@@ -301,6 +303,8 @@ class Card : Document {
         guard let name = super.getAttachmentsDictionary().keys.first else { return nil }
         guard let data = self.getAttachmentData(withName: name) else { return nil }
         guard let image = UIImage(data: data) else { return nil }
+        // NOTE : Delete here
+//        guard let reorientedImage = image.orientedCorrectly() else { return nil }
         return image
         
     }
