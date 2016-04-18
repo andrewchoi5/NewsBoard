@@ -134,7 +134,9 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         var cellIdentifier : String
         
-        switch cardList[ indexPath.row ].type! {
+        let card = cardList[indexPath.row]
+        
+        switch card.type! {
             
             case .Default:      cellIdentifier = DefaultCardCellIdentifier
             case .Announcement: cellIdentifier = AnnouncementCardCellIdentifier
@@ -146,9 +148,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardCell
-        // TODO: Get photo of user, using random samples
-        cell.userPhoto.image = UIImage(named: "\(indexPath.row % 8 + 1)")
-        cell.applyCardContent(cardList[indexPath.row])
+        cell.applyCardContent(card)
         return cell
     }
     

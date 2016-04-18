@@ -126,19 +126,24 @@ class LoginViewController: KeyboardPresenter {
     func rotateToPortraitIfNeeded() {
         if(UIDeviceOrientationIsLandscapeOrUnknown(UIDevice.currentDevice().orientation)) {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
+            
         }
+        
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Portrait 
+        return .Portrait
+        
     }
     
     override func shouldAutorotate() -> Bool {
         return true
+        
     }
     
     override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return .Portrait
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -151,6 +156,11 @@ class LoginViewController: KeyboardPresenter {
         
         if segue.identifier == "profilePictureSegue" {
             (segue.destinationViewController as! ProfilePictureController).accountForProfilePicture = userAccount
+            
+        }
+        
+        if segue.identifier == LoginViewController.LoginSuccessfulSegue {
+            SessionInformation.currentSession.userAccount = userAccount
             
         }
     }
@@ -182,6 +192,7 @@ extension LoginViewController : UITextFieldDelegate {
             }
             
         }
+        
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -192,6 +203,7 @@ extension LoginViewController : UITextFieldDelegate {
             password.showFocussed()
             
         }
+        
     }
 
 }

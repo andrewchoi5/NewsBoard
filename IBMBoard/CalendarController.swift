@@ -130,5 +130,7 @@ class CalendarController : UIViewController, ZHCalendarDelegate {
         
     }
     
-
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }

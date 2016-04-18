@@ -57,10 +57,11 @@ class CardSerializer : NSObject {
     
     class func getCardJSONDict(card : Card) -> [String : AnyObject] {
         return [
+            "userProfileImageURL" : card.userProfileImageURL.absoluteString,
             "type":card.type.rawValue,
             "info":card.info,
             "postDates": card.postDateStrings(),
-            "space":[
+            "space": [
                 "topLeftCorner":card.space.topLeftCorner,
                 "width":card.space.width,
                 "height":card.space.height

@@ -183,6 +183,7 @@ class SpaceSelectorController : UIViewController {
         
         emptyCardSpace = makeCardWithSpaces(selectedSpaces)
         emptyCardSpace.setBoardPostingDates(self.postingDates)
+        emptyCardSpace.userProfileImageURL = SessionInformation.currentSession.userAccount.profilePictureURL
         
         print("Spaces selected: \(selectedSpaces)")
         print("Space selected: \(emptyCardSpace)")

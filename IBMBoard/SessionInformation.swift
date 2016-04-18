@@ -19,9 +19,7 @@ class SessionInformation : NSObject {
     
     static let currentSession = SessionInformation()
     
-    var username : String!
-    var password : String!
-    var userPhoto : UIImage!
+    var userAccount : Account!
     var userRole : UserRole!
     
     func hasAdminRights() -> Bool {

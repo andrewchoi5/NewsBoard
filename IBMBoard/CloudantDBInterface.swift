@@ -284,6 +284,7 @@ struct Space {
 
 class Card : Document {
     
+    var userProfileImageURL : NSURL!
     var type : CardCellType!
     var space : Space!
     var userProvidedURL : NSURL? {
@@ -303,8 +304,6 @@ class Card : Document {
         guard let name = super.getAttachmentsDictionary().keys.first else { return nil }
         guard let data = self.getAttachmentData(withName: name) else { return nil }
         guard let image = UIImage(data: data) else { return nil }
-        // NOTE : Delete here
-//        guard let reorientedImage = image.orientedCorrectly() else { return nil }
         return image
         
     }
@@ -333,6 +332,7 @@ class Card : Document {
         type = CardCellType(rawValue: document.info["type"] as! Int)
         info = document.info["info"] as! [String : AnyObject]
         space = Space(dictionary: document.info["space"]  as! [String : Int])
+        userProfileImageURL = NSURL(string: document.info["userProfileImageURL"] as! String)
         setDatesWithTimestamps(document.info["postDates"] as? [ String ])
         
     }

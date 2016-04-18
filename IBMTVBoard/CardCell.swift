@@ -42,6 +42,9 @@ class CardCell : UICollectionViewCell {
     }
     
     func applyCardContent(card: Card) {
+        userPhoto.sd_setImageWithURL(card.userProfileImageURL) { (image, error, cacheType, url) in
+            // TODO: Put activity indicator logic here
+        }
         
     }
     
@@ -118,11 +121,6 @@ class AnnouncementCardCell : CardCell {
                 
                 }, completion: {(image, error, cacheType, url) in
                     self.progressBar.hidden = true
-                    // NOTE : Delete here
-//                    dispatch_async(dispatch_get_main_queue(), {
-//                        self.announcementPhoto.image = self.announcementPhoto.image?.orientedCorrectly()
-//                        
-//                    })
                 
             })
             hasPhoto = true
@@ -215,6 +213,7 @@ class VideoCardCell : CardCell {
 class IdeaCardCell : ArticleCardCell {
     
     override func applyCardContent(card: Card) {
+        super.applyCardContent(card)
         
         titleLabel.text = card.info["ideaTitle"] as? String
         articleMessageBody.text = card.info["ideaPreview"] as? String
@@ -228,6 +227,7 @@ class IdeaCardCell : ArticleCardCell {
 class RFPCardCell : ArticleCardCell {
     
     override func applyCardContent(card: Card) {
+        super.applyCardContent(card)
         
         titleLabel.text = card.info["RFPTitle"] as? String
         articleMessageBody.text = card.info["RFPPreview"] as? String
