@@ -54,8 +54,7 @@ class CardCell : UICollectionViewCell {
     
     func focus() {
         oldColor = self.backgroundColor
-        self.backgroundColor = UIColor.greenColor()
-        
+        self.backgroundColor = UIColor.greenColor()        
     }
     
     func defocus() {
