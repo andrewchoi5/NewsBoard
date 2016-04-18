@@ -8,15 +8,22 @@
 
 import Foundation
 
-class CardsForDateInterval : Query {
+class CardQuery : Query {
     
-    init(fromDate firstDate: NSDate, toDate secondDate: NSDate) {
+    override init() {
         super.init()
         
-        self.addSelector("card.postDates", .In, [ firstDate.shortDateString(), secondDate.shortDateString() ])
         self.addField("card")
 //        self.addSortingParameter("_id", ordered: .Ascending)
 //        self.limitToNumberOfResults(1)
+        
+    }
+    
+    convenience init(withStartingDate firstDate: NSDate, toEndingDate secondDate: NSDate) {
+        self.init()
+        
+        self.addSelector("card.postDates", .In, [ firstDate.shortDateString(), secondDate.shortDateString() ])
+
     }
 }
 
@@ -46,6 +53,12 @@ class AccountQuery : Query {
         self.init()
         
         self.addSelector("account.verificationCode", .Equals, aCode)
+    }
+    
+    convenience init(withCard card: Card) {
+        self.init()
+        
+        self.addSelector("account.associatedCardID", .Equals, card.id)
     }
     
 }
