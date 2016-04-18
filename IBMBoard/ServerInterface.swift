@@ -245,7 +245,7 @@ extension ServerInterface {
     }
     
     static func getCardsFromDate(firstDate : NSDate, toDate secondDate : NSDate, completion: ([Card]) -> Void) {
-        ServerInterface.getDocuments(withQuery: CardsForDateInterval(fromDate: firstDate, toDate: secondDate),inDatabase: "ibmboard") { (documents) in
+        ServerInterface.getDocuments(withQuery: CardQuery(withStartingDate: firstDate, toEndingDate: secondDate),inDatabase: "ibmboard") { (documents) in
             completion(DocumentToCardConverter.getCards(documents))
             
         }
@@ -280,6 +280,7 @@ extension ServerInterface {
     static func getAccounts(withEmail email: String, andPassword password: String, completion: ([ Account ]) -> Void) {
         ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email, andPassword: password), inDatabase: "accounts") { (documents) in
             completion( DocumentToAccountConverter.getAccounts( documents ) )
+            
         }
         
     }
@@ -287,6 +288,7 @@ extension ServerInterface {
     static func getAccounts(withEmail email: String, completion: ([ Account ]) -> Void) {
         ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email), inDatabase: "accounts") { (documents) in
             completion( DocumentToAccountConverter.getAccounts( documents ) )
+            
         }
         
     }
@@ -294,6 +296,7 @@ extension ServerInterface {
     static func getAccount(withEmail email: String, andPassword password: String, completion: ( Account? ) -> Void) {
         ServerInterface.getAccounts(withEmail: email, andPassword: password) { (accounts) in
             completion(accounts.first)
+            
         }
         
     }
@@ -301,6 +304,7 @@ extension ServerInterface {
     static func getAccount(withEmail email: String, completion: ( Account? ) -> Void) {
         ServerInterface.getAccounts(withEmail: email) { (accounts) in
             completion(accounts.first)
+            
         }
         
     }
@@ -308,8 +312,23 @@ extension ServerInterface {
     static func checkIfEmailExists(withEmail email: String, completion: ((Bool) -> Void)) {
         ServerInterface.getAccount(withEmail: email) { (account) in
             completion( account != nil )
+            
         }
         
     }
     
+    static func getAccounts(associatedWithCard card: Card!, completion: ( [ Account ] ) -> Void) {
+        ServerInterface.getDocuments(withQuery: AccountQuery(withCard: card), inDatabase: "accounts") { (documents) in
+            completion( DocumentToAccountConverter.getAccounts( documents ) )
+            
+        }
+        
+    }
+    
+    static func getAccount(associatedWithCard card: Card!, completion: ( Account? ) -> Void) {
+        ServerInterface.getAccounts(associatedWithCard: card) { (accounts) in
+            completion(accounts.first)
+        }
+        
+    }
 }
