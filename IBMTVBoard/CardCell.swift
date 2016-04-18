@@ -27,6 +27,8 @@ class CardCell : UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var cardBackgroundView: UIView!
+    @IBOutlet weak var cardGradientBorderView: GradientView!
+    @IBOutlet weak var cardTypeLabel: UILabel!
     
     var oldColor : UIColor!
     
@@ -39,6 +41,7 @@ class CardCell : UICollectionViewCell {
         cardBackgroundView.layer.shadowRadius = 2.0
         cardBackgroundView.layer.shadowOffset = CGSizeMake(-1.0, 5.0)
         
+        cardTypeLabel.kern(2.0);
     }
     
     func applyCardContent(card: Card) {
@@ -58,14 +61,13 @@ class CardCell : UICollectionViewCell {
     }
     
     func focus() {
-        oldColor = self.backgroundColor
-        self.backgroundColor = UIColor.greenColor()
-        
+        cardGradientBorderView.hidden = false;
+        cardBackgroundView.layer.shadowOpacity = 0;
     }
     
     func defocus() {
-        self.backgroundColor = oldColor
-        
+        cardGradientBorderView.hidden = true;
+        cardBackgroundView.layer.shadowOpacity = 0.2;
     }
     
     override func prepareForReuse() {
@@ -125,8 +127,12 @@ class AnnouncementCardCell : CardCell {
                 self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
                 
                 }, completion: {(image, error, cacheType, url) in
+                    if ((error == nil)) {
+                        let BWphoto = convertToGrayScale(self.announcementPhoto.image!)
+                        self.announcementPhoto.image = BWphoto;
+                        self.announcementPhoto.hidden = false;
+                    }
                     self.progressBar.hidden = true
-                
             })
             hasPhoto = true
             
@@ -135,8 +141,12 @@ class AnnouncementCardCell : CardCell {
                 self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
                 
                 }, completion: {(image, error, cacheType, url) in
+                    if ((error == nil)) {
+                        let BWphoto = convertToGrayScale(self.announcementPhoto.image!)
+                        self.announcementPhoto.image = BWphoto;
+                        self.announcementPhoto.hidden = false;
+                    }
                     self.progressBar.hidden = true
-                    
             })
             hasPhoto = true
             
@@ -201,8 +211,12 @@ class VideoCardCell : CardCell {
         super.applyCardContent(card)
         titleLabel.text = card.info["videoTitle"] as? String
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String)) { (image, error, cacheType, url) -> Void in
+            if ((error == nil)) {
+                let BWphoto = convertToGrayScale(self.videoPreview.image!)
+                self.videoPreview.image = BWphoto;
+                self.videoPreview.hidden = false;
+            }
             self.greyBox.hidden = error != nil
-                
         }
     }
     
@@ -241,4 +255,20 @@ class RFPCardCell : ArticleCardCell {
         
     }
     
+}
+
+func convertToGrayScale(image: UIImage) -> UIImage {
+    let imageRect:CGRect = CGRectMake(0, 0, image.size.width, image.size.height)
+    let colorSpace = CGColorSpaceCreateDeviceGray()
+    let width = image.size.width
+    let height = image.size.height
+    
+    let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.None.rawValue)
+    let context = CGBitmapContextCreate(nil, Int(width), Int(height), 8, 0, colorSpace, bitmapInfo.rawValue)
+    
+    CGContextDrawImage(context, imageRect, image.CGImage)
+    let imageRef = CGBitmapContextCreateImage(context)
+    let newImage = UIImage(CGImage: imageRef!)
+    
+    return newImage
 }
