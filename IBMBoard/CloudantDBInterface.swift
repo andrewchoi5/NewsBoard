@@ -392,8 +392,7 @@ class Account : Document {
     var password : String!
     var verified = false
     var verificationCode : String {
-        let hashes : UInt = UInt(email.hashValue ^ password.hashValue)
-        let rawCode = String(hashes)
+        let rawCode = String(abs(email.hashValue ^ password.hashValue))
         return rawCode.substringWithRange(Range<String.Index>(start: rawCode.startIndex, end: rawCode.startIndex.advancedBy(6)))
     }
     
@@ -443,7 +442,7 @@ class Account : Document {
 
 extension Account {
     static func testAccount() -> Account {
-        return Account(withEmail: "zamiul.haque.1@gmail.com", andPassword: "test")
+        return Account(withEmail: "frolkina@ca.ibm.com", andPassword: "zvqfr3")
         
     }
     
