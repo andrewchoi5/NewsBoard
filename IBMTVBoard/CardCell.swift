@@ -27,6 +27,7 @@ class CardCell : UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var cardBackgroundView: UIView!
+    @IBOutlet weak var cardGradientBorderView: GradientView!
     
     var oldColor : UIColor!
     
@@ -53,13 +54,13 @@ class CardCell : UICollectionViewCell {
     }
     
     func focus() {
-        oldColor = self.backgroundColor
-        self.backgroundColor = UIColor.greenColor()        
+        cardGradientBorderView.hidden = false;
+        cardBackgroundView.layer.shadowOpacity = 0;
     }
     
     func defocus() {
-        self.backgroundColor = oldColor
-        
+        cardGradientBorderView.hidden = true;
+        cardBackgroundView.layer.shadowOpacity = 0.2;
     }
     
     override func prepareForReuse() {

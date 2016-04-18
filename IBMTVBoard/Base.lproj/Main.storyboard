@@ -64,6 +64,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0e-Za-wUd" customClass="GradientView" customModule="IBMTVBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                                            <color key="value" red="0.36078431370000003" green="1" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                                            <color key="value" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMX-1g-xLA">
                                                     <rect key="frame" x="8" y="8" width="536" height="414"/>
                                                     <subviews>
@@ -117,9 +129,14 @@
                                             <constraint firstAttribute="topMargin" secondItem="nMX-1g-xLA" secondAttribute="top" id="Odv-JU-ros"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Acj-RY-HLm" secondAttribute="trailing" constant="33" id="R7W-g0-0I7"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="nMX-1g-xLA" secondAttribute="trailing" id="X6r-L3-xc3"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="z0e-Za-wUd" secondAttribute="bottom" constant="-8" id="Yr3-yj-OAg"/>
+                                            <constraint firstItem="z0e-Za-wUd" firstAttribute="top" secondItem="1Yq-Hw-jHA" secondAttribute="topMargin" constant="-8" id="cOA-a6-vB2"/>
+                                            <constraint firstItem="z0e-Za-wUd" firstAttribute="leading" secondItem="1Yq-Hw-jHA" secondAttribute="leadingMargin" constant="-8" id="f1F-ZG-2s9"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="z0e-Za-wUd" secondAttribute="trailing" constant="-8" id="nns-kC-AcV"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="cardBackgroundView" destination="nMX-1g-xLA" id="wQc-De-G2I"/>
+                                            <outlet property="cardGradientBorderView" destination="z0e-Za-wUd" id="O6Z-CG-vNE"/>
                                             <outlet property="titleLabel" destination="fDt-di-rdF" id="BFr-Wn-Vqx"/>
                                             <outlet property="userPhoto" destination="L0i-SV-FKK" id="gVI-LA-GlH"/>
                                         </connections>
@@ -131,6 +148,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkG-K6-xic" customClass="GradientView" customModule="IBMTVBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                                            <color key="value" red="0.36078431370000003" green="1" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                                            <color key="value" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyX-Os-HLu">
                                                     <rect key="frame" x="8" y="8" width="536" height="414"/>
                                                     <subviews>
@@ -194,11 +223,16 @@
                                         <constraints>
                                             <constraint firstAttribute="topMargin" secondItem="qyX-Os-HLu" secondAttribute="top" id="2zb-RB-9Rd"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="qyX-Os-HLu" secondAttribute="trailing" id="Qdx-hR-bjv"/>
+                                            <constraint firstItem="hkG-K6-xic" firstAttribute="leading" secondItem="IPw-kx-yBk" secondAttribute="leadingMargin" constant="-8" id="Voe-e1-2WP"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="qyX-Os-HLu" secondAttribute="leading" id="XUp-s7-AF8"/>
+                                            <constraint firstItem="hkG-K6-xic" firstAttribute="top" secondItem="IPw-kx-yBk" secondAttribute="topMargin" constant="-8" id="flR-Uh-TjK"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="hkG-K6-xic" secondAttribute="trailing" constant="-8" id="mvq-wd-G7J"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="hkG-K6-xic" secondAttribute="bottom" constant="-8" id="mwi-6k-PWb"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="qyX-Os-HLu" secondAttribute="bottom" id="zSM-Yg-iVz"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="cardBackgroundView" destination="qyX-Os-HLu" id="fZc-BE-Mcg"/>
+                                            <outlet property="cardGradientBorderView" destination="hkG-K6-xic" id="zk1-1u-vwQ"/>
                                             <outlet property="greyBox" destination="35t-CU-HAt" id="TcK-Xo-VA1"/>
                                             <outlet property="titleLabel" destination="YdZ-cC-HeG" id="tbj-Vt-xiz"/>
                                             <outlet property="userPhoto" destination="PPw-Ak-Cyr" id="JY3-gB-g6m"/>
@@ -212,6 +246,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyX-aD-CPW" customClass="GradientView" customModule="IBMTVBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                                            <color key="value" red="0.36078431370000003" green="1" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                                            <color key="value" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDr-Co-wTQ">
                                                     <rect key="frame" x="8" y="8" width="536" height="414"/>
                                                     <subviews>
@@ -278,14 +324,19 @@
                                         <constraints>
                                             <constraint firstAttribute="topMargin" secondItem="oDr-Co-wTQ" secondAttribute="top" id="3Uf-Of-s5l"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="KVQ-mI-g8Q" secondAttribute="trailing" constant="29" id="BTq-M0-cBv"/>
+                                            <constraint firstItem="DyX-aD-CPW" firstAttribute="leading" secondItem="JT0-CE-yaF" secondAttribute="leadingMargin" constant="-8" id="BzN-kJ-pVw"/>
+                                            <constraint firstItem="DyX-aD-CPW" firstAttribute="top" secondItem="JT0-CE-yaF" secondAttribute="topMargin" constant="-8" id="I6c-1Y-Y9c"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="oDr-Co-wTQ" secondAttribute="trailing" id="Jp1-3m-1c4"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="oDr-Co-wTQ" secondAttribute="bottom" id="aGH-R0-MHO"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="DyX-aD-CPW" secondAttribute="trailing" constant="-8" id="aq9-YD-o11"/>
                                             <constraint firstItem="7k4-Lc-a7A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JT0-CE-yaF" secondAttribute="leadingMargin" constant="10" id="enE-aW-uor"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="DyX-aD-CPW" secondAttribute="bottom" constant="-8" id="hSO-Dr-pbY"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="oDr-Co-wTQ" secondAttribute="leading" id="t7K-PJ-bAX"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="articleMessageBody" destination="KVQ-mI-g8Q" id="btC-Gk-4MO"/>
                                             <outlet property="cardBackgroundView" destination="oDr-Co-wTQ" id="G8H-MQ-Xai"/>
+                                            <outlet property="cardGradientBorderView" destination="DyX-aD-CPW" id="ENa-mS-mpg"/>
                                             <outlet property="detailLabel" destination="7k4-Lc-a7A" id="IDV-Bq-rnR"/>
                                             <outlet property="titleLabel" destination="Lmw-eF-NtK" id="sH3-jj-lSW"/>
                                             <outlet property="userPhoto" destination="g8e-4e-cIq" id="sIb-bI-o4z"/>
@@ -298,6 +349,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-YY-0YQ" customClass="GradientView" customModule="IBMTVBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                                            <color key="value" red="0.36078431372549019" green="1" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                                            <color key="value" red="0.11764705882352941" green="0.46274509803921571" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUe-8Q-FMK">
                                                     <rect key="frame" x="8" y="8" width="536" height="414"/>
                                                     <subviews>
@@ -346,9 +409,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="TBk-zY-pHl" firstAttribute="leading" secondItem="bu2-NF-vj9" secondAttribute="leading" id="24N-u4-RdM"/>
                                                         <constraint firstAttribute="trailing" secondItem="bbG-e3-fXi" secondAttribute="trailing" id="3qK-Co-vR9"/>
                                                         <constraint firstItem="JaX-Ko-ACa" firstAttribute="leading" secondItem="tUe-8Q-FMK" secondAttribute="leading" constant="85" id="515-xM-mnO"/>
+                                                        <constraint firstItem="TBk-zY-pHl" firstAttribute="leading" secondItem="bu2-NF-vj9" secondAttribute="leading" id="9bY-qr-CgJ"/>
                                                         <constraint firstItem="bbG-e3-fXi" firstAttribute="centerX" secondItem="JaX-Ko-ACa" secondAttribute="centerX" id="CC0-GE-TGs"/>
                                                         <constraint firstItem="bu2-NF-vj9" firstAttribute="top" secondItem="IdF-nw-GTM" secondAttribute="bottom" constant="68" id="F9C-pK-dnU"/>
                                                         <constraint firstItem="bbG-e3-fXi" firstAttribute="top" secondItem="tUe-8Q-FMK" secondAttribute="top" id="Hdf-AR-FuA"/>
@@ -357,25 +420,29 @@
                                                         <constraint firstItem="TBk-zY-pHl" firstAttribute="top" secondItem="tUe-8Q-FMK" secondAttribute="top" constant="102" id="U1b-KT-XWh"/>
                                                         <constraint firstItem="iEz-8F-TwI" firstAttribute="leading" secondItem="IdF-nw-GTM" secondAttribute="trailing" constant="19" id="clX-9Y-dMX"/>
                                                         <constraint firstItem="IdF-nw-GTM" firstAttribute="bottom" secondItem="iEz-8F-TwI" secondAttribute="bottom" id="eel-tH-sk6"/>
-                                                        <constraint firstItem="IdF-nw-GTM" firstAttribute="leading" secondItem="TBk-zY-pHl" secondAttribute="leading" id="epZ-I1-Yvj"/>
                                                         <constraint firstItem="IdF-nw-GTM" firstAttribute="top" secondItem="iEz-8F-TwI" secondAttribute="top" id="ggy-j4-E9v"/>
+                                                        <constraint firstItem="IdF-nw-GTM" firstAttribute="leading" secondItem="TBk-zY-pHl" secondAttribute="leading" id="iDc-VX-4vD"/>
                                                         <constraint firstItem="JaX-Ko-ACa" firstAttribute="top" secondItem="TBk-zY-pHl" secondAttribute="bottom" constant="25" id="kkg-xo-aVH"/>
                                                         <constraint firstAttribute="bottom" secondItem="bbG-e3-fXi" secondAttribute="bottom" id="rao-el-iTG"/>
                                                         <constraint firstItem="IdF-nw-GTM" firstAttribute="top" secondItem="tUe-8Q-FMK" secondAttribute="top" constant="33" id="vqZ-IV-XIq"/>
+                                                        <constraint firstItem="IdF-nw-GTM" firstAttribute="leading" secondItem="tUe-8Q-FMK" secondAttribute="leading" constant="33" id="wEc-hu-zCL"/>
                                                         <constraint firstItem="TBk-zY-pHl" firstAttribute="trailing" secondItem="tUe-8Q-FMK" secondAttribute="trailingMargin" id="yGA-an-lUC"/>
-                                                        <constraint firstItem="IdF-nw-GTM" firstAttribute="leading" secondItem="tUe-8Q-FMK" secondAttribute="leading" constant="33" id="z06-sw-YWs"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="tUe-8Q-FMK" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" id="0YN-h5-xMY"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="mKT-YY-0YQ" secondAttribute="trailing" constant="-8" id="5Ka-6W-kc8"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="bu2-NF-vj9" secondAttribute="bottom" constant="30" id="6Qn-Uq-Gdz"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="mKT-YY-0YQ" secondAttribute="bottom" constant="-8" id="Lvo-tu-9YQ"/>
                                             <constraint firstItem="tUe-8Q-FMK" firstAttribute="centerX" secondItem="xSV-ua-SFf" secondAttribute="centerX" id="ed8-zl-M20"/>
                                             <constraint firstItem="tUe-8Q-FMK" firstAttribute="centerY" secondItem="xSV-ua-SFf" secondAttribute="centerY" id="f0h-Op-2bJ"/>
+                                            <constraint firstItem="mKT-YY-0YQ" firstAttribute="top" secondItem="xSV-ua-SFf" secondAttribute="topMargin" constant="-8" id="gyh-Eu-4tL"/>
                                             <constraint firstItem="tUe-8Q-FMK" firstAttribute="top" secondItem="xSV-ua-SFf" secondAttribute="topMargin" id="k5x-YU-gtF"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="bu2-NF-vj9" secondAttribute="trailing" constant="38" id="pyz-xh-AK7"/>
-                                            <constraint firstItem="tUe-8Q-FMK" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" id="uOZ-Y4-sPK"/>
+                                            <constraint firstItem="mKT-YY-0YQ" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" constant="-8" id="q7T-JH-eu6"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
@@ -384,6 +451,7 @@
                                             <outlet property="announcementPhoto" destination="bbG-e3-fXi" id="F18-jO-R3T"/>
                                             <outlet property="announcementText" destination="bu2-NF-vj9" id="1Q6-NA-3lf"/>
                                             <outlet property="cardBackgroundView" destination="tUe-8Q-FMK" id="SA0-LC-ofL"/>
+                                            <outlet property="cardGradientBorderView" destination="mKT-YY-0YQ" id="SVE-g2-Lmz"/>
                                             <outlet property="progressBar" destination="JaX-Ko-ACa" id="8Of-6Q-qbT"/>
                                             <outlet property="titleLabel" destination="TBk-zY-pHl" id="jxG-9O-lZf"/>
                                             <outlet property="userPhoto" destination="IdF-nw-GTM" id="UK6-iE-3ei"/>
@@ -396,6 +464,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWp-8e-9as" customClass="GradientView" customModule="IBMTVBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                                            <color key="value" red="0.36078431370000003" green="1" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                                            <color key="value" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWO-Jf-0Az">
                                                     <rect key="frame" x="8" y="8" width="536" height="414"/>
                                                     <subviews>
@@ -428,14 +508,17 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IDEA" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Y9e-Oj-s24">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDEA" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Y9e-Oj-s24">
                                                             <rect key="frame" x="120" y="33" width="395" height="70"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" red="0.91665792785234901" green="0.28326866610738238" blue="0.092150796979865765" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Message Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-bN-tks">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-bN-tks">
                                                             <rect key="frame" x="33" y="170" width="481" height="33"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="33" id="2uD-Sv-ReG"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -443,15 +526,20 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="tWP-eh-r3z" firstAttribute="top" secondItem="Y9e-Oj-s24" secondAttribute="top" id="1l3-qo-e04"/>
                                                         <constraint firstItem="P8g-m6-fgR" firstAttribute="top" secondItem="eWO-Jf-0Az" secondAttribute="top" constant="101" id="BD4-pI-qj6"/>
+                                                        <constraint firstItem="tWP-eh-r3z" firstAttribute="bottom" secondItem="Y9e-Oj-s24" secondAttribute="bottom" id="Jf0-jV-hOJ"/>
                                                         <constraint firstItem="tWP-eh-r3z" firstAttribute="leading" secondItem="eWO-Jf-0Az" secondAttribute="leading" constant="33" id="Ojd-Rg-nYZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="T4n-dO-RcT" secondAttribute="trailing" constant="8" id="WSt-QM-XIJ"/>
                                                         <constraint firstItem="P8g-m6-fgR" firstAttribute="height" secondItem="tWP-eh-r3z" secondAttribute="height" id="iBp-i4-Sk9"/>
                                                         <constraint firstItem="tWP-eh-r3z" firstAttribute="top" secondItem="eWO-Jf-0Az" secondAttribute="top" constant="33" id="kVf-oE-0cK"/>
                                                         <constraint firstItem="T4n-dO-RcT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0WM-bN-tks" secondAttribute="bottom" constant="15" id="lmC-tT-WOJ"/>
+                                                        <constraint firstItem="Y9e-Oj-s24" firstAttribute="leading" secondItem="tWP-eh-r3z" secondAttribute="trailing" constant="17" id="ngx-8Q-inb"/>
                                                         <constraint firstAttribute="bottom" secondItem="T4n-dO-RcT" secondAttribute="bottom" constant="16" id="q1Y-Ah-Egl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Y9e-Oj-s24" secondAttribute="trailing" constant="21" id="tqV-Ey-1dD"/>
                                                         <constraint firstAttribute="trailing" secondItem="P8g-m6-fgR" secondAttribute="trailing" constant="32" id="uaT-25-AU9"/>
                                                         <constraint firstItem="P8g-m6-fgR" firstAttribute="leading" secondItem="tWP-eh-r3z" secondAttribute="trailing" constant="-70" id="wNE-If-jjd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0WM-bN-tks" secondAttribute="trailing" constant="22" id="zIh-Hj-17G"/>
                                                         <constraint firstItem="0WM-bN-tks" firstAttribute="top" secondItem="tWP-eh-r3z" secondAttribute="bottom" constant="67" id="zgx-lc-L5Z"/>
                                                         <constraint firstItem="0WM-bN-tks" firstAttribute="leading" secondItem="eWO-Jf-0Az" secondAttribute="leading" constant="33" id="zzs-JQ-rGP"/>
                                                     </constraints>
@@ -460,16 +548,23 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="T4n-dO-RcT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="28a-SS-yLU" secondAttribute="leadingMargin" constant="10" id="KI6-n7-pU7"/>
-                                            <constraint firstAttribute="topMargin" secondItem="eWO-Jf-0Az" secondAttribute="top" id="SdG-XW-feH"/>
-                                            <constraint firstAttribute="leadingMargin" secondItem="eWO-Jf-0Az" secondAttribute="leading" id="ffI-Be-RN7"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="eWO-Jf-0Az" secondAttribute="trailing" id="nRd-QV-wQy"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="eWO-Jf-0Az" secondAttribute="bottom" id="tWo-U4-E1o"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="0WM-bN-tks" secondAttribute="trailing" constant="27" id="uhQ-9O-CET"/>
+                                            <constraint firstAttribute="bottom" secondItem="NWp-8e-9as" secondAttribute="bottom" id="4z8-O1-awI"/>
+                                            <constraint firstItem="eWO-Jf-0Az" firstAttribute="centerY" secondItem="NWp-8e-9as" secondAttribute="centerY" id="5d9-8D-PJv"/>
+                                            <constraint firstItem="eWO-Jf-0Az" firstAttribute="centerX" secondItem="NWp-8e-9as" secondAttribute="centerX" id="9TR-K8-S7r"/>
+                                            <constraint firstItem="NWp-8e-9as" firstAttribute="leading" secondItem="28a-SS-yLU" secondAttribute="leadingMargin" constant="-8" id="9a2-e8-Ghe"/>
+                                            <constraint firstItem="eWO-Jf-0Az" firstAttribute="leading" secondItem="28a-SS-yLU" secondAttribute="leadingMargin" id="A6l-3q-NhK"/>
+                                            <constraint firstItem="NWp-8e-9as" firstAttribute="leading" secondItem="28a-SS-yLU" secondAttribute="leading" id="CKt-F5-Sao"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="NWp-8e-9as" secondAttribute="trailing" constant="-8" id="bGs-VT-Fv8"/>
+                                            <constraint firstItem="NWp-8e-9as" firstAttribute="top" secondItem="28a-SS-yLU" secondAttribute="top" id="eMt-4R-LZe"/>
+                                            <constraint firstAttribute="trailing" secondItem="NWp-8e-9as" secondAttribute="trailing" id="hJ6-Ie-jsj"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="NWp-8e-9as" secondAttribute="bottom" constant="-8" id="l7d-7Y-VK5"/>
+                                            <constraint firstItem="NWp-8e-9as" firstAttribute="top" secondItem="28a-SS-yLU" secondAttribute="topMargin" constant="-8" id="lFk-eI-2h1"/>
+                                            <constraint firstItem="eWO-Jf-0Az" firstAttribute="top" secondItem="28a-SS-yLU" secondAttribute="topMargin" id="ufq-bK-mJO"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="articleMessageBody" destination="0WM-bN-tks" id="Pc5-jW-cFT"/>
                                             <outlet property="cardBackgroundView" destination="eWO-Jf-0Az" id="Tu8-5C-3FE"/>
+                                            <outlet property="cardGradientBorderView" destination="NWp-8e-9as" id="NUa-xc-5ES"/>
                                             <outlet property="detailLabel" destination="T4n-dO-RcT" id="k4Z-QU-H7S"/>
                                             <outlet property="titleLabel" destination="P8g-m6-fgR" id="hSs-DQ-SER"/>
                                             <outlet property="userPhoto" destination="tWP-eh-r3z" id="jTg-Zb-AIe"/>
@@ -482,6 +577,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6p-84-raW" customClass="GradientView" customModule="IBMTVBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="552" height="430"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                                            <color key="value" red="0.36078431370000003" green="1" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                                            <color key="value" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwt-lu-Ok4">
                                                     <rect key="frame" x="8" y="8" width="536" height="414"/>
                                                     <subviews>
@@ -547,15 +654,20 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="Vzf-11-Pae" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ojz-ix-5e0" secondAttribute="leadingMargin" constant="10" id="3h6-OR-g1z"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="f6p-84-raW" secondAttribute="trailing" constant="-8" id="9rq-h8-htL"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="Bwt-lu-Ok4" secondAttribute="leading" id="Cxc-5y-inR"/>
+                                            <constraint firstItem="f6p-84-raW" firstAttribute="top" secondItem="ojz-ix-5e0" secondAttribute="topMargin" constant="-8" id="IXN-MX-gho"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="MZp-5d-VSu" secondAttribute="trailing" constant="26" id="RJY-tM-V5z"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="f6p-84-raW" secondAttribute="bottom" constant="-8" id="Rc8-gT-DVj"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="Bwt-lu-Ok4" secondAttribute="bottom" id="YsN-LN-OTM"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Bwt-lu-Ok4" secondAttribute="trailing" id="cpb-90-MeI"/>
                                             <constraint firstAttribute="topMargin" secondItem="Bwt-lu-Ok4" secondAttribute="top" id="n3l-zK-zdh"/>
+                                            <constraint firstItem="f6p-84-raW" firstAttribute="leading" secondItem="ojz-ix-5e0" secondAttribute="leadingMargin" constant="-8" id="uul-Dx-oir"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="articleMessageBody" destination="MZp-5d-VSu" id="OKo-Fp-tGu"/>
                                             <outlet property="cardBackgroundView" destination="Bwt-lu-Ok4" id="CHW-Fm-0j3"/>
+                                            <outlet property="cardGradientBorderView" destination="f6p-84-raW" id="KxM-lF-JhN"/>
                                             <outlet property="detailLabel" destination="Vzf-11-Pae" id="hab-rr-WTn"/>
                                             <outlet property="titleLabel" destination="W1N-b6-S4G" id="r0W-8s-v4s"/>
                                             <outlet property="userPhoto" destination="bfK-mD-mUL" id="Luc-DH-frK"/>
