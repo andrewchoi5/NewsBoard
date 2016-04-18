@@ -57,7 +57,7 @@ class CardSerializer : NSObject {
     
     class func getCardJSONDict(card : Card) -> [String : AnyObject] {
         return [
-            "userProfileImageURL" : card.userProfileImageURL.absoluteString,
+            "associatedAccountID" : card.associatedAccountID,
             "type":card.type.rawValue,
             "info":card.info,
             "postDates": card.postDateStrings(),

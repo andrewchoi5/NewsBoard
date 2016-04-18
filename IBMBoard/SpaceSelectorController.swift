@@ -183,7 +183,8 @@ class SpaceSelectorController : UIViewController {
         
         emptyCardSpace = makeCardWithSpaces(selectedSpaces)
         emptyCardSpace.setBoardPostingDates(self.postingDates)
-        emptyCardSpace.userProfileImageURL = SessionInformation.currentSession.userAccount.profilePictureURL
+        // TODO: Refactor so that associated account ID is hidden and is replaced with object
+        emptyCardSpace.associatedAccountID = SessionInformation.currentSession.userAccount.id
         
         print("Spaces selected: \(selectedSpaces)")
         print("Space selected: \(emptyCardSpace)")
