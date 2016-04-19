@@ -12,6 +12,12 @@ extension NSData {
     
     func base64EncodedString() -> String {
         return self.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        
+    }
+    
+    func base64EncodedData() -> NSData {
+        return self.base64EncodedDataWithOptions(.Encoding64CharacterLineLength)
+        
     }
     
 }

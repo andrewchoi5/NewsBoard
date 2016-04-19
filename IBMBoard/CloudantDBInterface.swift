@@ -456,7 +456,7 @@ class Account : Document {
 
 extension Account {
     static func testAccount() -> Account {
-        return Account(withEmail: "frolkina@ca.ibm.com", andPassword: "zvqfr3")
+        return Account(withEmail: "zamiul.haque.1@gmail.com", andPassword: "zvqfr3")
         
     }
     

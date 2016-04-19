@@ -32,4 +32,13 @@ extension String {
         
     }
     
+    
+    func QREncodedImage() -> UIImage? {
+        guard let data = self.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false) else { return nil }
+        guard let generator = CIFilter.getQRCodeGenerator(withData: data) else { return nil }
+        guard let outputImage = generator.outputImage else { return nil }
+        let transformedImage = outputImage.imageByApplyingTransform(CGAffineTransformMakeScale(7.0, 7.0))
+        return UIImage(CGImage: CIContext(options:nil).createCGImage(transformedImage, fromRect: transformedImage.extent))
+        
+    }
 }

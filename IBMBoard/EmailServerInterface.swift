@@ -10,9 +10,7 @@ import Foundation
 
 extension ServerInterface {
     
-    static func sendVerificationEmailToAccount(account : Account) {
-        
-        let verificationEmailText = "Welcome to IBM Board!<br>To complete your account registration, please enter this verification code in the page that is prompting for it.<br><br>Verification Code: <b>\(account.verificationCode)</b><br><br>Please do not reply to this email."
+    static func sendVerificationEmailToAccount(account : Account, completion: ((Void) -> Void)?) {
         
         let session = MCOSMTPSession()
         session.hostname = defaultEmailServer
@@ -22,10 +20,20 @@ extension ServerInterface {
         
         session.connectionType = .TLS
         
+        guard let QRCodeImage = account.verificationCode.QREncodedImage() else { return }
+        guard let imageData = UIImagePNGRepresentation(QRCodeImage) else { return }
+        
+        let attachment = MCOAttachment(data: imageData, filename: "QRCodeImage")
+        attachment.mimeType = "image/png"
+        attachment.contentID = "QRCode123456"        
+        
+        let verificationEmailText = "Welcome to IBM Board!<br>To complete your account registration, please enter this verification code in the page that is prompting for it.<br><br>Verification Code: <b>\(account.verificationCode)</b><br><br>Please do not reply to this email.<br><br><img src='cid:\(attachment.contentID)' alt=''>"
+        
         let builder = MCOMessageBuilder()
         builder.header.from = MCOAddress(displayName: nil, mailbox: defaultEmailSender)
         builder.header.to = [ MCOAddress(mailbox: account.email) ]
         builder.header.subject = "IBM Board Verification Email"
+        builder.addRelatedAttachment(attachment)
         builder.htmlBody = verificationEmailText
         
         let operation = session.sendOperationWithData(builder.data())
@@ -37,6 +45,8 @@ extension ServerInterface {
                 print("Email was sent successfully!")
                 
             }
+            guard let handler = completion else { return }
+            handler()
         }
         
     }

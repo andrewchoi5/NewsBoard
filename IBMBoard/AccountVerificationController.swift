@@ -8,12 +8,67 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class AccountVerificationController : KeyboardPresenter {
     @IBOutlet weak var verificationCodeText: RoundedTextBox!
     var accountToVerify : Account!
+
+    var captureSession : AVCaptureSession?
+    var videoPreviewLayer : AVCaptureVideoPreviewLayer?
+    var qrCodeFrameView : UIView?
+    
+    @IBOutlet weak var QRViewer: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var emailActivityIndicator: UIActivityIndicatorView!
+    
+    @IBAction func didRequestResendOfEmail() {
+        emailActivityIndicator.startAnimating()
+        ServerInterface.sendVerificationEmailToAccount(accountToVerify) {
+            self.emailActivityIndicator.stopAnimating()
+            
+        }
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+
+        let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        var input : AVCaptureDeviceInput!
+        
+        do {
+            input = try AVCaptureDeviceInput(device: captureDevice)
+        }
+        catch {
+            return
+        }
+        
+        captureSession = AVCaptureSession()
+        captureSession?.addInput(input)
+        
+        let captureMetadataOutput = AVCaptureMetadataOutput()
+        captureSession?.addOutput(captureMetadataOutput)
+        
+        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+        captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+        
+        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        videoPreviewLayer?.frame = QRViewer.layer.bounds
+        QRViewer.layer.addSublayer(videoPreviewLayer!)
+        
+        captureSession?.startRunning()
+        
+        qrCodeFrameView = UIView()
+        qrCodeFrameView?.layer.borderColor = UIColor.mainAccentGreen().CGColor
+        qrCodeFrameView?.layer.borderWidth = 2.0
+        QRViewer.addSubview(qrCodeFrameView!)
+        QRViewer.bringSubviewToFront(qrCodeFrameView!)
+    }
+    
     @IBAction func didAttemptToVerify() {
         
         guard let code = verificationCodeText.text else { return }
@@ -46,11 +101,11 @@ class AccountVerificationController : KeyboardPresenter {
     }
     
     override func didDismissKeyboard() {
-        self.view.constraintWithID("centerVerificationCodeConstraint")!.constant += 40.0
+        self.view.constraintWithID("centerVerificationCodeConstraint")!.constant += 70.0
     }
     
     override func didPresentKeyboardWithFrame(frame: CGRect) {
-        self.view.constraintWithID("centerVerificationCodeConstraint")!.constant -= 40.0
+        self.view.constraintWithID("centerVerificationCodeConstraint")!.constant -= 70.0
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -63,4 +118,27 @@ class AccountVerificationController : KeyboardPresenter {
         }
     }
 
+}
+
+extension AccountVerificationController : AVCaptureMetadataOutputObjectsDelegate {
+    
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        
+        if metadataObjects == nil || metadataObjects.count == 0 {
+            qrCodeFrameView?.frame = CGRectZero
+            return
+        }
+        
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if metadataObj.type == AVMetadataObjectTypeQRCode {
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataObj as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
+            qrCodeFrameView?.frame = barCodeObject.bounds;
+            
+            if metadataObj.stringValue != nil {
+                verificationCodeText.text = metadataObj.stringValue
+            }
+        }
+    }
+    
 }

@@ -70,6 +70,7 @@
 		393CB23C1CBF4E3C00648B5B /* JFBCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB1BB1CBF47F500648B5B /* JFBCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		393CB23D1CBF4E4D00648B5B /* JFRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB2021CBF47F500648B5B /* JFRandom.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		393CB23E1CBF774500648B5B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* GradientView.swift */; };
+		394436951CC5A32C00EAB3DC /* CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982DD921CC5882600691A39 /* CIFilter.swift */; };
 		394606C01C91605F00E2633C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6591C91819200AB28F1 /* JTCalendarManager.m */; };
 		394CD6621C91819200AB28F1 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD65B1C91819200AB28F1 /* JTCalendarSettings.m */; };
@@ -97,6 +98,7 @@
 		396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */; };
 		39826A9B1C8CDAFC00674734 /* SessionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39826A9A1C8CDAFC00674734 /* SessionInformation.swift */; };
 		3982DD911CC5672100691A39 /* Simple-Line-Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */; };
+		3982DD931CC5882600691A39 /* CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982DD921CC5882600691A39 /* CIFilter.swift */; };
 		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
@@ -341,6 +343,7 @@
 		396AB1101CB31DA700B91FF9 /* AccountVerificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVerificationController.swift; sourceTree = "<group>"; };
 		39826A9A1C8CDAFC00674734 /* SessionInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInformation.swift; sourceTree = "<group>"; };
 		3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Simple-Line-Icons.ttf"; sourceTree = "<group>"; };
+		3982DD921CC5882600691A39 /* CIFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIFilter.swift; sourceTree = "<group>"; };
 		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
 		39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
@@ -674,6 +677,7 @@
 			isa = PBXGroup;
 			children = (
 				39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */,
+				3982DD921CC5882600691A39 /* CIFilter.swift */,
 				396871B41CBD18C900D6869B /* UIViewExt.swift */,
 				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
 				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
@@ -1029,6 +1033,7 @@
 				39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */,
 				39EB93F71C7E66600053F73F /* TBXML+Compression.m in Sources */,
 				393C88CC1CB5C82C009DA1AA /* GradientView.swift in Sources */,
+				3982DD931CC5882600691A39 /* CIFilter.swift in Sources */,
 				3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */,
 				394CD66D1C9181EF00AB28F1 /* JTCalendarScrollManager.m in Sources */,
 				39EB94061C7E66600053F73F /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1084,6 +1089,7 @@
 				391212E91C9B616800C05BDB /* CloudantDBInterface.swift in Sources */,
 				39022CE81C895C5F00464BC1 /* UIButton+WebCache.m in Sources */,
 				39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */,
+				394436951CC5A32C00EAB3DC /* CIFilter.swift in Sources */,
 				39022CE71C895C5F00464BC1 /* SDWebImagePrefetcher.m in Sources */,
 				39022CE41C895C5F00464BC1 /* SDWebImageDownloader.m in Sources */,
 				39022D051C8A549500464BC1 /* VideoAPIManager.swift in Sources */,
