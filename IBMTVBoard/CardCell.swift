@@ -230,7 +230,6 @@ class ArticleCardCell : CardCell {
 
 class VideoCardCell : CardCell {
     @IBOutlet weak var videoPreview: UIImageView!
-    @IBOutlet weak var greyBox: UIView!
     
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
@@ -241,7 +240,6 @@ class VideoCardCell : CardCell {
                 return
             }
             
-            self.greyBox.hidden = error != nil
             self.videoPreview.image = self.videoPreview.image?.grayScaleImage()
             self.videoPreview.hidden = false
                 
@@ -250,9 +248,7 @@ class VideoCardCell : CardCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        greyBox.frame = videoPreview.frameForImage()
-        
+    
     }
     
 }
