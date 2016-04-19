@@ -54,6 +54,7 @@
             <string>simple-line-icons</string>
             <string>simple-line-icons</string>
             <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -682,26 +683,39 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCe-aM-cWY">
-                                                    <rect key="frame" x="75" y="120" width="39" height="27"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0Q-X6-JcS">
+                                                    <rect key="frame" x="60" y="35" width="67.5" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="aQt-nM-vsx"/>
+                                                        <constraint firstAttribute="height" constant="65" id="oVY-Vx-aHM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="46"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="aQt-nM-vsx"/>
+                                                            <exclude reference="oVY-Vx-aHM"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PYx-j2-VWu">
-                                                    <rect key="frame" x="60" y="35" width="67.5" height="65"/>
-                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCe-aM-cWY">
+                                                    <rect key="frame" x="74" y="97" width="39" height="27"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="PYx-j2-VWu" firstAttribute="height" secondItem="Sk6-Up-m52" secondAttribute="height" constant="-87" id="3QT-31-a9d"/>
-                                            <constraint firstItem="PYx-j2-VWu" firstAttribute="width" secondItem="Sk6-Up-m52" secondAttribute="width" constant="-120" id="DRT-96-l0V"/>
-                                            <constraint firstItem="PYx-j2-VWu" firstAttribute="top" secondItem="Sk6-Up-m52" secondAttribute="topMargin" constant="27" id="M0l-tZ-JpZ"/>
-                                            <constraint firstItem="cCe-aM-cWY" firstAttribute="top" secondItem="PYx-j2-VWu" secondAttribute="bottom" constant="20" id="VVl-Fp-n3f"/>
-                                            <constraint firstItem="PYx-j2-VWu" firstAttribute="centerX" secondItem="Sk6-Up-m52" secondAttribute="centerX" id="e9J-EK-1c8"/>
-                                            <constraint firstItem="cCe-aM-cWY" firstAttribute="centerX" secondItem="PYx-j2-VWu" secondAttribute="centerX" id="lvu-7G-OvP"/>
-                                            <constraint firstAttribute="bottom" secondItem="cCe-aM-cWY" secondAttribute="bottom" constant="5" id="xeq-0D-rxd"/>
+                                            <constraint firstItem="H0Q-X6-JcS" firstAttribute="top" secondItem="Sk6-Up-m52" secondAttribute="topMargin" constant="27" id="6Fs-yK-9W6"/>
+                                            <constraint firstItem="H0Q-X6-JcS" firstAttribute="height" secondItem="Sk6-Up-m52" secondAttribute="height" constant="-87" id="GTt-uS-3Cp"/>
+                                            <constraint firstItem="H0Q-X6-JcS" firstAttribute="centerX" secondItem="cCe-aM-cWY" secondAttribute="centerX" id="Gdu-9O-dS2"/>
+                                            <constraint firstItem="cCe-aM-cWY" firstAttribute="top" secondItem="H0Q-X6-JcS" secondAttribute="bottom" constant="-3" id="cj5-8K-pNi"/>
+                                            <constraint firstItem="H0Q-X6-JcS" firstAttribute="centerX" secondItem="Sk6-Up-m52" secondAttribute="centerX" id="qwF-Dc-hEI"/>
+                                            <constraint firstAttribute="bottom" secondItem="cCe-aM-cWY" secondAttribute="bottom" constant="28" id="xeq-0D-rxd"/>
+                                            <constraint firstItem="H0Q-X6-JcS" firstAttribute="width" secondItem="Sk6-Up-m52" secondAttribute="width" constant="-120" id="zmK-4H-GiL"/>
                                         </constraints>
                                         <size key="customSize" width="187.5" height="152"/>
                                     </collectionViewCell>

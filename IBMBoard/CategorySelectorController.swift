@@ -17,6 +17,7 @@ class CategorySelectorController : UIViewController {
     
     let cellsPerRow = 2
     let cellsPerColumn = 4
+    /*
     var optionImagesArray = [
                                 ("News Article",       "news"),
                                 ("Announcements",      "announcement"),
@@ -27,6 +28,18 @@ class CategorySelectorController : UIViewController {
                                 ("Polling",            "polling"),
                                 ("Guest Visit",        "visitor")
     
+    ]
+ */
+    
+    var optionImagesArray = [
+                                    ("Article",       ""),
+                                    ("Announcements",      ""),
+                                    ("Idea",           ""),
+                                    ("Tech Questions", ""),
+                                    ("RFP",                ""),
+                                    ("Video",              ""),
+                                    ("Polling",            ""),
+                                    ("Guest Visits",        "")
     ]
     
     var pollingSegueIdentifier       = placeholderSegueIdentifier
@@ -101,7 +114,8 @@ extension CategorySelectorController : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("typeCell", forIndexPath: indexPath)
         (cell.viewWithTag(2) as! UILabel).text = optionImagesArray[ indexPath.row ].0
-        (cell.viewWithTag(1) as! UIImageView).image = UIImage(named: optionImagesArray[ indexPath.row ].1)
+        
+        (cell.viewWithTag(1) as! UILabel).text = optionImagesArray[ indexPath.row ].1
         cell.selectedBackgroundView = backgroundView
         
         if indexPath.row > 5 {
