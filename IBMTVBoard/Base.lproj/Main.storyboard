@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="ibY-wK-Ja0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -201,10 +200,11 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="Q4t-fd-FEf">
-                                                            <rect key="frame" x="149" y="211" width="240" height="90"/>
+                                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="Q4t-fd-FEf">
+                                                            <rect key="frame" x="152" y="206" width="232" height="90"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="7bm-l0-gKR"/>
+                                                                <constraint firstAttribute="width" constant="232" id="zo8-Hn-N8O"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIDEO" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-9b-4n4">
@@ -226,16 +226,10 @@
                                                     <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="height" secondItem="PPw-Ak-Cyr" secondAttribute="height" id="0bn-cS-9Ik"/>
-                                                        <constraint firstAttribute="trailing" secondItem="whZ-8y-tdl" secondAttribute="trailing" id="0xx-A9-XFR"/>
+                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="centerX" secondItem="whZ-8y-tdl" secondAttribute="centerX" id="3a6-uD-z7U"/>
                                                         <constraint firstAttribute="trailing" secondItem="YdZ-cC-HeG" secondAttribute="trailing" constant="18" id="8R3-qX-QXh"/>
-                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="height" relation="lessThanOrEqual" secondItem="whZ-8y-tdl" secondAttribute="height" id="BOu-gx-aNU"/>
-                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="width" secondItem="whZ-8y-tdl" secondAttribute="height" multiplier="80:107" constant="-77.009345794392516" id="E2b-HX-k9B"/>
-                                                        <constraint firstAttribute="bottom" secondItem="whZ-8y-tdl" secondAttribute="bottom" id="HiZ-wh-gMx"/>
-                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="centerY" secondItem="whZ-8y-tdl" secondAttribute="centerY" constant="44" id="Rxm-39-4WN"/>
-                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="centerX" secondItem="whZ-8y-tdl" secondAttribute="centerX" id="S6s-XH-vZn"/>
+                                                        <constraint firstItem="Q4t-fd-FEf" firstAttribute="top" secondItem="YdZ-cC-HeG" secondAttribute="bottom" constant="10" id="RQ4-IU-GAc"/>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="leading" secondItem="PPw-Ak-Cyr" secondAttribute="trailing" constant="-70" id="dgP-qf-4Ds"/>
-                                                        <constraint firstItem="whZ-8y-tdl" firstAttribute="leading" secondItem="qyX-Os-HLu" secondAttribute="leading" id="eiN-zs-fRW"/>
-                                                        <constraint firstItem="whZ-8y-tdl" firstAttribute="top" secondItem="PPw-Ak-Cyr" secondAttribute="bottom" constant="-103" id="oeL-7l-dmk"/>
                                                         <constraint firstItem="YdZ-cC-HeG" firstAttribute="top" secondItem="qyX-Os-HLu" secondAttribute="top" constant="126" id="rcv-4d-twc"/>
                                                         <constraint firstItem="PPw-Ak-Cyr" firstAttribute="top" secondItem="qyX-Os-HLu" secondAttribute="top" constant="33" id="uzq-Xm-Ve4"/>
                                                         <constraint firstItem="PPw-Ak-Cyr" firstAttribute="leading" secondItem="qyX-Os-HLu" secondAttribute="leading" constant="33" id="yDl-zz-o9Y"/>
@@ -246,12 +240,16 @@
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="topMargin" secondItem="qyX-Os-HLu" secondAttribute="top" id="2zb-RB-9Rd"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="whZ-8y-tdl" secondAttribute="bottom" id="ANc-w2-zAM"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="whZ-8y-tdl" secondAttribute="leading" id="Iyp-Na-Ndg"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="qyX-Os-HLu" secondAttribute="trailing" id="Qdx-hR-bjv"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="whZ-8y-tdl" secondAttribute="trailing" id="V5n-Ad-gow"/>
                                             <constraint firstItem="hkG-K6-xic" firstAttribute="leading" secondItem="IPw-kx-yBk" secondAttribute="leadingMargin" constant="-5" id="Voe-e1-2WP"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="qyX-Os-HLu" secondAttribute="leading" id="XUp-s7-AF8"/>
                                             <constraint firstItem="hkG-K6-xic" firstAttribute="top" secondItem="IPw-kx-yBk" secondAttribute="topMargin" constant="-5" id="flR-Uh-TjK"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="hkG-K6-xic" secondAttribute="trailing" constant="-5" id="mvq-wd-G7J"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="hkG-K6-xic" secondAttribute="bottom" constant="-5" id="mwi-6k-PWb"/>
+                                            <constraint firstAttribute="topMargin" secondItem="whZ-8y-tdl" secondAttribute="top" id="yuh-JP-fXK"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="qyX-Os-HLu" secondAttribute="bottom" id="zSM-Yg-iVz"/>
                                         </constraints>
                                         <connections>
