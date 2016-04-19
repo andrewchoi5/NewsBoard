@@ -47,6 +47,14 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
         </mutableArray>
+        <mutableArray key="Simple-Line-Icons.ttf">
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -82,30 +90,26 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSD-f6-CGQ" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="272" width="374" height="48"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="rIt-rS-6cv"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderSize">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="insets">
-                                        <size key="value" width="48" height="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Intranet ID"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8L-Ea-Clo" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="20" y="340" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXi-hB-pAZ">
+                                        <rect key="frame" x="18" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="WoG-4e-UVo"/>
+                                            <constraint firstAttribute="width" constant="17" id="Z6z-6T-aNo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Hah-b6-NeI"/>
+                                    <constraint firstItem="WXi-hB-pAZ" firstAttribute="top" secondItem="n8L-Ea-Clo" secondAttribute="top" constant="14" id="LAl-Pq-KXq"/>
+                                    <constraint firstAttribute="bottom" secondItem="WXi-hB-pAZ" secondAttribute="bottom" constant="17" id="LHu-Dy-Ooy"/>
+                                    <constraint firstItem="WXi-hB-pAZ" firstAttribute="leading" secondItem="n8L-Ea-Clo" secondAttribute="leading" constant="18" id="M5D-n2-TOh"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="placeholderSize">
@@ -231,6 +235,39 @@
                                     <constraint firstAttribute="height" constant="20" id="uFs-I9-HPI"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSD-f6-CGQ" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="272" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX3-ox-N5F">
+                                        <rect key="frame" x="18" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="9yl-P2-dbr"/>
+                                            <constraint firstAttribute="width" constant="17" id="kdO-us-kaG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="oX3-ox-N5F" firstAttribute="leading" secondItem="SSD-f6-CGQ" secondAttribute="leading" constant="18" id="1rO-mh-2iy"/>
+                                    <constraint firstItem="oX3-ox-N5F" firstAttribute="top" secondItem="SSD-f6-CGQ" secondAttribute="top" constant="14" id="2JX-4a-8I3"/>
+                                    <constraint firstAttribute="height" constant="48" id="rIt-rS-6cv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderSize">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="insets">
+                                        <size key="value" width="48" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Intranet ID"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -291,10 +328,25 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGQ-L7-eXP" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="39" y="393.5" width="335" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4v-Su-I9G">
+                                        <rect key="frame" x="16" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="17" id="Lmv-KQ-jfR"/>
+                                            <constraint firstAttribute="height" constant="17" id="bIe-6F-BbC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="O4v-Su-I9G" firstAttribute="top" secondItem="dGQ-L7-eXP" secondAttribute="top" constant="14" id="0lf-4a-04c"/>
+                                    <constraint firstAttribute="bottom" secondItem="O4v-Su-I9G" secondAttribute="bottom" constant="17" id="Tid-y2-MmI"/>
                                     <constraint firstAttribute="height" constant="48" id="fFe-3p-Wt7"/>
                                     <constraint firstAttribute="width" constant="335" id="mea-VG-Jha"/>
+                                    <constraint firstItem="O4v-Su-I9G" firstAttribute="leading" secondItem="dGQ-L7-eXP" secondAttribute="leading" constant="16" id="y8p-2a-Qyu"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="placeholderSize">
@@ -1701,9 +1753,24 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNK-A2-BTI" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="20" y="360" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycx-8b-lbL">
+                                        <rect key="frame" x="17" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="KYa-ty-jaH"/>
+                                            <constraint firstAttribute="width" constant="17" id="ym4-NN-lGq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Ycx-8b-lbL" secondAttribute="bottom" constant="17" id="AyI-Ux-MTv"/>
+                                    <constraint firstItem="Ycx-8b-lbL" firstAttribute="top" secondItem="PNK-A2-BTI" secondAttribute="top" constant="14" id="FUn-Ge-R0k"/>
                                     <constraint firstAttribute="height" constant="48" id="HGP-Am-mGo"/>
+                                    <constraint firstItem="Ycx-8b-lbL" firstAttribute="leading" secondItem="PNK-A2-BTI" secondAttribute="leading" constant="17" id="yoM-M0-Qnr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="placeholderSize">
@@ -1721,8 +1788,23 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="754-5k-jQ4" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="20" y="428" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO9-J8-aPb">
+                                        <rect key="frame" x="17" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="17" id="4Jo-Je-hma"/>
+                                            <constraint firstAttribute="height" constant="17" id="qgc-Jy-dW6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="SO9-J8-aPb" firstAttribute="top" secondItem="754-5k-jQ4" secondAttribute="top" constant="14" id="QSA-Na-A2f"/>
+                                    <constraint firstItem="SO9-J8-aPb" firstAttribute="leading" secondItem="754-5k-jQ4" secondAttribute="leading" constant="17" id="n43-ZL-L1G"/>
+                                    <constraint firstAttribute="bottom" secondItem="SO9-J8-aPb" secondAttribute="bottom" constant="17" id="z4N-Qc-fdK"/>
                                     <constraint firstAttribute="height" constant="48" id="zjD-bj-vNp"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1784,9 +1866,24 @@
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJz-k1-I6h" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="20" y="292" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqA-99-QOR">
+                                        <rect key="frame" x="17" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="MpZ-Oo-gxK"/>
+                                            <constraint firstAttribute="width" constant="17" id="z7o-CB-uvQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="1SX-Yz-Bvg"/>
+                                    <constraint firstItem="DqA-99-QOR" firstAttribute="leading" secondItem="SJz-k1-I6h" secondAttribute="leading" constant="17" id="QFi-dZ-2re"/>
+                                    <constraint firstAttribute="bottom" secondItem="DqA-99-QOR" secondAttribute="bottom" constant="17" id="Zke-tl-hM5"/>
+                                    <constraint firstItem="DqA-99-QOR" firstAttribute="top" secondItem="SJz-k1-I6h" secondAttribute="top" constant="14" id="e8g-Eo-eur"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="placeholderSize">
@@ -1850,7 +1947,7 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xsg-t7-MCv"/>
-        <segue reference="bxv-as-pE6"/>
+        <segue reference="1Be-XK-7cy"/>
+        <segue reference="PUd-Ut-ITJ"/>
     </inferredMetricsTieBreakers>
 </document>
