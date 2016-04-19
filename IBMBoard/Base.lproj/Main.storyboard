@@ -1380,7 +1380,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rM9-kl-tZu" firstAttribute="centerX" secondItem="98V-vs-IRJ" secondAttribute="centerX" id="2vl-Lg-3FX"/>
                             <constraint firstItem="rM9-kl-tZu" firstAttribute="centerY" secondItem="98V-vs-IRJ" secondAttribute="centerY" constant="-28.5" id="9Hr-iJ-aY7"/>

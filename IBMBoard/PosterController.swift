@@ -9,12 +9,10 @@
 import Foundation
 import UIKit
 
-class LoadingView : UIView {}
-
 class PosterController : KeyboardPresenter {
     
     private var activityIndicator = UIActivityIndicatorView()
-    private var loadingScreen = LoadingView()
+    private var loadingScreen = UIView()
     
     var selectedCardSpace : Card = Card()
 
