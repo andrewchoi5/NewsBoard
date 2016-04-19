@@ -360,7 +360,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARTICLE" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K1a-w9-FeH">
-                                                            <rect key="frame" x="91" y="33" width="412" height="70"/>
+                                                            <rect key="frame" x="82" y="33" width="412" height="70"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="70" id="7Ws-lH-DUk"/>
                                                             </constraints>
@@ -373,7 +373,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Lmw-eF-NtK" secondAttribute="trailing" constant="17" id="1Dx-1Z-fuI"/>
                                                         <constraint firstAttribute="bottom" secondItem="7k4-Lc-a7A" secondAttribute="bottom" constant="16" id="NBY-ts-xag"/>
-                                                        <constraint firstItem="K1a-w9-FeH" firstAttribute="leading" secondItem="4cL-2N-Phn" secondAttribute="trailing" constant="18" id="PKp-wv-LYH"/>
+                                                        <constraint firstItem="K1a-w9-FeH" firstAttribute="leading" secondItem="4cL-2N-Phn" secondAttribute="trailing" constant="9" id="PKp-wv-LYH"/>
                                                         <constraint firstItem="KVQ-mI-g8Q" firstAttribute="top" secondItem="Lmw-eF-NtK" secondAttribute="bottom" constant="-8" id="QQF-7V-KJc"/>
                                                         <constraint firstItem="Lmw-eF-NtK" firstAttribute="top" secondItem="oDr-Co-wTQ" secondAttribute="top" constant="102" id="aHZ-bB-8fP"/>
                                                         <constraint firstAttribute="trailing" secondItem="7k4-Lc-a7A" secondAttribute="trailing" constant="8" id="fDg-Bq-fzo"/>
@@ -391,7 +391,7 @@
                                             <constraint firstItem="DyX-aD-CPW" firstAttribute="top" secondItem="JT0-CE-yaF" secondAttribute="topMargin" constant="-5" id="I6c-1Y-Y9c"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="oDr-Co-wTQ" secondAttribute="trailing" id="Jp1-3m-1c4"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="KVQ-mI-g8Q" secondAttribute="bottom" constant="80" id="KWT-bT-Qky"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="K1a-w9-FeH" secondAttribute="trailing" constant="33" id="RXT-6V-7ea"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="K1a-w9-FeH" secondAttribute="trailing" constant="42" id="RXT-6V-7ea"/>
                                             <constraint firstItem="4cL-2N-Phn" firstAttribute="top" secondItem="JT0-CE-yaF" secondAttribute="topMargin" constant="48" id="TB7-8n-K7B"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="g8e-4e-cIq" secondAttribute="bottom" constant="20" id="WOe-U5-HsA"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="oDr-Co-wTQ" secondAttribute="bottom" id="aGH-R0-MHO"/>
@@ -608,7 +608,7 @@
                                                                 <constraint firstAttribute="height" constant="70" id="sCn-Uz-rRk"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                                            <color key="textColor" red="0.91764705882352937" green="0.28235294117647058" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="1" green="0.53333333333333333" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="dFm-IJ-Xzb">
@@ -618,7 +618,7 @@
                                                                 <constraint firstAttribute="width" constant="40" id="zP9-j6-ee6"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="18"/>
-                                                            <color key="textColor" red="0.91764705882352937" green="0.28235294117647058" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="1" green="0.53333333333333333" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -628,7 +628,7 @@
                                                                     <real key="value" value="1.5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                                                    <color key="value" red="0.91764705882352937" green="0.28235294117647058" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="value" red="1" green="0.53333333333333333" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
