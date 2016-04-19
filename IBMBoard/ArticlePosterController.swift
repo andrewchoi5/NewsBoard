@@ -13,7 +13,7 @@ let greenTint = UIColor(red: 92/255.0, green: 255.0/255.0, blue: 111/255.0, alph
 let greyTint = UIColor(red: 63/255.0, green: 69.0/255.0, blue: 77/255.0, alpha: 255.0/255.0)
 
 
-class ArticlePosterController : PosterController, UITextFieldDelegate {
+class ArticlePosterController : PosterController {
     
     @IBOutlet weak var articleLink: UITextField!
     @IBOutlet weak var articleTitle: UITextField!
@@ -23,7 +23,7 @@ class ArticlePosterController : PosterController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        articlePostButton.tintColor = greyTint
+        changeTitleColorOfBarButtonItem(articlePostButton)
         
     }
     
@@ -55,14 +55,22 @@ class ArticlePosterController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["articleTitle"] = articleTitle.text!
         selectedCardSpace.info["articlePreviewText"] = articlePreviewBody.text
         
-        ServerInterface.addCard(selectedCardSpace, completion: nil)
-        self.finishedCreatingPost()
+        self.startedCreatingPost()
+        ServerInterface.addCard(selectedCardSpace) {
+            self.finishedCreatingPost()
+            
+        }
+        
+    }
+    
+    override func enableBarButtonItem() {
+        articlePostButton.enabled = true
         
     }
 
 }
 
-class IdeaPostController : PosterController, UITextFieldDelegate {
+class IdeaPostController : PosterController {
     
     @IBOutlet weak var ideaTitle: UITextField!
     @IBOutlet weak var ideaSummary: UITextView!
@@ -70,8 +78,8 @@ class IdeaPostController : PosterController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ideaPostButton.tintColor = greenTint
         
+        changeTitleColorOfBarButtonItem(ideaPostButton)
     }
     
     @IBAction func didPushPostIdeaButton(sender: UIBarButtonItem) {
@@ -79,15 +87,21 @@ class IdeaPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["ideaTitle"] = ideaTitle.text!
         selectedCardSpace.info["ideaPreview"] = ideaSummary.text!
         
-        ServerInterface.addCard(selectedCardSpace, completion: nil)
-        self.finishedCreatingPost()
+        self.startedCreatingPost()
+        ServerInterface.addCard(selectedCardSpace) {
+            self.finishedCreatingPost()
+            
+        }
         
     }
     
-    
+    override func enableBarButtonItem() {
+        ideaPostButton.enabled = true
+        
+    }
 }
 
-class RFPPostController : PosterController, UITextFieldDelegate {
+class RFPPostController : PosterController {
     
     @IBOutlet weak var RFPTitle: UITextField!
     @IBOutlet weak var RFPSummary: UITextView!
@@ -95,8 +109,9 @@ class RFPPostController : PosterController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        RFPPostButton.tintColor = greenTint
         
+        changeTitleColorOfBarButtonItem(RFPPostButton)
+
     }
     
     @IBAction func didPushPostRFPButton(sender: UIBarButtonItem) {
@@ -104,11 +119,16 @@ class RFPPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["RFPTitle"] = RFPTitle.text!
         selectedCardSpace.info["RFPPreview"] = RFPSummary.text!
         
-        ServerInterface.addCard(selectedCardSpace, completion: nil)
+        self.startedCreatingPost()
+        ServerInterface.addCard(selectedCardSpace) {
+            self.finishedCreatingPost()
+            
+        }
         
-        self.finishedCreatingPost()
-
     }
 
-    
+    override func enableBarButtonItem() {
+        RFPPostButton.enabled = true
+        
+    }
 }

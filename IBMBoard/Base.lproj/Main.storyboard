@@ -873,7 +873,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Video" id="goN-xl-qG9">
                         <barButtonItem key="backBarButtonItem" title="Back" id="O3c-V6-Oy8"/>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="aic-yQ-ouz">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="aic-yQ-ouz">
                             <connections>
                                 <action selector="didPushPostVideoButton:" destination="Rsj-Ek-DKz" id="Gu2-PB-4Po"/>
                             </connections>
@@ -948,10 +948,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1n-lV-8mJ" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="-4" y="64" width="383" height="382"/>
+                                <rect key="frame" x="-4" y="64" width="383" height="330"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4KR-C8-uLT">
-                                        <rect key="frame" x="17" y="168" width="348" height="209"/>
+                                        <rect key="frame" x="17" y="116" width="348" height="209"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="209" id="UjA-Nn-bgd"/>
                                         </constraints>
@@ -991,7 +991,7 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-bl-9kA" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="106" width="383" height="54"/>
+                                        <rect key="frame" x="0.0" y="54" width="383" height="54"/>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="AFf-sh-qGg"/>
@@ -1013,6 +1013,7 @@
                                     <constraint firstItem="5yg-x5-26V" firstAttribute="top" secondItem="v1n-lV-8mJ" secondAttribute="top" id="Yhc-ca-Adh"/>
                                     <constraint firstItem="4KR-C8-uLT" firstAttribute="leading" secondItem="v1n-lV-8mJ" secondAttribute="leading" constant="17" id="dHD-XV-jGf"/>
                                     <constraint firstItem="QFs-7m-0QL" firstAttribute="leading" secondItem="v1n-lV-8mJ" secondAttribute="leading" id="rqV-cB-JlA"/>
+                                    <constraint firstItem="SMm-bl-9kA" firstAttribute="top" secondItem="5yg-x5-26V" secondAttribute="bottom" id="vBD-0Z-4eK"/>
                                     <constraint firstAttribute="trailing" secondItem="5yg-x5-26V" secondAttribute="trailing" id="w2h-JI-jDB"/>
                                     <constraint firstAttribute="trailing" secondItem="QFs-7m-0QL" secondAttribute="trailing" id="xvI-fU-bLJ"/>
                                     <constraint firstItem="5yg-x5-26V" firstAttribute="leading" secondItem="v1n-lV-8mJ" secondAttribute="leading" id="ylg-Vd-3tt"/>
@@ -1031,6 +1032,11 @@
                                         <point key="value" x="1" y="0.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="QFs-7m-0QL"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
@@ -1043,8 +1049,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Article" id="gdh-A6-JfU">
                         <barButtonItem key="backBarButtonItem" title="Back" id="yNq-2v-OAq"/>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="h9d-DZ-UDK">
-                            <color key="tintColor" red="0.24705882352941178" green="0.91534710570469791" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="h9d-DZ-UDK">
                             <connections>
                                 <action selector="didPushPostArticleButton" destination="jZ6-cS-dQB" id="Jps-yY-qoz"/>
                             </connections>
@@ -1106,7 +1111,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                         <connections>
-                                            <outlet property="delegate" destination="Rsj-Ek-DKz" id="WjF-sB-PGR"/>
+                                            <outlet property="delegate" destination="NvT-Dn-yoj" id="HRU-Th-3Zw"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcement body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIG-v8-MfI" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
@@ -1128,6 +1133,9 @@
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="NvT-Dn-yoj" id="zmg-D6-j74"/>
+                                        </connections>
                                     </textView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hMD-E0-zRp" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="383" height="54"/>
@@ -1143,7 +1151,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="Rsj-Ek-DKz" id="v5b-6F-Ira"/>
+                                            <outlet property="delegate" destination="NvT-Dn-yoj" id="1Iv-LE-5Mx"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -1208,7 +1216,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Announcement" id="e7H-vo-iMF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IVd-gG-b9C"/>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="8JF-lS-Pv4">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="8JF-lS-Pv4">
                             <connections>
                                 <action selector="didPushPostButton:" destination="NvT-Dn-yoj" id="4Qj-8c-Rnd"/>
                             </connections>
@@ -1266,7 +1274,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <outlet property="delegate" destination="Rsj-Ek-DKz" id="OoQ-pn-hpN"/>
+                                            <outlet property="delegate" destination="jSY-Qy-xP5" id="DQp-au-XFL"/>
                                         </connections>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-cv-gk6">
@@ -1278,6 +1286,9 @@
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jSY-Qy-xP5" id="s3R-rv-bG0"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1318,7 +1329,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Idea" id="lsO-Jf-FYb">
                         <barButtonItem key="backBarButtonItem" title="Back" id="arj-gT-CTw"/>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="FQc-aG-1PX">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="FQc-aG-1PX">
                             <connections>
                                 <action selector="didPushPostIdeaButton:" destination="jSY-Qy-xP5" id="phl-XG-7RV"/>
                             </connections>
@@ -1681,7 +1692,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <outlet property="delegate" destination="Rsj-Ek-DKz" id="0wQ-tZ-yvX"/>
+                                            <outlet property="delegate" destination="hW0-mY-DO3" id="117-YB-EiR"/>
                                         </connections>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="22M-Vi-Xci">
@@ -1694,6 +1705,9 @@
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="hW0-mY-DO3" id="Mls-TV-iFx"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1734,7 +1748,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Proposal" id="q5H-B5-MPj">
                         <barButtonItem key="backBarButtonItem" title="Back" id="iTq-Qr-Cqq"/>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="Bpj-Zt-LfX">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="Bpj-Zt-LfX">
                             <connections>
                                 <action selector="didPushPostRFPButton:" destination="hW0-mY-DO3" id="FbF-ep-wb2"/>
                             </connections>

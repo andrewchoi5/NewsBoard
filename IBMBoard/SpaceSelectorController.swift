@@ -72,7 +72,7 @@ class SpaceSelectorController : UIViewController {
     
     func reloadCards() {
         self.beginReloading()
-        ServerInterface.getCardsUntilDate(JTDateHelper().addToDate(calendarDate.underlyingDate(), days: 14)) { (cards) in
+        ServerInterface.getCards(fromDate: calendarDate.underlyingDate(), toDate: JTDateHelper().addToDate(calendarDate.underlyingDate(), days: 14)) { (cards) in
             self.cardList = cards
             self.reloadData()
             self.finishedReloading()
@@ -156,9 +156,9 @@ class SpaceSelectorController : UIViewController {
     }
  
     func rotateToLandscapeIfNeeded() {
-//        if(!UIDeviceOrientationIsPortraitOrUnknown(UIDevice.currentDevice().orientation)) {
+        if(!UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
-//        }
+        }
     }
     
     @IBAction func didFinishSelectingSpace(sender: AnyObject) {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VideoPostController : PosterController, UITextFieldDelegate {
+class VideoPostController : PosterController {
     
     @IBOutlet weak var videoLink: UITextField!
     @IBOutlet weak var videoTitle: UITextField!
@@ -21,7 +21,8 @@ class VideoPostController : PosterController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        videoPostButton.tintColor = greyTint
+        changeTitleColorOfBarButtonItem(videoPostButton)
+        
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -47,12 +48,20 @@ class VideoPostController : PosterController, UITextFieldDelegate {
         selectedCardSpace.info["videoURL"] = videoLink.text!
         selectedCardSpace.info["videoTitle"] = videoTitle.text!
         
-        ServerInterface.addCard(selectedCardSpace, completion: nil)
-        self.finishedCreatingPost()
+        self.startedCreatingPost()
+        ServerInterface.addCard(selectedCardSpace) {
+            self.finishedCreatingPost()
+            
+        }
     }
     
     func loadPreview() {
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(videoLink.text!), placeholderImage: UIImage())
         videoTitle.text = APIManager.getArbitraryVideoTitle(videoLink.text!, maxLength: 1000)
+    }
+    
+    override func enableBarButtonItem() {
+        videoPostButton.enabled = true
+        
     }
 }

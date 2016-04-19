@@ -47,7 +47,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     }
     
     func reload() {
-        ServerInterface.getAllCardsForToday({ (cards) in
+        ServerInterface.getCardsForToday({ (cards) in
             
             let oldDeck = Set<Card>(self.cardList)
             let newDeck = Set<Card>(cards)

@@ -244,7 +244,7 @@ extension ServerInterface {
         
     }
     
-    static func getCardsFromDate(firstDate : NSDate, toDate secondDate : NSDate, completion: ([Card]) -> Void) {
+    static func getCards(fromDate firstDate : NSDate, toDate secondDate : NSDate, completion: ([Card]) -> Void) {
         ServerInterface.getDocuments(withQuery: CardQuery(withStartingDate: firstDate, toEndingDate: secondDate),inDatabase: "ibmboard") { (documents) in
             completion(DocumentToCardConverter.getCards(documents))
             
@@ -252,13 +252,13 @@ extension ServerInterface {
         
     }
     
-    static func getCardsUntilDate(date: NSDate, completion: (cards: [Card]) -> Void) {
-        ServerInterface.getCardsFromDate(NSDate(), toDate: date, completion: completion)
+    static func getCards(untilDate date: NSDate, completion: (cards: [Card]) -> Void) {
+        ServerInterface.getCards(fromDate: NSDate(), toDate: date, completion: completion)
         
     }
     
-    static func getAllCardsForToday(completion: (cards: [Card]) -> Void) {
-        ServerInterface.getCardsFromDate(NSDate(), toDate: NSDate(), completion: completion)
+    static func getCardsForToday(completion: (cards: [Card]) -> Void) {
+        ServerInterface.getCards(fromDate: NSDate(), toDate: NSDate(), completion: completion)
         
     }
     

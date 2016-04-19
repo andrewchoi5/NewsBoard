@@ -26,7 +26,7 @@ class AnnouncementPostController : PosterController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        announcementPostButton.tintColor = greyTint
+        changeTitleColorOfBarButtonItem(announcementPostButton)
         
         createActionSheet()
 
@@ -51,7 +51,7 @@ class AnnouncementPostController : PosterController {
         actionSheet.addAction(UIAlertAction.init(title: "Take Picture"
             , style: .Default, handler: { (action) in
                 
-                self.presentCameraImageController()
+            self.presentCameraImageController()
 
         }))
         
@@ -121,6 +121,10 @@ class AnnouncementPostController : PosterController {
         
         self.presentViewController(actionSheet, animated: true, completion: nil)
         
+    }
+    
+    override func enableBarButtonItem() {
+        announcementPostButton.enabled = true
     }
     
 }

@@ -17,29 +17,18 @@ class CategorySelectorController : UIViewController {
     
     let cellsPerRow = 2
     let cellsPerColumn = 4
-    /*
-    var optionImagesArray = [
-                                ("News Article",       "news"),
-                                ("Announcements",      "announcement"),
-                                ("New Idea",           "idea"),
-                                ("Technical Question", "technical"),
-                                ("RFP",                "handshake"),
-                                ("Video",              "video"),
-                                ("Polling",            "polling"),
-                                ("Guest Visit",        "visitor")
     
-    ]
- */
-    
+    // NOTE: Refer to icon font, included in this project to see what characters look like,
+    // XCode cannot render unicode symbols on this screen
     var optionImagesArray = [
-                                    ("Article",       ""),
-                                    ("Announcements",      ""),
-                                    ("Idea",           ""),
-                                    ("Tech Questions", ""),
-                                    ("RFP",                ""),
-                                    ("Video",              ""),
-                                    ("Polling",            ""),
-                                    ("Guest Visits",        "")
+                                    ("Article",         ""),
+                                    ("Announcements",   ""),
+                                    ("Idea",            ""),
+                                    ("Tech Questions",  ""),
+                                    ("RFP",             ""),
+                                    ("Video",           ""),
+                                    ("Polling",         ""),
+                                    ("Guest Visits",    "")
     ]
     
     var pollingSegueIdentifier       = placeholderSegueIdentifier
@@ -145,6 +134,11 @@ extension CategorySelectorController : UICollectionViewDelegate {
         
     }
     
+    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return indexPath.row <= 5
+        
+    }
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var segueIdentifier = ""
         switch indexPath.row {
@@ -163,5 +157,6 @@ extension CategorySelectorController : UICollectionViewDelegate {
         self.performSegueWithIdentifier(segueIdentifier, sender: self)
         self.collectionView.deselectItemAtIndexPath(indexPath, animated: true)
     }
+
 }
 

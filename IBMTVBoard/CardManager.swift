@@ -40,7 +40,7 @@ class CardDataServer : NSObject {
     }
     
     func backgroundCheck() {
-        ServerInterface.getAllCardsForToday({ (cards) in
+        ServerInterface.getCardsForToday({ (cards) in
             
             
 //            if self.currentDeck.contains()
