@@ -484,7 +484,6 @@
 			children = (
 				3964FF5A1C9A62E0002B5AE8 /* Extensions */,
 				39B61D661CBC56B400CDB05A /* Views */,
-				39B61D651CBC569700CDB05A /* Authenticaton */,
 				39B61D641CBC566A00CDB05A /* Model */,
 				39B61D671CBC56D600CDB05A /* Controllers */,
 				392CF11E1C762FCF00090214 /* AppDelegate.swift */,
@@ -729,7 +728,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		39B61D651CBC569700CDB05A /* Authenticaton */ = {
+		39B61D651CBC569700CDB05A /* Administrative */ = {
 			isa = PBXGroup;
 			children = (
 				392CF1201C762FCF00090214 /* LoginViewController.swift */,
@@ -737,7 +736,7 @@
 				396AB10C1CAF225600B91FF9 /* SignUpController.swift */,
 				39DDBCBB1CC47885004FED02 /* ProfilePictureController.swift */,
 			);
-			name = Authenticaton;
+			name = Administrative;
 			sourceTree = "<group>";
 		};
 		39B61D661CBC56B400CDB05A /* Views */ = {
@@ -756,6 +755,7 @@
 		39B61D671CBC56D600CDB05A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				39B61D651CBC569700CDB05A /* Administrative */,
 				39B61D631CBC564900CDB05A /* Posters */,
 				39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */,
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,

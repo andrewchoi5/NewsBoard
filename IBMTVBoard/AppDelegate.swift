@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ServerInterface.initializeCredentials()
         
         UIApplication.sharedApplication().statusBarHidden = false
+        UIApplication.sharedApplication().idleTimerDisabled = true
         
         return true
     }
