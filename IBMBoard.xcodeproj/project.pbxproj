@@ -26,6 +26,8 @@
 		2D7087B11CC57A2800CEF4F7 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39D7E2E61CC4298600B02FEC /* Roboto-Thin.ttf */; };
 		2D7087B21CC57A2800CEF4F7 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39D7E2E71CC4298600B02FEC /* Roboto-ThinItalic.ttf */; };
 		2D7087B31CC57A2800CEF4F7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393426B51CBC9FEB0089F48F /* Roboto-Regular.ttf */; };
+		2D72F0B61CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
+		2D72F0B71CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
 		39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */; };
 		39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
 		39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
@@ -183,6 +185,7 @@
 
 /* Begin PBXFileReference section */
 		2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
+		2D72F0B51CC6638F00697221 /* CALayerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExt.swift; sourceTree = "<group>"; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
 		391584AB1CAB96B200E37F99 /* ProgressControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControl.swift; sourceTree = "<group>"; };
@@ -687,6 +690,7 @@
 				39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */,
 				39D7E2D61CC4163900B02FEC /* UIColorExt.swift */,
 				2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */,
+				2D72F0B51CC6638F00697221 /* CALayerExt.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1043,6 +1047,7 @@
 				39EB94011C7E66600053F73F /* SDWebImagePrefetcher.m in Sources */,
 				394CD68D1C92140700AB28F1 /* CalendarController.swift in Sources */,
 				391584AC1CAB96B200E37F99 /* ProgressControl.swift in Sources */,
+				2D72F0B61CC6638F00697221 /* CALayerExt.swift in Sources */,
 				394CD6631C91819200AB28F1 /* JTDateHelper.m in Sources */,
 				394CD6881C91825500AB28F1 /* JTCalendarWeekView.m in Sources */,
 				39EB93B11C7D896A0053F73F /* VideoPostController.swift in Sources */,
@@ -1077,6 +1082,7 @@
 				391212ED1C9B621000C05BDB /* NSJSONSerializationExt.swift in Sources */,
 				391212EA1C9B619200C05BDB /* NSDataExt.swift in Sources */,
 				391212EB1C9B61EF00C05BDB /* DataConverters.swift in Sources */,
+				2D72F0B71CC6638F00697221 /* CALayerExt.swift in Sources */,
 				391212EC1C9B620000C05BDB /* NSDateExt.swift in Sources */,
 				39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */,
 				391212EE1C9B621700C05BDB /* StringExt.swift in Sources */,
