@@ -16,9 +16,6 @@ class VideoPostController : PosterController {
     @IBOutlet weak var videoPreview: UIImageView!
     @IBOutlet weak var videoPostButton: UIBarButtonItem!
     
-    let greenTint = UIColor(red: 92/255.0, green: 255.0/255.0, blue: 111/255.0, alpha: 255.0/255.0)
-    let greyTint = UIColor(red: 63/255.0, green: 69.0/255.0, blue: 77/255.0, alpha: 255.0/255.0)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeTitleColorOfBarButtonItem(videoPostButton)
@@ -33,11 +30,11 @@ class VideoPostController : PosterController {
         // enable post button if fields are not empty
         if (videoLink.text! != "" && videoTitle.text != "") {
             videoPostButton.enabled = true;
-            videoPostButton.tintColor = greenTint
+            videoPostButton.tintColor = UIColor.mainAccentGreen()
             
         } else {
             videoPostButton.enabled = false;
-            videoPostButton.tintColor = greyTint
+            videoPostButton.tintColor = UIColor.secondaryTileColor()
             
         }
         

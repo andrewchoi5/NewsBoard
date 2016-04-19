@@ -1351,6 +1351,7 @@
         <!--View Controller-->
         <scene sceneID="E2R-ef-yLX">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ddl-2Q-3qU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gsM-WR-J3i" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c1J-GI-JGJ"/>
@@ -1380,16 +1381,14 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rM9-kl-tZu" firstAttribute="centerX" secondItem="98V-vs-IRJ" secondAttribute="centerX" id="2vl-Lg-3FX"/>
                             <constraint firstItem="rM9-kl-tZu" firstAttribute="centerY" secondItem="98V-vs-IRJ" secondAttribute="centerY" constant="-28.5" id="9Hr-iJ-aY7"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ddl-2Q-3qU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2724" y="2055"/>
+            <point key="canvasLocation" x="2719" y="1985"/>
         </scene>
         <!--Select space and date-->
         <scene sceneID="y39-Be-u9p">

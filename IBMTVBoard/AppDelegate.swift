@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
     
         ServerInterface.initializeCredentials()
-                
+        
+        UIApplication.sharedApplication().statusBarHidden = false
+        
         return true
     }
 

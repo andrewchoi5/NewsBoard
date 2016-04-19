@@ -198,7 +198,7 @@ public func defaultBoldFontOfSize(size: Double) -> UIFont {
         }
     }
     
-    @IBInspectable var placeholderColor : UIColor = UIColor.whiteColor() {
+    @IBInspectable var placeholderColor : UIColor = UIColor.textWhite() {
         didSet {
 //            self.setNeedsDisplay()
         }
@@ -243,12 +243,12 @@ public func defaultBoldFontOfSize(size: Double) -> UIFont {
     func showInvalid() {
         isInvalid = true
         self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor(red: 253.0 / 255.0, green: 103.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0).CGColor
+        self.layer.borderColor = UIColor.errorRed().CGColor
     }
     
     func showFocussed() {
         self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor(red: 127.0 / 255.0, green: 132.0 / 255.0, blue: 140.0 / 255.0, alpha: 1.0).CGColor
+        self.layer.borderColor = UIColor.secondaryTextColor().CGColor
     }
     
     func showNormal() {
@@ -362,7 +362,7 @@ extension RoundedTextBox : UITextFieldDelegate {
     func didSetUnderline() {
         if (underline) {
             let borderWidth = CGFloat(1)
-            border.borderColor = UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 0.3).CGColor
+            border.borderColor = UIColor.backgroundDarkColor().colorWithAlphaComponent(0.3).CGColor
             border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width * 2, self.frame.size.height)
             border.borderWidth = borderWidth
             self.layer.addSublayer(border)
@@ -404,7 +404,7 @@ extension RoundedTextBox : UITextFieldDelegate {
     func didSetUnderline() {
         if (underline) {
             let borderWidth = CGFloat(1)
-            border.borderColor = UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 0.3).CGColor
+            border.borderColor = UIColor.backgroundDarkColor().colorWithAlphaComponent(0.3).CGColor
             border.frame = CGRectMake(20, self.frame.size.height - borderWidth, self.frame.size.width * 2, self.frame.size.height)
             border.borderWidth = borderWidth
             self.layer.addSublayer(border)
@@ -446,7 +446,7 @@ extension RoundedTextBox : UITextFieldDelegate {
     @IBInspectable var padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     @IBInspectable var numberOfLines : Int = 0
     @IBInspectable var borderWidth : Double = 0.0
-    @IBInspectable var borderColor : UIColor = UIColor.redColor() // UIColor(red: 36.0 / 255.0, green: 40.0 / 255.0, blue: 46.0 / 255.0, alpha: 0.3)
+    @IBInspectable var borderColor : UIColor = UIColor.redColor() // UIColor.backgroundDarkColor().colorWithAlphaComponent(0.3)
     
     private var border = UIView()
     private var placeholderMode = true

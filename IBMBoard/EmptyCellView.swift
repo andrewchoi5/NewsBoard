@@ -17,7 +17,7 @@ class EmptyCellView : DefaultCellView {
         self.clipsToBounds = false
         
         self.selectedBackgroundView = UIView()
-        self.selectedBackgroundView?.backgroundColor = UIColor(red: 50.0 / 255.0, green: 152.0 / 255.0, blue: 240.0 / 255.0, alpha: 1.0)
+        self.selectedBackgroundView?.backgroundColor = UIColor.buttonBlue()
     }
     
 }

@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-let greenTint = UIColor(red: 92/255.0, green: 255.0/255.0, blue: 111/255.0, alpha: 255.0/255.0)
-let greyTint = UIColor(red: 63/255.0, green: 69.0/255.0, blue: 77/255.0, alpha: 255.0/255.0)
-
-
 class ArticlePosterController : PosterController {
     
     @IBOutlet weak var articleLink: UITextField!
@@ -35,12 +31,12 @@ class ArticlePosterController : PosterController {
         // enable post button if fields are not empty 
         if (articleLink.text! != "" && articleTitle.text != "") {
             articlePostButton.enabled = true;
-            articlePostButton.tintColor = greenTint
+            articlePostButton.tintColor = UIColor.mainAccentGreen()
             
         } else {
             
             articlePostButton.enabled = false;
-            articlePostButton.tintColor = greyTint
+            articlePostButton.tintColor = UIColor.secondaryTileColor()
         }
         
     }
