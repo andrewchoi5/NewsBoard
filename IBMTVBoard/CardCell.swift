@@ -117,6 +117,15 @@ class AnnouncementCardCell : CardCell {
         
         announcementText.text =  card.info["announcementText"] as? String
         
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 7
+        
+        let attrString = NSMutableAttributedString(string: announcementText.text!)
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        announcementText.attributedText = attrString
+        announcementText.lineBreakMode = .ByTruncatingTail
+        
         if let image = card.attachedImage {
             progressBar.hidden = true
             announcementPhoto.image = image
@@ -203,6 +212,16 @@ class ArticleCardCell : CardCell {
         titleLabel.text = card.info["articleTitle"] as? String
         articleMessageBody.text = card.info["articlePreviewText"] as? String
         
+        if let text = articleMessageBody.text {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 7
+            let attrString = NSMutableAttributedString(string: text)
+            attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+            articleMessageBody.attributedText = attrString
+            articleMessageBody.lineBreakMode = .ByTruncatingTail
+        }
+        
         detailLabel.text = "Read More..."
         
     }
@@ -246,6 +265,15 @@ class IdeaCardCell : ArticleCardCell {
         titleLabel.text = card.info["ideaTitle"] as? String
         articleMessageBody.text = card.info["ideaPreview"] as? String
         
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 7
+        
+        let attrString = NSMutableAttributedString(string: articleMessageBody.text!)
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        articleMessageBody.attributedText = attrString
+        articleMessageBody.lineBreakMode = .ByTruncatingTail
+        
         detailLabel.text = "More details..."
         
     }
@@ -259,6 +287,15 @@ class RFPCardCell : ArticleCardCell {
         
         titleLabel.text = card.info["RFPTitle"] as? String
         articleMessageBody.text = card.info["RFPPreview"] as? String
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 7
+        
+        let attrString = NSMutableAttributedString(string: articleMessageBody.text!)
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        articleMessageBody.attributedText = attrString
+        articleMessageBody.lineBreakMode = .ByTruncatingTail
         
         detailLabel.text = ""
         
