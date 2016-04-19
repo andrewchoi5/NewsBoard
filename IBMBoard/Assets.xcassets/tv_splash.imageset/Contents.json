@@ -1,12 +1,17 @@
 {
   "images" : [
     {
-      "orientation" : "landscape",
-      "idiom" : "tv",
+      "idiom" : "universal",
       "filename" : "ibm-board-apr-4-3016-v0.4-41.png",
-      "extent" : "full-screen",
-      "minimum-system-version" : "9.0",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

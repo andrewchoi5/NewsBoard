@@ -1961,7 +1961,7 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Be-XK-7cy"/>
         <segue reference="PUd-Ut-ITJ"/>
+        <segue reference="Xsg-t7-MCv"/>
     </inferredMetricsTieBreakers>
 </document>
