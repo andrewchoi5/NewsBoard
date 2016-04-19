@@ -339,10 +339,12 @@ extension RoundedTextBox : UITextFieldDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInit()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInit()
     }
     
     var border = CALayer();
@@ -351,6 +353,10 @@ extension RoundedTextBox : UITextFieldDelegate {
         didSet {
             self.didSetUnderline()
         }
+    }
+    
+    func commonInit() {
+        self.keyboardAppearance = .Dark
     }
     
     func didSetUnderline() {
