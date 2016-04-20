@@ -17,6 +17,7 @@ class AccountVerificationController : KeyboardPresenter {
     var captureSession : AVCaptureSession?
     var videoPreviewLayer : AVCaptureVideoPreviewLayer?
     var qrCodeFrameView : UIView?
+    var verifying : Bool = false;
     
     @IBOutlet weak var QRViewer: UIView!
     
@@ -70,19 +71,27 @@ class AccountVerificationController : KeyboardPresenter {
     }
     
     @IBAction func didAttemptToVerify() {
+        attemptToVerify()
+    }
+    
+    func attemptToVerify() {
         
         guard let code = verificationCodeText.text else { return }
+        self.verifying = true;
         self.showLoading()
         if accountToVerify.verifyWithCode(code) {
             ServerInterface.updateAccount(accountToVerify, completion: {
                 self.hideLoading()
+                //dont set the verifying flag to false, otherwise the segue will be triggered multiple times with the qr scanner
+                //self.verifying = false;
                 self.performSegueWithIdentifier("verificationSuccessSegue", sender: self)
             })
             
         } else {
+            self.verifying = false;
             verificationCodeText.showInvalid()
             errorDialogue("Your verification code is invalid")
-            
+            activityIndicator.stopAnimating()            
         }
     }
     
@@ -137,6 +146,9 @@ extension AccountVerificationController : AVCaptureMetadataOutputObjectsDelegate
             
             if metadataObj.stringValue != nil {
                 verificationCodeText.text = metadataObj.stringValue
+                if (!verifying) {
+                    attemptToVerify()
+                }
             }
         }
     }

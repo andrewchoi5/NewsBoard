@@ -66,9 +66,7 @@ class SignUpController : KeyboardPresenter {
         // validate ibm email address
         if !isIBMEmail(emailField.text!) {
             emailField.showInvalid()
-            let alert = UIAlertController(title: "Invalid Intranet ID", message: "Please use a valid IBM Intranet email", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.errorDialogue("Please use a valid IBM Intranet email");
             return
         }
         
@@ -134,6 +132,9 @@ class SignUpController : KeyboardPresenter {
     
     func errorDialogue(message : String) {
         print(message)
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func isIBMEmail(testStr:String) -> Bool {
