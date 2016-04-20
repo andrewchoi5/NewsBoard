@@ -63,6 +63,15 @@ class SignUpController : KeyboardPresenter {
             return
         }
         
+        // validate ibm email address
+        if !isIBMEmail(emailField.text!) {
+            emailField.showInvalid()
+            let alert = UIAlertController(title: "Invalid Intranet ID", message: "Please use a valid IBM Intranet email", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
         if passwordField.isInvalid {
             passwordField.showInvalid()
             return
@@ -79,7 +88,6 @@ class SignUpController : KeyboardPresenter {
             confirmPasswordField.showInvalid()
             return
         }
-        
         
         showLoading()
         ServerInterface.checkIfEmailExists(withEmail: emailField.text!) { (emailExists) in
@@ -102,7 +110,6 @@ class SignUpController : KeyboardPresenter {
             }
             
         }
-        
     }
     
     func showLoading() {
@@ -127,6 +134,13 @@ class SignUpController : KeyboardPresenter {
     
     func errorDialogue(message : String) {
         print(message)
+    }
+    
+    func isIBMEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@+[A-Za-z]+.ibm.com"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
     }
     
 }
