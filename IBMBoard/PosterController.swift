@@ -163,7 +163,7 @@ class PosterController : KeyboardPresenter {
     
     func finishedCreatingPost() {
         self.endLoading()
-        self.performSegueWithIdentifier("backToLoginSegue", sender: self)
+        self.performSegueWithIdentifier("backToSpaceSelectorSegue", sender: self)
         
     }
     

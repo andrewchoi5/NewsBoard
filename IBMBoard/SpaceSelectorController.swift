@@ -272,6 +272,10 @@ class SpaceSelectorController : UIViewController {
         }
 
     }
+    
+    @IBAction func unwindToSpaceSelector(segue : UIStoryboardSegue) {
+        
+    }
 }
 
 class CardDeletionGesture : UILongPressGestureRecognizer {

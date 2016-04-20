@@ -682,10 +682,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMX-XD-5PC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="152"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.2965247844827586" colorSpace="calibratedWhite"/>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0Q-X6-JcS">
                                                     <rect key="frame" x="60" y="35" width="67.5" height="65"/>
                                                     <constraints>
@@ -882,7 +878,7 @@
                         <outlet property="videoLink" destination="YcU-i4-ecq" id="rOP-9n-Hi9"/>
                         <outlet property="videoPreview" destination="Tzs-Ca-zqt" id="yhh-lF-bk3"/>
                         <outlet property="videoTitle" destination="aIR-3v-DPG" id="dfj-3p-1So"/>
-                        <segue destination="2ze-bQ-jSn" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="xf2-dp-mXV"/>
+                        <segue destination="2ze-bQ-jSn" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="xf2-dp-mXV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86f-Qh-ygK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -924,7 +920,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="kP6-ke-J1E" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="anl-i0-j7B"/>
+                        <segue destination="kP6-ke-J1E" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="anl-i0-j7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yab-cL-bsj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,7 +976,7 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="jZ6-cS-dQB" id="xR3-CI-jVj"/>
@@ -1051,7 +1047,7 @@
                         <outlet property="articleLink" destination="QFs-7m-0QL" id="n4W-NX-c4L"/>
                         <outlet property="articlePreviewBody" destination="4KR-C8-uLT" id="r5C-Ve-FWU"/>
                         <outlet property="articleTitle" destination="5yg-x5-26V" id="UaD-7W-9Jf"/>
-                        <segue destination="wBw-8u-weH" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="kxg-Tl-SNT"/>
+                        <segue destination="wBw-8u-weH" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="kxg-Tl-SNT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFk-dK-PBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1194,7 +1190,7 @@
                         <outlet property="announcementPhotoURL" destination="Yn2-aB-s7N" id="Lji-1m-ZV8"/>
                         <outlet property="announcementText" destination="ioi-sh-QbJ" id="bbj-Na-6dO"/>
                         <outlet property="announcementTitle" destination="hMD-E0-zRp" id="LKX-jb-36s"/>
-                        <segue destination="ufm-Tk-oJS" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="eg1-ha-XEo"/>
+                        <segue destination="ufm-Tk-oJS" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="eg1-ha-XEo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMg-vd-qxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1236,6 +1232,9 @@
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="jSY-Qy-xP5" id="DQp-au-XFL"/>
                                         </connections>
@@ -1296,7 +1295,7 @@
                     <connections>
                         <outlet property="ideaSummary" destination="KTi-cv-gk6" id="aLC-1r-TUi"/>
                         <outlet property="ideaTitle" destination="3YU-Mm-v5b" id="zJf-Nv-USM"/>
-                        <segue destination="upl-7n-vER" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="9uG-nQ-bEB"/>
+                        <segue destination="upl-7n-vER" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="9uG-nQ-bEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rah-U3-b7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1665,7 +1664,7 @@
                     <connections>
                         <outlet property="RFPSummary" destination="22M-Vi-Xci" id="inU-E9-CX3"/>
                         <outlet property="RFPTitle" destination="atV-jq-ePB" id="Byh-Zp-uWc"/>
-                        <segue destination="XD1-AS-3ts" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="Kej-57-1XZ"/>
+                        <segue destination="XD1-AS-3ts" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="Kej-57-1XZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8B-wx-kcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
