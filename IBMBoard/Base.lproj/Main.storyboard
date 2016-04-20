@@ -950,7 +950,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                         <connections>
                                             <outlet property="delegate" destination="jZ6-cS-dQB" id="2VE-VZ-Ezm"/>
                                         </connections>
@@ -1117,7 +1117,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                         <connections>
                                             <outlet property="delegate" destination="NvT-Dn-yoj" id="zmg-D6-j74"/>
                                         </connections>
@@ -1246,7 +1246,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                         <connections>
                                             <outlet property="delegate" destination="jSY-Qy-xP5" id="s3R-rv-bG0"/>
                                         </connections>
@@ -1615,7 +1615,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                         <connections>
                                             <outlet property="delegate" destination="hW0-mY-DO3" id="Mls-TV-iFx"/>
                                         </connections>
