@@ -46,7 +46,7 @@ class CardCell : UICollectionViewCell {
     
     func applyCardContent(card: Card) {
         ServerInterface.getAccount(associatedWithCard: card) { (account) in
-            self.userPhoto.sd_setImageWithURL(account?.profilePictureURL) { (image, error, cacheType, url) in
+            self.userPhoto.sd_setImageWithURL(account?.profilePictureURL, placeholderImage: UIImage(named: "emptyProfilePic")!) { (image, error, cacheType, url) in
                 // TODO: Put activity indicator logic here
                 
             }
@@ -74,24 +74,6 @@ class CardCell : UICollectionViewCell {
         self.defocus()
         
     }
-}
-
-extension UIView {
-    
-    func constraintWithID(ID: String) -> NSLayoutConstraint? {
-        if ID == "" {
-            return nil
-        }
-        
-        for constraint in constraints {
-            if constraint.identifier == ID {
-                return constraint
-            }
-        }
-        
-        return nil
-    }
-    
 }
 
 class AnnouncementCardCell : CardCell {
@@ -132,7 +114,7 @@ class AnnouncementCardCell : CardCell {
             hasPhoto = true
             
         } else if let imageURL = card.attachedImageURL {
-            announcementPhoto.sd_setImageWithURL(imageURL, placeholderImage: UIImage(named: "emptyProfilePic")!, progressBlock: { (expectedSize, totalSize) in
+            announcementPhoto.sd_setImageWithURL(imageURL, progressBlock: { (expectedSize, totalSize) in
                     self.progressBar.setProgress(Float(expectedSize) / Float(totalSize), animated: true)
                 
                 }, completion: {(image, error, cacheType, url) in
@@ -204,6 +186,7 @@ class AnnouncementCardCell : CardCell {
 
 class ArticleCardCell : CardCell {
     
+    @IBOutlet weak var qrCode: UIImageView!
     @IBOutlet weak var articleMessageBody: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
@@ -212,6 +195,7 @@ class ArticleCardCell : CardCell {
         
         titleLabel.text = card.info["articleTitle"] as? String
         articleMessageBody.text = card.info["articlePreviewText"] as? String
+        qrCode.image = QRCoder(card: card).encodedImage()
         
         if let text = articleMessageBody.text {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -231,10 +215,12 @@ class ArticleCardCell : CardCell {
 
 class VideoCardCell : CardCell {
     @IBOutlet weak var videoPreview: UIImageView!
+    @IBOutlet weak var QRCode: UIImageView!
     
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
         titleLabel.text = card.info["videoTitle"] as? String
+        QRCode.image = QRCoder(card: card).encodedImage()
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String)) { (image, error, cacheType, url) in
             
             if error != nil {
@@ -242,6 +228,7 @@ class VideoCardCell : CardCell {
             }
             
             self.videoPreview.image = self.videoPreview.image?.grayScaleImage()
+            self.videoPreview.cropToFrameOfImage()
             self.videoPreview.hidden = false
                 
         }

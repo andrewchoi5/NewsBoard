@@ -38,6 +38,8 @@ class SignUpController : KeyboardPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.lockToPortrait()
+        
         registerDelegates()
         
         emailField.keyboardType = .EmailAddress

@@ -35,7 +35,7 @@ protocol PostDateSelector {
     
 }
 
-class CalendarController : UIViewController, ZHCalendarDelegate {
+class CalendarController : DefaultViewController, ZHCalendarDelegate {
     
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var scrollView: JTVerticalCalendarView!
@@ -52,6 +52,9 @@ class CalendarController : UIViewController, ZHCalendarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.lockToLandscape()
+        self.hideStatusBar()
         
         let gestureRecognizer = UISwipeGestureRecognizer()
         gestureRecognizer.direction = .Down
@@ -128,9 +131,5 @@ class CalendarController : UIViewController, ZHCalendarDelegate {
     @IBAction func didPushDoneButton() {
         self.dismissViewControllerAnimated(true, completion: nil)
         
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
 }

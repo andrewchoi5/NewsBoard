@@ -33,9 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
 
         ServerInterface.initializeCredentials()
-        
-        UIApplication.sharedApplication().statusBarHidden = false
-        
+            
         return true
     }
 

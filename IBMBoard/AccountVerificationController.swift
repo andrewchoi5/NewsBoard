@@ -12,8 +12,8 @@ import AVFoundation
 
 class AccountVerificationController : KeyboardPresenter {
     @IBOutlet weak var verificationCodeText: RoundedTextBox!
+    
     var accountToVerify : Account!
-
     var captureSession : AVCaptureSession?
     var videoPreviewLayer : AVCaptureVideoPreviewLayer?
     var qrCodeFrameView : UIView?
@@ -21,7 +21,6 @@ class AccountVerificationController : KeyboardPresenter {
     @IBOutlet weak var QRViewer: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var emailActivityIndicator: UIActivityIndicatorView!
     
     @IBAction func didRequestResendOfEmail() {
@@ -35,7 +34,8 @@ class AccountVerificationController : KeyboardPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        self.lockToPortrait()
+        
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         var input : AVCaptureDeviceInput!
         
@@ -137,6 +137,7 @@ extension AccountVerificationController : AVCaptureMetadataOutputObjectsDelegate
             
             if metadataObj.stringValue != nil {
                 verificationCodeText.text = metadataObj.stringValue
+                
             }
         }
     }

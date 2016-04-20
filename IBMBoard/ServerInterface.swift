@@ -175,7 +175,7 @@ class ServerResponse : NSObject {
 
 extension ServerInterface {
     
-    static func addDocument(document: Document, toDatabase dbName: String, completion: ((Void) -> Void)?) {
+    static func addDocument(document: Document, toDatabase dbName: String, completion: DefaultCompletionBlock) {
         let request = postJSONRequestWithURLString("\(serverURL)/\(dbName)")
         request.HTTPBody = CouchDBSerializer.getData(document)
         
@@ -193,7 +193,7 @@ extension ServerInterface {
         }).resume()
     }
     
-    static func getDocuments(withQuery query : Query, inDatabase dbName: String, completion : ([ Document ]) -> Void) {
+    static func getDocuments(withQuery query : Query, inDatabase dbName: String, completion : DocumentListCompletionBlock) {
         
         let request = postJSONRequestWithURLString("\(serverURL)/\(dbName)/_find")
         request.HTTPBody = QuerySerializer.getData(query)
@@ -207,7 +207,7 @@ extension ServerInterface {
         
     }
     
-    static func updateDocumentWithMetaData(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+    static func updateDocumentWithMetaData(document: Document, inDatabase dbName: String, completion: DefaultCompletionBlock) {
         let request = putJSONRequestWithURLString("\(serverURL)/\(dbName)/\(document.id)")
         request.HTTPBody = CouchDBSerializer.getData(document)
         
@@ -224,7 +224,7 @@ extension ServerInterface {
         }).resume()
     }
     
-    static func updateDocumentWithNoMetaData(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+    static func updateDocumentWithNoMetaData(document: Document, inDatabase dbName: String, completion: DefaultCompletionBlock) {
         ServerInterface.updateDocumentWithMetaData(document, inDatabase: dbName, completion: completion)
         
     }
@@ -239,7 +239,7 @@ extension ServerInterface {
         }
     }
     
-    static func deleteDocument(document: Document, inDatabase dbName: String, completion: ((Void) -> Void)?) {
+    static func deleteDocument(document: Document, inDatabase dbName: String, completion: DefaultCompletionBlock) {
         let urlString = "\(serverURL)/\(dbName)/\(document.id)?rev=\(document.revision)"
         
         ServerInterface.currentSession.dataTaskWithRequest(deleteJSONRequestWithURLString(urlString), completionHandler: { (data, response, error) in
@@ -251,30 +251,40 @@ extension ServerInterface {
 }
 
 extension ServerInterface {
-    static func addCard(card: Card, completion: ((Void) -> Void)?) {
+    static func addCard(card: Card, completion: DefaultCompletionBlock) {
         ServerInterface.addDocument(card, toDatabase: "ibmboard", completion: completion)
         
     }
     
-    static func deleteCard(card: Card, completion: ((Void) -> Void)?) {
+    static func deleteCard(card: Card, completion: DefaultCompletionBlock) {
         ServerInterface.deleteDocument(card, inDatabase: "ibmboard", completion: completion)
         
     }
     
-    static func getCards(fromDate firstDate : NSDate, toDate secondDate : NSDate, completion: ([Card]) -> Void) {
-        ServerInterface.getDocuments(withQuery: CardQuery(withStartingDate: firstDate, toEndingDate: secondDate),inDatabase: "ibmboard") { (documents) in
+    static func getCards(withQuery query: Query, completion: CardListCompletionBlock) {
+        ServerInterface.getDocuments(withQuery: query, inDatabase: "ibmboard")  { (documents) in
             completion(DocumentToCardConverter.getCards(documents))
             
         }
+
+    }
+    
+    static func getCards(withID ID: String, completion: CardListCompletionBlock) {
+        ServerInterface.getCards(withQuery: CardQuery(withID: ID), completion: completion)
         
     }
     
-    static func getCards(untilDate date: NSDate, completion: (cards: [Card]) -> Void) {
+    static func getCards(fromDate firstDate : NSDate, toDate secondDate : NSDate, completion: CardListCompletionBlock) {
+        ServerInterface.getCards(withQuery: CardQuery(withStartingDate: firstDate, toEndingDate: secondDate), completion: completion)
+        
+    }
+    
+    static func getCards(untilDate date: NSDate, completion: CardListCompletionBlock) {
         ServerInterface.getCards(fromDate: NSDate(), toDate: date, completion: completion)
         
     }
     
-    static func getCardsForToday(completion: (cards: [Card]) -> Void) {
+    static func getCardsForToday(completion: CardListCompletionBlock) {
         ServerInterface.getCards(fromDate: NSDate(), toDate: NSDate(), completion: completion)
         
     }
@@ -284,29 +294,31 @@ extension ServerInterface {
 
 extension ServerInterface {
     
-    static func addAccount(account: Account, completion: ((Void) -> Void)?) {
+    static func addAccount(account: Account, completion: DefaultCompletionBlock) {
         ServerInterface.addDocument(account, toDatabase: "accounts", completion: completion)
         
     }
     
-    static func updateAccount(account: Account, completion: ((Void) -> Void)?) {
+    static func updateAccount(account: Account, completion: DefaultCompletionBlock) {
         ServerInterface.updateDocument(account, inDatabase: "accounts", completion: completion)
         
     }
     
-    static func getAccounts(withEmail email: String, andPassword password: String, completion: ([ Account ]) -> Void) {
-        ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email, andPassword: password), inDatabase: "accounts") { (documents) in
+    static func getAccounts(withQuery query: Query, completion: AccountListCompletionBlock) {
+        ServerInterface.getDocuments(withQuery: query, inDatabase: "accounts") { (documents) in
             completion( DocumentToAccountConverter.getAccounts( documents ) )
             
         }
         
     }
     
-    static func getAccounts(withEmail email: String, completion: ([ Account ]) -> Void) {
-        ServerInterface.getDocuments(withQuery: AccountQuery(withEmail: email), inDatabase: "accounts") { (documents) in
-            completion( DocumentToAccountConverter.getAccounts( documents ) )
-            
-        }
+    static func getAccounts(withEmail email: String, andPassword password: String, completion: AccountListCompletionBlock) {
+        ServerInterface.getAccounts(withQuery: AccountQuery(withEmail: email, andPassword: password), completion: completion)
+        
+    }
+    
+    static func getAccounts(withEmail email: String, completion: AccountListCompletionBlock) {
+        ServerInterface.getAccounts(withQuery: AccountQuery(withEmail: email), completion: completion)
         
     }
     
@@ -318,7 +330,7 @@ extension ServerInterface {
         
     }
     
-    static func getAccount(withEmail email: String, completion: ( Account? ) -> Void) {
+    static func getAccount(withEmail email: String, completion: AccountCompletionBlock) {
         ServerInterface.getAccounts(withEmail: email) { (accounts) in
             completion(accounts.first)
             
@@ -334,18 +346,27 @@ extension ServerInterface {
         
     }
     
-    static func getAccounts(associatedWithCard card: Card!, completion: ( [ Account ] ) -> Void) {
-        ServerInterface.getDocuments(withQuery: AccountQuery(withCard: card), inDatabase: "accounts") { (documents) in
-            completion( DocumentToAccountConverter.getAccounts( documents ) )
-            
-        }
+    static func getAccounts(associatedWithCard card: Card!, completion: AccountListCompletionBlock) {
+        ServerInterface.getAccounts(withQuery: AccountQuery(withCard: card), completion: completion)
         
     }
     
-    static func getAccount(associatedWithCard card: Card!, completion: ( Account? ) -> Void) {
+    static func getAccount(associatedWithCard card: Card!, completion: AccountCompletionBlock) {
         ServerInterface.getAccounts(associatedWithCard: card) { (accounts) in
             completion(accounts.first)
         }
         
     }
+}
+
+extension ServerInterface {
+    typealias DefaultCompletionBlock = (( Void ) -> Void)?
+    
+    typealias CardListCompletionBlock = ([ Card ]) -> Void
+    
+    typealias DocumentListCompletionBlock = ([ Document ]) -> Void
+    
+    typealias AccountListCompletionBlock = ( [ Account ] ) -> Void
+    typealias AccountCompletionBlock = ( Account? ) -> Void
+    
 }

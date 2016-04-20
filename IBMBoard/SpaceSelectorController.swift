@@ -12,7 +12,7 @@ import UIKit
 internal let cellsPerRow = 7
 internal let cellsPerColumn = 4
 
-class SpaceSelectorController : UIViewController {
+class SpaceSelectorController : DefaultViewController {
     
     let emptyCellIdentifier = "emptyCell"
     let lockedCellIdentifier = "lockedCell"
@@ -82,6 +82,8 @@ class SpaceSelectorController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.lockToLandscape()
+        
         configureCurrentDateLabel()
         addGesturesRecognizers()
         reloadCards()
@@ -147,20 +149,7 @@ class SpaceSelectorController : UIViewController {
         
         self.collectionView?.reloadData()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        rotateToLandscapeIfNeeded()
-        
-    }
- 
-    func rotateToLandscapeIfNeeded() {
-        if(!UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-            UIDevice.currentDevice().setValue(UIDeviceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
-        }
-    }
-    
+
     @IBAction func didFinishSelectingSpace(sender: AnyObject) {
         
         if(!isRectangular(selectedSpaces)) {
@@ -233,21 +222,6 @@ class SpaceSelectorController : UIViewController {
     
     func isEmptyCell(indexPath: NSIndexPath) -> Bool {
         return collectionView!.cellForItemAtIndexPath(indexPath)!.reuseIdentifier == emptyCellIdentifier
-        
-    }
-
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Landscape
-        
-    }
-    
-    override func shouldAutorotate() -> Bool {
-        return true
-        
-    }
-    
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return .LandscapeLeft
         
     }
     

@@ -186,6 +186,10 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyX-Os-HLu">
                                                     <rect key="frame" x="8" y="8" width="536" height="414"/>
                                                     <subviews>
+                                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-8y-tdl">
+                                                            <rect key="frame" x="0.0" y="-95" width="536" height="603"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PPw-Ak-Cyr">
                                                             <rect key="frame" x="33" y="354" width="40" height="40"/>
                                                             <constraints>
@@ -195,10 +199,6 @@
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.minificationFilter" value="kCAFilterTrilinear"/>
                                                             </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whZ-8y-tdl">
-                                                            <rect key="frame" x="0.0" y="-94" width="536" height="603"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YdZ-cC-HeG">
                                                             <rect key="frame" x="33" y="101" width="485" height="70"/>
@@ -239,6 +239,13 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qP4-G0-Wtg">
+                                                            <rect key="frame" x="466" y="344" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="vWc-HQ-AFz"/>
+                                                                <constraint firstAttribute="height" constant="60" id="wOH-cL-23b"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -251,6 +258,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="qP4-G0-Wtg" secondAttribute="trailing" constant="10" id="1yU-DU-8Fe"/>
                                             <constraint firstAttribute="topMargin" secondItem="qyX-Os-HLu" secondAttribute="top" id="2zb-RB-9Rd"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="zcp-9b-4n4" secondAttribute="trailing" constant="25" id="5nO-zi-Lmv"/>
                                             <constraint firstItem="19j-62-SWD" firstAttribute="top" secondItem="IPw-kx-yBk" secondAttribute="topMargin" constant="48" id="8BO-Tt-Zlr"/>
@@ -268,10 +276,12 @@
                                             <constraint firstItem="19j-62-SWD" firstAttribute="leading" secondItem="IPw-kx-yBk" secondAttribute="leadingMargin" constant="41" id="mo1-7d-ytj"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="hkG-K6-xic" secondAttribute="trailing" constant="-5" id="mvq-wd-G7J"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="hkG-K6-xic" secondAttribute="bottom" constant="-5" id="mwi-6k-PWb"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="qP4-G0-Wtg" secondAttribute="bottom" constant="10" id="xwR-S2-98a"/>
                                             <constraint firstAttribute="topMargin" secondItem="whZ-8y-tdl" secondAttribute="top" constant="94" id="yuh-JP-fXK"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="qyX-Os-HLu" secondAttribute="bottom" id="zSM-Yg-iVz"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="QRCode" destination="qP4-G0-Wtg" id="8rz-XL-YEx"/>
                                             <outlet property="cardBackgroundView" destination="qyX-Os-HLu" id="fZc-BE-Mcg"/>
                                             <outlet property="cardGradientBorderView" destination="hkG-K6-xic" id="zk1-1u-vwQ"/>
                                             <outlet property="cardTypeLabel" destination="zcp-9b-4n4" id="cec-S6-aAb"/>
@@ -373,6 +383,13 @@
                                                             <color key="textColor" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-LY-8VM">
+                                                            <rect key="frame" x="466" y="344" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="ZYD-e7-Bst"/>
+                                                                <constraint firstAttribute="height" constant="60" id="eO2-ee-ps0"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -398,9 +415,11 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="KVQ-mI-g8Q" secondAttribute="bottom" constant="80" id="KWT-bT-Qky"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="K1a-w9-FeH" secondAttribute="trailing" constant="42" id="RXT-6V-7ea"/>
                                             <constraint firstItem="4cL-2N-Phn" firstAttribute="top" secondItem="JT0-CE-yaF" secondAttribute="topMargin" constant="48" id="TB7-8n-K7B"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Ble-LY-8VM" secondAttribute="bottom" constant="10" id="Tim-wK-kzi"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="g8e-4e-cIq" secondAttribute="bottom" constant="20" id="WOe-U5-HsA"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="oDr-Co-wTQ" secondAttribute="bottom" id="aGH-R0-MHO"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="DyX-aD-CPW" secondAttribute="trailing" constant="-5" id="aq9-YD-o11"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Ble-LY-8VM" secondAttribute="trailing" constant="10" id="bX6-en-T3e"/>
                                             <constraint firstItem="7k4-Lc-a7A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JT0-CE-yaF" secondAttribute="leadingMargin" constant="10" id="enE-aW-uor"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="DyX-aD-CPW" secondAttribute="bottom" constant="-5" id="hSO-Dr-pbY"/>
                                             <constraint firstItem="4cL-2N-Phn" firstAttribute="leading" secondItem="JT0-CE-yaF" secondAttribute="leadingMargin" constant="33" id="nfD-s2-xia"/>
@@ -414,6 +433,7 @@
                                             <outlet property="cardGradientBorderView" destination="DyX-aD-CPW" id="ENa-mS-mpg"/>
                                             <outlet property="cardTypeLabel" destination="K1a-w9-FeH" id="icr-nB-YCv"/>
                                             <outlet property="detailLabel" destination="7k4-Lc-a7A" id="IDV-Bq-rnR"/>
+                                            <outlet property="qrCode" destination="Ble-LY-8VM" id="Xpa-ej-Lx4"/>
                                             <outlet property="titleLabel" destination="Lmw-eF-NtK" id="sH3-jj-lSW"/>
                                             <outlet property="userPhoto" destination="g8e-4e-cIq" id="sIb-bI-o4z"/>
                                         </connections>

@@ -22,9 +22,9 @@ extension String {
         
     }
     
-    func base64EncodedString() -> String {
+    func encodedBase64String() -> String {
         guard let stringData = self.dataUsingEncoding(NSUTF8StringEncoding) else { return "" }
-        return stringData.base64EncodedString()
+        return stringData.encodedBase64String()
     }
     
     func hashedString(withSalt salt: String) -> String {
@@ -32,8 +32,14 @@ extension String {
         
     }
     
+    func decodedBase64String() -> String? {
+        guard let validData = NSData(base64EncodedString: self, options: NSDataBase64DecodingOptions(rawValue: 0)) else { return nil }
+        guard let validString = String(data: validData, encoding: NSUTF8StringEncoding) else { return nil }
+        return validString
+        
+    }
     
-    func QREncodedImage() -> UIImage? {
+    func encodedQRImage() -> UIImage? {
         guard let data = self.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false) else { return nil }
         guard let generator = CIFilter.getQRCodeGenerator(withData: data) else { return nil }
         guard let outputImage = generator.outputImage else { return nil }

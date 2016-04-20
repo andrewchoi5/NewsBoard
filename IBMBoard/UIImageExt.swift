@@ -31,6 +31,7 @@ extension UIImage {
     
         if self.imageOrientation == .Up {
             return self
+            
         }
         
         var transform = CGAffineTransformIdentity

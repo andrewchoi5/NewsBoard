@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfilePictureController : UIViewController {
+class ProfilePictureController : DefaultViewController {
     
     @IBOutlet weak var profilePictureView: UIImageView!
     @IBOutlet weak var loadingScreen: UIView!
@@ -77,6 +77,8 @@ class ProfilePictureController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.lockToPortrait()
         
         profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width / 2
     }

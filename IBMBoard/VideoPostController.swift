@@ -23,6 +23,7 @@ class VideoPostController : PosterController {
     func textFieldDidEndEditing(textField: UITextField) {        
         if(textField == videoLink) {
             loadPreview()
+            
         }
         
     }
@@ -34,8 +35,8 @@ class VideoPostController : PosterController {
     
     override func didPushPostButton(sender: UIBarButtonItem) {
         
-        selectedCardSpace.info["videoURL"] = videoLink.text!
-        selectedCardSpace.info["videoTitle"] = videoTitle.text!
+        selectedCardSpace.videoURL = NSURL(string: videoLink.text!)
+        selectedCardSpace.videoTitle = videoTitle.text
         
         self.startedCreatingPost()
         ServerInterface.addCard(selectedCardSpace) {
