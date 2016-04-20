@@ -682,6 +682,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMX-XD-5PC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="152"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.2965247844827586" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0Q-X6-JcS">
                                                     <rect key="frame" x="60" y="35" width="67.5" height="65"/>
                                                     <constraints>

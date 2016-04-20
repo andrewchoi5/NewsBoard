@@ -114,11 +114,17 @@ extension CategorySelectorController : UICollectionViewDataSource {
             comingSoonLabel.font = defaultFontOfSize(16.0)
             comingSoonLabel.textColor = UIColor.textWhite()
             comingSoonLabel.textAlignment = .Center
-            comingSoonLabel.frame.origin = CGPointZero
             comingSoonLabel.sizeToFit()
             comingSoonLabel.frame.size.width = cell.frame.size.width
+            comingSoonLabel.frame.origin = CGPoint(x:0, y:cell.frame.height - comingSoonLabel.frame.height)
             cell.contentView.addSubview(comingSoonLabel)
             
+            let greyBox = UIView()
+            greyBox.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.25)
+            greyBox.frame.origin = CGPointZero
+            greyBox.frame.size.width = cell.frame.size.width
+            greyBox.frame.size.height = cell.frame.size.height
+            cell.contentView.addSubview(greyBox)
         }
         
         return cell
