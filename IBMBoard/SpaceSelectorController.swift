@@ -274,7 +274,8 @@ class SpaceSelectorController : UIViewController {
     }
     
     @IBAction func unwindToSpaceSelector(segue : UIStoryboardSegue) {
-        
+        selectedSpaces.removeAll()
+        self.reloadCards()
     }
 }
 
