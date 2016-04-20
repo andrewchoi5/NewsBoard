@@ -11,7 +11,7 @@ import UIKit
 
 class BoardController: UIViewController, BoardLayoutDelegate {
 
-    static let updateIntervalInSeconds = 1.0
+    static let updateIntervalInSeconds = 5.0
     
     let cellsPerRow = 7
     let cellsPerColumn = 4
