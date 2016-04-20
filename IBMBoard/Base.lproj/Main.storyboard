@@ -1175,41 +1175,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="be5-k6-wUl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Exu-55-CaY">
-                                        <rect key="frame" x="49.5" y="333" width="275" height="2"/>
-                                    </progressView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Exu-55-CaY" firstAttribute="centerX" secondItem="be5-k6-wUl" secondAttribute="centerX" id="Rf5-1H-fjb"/>
-                                    <constraint firstItem="Exu-55-CaY" firstAttribute="width" secondItem="be5-k6-wUl" secondAttribute="width" constant="-100" id="tr0-ve-tC6"/>
-                                    <constraint firstItem="Exu-55-CaY" firstAttribute="centerY" secondItem="be5-k6-wUl" secondAttribute="centerY" id="wwR-cI-r8s"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="Exu-55-CaY"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hMV-U1-mdd" firstAttribute="leading" secondItem="LNq-4p-iXV" secondAttribute="leadingMargin" constant="-20" id="3AQ-43-mlf"/>
-                            <constraint firstItem="be5-k6-wUl" firstAttribute="centerX" secondItem="LNq-4p-iXV" secondAttribute="centerX" id="QCK-2S-qfF"/>
                             <constraint firstItem="hMV-U1-mdd" firstAttribute="top" secondItem="4fy-4O-W3e" secondAttribute="bottom" id="bPR-OL-LNX"/>
-                            <constraint firstItem="be5-k6-wUl" firstAttribute="centerY" secondItem="LNq-4p-iXV" secondAttribute="centerY" id="cTA-qw-fnW"/>
-                            <constraint firstItem="be5-k6-wUl" firstAttribute="width" secondItem="LNq-4p-iXV" secondAttribute="width" id="fga-D4-Aju"/>
-                            <constraint firstItem="be5-k6-wUl" firstAttribute="height" secondItem="LNq-4p-iXV" secondAttribute="height" id="kUv-Ur-dkd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hMV-U1-mdd" secondAttribute="trailing" constant="-20" id="nNs-YW-PhR"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="be5-k6-wUl"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Announcement" id="e7H-vo-iMF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IVd-gG-b9C"/>
