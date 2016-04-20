@@ -54,6 +54,16 @@
                                     <constraint firstItem="RJK-CP-3Lq" firstAttribute="centerX" secondItem="usf-4d-e41" secondAttribute="centerX" id="v6y-or-mRE"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-Bg-KUV">
+                                <rect key="frame" x="861" y="522" width="198" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="OzV-SM-d79"/>
+                                    <constraint firstAttribute="width" constant="198" id="fQG-Ax-VpN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.91764705879999997" green="0.28235294119999998" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yuC-Fs-YnA">
                                 <rect key="frame" x="10" y="10" width="1900" height="1060"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="c5s-03-Gai" customClass="BoardLayout" customModule="IBMTVBoard" customModuleProvider="target">
@@ -836,13 +846,16 @@
                         <constraints>
                             <constraint firstItem="usf-4d-e41" firstAttribute="height" secondItem="bmA-B4-pd8" secondAttribute="height" id="3Ap-Ef-zG4"/>
                             <constraint firstItem="usf-4d-e41" firstAttribute="centerX" secondItem="bmA-B4-pd8" secondAttribute="centerX" id="Vrc-PQ-nih"/>
+                            <constraint firstItem="wMT-Bg-KUV" firstAttribute="centerY" secondItem="bmA-B4-pd8" secondAttribute="centerY" id="jMN-sH-u2f"/>
                             <constraint firstItem="usf-4d-e41" firstAttribute="centerY" secondItem="bmA-B4-pd8" secondAttribute="centerY" id="k9M-7e-dDH"/>
+                            <constraint firstItem="wMT-Bg-KUV" firstAttribute="centerX" secondItem="bmA-B4-pd8" secondAttribute="centerX" id="tTF-Ve-sff"/>
                             <constraint firstItem="usf-4d-e41" firstAttribute="width" secondItem="bmA-B4-pd8" secondAttribute="width" id="xSy-wa-YIt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="RJK-CP-3Lq" id="YZb-ki-VYB"/>
                         <outlet property="collectionView" destination="yuC-Fs-YnA" id="Xvx-kR-9ih"/>
+                        <outlet property="errorLabel" destination="wMT-Bg-KUV" id="2hf-0c-OUD"/>
                         <outlet property="loadingView" destination="usf-4d-e41" id="S3L-HZ-fDk"/>
                         <segue destination="dIu-zU-G7e" kind="show" identifier="viewPostSegue" id="Oj2-AK-HdB"/>
                     </connections>

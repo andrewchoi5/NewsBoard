@@ -27,6 +27,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     let layout = BoardLayout()
     
@@ -47,45 +48,55 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     }
     
     func reload() {
-        ServerInterface.getCardsForToday({ (cards) in
+        
+        
+        if (ServerInterface.isConnectedToNetwork()) {
+            errorLabel.hidden = true;
+            collectionView.hidden = false;
+            ServerInterface.getCardsForToday({ (cards) in
             
-            let oldDeck = Set<Card>(self.cardList)
-            let newDeck = Set<Card>(cards)
+                let oldDeck = Set<Card>(self.cardList)
+                let newDeck = Set<Card>(cards)
             
-            let deletedCards = oldDeck.subtract(newDeck)
-            let addedCards = newDeck.subtract(oldDeck)
-            var leftOverCards = newDeck.intersect(oldDeck)
+                let deletedCards = oldDeck.subtract(newDeck)
+                let addedCards = newDeck.subtract(oldDeck)
+                var leftOverCards = newDeck.intersect(oldDeck)
             
-            for card in addedCards {
-                self.cardList.append(card)
-                let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
-                self.collectionView.insertItemsAtIndexPaths([ indexPath ])
+                for card in addedCards {
+                    self.cardList.append(card)
+                    let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
+                    self.collectionView.insertItemsAtIndexPaths([ indexPath ])
                 
-            }
-            
-            for index in 0..<self.cardList.count {
-                let oldCard = self.cardList[ index ]
-                if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
-                    let indexPath = NSIndexPath(forRow: index, inSection:0)
-                    self.cardList[ index ] = card
-                    self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
                 }
-            }
+            
+                for index in 0..<self.cardList.count {
+                    let oldCard = self.cardList[ index ]
+                    if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
+                        let indexPath = NSIndexPath(forRow: index, inSection:0)
+                        self.cardList[ index ] = card
+                        self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
+                    }
+                }
 
-            var deleted = 0
-            for index in 0..<self.cardList.count {
-                let realIndex = index - deleted
-                let oldCard = self.cardList[ realIndex ]
-                if deletedCards.contains(oldCard) {
-                    let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
-                    self.cardList.removeAtIndex(realIndex)
-                    self.collectionView.deleteItemsAtIndexPaths([indexPath])
-                    deleted += 1
+                var deleted = 0
+                for index in 0..<self.cardList.count {
+                    let realIndex = index - deleted
+                    let oldCard = self.cardList[ realIndex ]
+                    if deletedCards.contains(oldCard) {
+                        let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
+                        self.cardList.removeAtIndex(realIndex)
+                        self.collectionView.deleteItemsAtIndexPaths([indexPath])
+                        deleted += 1
+                    }
                 }
-            }
             
-            self.firstLoadCompletionRoutine()
-        })
+                self.firstLoadCompletionRoutine()
+            })
+        } else {
+            firstLoadCompletionRoutine()
+            errorLabel.hidden = false;
+            collectionView.hidden = true;
+        }
     }
     
     func firstLoadCompletionRoutine() {
