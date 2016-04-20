@@ -14,33 +14,25 @@ class VideoPostController : PosterController {
     @IBOutlet weak var videoLink: UITextField!
     @IBOutlet weak var videoTitle: UITextField!
     @IBOutlet weak var videoPreview: UIImageView!
-    @IBOutlet weak var videoPostButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeTitleColorOfBarButtonItem(videoPostButton)
         
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(textField: UITextField) {        
         if(textField == videoLink) {
             loadPreview()
         }
         
-        // enable post button if fields are not empty
-        if (videoLink.text! != "" && videoTitle.text != "") {
-            videoPostButton.enabled = true;
-            videoPostButton.tintColor = UIColor.mainAccentGreen()
-            
-        } else {
-            videoPostButton.enabled = false;
-            videoPostButton.tintColor = UIColor.secondaryTileColor()
-            
-        }
+    }
+    
+    override func isReadyForPosting() -> Bool {
+        return videoLink.text! != "" && videoTitle.text != ""
         
     }
     
-    @IBAction func didPushPostVideoButton(sender: UIBarButtonItem) {
+    override func didPushPostButton(sender: UIBarButtonItem) {
         
         selectedCardSpace.info["videoURL"] = videoLink.text!
         selectedCardSpace.info["videoTitle"] = videoTitle.text!
@@ -56,9 +48,5 @@ class VideoPostController : PosterController {
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(videoLink.text!), placeholderImage: UIImage())
         videoTitle.text = APIManager.getArbitraryVideoTitle(videoLink.text!, maxLength: 1000)
     }
-    
-    override func enableBarButtonItem() {
-        videoPostButton.enabled = true
-        
-    }
+
 }

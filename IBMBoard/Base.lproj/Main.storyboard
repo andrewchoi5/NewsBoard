@@ -45,7 +45,6 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
-            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Simple-Line-Icons.ttf">
             <string>simple-line-icons</string>
@@ -873,16 +872,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Video" id="goN-xl-qG9">
                         <barButtonItem key="backBarButtonItem" title="Back" id="O3c-V6-Oy8"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="aic-yQ-ouz">
-                            <connections>
-                                <action selector="didPushPostVideoButton:" destination="Rsj-Ek-DKz" id="Gu2-PB-4Po"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="videoLink" destination="YcU-i4-ecq" id="rOP-9n-Hi9"/>
-                        <outlet property="videoPostButton" destination="aic-yQ-ouz" id="jwY-f2-mjD"/>
                         <outlet property="videoPreview" destination="Tzs-Ca-zqt" id="yhh-lF-bk3"/>
                         <outlet property="videoTitle" destination="aIR-3v-DPG" id="dfj-3p-1So"/>
                         <segue destination="2ze-bQ-jSn" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="xf2-dp-mXV"/>
@@ -1049,16 +1042,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Article" id="gdh-A6-JfU">
                         <barButtonItem key="backBarButtonItem" title="Back" id="yNq-2v-OAq"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="h9d-DZ-UDK">
-                            <connections>
-                                <action selector="didPushPostArticleButton" destination="jZ6-cS-dQB" id="Jps-yY-qoz"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="articleLink" destination="QFs-7m-0QL" id="n4W-NX-c4L"/>
-                        <outlet property="articlePostButton" destination="h9d-DZ-UDK" id="nac-6p-F0s"/>
                         <outlet property="articlePreviewBody" destination="4KR-C8-uLT" id="r5C-Ve-FWU"/>
                         <outlet property="articleTitle" destination="5yg-x5-26V" id="UaD-7W-9Jf"/>
                         <segue destination="wBw-8u-weH" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="kxg-Tl-SNT"/>
@@ -1201,6 +1188,11 @@
                                     <constraint firstItem="Exu-55-CaY" firstAttribute="width" secondItem="be5-k6-wUl" secondAttribute="width" constant="-100" id="tr0-ve-tC6"/>
                                     <constraint firstItem="Exu-55-CaY" firstAttribute="centerY" secondItem="be5-k6-wUl" secondAttribute="centerY" id="wwR-cI-r8s"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Exu-55-CaY"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1213,24 +1205,21 @@
                             <constraint firstItem="be5-k6-wUl" firstAttribute="height" secondItem="LNq-4p-iXV" secondAttribute="height" id="kUv-Ur-dkd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hMV-U1-mdd" secondAttribute="trailing" constant="-20" id="nNs-YW-PhR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="be5-k6-wUl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Announcement" id="e7H-vo-iMF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IVd-gG-b9C"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="8JF-lS-Pv4">
-                            <connections>
-                                <action selector="didPushPostButton:" destination="NvT-Dn-yoj" id="4Qj-8c-Rnd"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addPictureButton" destination="zDY-FQ-bmS" id="D3Z-eZ-0v8"/>
                         <outlet property="announcementPhotoURL" destination="Yn2-aB-s7N" id="Lji-1m-ZV8"/>
-                        <outlet property="announcementPostButton" destination="8JF-lS-Pv4" id="d8J-Hm-yGx"/>
                         <outlet property="announcementText" destination="ioi-sh-QbJ" id="bbj-Na-6dO"/>
                         <outlet property="announcementTitle" destination="hMD-E0-zRp" id="LKX-jb-36s"/>
-                        <outlet property="loadingScreen" destination="be5-k6-wUl" id="r0a-7x-xYY"/>
-                        <outlet property="progressBar" destination="Exu-55-CaY" id="GzY-wF-WUt"/>
                         <segue destination="ufm-Tk-oJS" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="eg1-ha-XEo"/>
                     </connections>
                 </viewController>
@@ -1329,15 +1318,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Idea" id="lsO-Jf-FYb">
                         <barButtonItem key="backBarButtonItem" title="Back" id="arj-gT-CTw"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="FQc-aG-1PX">
-                            <connections>
-                                <action selector="didPushPostIdeaButton:" destination="jSY-Qy-xP5" id="phl-XG-7RV"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="ideaPostButton" destination="FQc-aG-1PX" id="FGj-Zq-MN3"/>
                         <outlet property="ideaSummary" destination="KTi-cv-gk6" id="aLC-1r-TUi"/>
                         <outlet property="ideaTitle" destination="3YU-Mm-v5b" id="zJf-Nv-USM"/>
                         <segue destination="upl-7n-vER" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="9uG-nQ-bEB"/>
@@ -1347,48 +1330,6 @@
                 <exit id="upl-7n-vER" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1462.5" y="2083.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="E2R-ef-yLX">
-            <objects>
-                <viewController id="gsM-WR-J3i" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="c1J-GI-JGJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="aYh-k7-osw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="98V-vs-IRJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="dsadjajksdjksajkdjkaskjdjasdkjajksdkjajksdjajksdjkasdjkjkasdkj" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rM9-kl-tZu" customClass="ExpandableTextView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="120" y="189" width="360" height="165"/>
-                                <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="dut-4Y-PoB"/>
-                                    <constraint firstAttribute="width" constant="360" id="pSM-bp-feC"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="rM9-kl-tZu" firstAttribute="centerX" secondItem="98V-vs-IRJ" secondAttribute="centerX" id="2vl-Lg-3FX"/>
-                            <constraint firstItem="rM9-kl-tZu" firstAttribute="centerY" secondItem="98V-vs-IRJ" secondAttribute="centerY" constant="-28.5" id="9Hr-iJ-aY7"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ddl-2Q-3qU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2719" y="1985"/>
         </scene>
         <!--Select space and date-->
         <scene sceneID="y39-Be-u9p">
@@ -1747,15 +1688,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Proposal" id="q5H-B5-MPj">
                         <barButtonItem key="backBarButtonItem" title="Back" id="iTq-Qr-Cqq"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Post" id="Bpj-Zt-LfX">
-                            <connections>
-                                <action selector="didPushPostRFPButton:" destination="hW0-mY-DO3" id="FbF-ep-wb2"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="RFPPostButton" destination="Bpj-Zt-LfX" id="5mx-b9-Taq"/>
                         <outlet property="RFPSummary" destination="22M-Vi-Xci" id="inU-E9-CX3"/>
                         <outlet property="RFPTitle" destination="atV-jq-ePB" id="Byh-Zp-uWc"/>
                         <segue destination="XD1-AS-3ts" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="Kej-57-1XZ"/>

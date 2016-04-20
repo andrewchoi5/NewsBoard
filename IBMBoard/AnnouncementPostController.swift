@@ -10,41 +10,21 @@ import Foundation
 
 class AnnouncementPostController : PosterController {
     
-    @IBOutlet weak var loadingScreen: UIView!
     @IBOutlet weak var addPictureButton: FormButton!
     @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
-    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var announcementPhotoURL: UITextField!
-    @IBOutlet weak var announcementPostButton: UIBarButtonItem!
     
     var selectedImage : UIImage?
-    var actionSheet : UIAlertController!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeTitleColorOfBarButtonItem(announcementPostButton)
         
-        createActionSheet()
-
+        usesProgressBar = true
     }
     
-    func showLoading() {
-        ServerInterface.delegateProxy.forwardMessagesTo(self)
-        loadingScreen.alpha = 0.7
-        progressBar.hidden = false
-        self.view.userInteractionEnabled = false
-    }
-    
-    func hideLoading() {
-        ServerInterface.delegateProxy.forwardMessagesTo(nil)
-        loadingScreen.alpha = 0
-        progressBar.hidden = true
-        self.view.userInteractionEnabled = true
-    }
-    
-    func createActionSheet() {
-        actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .ActionSheet)
+    func defaultActionSheet() -> UIAlertController {
+        let actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .ActionSheet)
         actionSheet.addAction(UIAlertAction.init(title: "Take Picture"
             , style: .Default, handler: { (action) in
                 
@@ -60,37 +40,39 @@ class AnnouncementPostController : PosterController {
         
         actionSheet.addAction(UIAlertAction.init(title: "Cancel", style: .Cancel, handler: { (action) in
             
-            self.actionSheet.dismissViewControllerAnimated(true, completion: nil)
+            actionSheet.dismissViewControllerAnimated(true, completion: nil)
             
         }))
         
+        return actionSheet
     }
     
-    @IBAction func didPushPostButton(sender: UIBarButtonItem) {
+    override func isReadyForPosting() -> Bool {
+        // && (announcementPhotoURL.text == nil || (announcementPhotoURL.text != nil && NSURL(string: announcementPhotoURL.text!) != nil))
         
-        if !progressBar.hidden {
-            return
-        }
+        return announcementTitle.text != "" && announcementText.text != ""
         
-        guard let title = announcementTitle.text else { return }
-        guard let text = announcementText.text else { return }
+    }
+    
+    override func didPushPostButton(sender: UIBarButtonItem) {
+        
         if let userPhotoURLString = announcementPhotoURL.text {
             guard let _ = NSURL(string: userPhotoURLString) else { return }
             selectedCardSpace.info["userPhotoURL"] = userPhotoURLString
         }
-
-        selectedCardSpace.info["announcementTitle"] = title
-        selectedCardSpace.info["announcementText"] = text
+        
+        selectedCardSpace.info["announcementTitle"] = announcementTitle.text
+        selectedCardSpace.info["announcementText"] = announcementText.text
 
         
         if let image = selectedImage {
             selectedCardSpace.attachPNGImage(image)
+            
         }
         
         
-        self.showLoading()
+        self.startedCreatingPost()
         ServerInterface.addCard(selectedCardSpace, completion: {
-            self.hideLoading()
             self.finishedCreatingPost()
         
         })
@@ -116,12 +98,8 @@ class AnnouncementPostController : PosterController {
     
     @IBAction func didPushAddPictureButton(sender: UIButton) {
         
-        self.presentViewController(actionSheet, animated: true, completion: nil)
+        self.presentViewController(defaultActionSheet(), animated: true, completion: nil)
         
-    }
-    
-    override func enableBarButtonItem() {
-        announcementPostButton.enabled = true
     }
     
 }
@@ -139,16 +117,6 @@ extension AnnouncementPostController : UIImagePickerControllerDelegate {
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-}
-
-extension AnnouncementPostController : NSURLSessionTaskDelegate {
-    
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.progressBar.setProgress(Float(totalBytesSent) / Float(totalBytesExpectedToSend), animated: true)
-        })
     }
     
 }

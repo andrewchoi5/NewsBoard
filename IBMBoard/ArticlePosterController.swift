@@ -14,12 +14,9 @@ class ArticlePosterController : PosterController {
     @IBOutlet weak var articleLink: UITextField!
     @IBOutlet weak var articleTitle: UITextField!
     @IBOutlet weak var articlePreviewBody: UITextView!
-    @IBOutlet weak var articlePostButton: UIBarButtonItem!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeTitleColorOfBarButtonItem(articlePostButton)
         
     }
     
@@ -28,16 +25,10 @@ class ArticlePosterController : PosterController {
             loadPreview()
         }
         
-        // enable post button if fields are not empty 
-        if (articleLink.text! != "" && articleTitle.text != "") {
-            articlePostButton.enabled = true;
-            articlePostButton.tintColor = UIColor.mainAccentGreen()
-            
-        } else {
-            
-            articlePostButton.enabled = false;
-            articlePostButton.tintColor = UIColor.secondaryTileColor()
-        }
+    }
+    
+    override func isReadyForPosting() -> Bool {
+        return articlePreviewBody.text! != "" && articleTitle.text != ""
         
     }
     
@@ -46,7 +37,7 @@ class ArticlePosterController : PosterController {
         articleTitle.text = APIManager.getArbitraryTextArticleTitle()
     }
     
-    @IBAction func didPushPostArticleButton() {
+    override func didPushPostButton(button : UIBarButtonItem) {
         selectedCardSpace.info["articleURL"] = articleLink.text!
         selectedCardSpace.info["articleTitle"] = articleTitle.text!
         selectedCardSpace.info["articlePreviewText"] = articlePreviewBody.text
@@ -58,11 +49,6 @@ class ArticlePosterController : PosterController {
         }
         
     }
-    
-    override func enableBarButtonItem() {
-        articlePostButton.enabled = true
-        
-    }
 
 }
 
@@ -70,15 +56,13 @@ class IdeaPostController : PosterController {
     
     @IBOutlet weak var ideaTitle: UITextField!
     @IBOutlet weak var ideaSummary: UITextView!
-    @IBOutlet weak var ideaPostButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changeTitleColorOfBarButtonItem(ideaPostButton)
     }
     
-    @IBAction func didPushPostIdeaButton(sender: UIBarButtonItem) {
+    override func didPushPostButton(button: UIBarButtonItem) {
         
         selectedCardSpace.info["ideaTitle"] = ideaTitle.text!
         selectedCardSpace.info["ideaPreview"] = ideaSummary.text!
@@ -91,26 +75,19 @@ class IdeaPostController : PosterController {
         
     }
     
-    override func enableBarButtonItem() {
-        ideaPostButton.enabled = true
-        
-    }
 }
 
 class RFPPostController : PosterController {
     
     @IBOutlet weak var RFPTitle: UITextField!
     @IBOutlet weak var RFPSummary: UITextView!
-    @IBOutlet weak var RFPPostButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changeTitleColorOfBarButtonItem(RFPPostButton)
-
     }
     
-    @IBAction func didPushPostRFPButton(sender: UIBarButtonItem) {
+    override func didPushPostButton(button: UIBarButtonItem) {
         
         selectedCardSpace.info["RFPTitle"] = RFPTitle.text!
         selectedCardSpace.info["RFPPreview"] = RFPSummary.text!
@@ -120,11 +97,6 @@ class RFPPostController : PosterController {
             self.finishedCreatingPost()
             
         }
-        
-    }
-
-    override func enableBarButtonItem() {
-        RFPPostButton.enabled = true
         
     }
 }
