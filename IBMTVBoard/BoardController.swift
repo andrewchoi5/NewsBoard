@@ -19,6 +19,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     let DefaultCardCellIdentifier = "defaultCardCell"
     let AnnouncementCardCellIdentifier = "announcementCardCell"
     let IdeaCardCellIdentifier = "ideaCardCell"
+    let QuestionCardCellIdentifier = "questionCardCell"
     let RFPCardCellIdentifier = "rfpCardCell"
     let ArticleCardCellIdentifier = "articleCardCell"
     let VideoCardCellIdentifier = "videoCardCell"
@@ -152,6 +153,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             case .Default:      cellIdentifier = DefaultCardCellIdentifier
             case .Announcement: cellIdentifier = AnnouncementCardCellIdentifier
             case .Idea:         cellIdentifier = IdeaCardCellIdentifier
+            case .Question:     cellIdentifier = QuestionCardCellIdentifier
             case .RFP:          cellIdentifier = RFPCardCellIdentifier
             case .NewsArticle:  cellIdentifier = ArticleCardCellIdentifier
             case .Video:        cellIdentifier = VideoCardCellIdentifier

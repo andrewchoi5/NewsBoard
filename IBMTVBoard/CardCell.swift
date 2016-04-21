@@ -195,7 +195,7 @@ class ArticleCardCell : CardCell {
         
         titleLabel.text = card.info["articleTitle"] as? String
         articleMessageBody.text = card.info["articlePreviewText"] as? String
-        qrCode.image = QRCoder(card: card).encodedImage()
+        //qrCode.image = QRCoder(card: card).encodedImage()
         
         if let text = articleMessageBody.text {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -248,6 +248,29 @@ class IdeaCardCell : ArticleCardCell {
         
         titleLabel.text = card.info["ideaTitle"] as? String
         articleMessageBody.text = card.info["ideaPreview"] as? String
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 7
+        
+        let attrString = NSMutableAttributedString(string: articleMessageBody.text!)
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        articleMessageBody.attributedText = attrString
+        articleMessageBody.lineBreakMode = .ByTruncatingTail
+        
+        detailLabel.text = "More details..."
+        
+    }
+    
+}
+
+class QuestionCardCell : ArticleCardCell {
+    
+    override func applyCardContent(card: Card) {
+        super.applyCardContent(card)
+        
+        //titleLabel.text = card.info["questionTitle"] as? String
+        //articleMessageBody.text = card.info["questionPreview"] as? String
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 7

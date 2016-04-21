@@ -62,6 +62,14 @@ extension CardFactory {
         
     }
     
+    class func makeQuestionCard(space: Space, _ title: String, _ questionPreview: String) -> Card {
+        let card = makeCard(.Question, corner: space.topLeftCorner, aWidth: space.width, aHeight: space.height)
+        card.info["questionTitle"] = title
+        card.info["questionPreview"] = questionPreview
+        return card
+        
+    }
+    
     class func makeRFPCard(space: Space, _ title: String, _ RFPPreview: String) -> Card {
         let card = makeCard(.RFP, corner: space.topLeftCorner, aWidth: space.width, aHeight: space.height)
         card.info["RFPTitle"] = title
