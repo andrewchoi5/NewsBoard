@@ -911,7 +911,7 @@
                                                                 <constraint firstAttribute="height" constant="70" id="wGK-gl-ymS"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                                            <color key="textColor" red="0.69411764705882351" green="0.0" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.7803921568627451" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="f9n-NC-cr7">
@@ -921,7 +921,7 @@
                                                                 <constraint firstAttribute="width" constant="40" id="lP3-k8-FsZ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="18"/>
-                                                            <color key="textColor" red="0.69411764705882351" green="0.0" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.7803921568627451" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -931,7 +931,7 @@
                                                                     <real key="value" value="1.5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                                                    <color key="value" red="0.69411764705882351" green="0.0" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="value" red="0.0" green="0.7803921568627451" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>

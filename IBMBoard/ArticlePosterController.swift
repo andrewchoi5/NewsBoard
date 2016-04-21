@@ -99,8 +99,6 @@ class QuestionPostController : PosterController {
         ServerInterface.addCard(selectedCardSpace) {
             self.finishedCreatingPost()
         }
-        
-        self.performSegueWithIdentifier("backToSpaceSelectorSegue", sender: self)
     }
     
     override func isReadyForPosting() -> Bool {
