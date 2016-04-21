@@ -131,6 +131,9 @@ class RFPPostController : PosterController {
             self.finishedCreatingPost()
             
         }
-        
+    }
+    
+    override func isReadyForPosting() -> Bool {
+        return RFPTitle.text! != "" && RFPSummary.text != ""
     }
 }
