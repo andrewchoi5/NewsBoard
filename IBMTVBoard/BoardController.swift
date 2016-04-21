@@ -45,6 +45,8 @@ class BoardController: UIViewController, BoardLayoutDelegate {
 //            UIApplication.sharedApplication().openURL(URL)
 //        }
         
+        self.navigationItem
+        
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
     }
     
@@ -127,14 +129,34 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     
     func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
+        
     }
     
+    func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool {
+        
+        return true
+    }
+
+    
     func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        if(context.previouslyFocusedIndexPath != nil && context.nextFocusedIndexPath != nil) {
-            let previousCell = collectionView.cellForItemAtIndexPath(context.previouslyFocusedIndexPath!) as! CardCell
-            let nextCell = collectionView.cellForItemAtIndexPath(context.nextFocusedIndexPath!) as! CardCell
-            previousCell.defocus()
-            nextCell.focus()
+        
+        if let previousPath = context.previouslyFocusedIndexPath {
+            if let previousCell = collectionView.cellForItemAtIndexPath(previousPath) {
+                (previousCell as! CardCell).defocus()
+                
+                if CGRectGetMinX(collectionView.frame) + CGRectGetMaxX(previousCell.frame) >= collectionView.frame.width {
+                    print("edge")
+                    
+                }
+                
+            }
+        }
+        
+        if let nextPath = context.nextFocusedIndexPath {
+            if let nextCell = collectionView.cellForItemAtIndexPath(nextPath) {
+                (nextCell as! CardCell).focus()
+                
+            }
         }
     }
     

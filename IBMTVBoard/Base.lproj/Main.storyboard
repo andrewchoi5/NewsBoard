@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="ibY-wK-Ja0">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="9oe-1D-mWO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -32,6 +32,22 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="B6i-hZ-4Sb">
+            <objects>
+                <navigationController id="9oe-1D-mWO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wyT-Ix-qWr">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ibY-wK-Ja0" kind="relationship" relationship="rootViewController" id="vtH-Ud-sp7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OU-qb-x2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-964" y="1638"/>
+        </scene>
         <!--Board Controller-->
         <scene sceneID="Ac2-Y0-OpQ">
             <objects>
@@ -242,7 +258,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qP4-G0-Wtg">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qP4-G0-Wtg">
                                                             <rect key="frame" x="466" y="344" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="vWc-HQ-AFz"/>
@@ -386,7 +402,7 @@
                                                             <color key="textColor" red="0.1176470588" green="0.46274509800000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-LY-8VM">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-LY-8VM">
                                                             <rect key="frame" x="466" y="344" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="ZYD-e7-Bst"/>
@@ -1012,6 +1028,7 @@
                             <constraint firstItem="usf-4d-e41" firstAttribute="width" secondItem="bmA-B4-pd8" secondAttribute="width" id="xSy-wa-YIt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="q2s-4d-GE2"/>
                     <connections>
                         <outlet property="activityIndicator" destination="RJK-CP-3Lq" id="YZb-ki-VYB"/>
                         <outlet property="collectionView" destination="yuC-Fs-YnA" id="Xvx-kR-9ih"/>

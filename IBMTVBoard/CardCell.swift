@@ -195,7 +195,9 @@ class ArticleCardCell : CardCell {
         
         titleLabel.text = card.info["articleTitle"] as? String
         articleMessageBody.text = card.info["articlePreviewText"] as? String
-        //qrCode.image = QRCoder(card: card).encodedImage()
+        if qrCode != nil {
+            qrCode.image = QRCoder(card: card).encodedImage()
+        }
         
         if let text = articleMessageBody.text {
             let paragraphStyle = NSMutableParagraphStyle()

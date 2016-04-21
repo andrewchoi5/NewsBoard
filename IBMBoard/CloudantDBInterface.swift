@@ -26,6 +26,19 @@ class CardQuery : Query {
 
     }
     
+    convenience init(withDates dates: [ NSDate ]) {
+        self.init()
+        
+        var shortDateStrings = [ String ]()
+        
+        for date in dates {
+            shortDateStrings.append(date.shortDateString())
+            
+        }
+        
+        self.addSelector("card.postDates", .In, shortDateStrings)
+    }
+    
     convenience init(withID ID: String) {
         self.init()
         
