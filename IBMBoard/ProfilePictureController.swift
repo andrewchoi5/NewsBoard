@@ -81,6 +81,15 @@ class ProfilePictureController : DefaultViewController {
         self.lockToPortrait()
         
         profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width / 2
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Login", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backButtonAction(_:)))
+        self.navigationItem.leftBarButtonItem = newBackButton;
+
+    }
+    
+    func backButtonAction(sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 }

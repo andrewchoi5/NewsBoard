@@ -47,6 +47,10 @@ class AccountVerificationController : KeyboardPresenter {
             return
         }
         
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Login", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backButtonAction(_:)))
+        self.navigationItem.leftBarButtonItem = newBackButton;
+        
         captureSession = AVCaptureSession()
         captureSession?.addInput(input)
         
@@ -68,6 +72,10 @@ class AccountVerificationController : KeyboardPresenter {
         qrCodeFrameView?.layer.borderWidth = 2.0
         QRViewer.addSubview(qrCodeFrameView!)
         QRViewer.bringSubviewToFront(qrCodeFrameView!)
+    }
+    
+    func backButtonAction(sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     @IBAction func didAttemptToVerify() {

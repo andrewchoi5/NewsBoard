@@ -1094,8 +1094,6 @@
         <!--Technical Questions-->
         <scene sceneID="iH6-5Y-p1x">
             <objects>
-                <exit id="yz0-Wn-78x" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Lz-bT-lwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="QDE-hm-z2s" customClass="QuestionPostController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="73g-Cu-LQi"/>
@@ -1193,6 +1191,8 @@
                         <segue destination="yz0-Wn-78x" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="gh6-Ps-IqX"/>
                     </connections>
                 </viewController>
+                <exit id="yz0-Wn-78x" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Lz-bT-lwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="33.5" y="2083.5"/>
         </scene>
