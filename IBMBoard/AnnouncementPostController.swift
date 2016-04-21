@@ -50,7 +50,7 @@ class AnnouncementPostController : PosterController {
     override func isReadyForPosting() -> Bool {
         // && (announcementPhotoURL.text == nil || (announcementPhotoURL.text != nil && NSURL(string: announcementPhotoURL.text!) != nil))
         
-        return announcementTitle.text != "" && announcementText.text != ""
+        return announcementTitle.text != "" && announcementText.text != "" && (selectedImage?.CGImage != nil || announcementPhotoURL.text != "")
         
     }
     
@@ -99,7 +99,6 @@ class AnnouncementPostController : PosterController {
     @IBAction func didPushAddPictureButton(sender: UIButton) {
         
         self.presentViewController(defaultActionSheet(), animated: true, completion: nil)
-        
     }
     
 }
@@ -112,7 +111,8 @@ extension AnnouncementPostController : UIImagePickerControllerDelegate {
         selectedImage = info[ UIImagePickerControllerOriginalImage ] as? UIImage
         picker.dismissViewControllerAnimated(true, completion: nil)
         addPictureButton.setTitle("Change picture", forState: .Normal)
-        
+        postButton.enabled = isReadyForPosting()
+
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

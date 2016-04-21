@@ -20,7 +20,7 @@ class PosterController : KeyboardPresenter {
     private var activityIndicator : UIActivityIndicatorView!
     private var progressBar : UIProgressView!
     private var loadingScreen : UIView!
-    private var postButton : UIBarButtonItem!
+    var postButton : UIBarButtonItem!
     private var cancelButton : UIBarButtonItem!
     
     var usesProgressBar : Bool = false
