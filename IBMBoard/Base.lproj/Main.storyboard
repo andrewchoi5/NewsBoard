@@ -1819,14 +1819,13 @@
                                     <constraint firstAttribute="width" constant="150" id="Zih-Qj-jeV"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-NH-Kkh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-NH-Kkh">
                                 <rect key="frame" x="0.0" y="51" width="375" height="191"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="ZaC-Y9-tr4"/>
                                     <constraint firstAttribute="height" constant="191" id="bqs-5i-cPZ"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
@@ -1836,7 +1835,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="eFu-NH-Kkh" firstAttribute="top" secondItem="dFL-d9-ptx" secondAttribute="bottom" constant="31" id="Dck-p4-GYj"/>
+                            <constraint firstItem="eFu-NH-Kkh" firstAttribute="top" secondItem="dFL-d9-ptx" secondAttribute="bottom" constant="51" id="Dck-p4-GYj"/>
                             <constraint firstItem="eFu-NH-Kkh" firstAttribute="centerX" secondItem="pVh-qO-JIX" secondAttribute="centerX" id="HUg-By-d3D"/>
                             <constraint firstItem="cNj-hL-KMu" firstAttribute="centerX" secondItem="pVh-qO-JIX" secondAttribute="centerX" id="MVt-EI-tOg"/>
                             <constraint firstItem="cNj-hL-KMu" firstAttribute="centerY" secondItem="pVh-qO-JIX" secondAttribute="centerY" constant="200" id="VpU-JF-66B"/>
