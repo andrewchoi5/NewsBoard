@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D5BD0E61CC92B6F001953CE /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5BD0E51CC92B6F001953CE /* Dialog.swift */; };
 		2D7087901CC55A3600CEF4F7 /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */; };
 		2D7087911CC55AB100CEF4F7 /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */; };
 		2D7087A31CC57A1D00CEF4F7 /* Simple-Line-Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */; };
@@ -189,6 +190,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D5BD0E51CC92B6F001953CE /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		2D72F0B51CC6638F00697221 /* CALayerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExt.swift; sourceTree = "<group>"; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
@@ -766,6 +768,7 @@
 				39B61D651CBC569700CDB05A /* Administrative */,
 				39B61D631CBC564900CDB05A /* Posters */,
 				39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */,
+				2D5BD0E51CC92B6F001953CE /* Dialog.swift */,
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
 				39C3DC521CC831AC00D85706 /* DefaultViewController.swift */,
@@ -1015,6 +1018,7 @@
 				394CD6891C91825500AB28F1 /* JTHorizontalCalendarView.m in Sources */,
 				39EB93E51C7E3D500053F73F /* ServerInterface.swift in Sources */,
 				39826A9B1C8CDAFC00674734 /* SessionInformation.swift in Sources */,
+				2D5BD0E61CC92B6F001953CE /* Dialog.swift in Sources */,
 				39EB94051C7E66600053F73F /* UIImage+WebP.m in Sources */,
 				39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */,
 				3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */,

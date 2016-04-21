@@ -98,13 +98,9 @@ class AccountVerificationController : KeyboardPresenter {
         } else {
             self.verifying = false;
             verificationCodeText.showInvalid()
-            errorDialogue("Your verification code is invalid")
+            Dialog.showError("Your verification code is invalid", viewController: self)
             activityIndicator.stopAnimating()            
         }
-    }
-    
-    func errorDialogue(message : String) {
-        print(message)
     }
     
     func showLoading() {

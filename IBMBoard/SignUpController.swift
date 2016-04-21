@@ -68,7 +68,7 @@ class SignUpController : KeyboardPresenter {
         // validate ibm email address
         if !isIBMEmail(emailField.text!) {
             emailField.showInvalid()
-            self.errorDialogue("Please use a valid IBM Intranet email");
+            Dialog.showError("Please use a valid IBM Intranet email", viewController: self);
             return
         }
         
@@ -83,7 +83,7 @@ class SignUpController : KeyboardPresenter {
         }
         
         if confirmPasswordField.text != passwordField.text {
-            errorDialogue("Passwords must match")
+            Dialog.showError("Passwords must match", viewController: self)
             passwordField.showInvalid()
             confirmPasswordField.showInvalid()
             return
@@ -105,7 +105,7 @@ class SignUpController : KeyboardPresenter {
             } else {
                 self.hideLoading()
                 self.emailField.showInvalid()
-                self.errorDialogue("Email already exists")
+                Dialog.showError("Email already exists", viewController: self)
                 
             }
             
@@ -130,13 +130,6 @@ class SignUpController : KeyboardPresenter {
             (segue.destinationViewController as! AccountVerificationController).accountToVerify = newAccount
             
         }
-    }
-    
-    func errorDialogue(message : String) {
-        print(message)
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func isIBMEmail(testStr:String) -> Bool {
