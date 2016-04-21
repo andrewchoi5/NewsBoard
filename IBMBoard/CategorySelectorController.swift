@@ -35,7 +35,7 @@ class CategorySelectorController : DefaultViewController {
     var newsSegueIdentifier          = "newsSegue"
     var announcementSegueIdentifier  = "announcementSegue"
     var ideaSegueIdentifier          = "ideaSegue"
-    var questionSegueIdentifier      = placeholderSegueIdentifier
+    var questionSegueIdentifier      = "questionSegue"
     var rfpSegueIdentifier           = "rfpSegue"
     var videoSegueIdentifier         = "videoSegue"
     var guestSegueIdentifier         = placeholderSegueIdentifier

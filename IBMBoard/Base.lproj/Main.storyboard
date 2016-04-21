@@ -46,6 +46,9 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Simple-Line-Icons.ttf">
             <string>simple-line-icons</string>
@@ -796,6 +799,7 @@
                         <segue destination="jSY-Qy-xP5" kind="show" identifier="ideaSegue" id="hwJ-nH-bdX"/>
                         <segue destination="hW0-mY-DO3" kind="show" identifier="rfpSegue" id="Tfi-ct-jo6"/>
                         <segue destination="8vr-01-bPK" kind="show" identifier="placeholderSegue" id="9uh-tS-0hc"/>
+                        <segue destination="QDE-hm-z2s" kind="show" identifier="questionSegue" id="cWJ-fM-BVu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Cs-db-3O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1086,6 +1090,111 @@
                 <exit id="wBw-8u-weH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="964.5" y="2831.5"/>
+        </scene>
+        <!--Technical Questions-->
+        <scene sceneID="iH6-5Y-p1x">
+            <objects>
+                <exit id="yz0-Wn-78x" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Lz-bT-lwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="QDE-hm-z2s" customClass="QuestionPostController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="73g-Cu-LQi"/>
+                        <viewControllerLayoutGuide type="bottom" id="qxQ-3u-nHZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7gY-5N-W65">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0H-bH-pR1" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="383" height="397"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-3V-y1u" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="53" width="375" height="54"/>
+                                        <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="dmS-z7-FM8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tai-4v-4zN" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="776-be-WzL"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="QDE-hm-z2s" id="Qts-F4-ERe"/>
+                                        </connections>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dMN-oz-zUg">
+                                        <rect key="frame" x="17" y="149" width="348" height="204"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="204" id="NoS-gu-50u"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="QDE-hm-z2s" id="10a-w4-1h2"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Tai-4v-4zN" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" id="4mF-nw-c0b"/>
+                                    <constraint firstAttribute="trailing" secondItem="GCm-3V-y1u" secondAttribute="trailing" constant="8" id="BpG-aU-glD"/>
+                                    <constraint firstItem="dMN-oz-zUg" firstAttribute="top" secondItem="GCm-3V-y1u" secondAttribute="bottom" constant="42" id="Nr1-Cb-Nbg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tai-4v-4zN" secondAttribute="trailing" constant="8" id="QH3-Eo-nRU"/>
+                                    <constraint firstItem="GCm-3V-y1u" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" id="Qbi-rm-HVV"/>
+                                    <constraint firstItem="Tai-4v-4zN" firstAttribute="top" secondItem="C0H-bH-pR1" secondAttribute="top" id="Syo-0B-HdF"/>
+                                    <constraint firstAttribute="trailing" secondItem="dMN-oz-zUg" secondAttribute="trailing" constant="18" id="cZn-ff-tnd"/>
+                                    <constraint firstAttribute="bottom" secondItem="dMN-oz-zUg" secondAttribute="bottom" constant="44" id="iTt-F1-F4K"/>
+                                    <constraint firstItem="GCm-3V-y1u" firstAttribute="top" secondItem="Tai-4v-4zN" secondAttribute="bottom" constant="-1" id="qa5-R7-wlb"/>
+                                    <constraint firstItem="dMN-oz-zUg" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" constant="17" id="xzw-I8-Y8L"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                        <color key="value" red="0.89019607840000003" green="0.95686274510000002" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                        <color key="value" red="0.72941176470000002" green="0.8862745098" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="startingPoint">
+                                        <point key="value" x="0.0" y="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="endingPoint">
+                                        <point key="value" x="1" y="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="C0H-bH-pR1" secondAttribute="trailing" constant="-24" id="DtL-iU-d1H"/>
+                            <constraint firstItem="C0H-bH-pR1" firstAttribute="top" secondItem="73g-Cu-LQi" secondAttribute="bottom" id="S1h-UZ-hbv"/>
+                            <constraint firstItem="C0H-bH-pR1" firstAttribute="leading" secondItem="7gY-5N-W65" secondAttribute="leading" id="WX5-BF-d5j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Technical Questions" id="HLP-Q4-vxb">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="dpx-FY-mME"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="questionSummary" destination="dMN-oz-zUg" id="Of9-AW-MXq"/>
+                        <outlet property="questionTitle" destination="Tai-4v-4zN" id="YRG-Yn-5aD"/>
+                        <segue destination="yz0-Wn-78x" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="gh6-Ps-IqX"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="33.5" y="2083.5"/>
         </scene>
         <!--Announcement Poster View Controller-->
         <scene sceneID="mZQ-tx-wSF">
@@ -1952,7 +2061,7 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Be-XK-7cy"/>
+        <segue reference="Xsg-t7-MCv"/>
         <segue reference="bxv-as-pE6"/>
     </inferredMetricsTieBreakers>
 </document>

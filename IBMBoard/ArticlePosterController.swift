@@ -77,6 +77,32 @@ class IdeaPostController : PosterController {
     
 }
 
+class QuestionPostController : PosterController {
+    
+    @IBOutlet weak var questionTitle: UITextField!
+    @IBOutlet weak var questionSummary: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func didPushPostButton(button: UIBarButtonItem) {
+        /*
+        selectedCardSpace.info["questionTitle"] = questionTitle.text!
+        selectedCardSpace.info["questionPreview"] = questionSummary.text!
+        
+        self.startedCreatingPost()
+        ServerInterface.addCard(selectedCardSpace) {
+            self.finishedCreatingPost()
+            
+        }*/
+        
+        self.performSegueWithIdentifier("backToSpaceSelectorSegue", sender: self)
+    }
+    
+}
+
 class RFPPostController : PosterController {
     
     @IBOutlet weak var RFPTitle: UITextField!
