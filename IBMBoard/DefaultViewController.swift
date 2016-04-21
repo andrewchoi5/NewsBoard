@@ -30,15 +30,32 @@ class DefaultViewController : UIViewController {
     }
     
     private func rotateToPortraitIfNeeded() {
-        if(!UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+        if !UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
+            
         }
+        print("")
+
     }
     
     private func rotateToLandscapeIfNeeded() {
-        if(!UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
+        if !UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
+            
         }
+        
+        if UIDevice.currentDevice().orientation == .LandscapeLeft {
+            UIDevice.currentDevice().setValue(UIDeviceOrientation.LandscapeRight.rawValue, forKey: "orientation")
+
+        }
+        
+        if UIDevice.currentDevice().orientation == .LandscapeRight {
+            UIDevice.currentDevice().setValue(UIDeviceOrientation.LandscapeLeft.rawValue, forKey: "orientation")
+            
+        }
+                
+        print("")
+        
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {

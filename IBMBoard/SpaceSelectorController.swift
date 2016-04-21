@@ -252,6 +252,8 @@ class SpaceSelectorController : DefaultViewController {
         selectedSpaces.removeAll()
         self.reloadCards()
     }
+    
+    
 }
 
 class CardDeletionGesture : UILongPressGestureRecognizer {
@@ -341,7 +343,7 @@ extension SpaceSelectorController : UICollectionViewDelegate {
         selectedSpaces.insert(indexPath.row)
         doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
         
-        if(isRectangular(selectedSpaces) && postingDates.count > 0) {
+        if isRectangular(selectedSpaces) && postingDates.count > 0  {
             print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
             
         }
@@ -359,7 +361,7 @@ extension SpaceSelectorController : UICollectionViewDelegate {
         doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
         
         
-        if(isRectangular(selectedSpaces) && postingDates.count > 0) {
+        if isRectangular(selectedSpaces) && postingDates.count > 0 {
             
             print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
             

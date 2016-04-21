@@ -73,6 +73,7 @@
 		393CB23C1CBF4E3C00648B5B /* JFBCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB1BB1CBF47F500648B5B /* JFBCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		393CB23D1CBF4E4D00648B5B /* JFRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 393CB2021CBF47F500648B5B /* JFRandom.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		393CB23E1CBF774500648B5B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393C88CB1CB5C82C009DA1AA /* GradientView.swift */; };
+		393F86B21CC9816000078A09 /* OccupiedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F86B11CC9816000078A09 /* OccupiedCellView.swift */; };
 		394436951CC5A32C00EAB3DC /* CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982DD921CC5882600691A39 /* CIFilter.swift */; };
 		394606C01C91605F00E2633C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6591C91819200AB28F1 /* JTCalendarManager.m */; };
@@ -308,6 +309,7 @@
 		393CF2221CBCE65600817892 /* WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImage.h; sourceTree = "<group>"; };
 		393E099E1CADAC1E00988EAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		393E09A01CADAC2300988EAA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		393F86B11CC9816000078A09 /* OccupiedCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OccupiedCellView.swift; sourceTree = "<group>"; };
 		394CD6561C91819200AB28F1 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendar.h; path = JTCalendar/JTCalendar/JTCalendar.h; sourceTree = "<group>"; };
 		394CD6571C91819200AB28F1 /* JTCalendarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegate.h; path = JTCalendar/JTCalendar/JTCalendarDelegate.h; sourceTree = "<group>"; };
 		394CD6581C91819200AB28F1 /* JTCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTCalendarManager.h; path = JTCalendar/JTCalendar/JTCalendarManager.h; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 		3964FF5B1C9A632F002B5AE8 /* Space Selector Cells */ = {
 			isa = PBXGroup;
 			children = (
+				393F86B11CC9816000078A09 /* OccupiedCellView.swift */,
 				39D878551C766026007E0CD5 /* EmptyCellView.swift */,
 				39D878571C766F21007E0CD5 /* DefaultCellView.swift */,
 			);
@@ -1030,6 +1033,7 @@
 				3964FF511C9A5618002B5AE8 /* NSJSONSerializationExt.swift in Sources */,
 				3964FF571C9A5695002B5AE8 /* NSDateExt.swift in Sources */,
 				39EB93FD1C7E66600053F73F /* SDWebImageDecoder.m in Sources */,
+				393F86B21CC9816000078A09 /* OccupiedCellView.swift in Sources */,
 				394CD66C1C9181EF00AB28F1 /* JTCalendarDelegateManager.m in Sources */,
 				39D878541C765067007E0CD5 /* SpaceSelectorController.swift in Sources */,
 				39EB94021C7E66600053F73F /* UIButton+WebCache.m in Sources */,

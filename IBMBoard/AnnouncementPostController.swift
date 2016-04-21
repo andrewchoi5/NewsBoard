@@ -24,21 +24,21 @@ class AnnouncementPostController : PosterController {
     }
     
     func defaultActionSheet() -> UIAlertController {
-        let actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .ActionSheet)
-        actionSheet.addAction(UIAlertAction.init(title: "Take Picture"
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Take Picture"
             , style: .Default, handler: { (action) in
                 
             self.presentCameraImageController()
 
         }))
         
-        actionSheet.addAction(UIAlertAction.init(title: "Choose from Album", style: .Default, handler: { (action) in
+        actionSheet.addAction(UIAlertAction(title: "Choose from Album", style: .Default, handler: { (action) in
             
             self.presentPhotoAlbumController()
 
         }))
         
-        actionSheet.addAction(UIAlertAction.init(title: "Cancel", style: .Cancel, handler: { (action) in
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) in
             
             actionSheet.dismissViewControllerAnimated(true, completion: nil)
             

@@ -6,9 +6,6 @@
 //  Copyright © 2016 Zamiul Haque. All rights reserved.
 //
 
-import Foundation
-import UIKit
-
 class EmptyCellView : DefaultCellView {
     
     required init?(coder aDecoder: NSCoder) {
@@ -18,8 +15,7 @@ class EmptyCellView : DefaultCellView {
         
         self.selectedBackgroundView = UIView()
         self.selectedBackgroundView?.backgroundColor = UIColor.buttonBlue()
-        self.hideCross()
+        
     }
-    
-    
+
 }

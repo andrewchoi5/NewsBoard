@@ -31,6 +31,8 @@ class PosterController : KeyboardPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.lockToPortrait()
+        
         activityIndicator = defaultActivityIndicator()
         loadingScreen = defaultLoadingScreen()
         postButton = defaultPostButton()
@@ -185,39 +187,6 @@ class PosterController : KeyboardPresenter {
         
     }
 
-    
-}
-
-extension PosterController {
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        rotateToPortraitIfNeeded()
-        
-    }
-    
-    func rotateToPortraitIfNeeded() {
-        if(!UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
-            UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
-        }
-    }
-    
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Portrait
-        
-    }
-    
-    override func shouldAutorotate() -> Bool {
-        return true
-        
-    }
-    
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return .Portrait
-        
-    }
     
 }
 
