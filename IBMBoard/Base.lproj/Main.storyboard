@@ -45,6 +45,7 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Simple-Line-Icons.ttf">
             <string>simple-line-icons</string>
@@ -379,7 +380,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Verification Code"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the verification code we have sent to your email " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ois-KX-yP4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the verification code or scan the QR code sent to your email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ois-KX-yP4">
                                 <rect key="frame" x="66" y="338.5" width="282" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="hwy-fi-yDY"/>
@@ -451,18 +452,31 @@
                                     <constraint firstAttribute="width" constant="20" id="ZKZ-wP-R5t"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code Scanner" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swp-WF-Z6Z">
+                                <rect key="frame" x="65" y="42" width="282" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="IdO-e5-HEC"/>
+                                    <constraint firstAttribute="height" constant="35" id="Mde-mx-Pr9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cPJ-Ch-aEL" firstAttribute="leading" secondItem="Io0-dx-LeE" secondAttribute="trailing" constant="-38" id="3tq-gM-Z3B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="swp-WF-Z6Z" secondAttribute="trailing" constant="47" id="EBJ-9w-cSg"/>
                             <constraint firstItem="dGQ-L7-eXP" firstAttribute="top" secondItem="ois-KX-yP4" secondAttribute="bottom" constant="20" id="EsS-De-10L"/>
                             <constraint firstItem="46I-zf-8QE" firstAttribute="centerX" secondItem="lBm-wx-kPi" secondAttribute="centerX" id="HVU-GC-dIy"/>
                             <constraint firstItem="HYL-Bv-Orb" firstAttribute="centerX" secondItem="dGQ-L7-eXP" secondAttribute="centerX" id="KjO-as-k8g"/>
                             <constraint firstItem="HYL-Bv-Orb" firstAttribute="top" secondItem="dGQ-L7-eXP" secondAttribute="bottom" constant="20" id="KxM-ds-3ws"/>
+                            <constraint firstItem="swp-WF-Z6Z" firstAttribute="leading" secondItem="lBm-wx-kPi" secondAttribute="leadingMargin" constant="45" id="MFT-Os-SnM"/>
                             <constraint firstItem="HYL-Bv-Orb" firstAttribute="centerX" secondItem="lBm-wx-kPi" secondAttribute="centerX" id="PNX-Tp-87d"/>
                             <constraint firstItem="Io0-dx-LeE" firstAttribute="width" secondItem="HYL-Bv-Orb" secondAttribute="width" id="STc-Gc-8hB"/>
                             <constraint firstItem="8KP-9h-HFs" firstAttribute="centerY" secondItem="HYL-Bv-Orb" secondAttribute="centerY" id="cQ4-GC-CfV"/>
                             <constraint firstItem="Io0-dx-LeE" firstAttribute="centerX" secondItem="HYL-Bv-Orb" secondAttribute="centerX" id="efE-Ey-4kz"/>
+                            <constraint firstItem="46I-zf-8QE" firstAttribute="top" secondItem="swp-WF-Z6Z" secondAttribute="bottom" constant="12.5" id="eh2-ZQ-wQr"/>
                             <constraint firstItem="HYL-Bv-Orb" firstAttribute="width" secondItem="dGQ-L7-eXP" secondAttribute="width" id="erV-Fi-bYV"/>
                             <constraint firstItem="Io0-dx-LeE" firstAttribute="height" secondItem="HYL-Bv-Orb" secondAttribute="height" id="gzG-jg-sQv"/>
                             <constraint firstItem="ois-KX-yP4" firstAttribute="centerY" secondItem="lBm-wx-kPi" secondAttribute="centerY" constant="20" identifier="centerVerificationCodeConstraint" id="mbC-zQ-K9T"/>
@@ -1939,6 +1953,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1Be-XK-7cy"/>
-        <segue reference="PUd-Ut-ITJ"/>
+        <segue reference="bxv-as-pE6"/>
     </inferredMetricsTieBreakers>
 </document>
