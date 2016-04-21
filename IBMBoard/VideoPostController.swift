@@ -29,8 +29,7 @@ class VideoPostController : PosterController {
     }
     
     override func isReadyForPosting() -> Bool {
-        return videoLink.text! != "" && videoTitle.text != ""
-        
+        return videoLink.text! != "" && videoTitle.text != "" && videoPreview.image != nil
     }
     
     override func didPushPostButton(sender: UIBarButtonItem) {
@@ -48,6 +47,10 @@ class VideoPostController : PosterController {
     func loadPreview() {
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(videoLink.text!), placeholderImage: UIImage())
         videoTitle.text = APIManager.getArbitraryVideoTitle(videoLink.text!, maxLength: 1000)
+        if videoTitle.text == "" {
+            Dialog.showError("Invalid video URL", viewController: self)
+        }
+        postButton.enabled = isReadyForPosting()
     }
 
 }
