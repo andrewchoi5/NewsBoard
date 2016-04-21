@@ -26,6 +26,19 @@ class CardQuery : Query {
 
     }
     
+    convenience init(withDates dates: [ NSDate ]) {
+        self.init()
+        
+        var shortDateStrings = [ String ]()
+        
+        for date in dates {
+            shortDateStrings.append(date.shortDateString())
+            
+        }
+        
+        self.addSelector("card.postDates", .In, shortDateStrings)
+    }
+    
     convenience init(withID ID: String) {
         self.init()
         
@@ -493,7 +506,7 @@ class Account : Document {
     var verified = false
     var verificationCode : String {
         let rawCode = String(abs(email.hashValue ^ password.hashValue))
-        return rawCode.substringWithRange(Range<String.Index>(start: rawCode.startIndex, end: rawCode.startIndex.advancedBy(6)))
+        return rawCode.substringWithRange(rawCode.startIndex ..< rawCode.startIndex.advancedBy(6))
     }
     
     var profilePictureURL : NSURL? {

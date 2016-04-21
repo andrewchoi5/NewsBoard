@@ -34,7 +34,41 @@ class SpaceSelectorController : DefaultViewController {
     var selectedSpaces = Set<Int>()
     var cardList = [ Card ]()
     var calendarDate = BoardDate()
+    var datesToSearch = Set<NSDate>()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.lockToLandscape()
+        
+        datesToSearch.insert(NSDate())
+        
+        configureCurrentDateLabel()
+        addGesturesRecognizers()
+        reloadCards()
+        
+        
+        let normalAttributes = [
+            
+            NSForegroundColorAttributeName: UIColor.mainAccentGreen()
+            
+        ]
+        
+        let disabledAttributes = [
+            
+            NSForegroundColorAttributeName: UIColor.secondaryTextColor()
+            
+        ]
+        
+        doneButton.enabled = false
+        calendarButton.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -10.0), forBarMetrics: .Default)
+        doneButton.setTitleTextAttributes(normalAttributes, forState: .Normal)
+        doneButton.setTitleTextAttributes(disabledAttributes, forState: .Disabled)
+        
+        
+        self.postingDates.insert(calendarDate)
+        
+    }
     
     func configureCurrentDateLabel() {
         let formatter = NSDateFormatter()
@@ -72,44 +106,11 @@ class SpaceSelectorController : DefaultViewController {
     
     func reloadCards() {
         self.beginReloading()
-        ServerInterface.getCards(fromDate: calendarDate.underlyingDate(), toDate: JTDateHelper().addToDate(calendarDate.underlyingDate(), days: 14)) { (cards) in
+        ServerInterface.getCards(onDates: Array(datesToSearch)) { (cards) in
             self.cardList = cards
             self.reloadData()
             self.finishedReloading()
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.lockToLandscape()
-        
-        configureCurrentDateLabel()
-        addGesturesRecognizers()
-        reloadCards()
-        
-        
-        let normalAttributes = [
-            
-            NSForegroundColorAttributeName: UIColor.mainAccentGreen()
-            
-        ]
-        
-        let disabledAttributes = [
-            
-            NSForegroundColorAttributeName: UIColor.secondaryTextColor()
-            
-        ]
-        
-        doneButton.enabled = false
-        calendarButton.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -10.0), forBarMetrics: .Default)
-        doneButton.setTitleTextAttributes(normalAttributes, forState: .Normal)
-        doneButton.setTitleTextAttributes(disabledAttributes, forState: .Disabled)
-
-        
-        self.postingDates.insert(calendarDate)
-        
-
     }
     
     func didSwipeUp() {
@@ -262,10 +263,14 @@ class CardDeletionGesture : UILongPressGestureRecognizer {
 extension SpaceSelectorController : PostDateSelector {
     func didAddPostingDate(date: NSDate) {
         postingDates.insert(BoardDate(withDate: date))
+        datesToSearch.insert(date)
+        self.reloadCards()
     }
     
     func didRemovePostingDate(date: NSDate) {
         postingDates.remove(BoardDate(withDate: date))
+        datesToSearch.remove(date)
+        self.reloadCards()
     }
     
     func hasPostingDate(date: NSDate) -> Bool {
@@ -274,6 +279,8 @@ extension SpaceSelectorController : PostDateSelector {
     
     func didChangeStartingDate(date: NSDate) {
         calendarDate = BoardDate(withDate: date)
+        configureCurrentDateLabel()
+        self.reloadCards()
     }
     
     func startingDate() -> NSDate {
@@ -367,8 +374,8 @@ extension SpaceSelectorController : UICollectionViewDelegateFlowLayout {
         
         let superviewHeight = self.collectionView!.frame.size.height
         let superviewWidth = self.collectionView!.frame.size.width
-        let vLineWidths = CGFloat(cellsPerRow - 1) * 0.5 // CGFloat(0) //
-        let hLineWidths = CGFloat(cellsPerColumn - 1) * 0.5 // CGFloat(0) //
+        let vLineWidths = CGFloat(cellsPerRow - 1) * 0.5
+        let hLineWidths = CGFloat(cellsPerColumn - 1) * 0.5
         
         let width = (superviewWidth - vLineWidths) / CGFloat(cellsPerRow)
         let height = (superviewHeight - hLineWidths) / CGFloat(cellsPerColumn)

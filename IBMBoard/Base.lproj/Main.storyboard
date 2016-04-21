@@ -311,11 +311,6 @@
                             <constraint firstItem="n8L-Ea-Clo" firstAttribute="top" secondItem="SSD-f6-CGQ" secondAttribute="bottom" constant="20" id="vbz-xO-JUu"/>
                             <constraint firstItem="EWV-m1-IQW" firstAttribute="width" secondItem="QVn-Tf-nF3" secondAttribute="width" id="yXH-U9-c4i"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ee6-Gh-BtQ"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="C6A-cK-3hx">
                         <barButtonItem key="backBarButtonItem" title="Back" id="3LF-pP-vDQ"/>
@@ -1651,7 +1646,7 @@
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY4-KI-Kik">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.14117647707462311" green="0.15686275064945221" blue="0.18039216101169586" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
