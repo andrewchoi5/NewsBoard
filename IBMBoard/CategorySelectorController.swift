@@ -91,7 +91,6 @@ extension CategorySelectorController : UICollectionViewDataSource {
             comingSoonLabel.textAlignment = .Center
             comingSoonLabel.sizeToFit()
             comingSoonLabel.frame.size.width = cell.frame.size.width
-//            comingSoonLabel.frame.origin = CGPoint(x:0, y:cell.frame.height - comingSoonLabel.frame.height)
             comingSoonLabel.frame.origin = CGPointZero
             cell.contentView.addSubview(comingSoonLabel)
             

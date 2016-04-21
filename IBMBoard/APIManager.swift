@@ -87,7 +87,7 @@ public class APIManager {
 
     static func generateSpaces(spacesNumber : Int) -> String {
         var spaces = ""
-        for var i = spacesNumber; i >= 0; i -= 1 {
+        for _ in 0 ..< spacesNumber {
             spaces += " "
         }
         return spaces
