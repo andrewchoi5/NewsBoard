@@ -269,8 +269,8 @@ class QuestionCardCell : ArticleCardCell {
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
         
-        //titleLabel.text = card.info["questionTitle"] as? String
-        //articleMessageBody.text = card.info["questionPreview"] as? String
+        titleLabel.text = card.info["questionTitle"] as? String
+        articleMessageBody.text = card.info["questionPreview"] as? String
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 7

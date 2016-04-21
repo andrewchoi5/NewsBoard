@@ -92,15 +92,13 @@ class QuestionPostController : PosterController {
     }
     
     override func didPushPostButton(button: UIBarButtonItem) {
-        /*
         selectedCardSpace.info["questionTitle"] = questionTitle.text!
         selectedCardSpace.info["questionPreview"] = questionSummary.text!
         
         self.startedCreatingPost()
         ServerInterface.addCard(selectedCardSpace) {
             self.finishedCreatingPost()
-            
-        }*/
+        }
         
         self.performSegueWithIdentifier("backToSpaceSelectorSegue", sender: self)
     }
