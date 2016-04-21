@@ -18,6 +18,8 @@ class EmptyCellView : DefaultCellView {
         
         self.selectedBackgroundView = UIView()
         self.selectedBackgroundView?.backgroundColor = UIColor.buttonBlue()
+        self.hideCross()
     }
+    
     
 }
