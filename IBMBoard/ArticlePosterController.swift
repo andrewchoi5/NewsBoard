@@ -75,6 +75,10 @@ class IdeaPostController : PosterController {
         
     }
     
+    override func isReadyForPosting() -> Bool {
+        return ideaTitle.text! != "" && ideaSummary.text != ""
+    }
+    
 }
 
 class QuestionPostController : PosterController {
@@ -99,6 +103,10 @@ class QuestionPostController : PosterController {
         }*/
         
         self.performSegueWithIdentifier("backToSpaceSelectorSegue", sender: self)
+    }
+    
+    override func isReadyForPosting() -> Bool {
+        return questionTitle.text! != "" && questionSummary.text != ""
     }
     
 }
