@@ -20,7 +20,7 @@ extension ServerInterface {
         
         session.connectionType = .TLS
         
-        guard let QRCodeImage = account.verificationCode.QREncodedImage() else { return }
+        guard let QRCodeImage = account.verificationCode.encodedQRImage() else { return }
         guard let imageData = UIImagePNGRepresentation(QRCodeImage) else { return }
         
         let attachment = MCOAttachment(data: imageData, filename: "QRCodeImage")

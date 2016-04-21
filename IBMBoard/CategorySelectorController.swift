@@ -11,7 +11,7 @@ import UIKit
 
 private let placeholderSegueIdentifier = "placeholderSegue"
 
-class CategorySelectorController : UIViewController {
+class CategorySelectorController : DefaultViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -45,34 +45,9 @@ class CategorySelectorController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.lockToPortrait()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        rotateToPortraitIfNeeded()
-        
-    }
-    
-    func rotateToPortraitIfNeeded() {
-        if(!UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
-            UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
-        }
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Portrait
-    }
-    
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-    
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return .Portrait
-    }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! PosterController
         vc.selectedCardSpace = selectedCardSpace
@@ -116,7 +91,8 @@ extension CategorySelectorController : UICollectionViewDataSource {
             comingSoonLabel.textAlignment = .Center
             comingSoonLabel.sizeToFit()
             comingSoonLabel.frame.size.width = cell.frame.size.width
-            comingSoonLabel.frame.origin = CGPoint(x:0, y:cell.frame.height - comingSoonLabel.frame.height)
+//            comingSoonLabel.frame.origin = CGPoint(x:0, y:cell.frame.height - comingSoonLabel.frame.height)
+            comingSoonLabel.frame.origin = CGPointZero
             cell.contentView.addSubview(comingSoonLabel)
             
             let greyBox = UIView()

@@ -10,12 +10,12 @@ import Foundation
 
 extension NSData {
     
-    func base64EncodedString() -> String {
+    func encodedBase64String() -> String {
         return self.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
     }
     
-    func base64EncodedData() -> NSData {
+    func encodedBase64Data() -> NSData {
         return self.base64EncodedDataWithOptions(.Encoding64CharacterLineLength)
         
     }

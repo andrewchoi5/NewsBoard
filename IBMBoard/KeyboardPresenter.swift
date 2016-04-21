@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class KeyboardPresenter : UIViewController {
+class KeyboardPresenter : DefaultViewController {
     
     private var tapRecognizer = UITapGestureRecognizer()
     private var keyBoardShowing = false

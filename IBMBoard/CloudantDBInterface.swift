@@ -25,6 +25,12 @@ class CardQuery : Query {
         self.addSelector("card.postDates", .In, [ firstDate.shortDateString(), secondDate.shortDateString() ])
 
     }
+    
+    convenience init(withID ID: String) {
+        self.init()
+        
+        self.addSelector("_id", .Equals, ID)
+    }
 }
 
 class AccountQuery : Query {
@@ -183,7 +189,7 @@ class Document {
         self.attachments[name] =
             [
                 "content_type" : mimeType,
-                "data" : data.base64EncodedString()
+                "data" : data.encodedBase64String()
         ]
     }
     
@@ -397,6 +403,86 @@ class Card : Document {
         
     }
     
+}
+
+extension Card {
+    var videoURL : NSURL? {
+        get {
+            
+            guard let URLString = info["videoURL"] as? String else { return nil }
+            guard let URL = NSURL(string: URLString) else { return nil }
+            
+            return URL
+        }
+        set(newValue) {
+            
+            guard let url = newValue else { return }
+            info["videoURL"] = url.absoluteString
+            
+        }
+        
+    }
+    var videoTitle : String? {
+        get {
+            
+            guard let title = info["videoTitle"] as? String else { return nil }
+            return title
+        }
+        set(newValue) {
+            
+            guard let title = newValue else { return }
+            info["videoTitle"] = title
+            
+        }
+    }
+    
+}
+
+extension Card {
+    var articleURL : NSURL? {
+        get {
+            
+            guard let URLString = info["articleURL"] as? String else { return nil }
+            guard let URL = NSURL(string: URLString) else { return nil }
+            
+            return URL
+        }
+        set(newValue) {
+            
+            guard let url = newValue else { return }
+            info["articleURL"] = url.absoluteString
+            
+        }
+        
+    }
+    
+    var articleTitle : String? {
+        get {
+            
+            guard let title = info["articleTitle"] as? String else { return nil }
+            return title
+        }
+        set(newValue) {
+            
+            guard let title = newValue else { return }
+            info["articleTitle"] = title
+            
+        }
+    }
+    
+    var articlePreviewBody : String? {
+        get {
+            
+            guard let title = info["articlePreviewText"] as? String else { return nil }
+            return title
+        }
+        set(newValue) {
+            
+            guard let title = newValue else { return }
+            info["articlePreviewText"] = title
+            
+        }
+    }
 }
 
 class Account : Document {

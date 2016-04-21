@@ -10,7 +10,7 @@ import Foundation
 
 extension CIFilter {
     
-    static func getQRCodeGenerator(withData data: NSData, inputCorrectionLevel level: String) -> CIFilter? {
+    static func getQRCodeGenerator(withData data: NSData, andInputCorrectionLevel level: String) -> CIFilter? {
         guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
         filter.setValue(data, forKey: "inputMessage")
         filter.setValue(level, forKey: "inputCorrectionLevel")
@@ -19,7 +19,7 @@ extension CIFilter {
     }
     
     static func getQRCodeGenerator(withData data: NSData) -> CIFilter? {
-        return getQRCodeGenerator(withData: data, inputCorrectionLevel: "Q")
+        return getQRCodeGenerator(withData: data, andInputCorrectionLevel: "Q")
         
     }
     

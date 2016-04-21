@@ -8,3 +8,21 @@
 
 import Foundation
 import UIKit
+
+extension UIView {
+    
+    func constraintWithID(ID: String) -> NSLayoutConstraint? {
+        if ID == "" {
+            return nil
+        }
+        
+        for constraint in constraints {
+            if constraint.identifier == ID {
+                return constraint
+            }
+        }
+        
+        return nil
+    }
+    
+}

@@ -62,7 +62,7 @@ extension UINavigationController {
     // The code below was made to remedy that.
     
     public override func shouldAutorotate() -> Bool {
-        if let viewController = visibleViewController {
+        if let viewController = topViewController {
             if viewController.respondsToSelector(#selector(UIViewController.shouldAutorotate)) {
                 return viewController.shouldAutorotate()
             }
@@ -71,7 +71,7 @@ extension UINavigationController {
     }
     
     public override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        if let viewController = visibleViewController {
+        if let viewController = topViewController {
             if viewController.respondsToSelector(#selector(UIViewController.preferredInterfaceOrientationForPresentation)) {
                 return viewController.preferredInterfaceOrientationForPresentation()
             }
@@ -80,7 +80,7 @@ extension UINavigationController {
     }
     
     public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if let viewController = visibleViewController {
+        if let viewController = topViewController {
             if viewController.respondsToSelector(#selector(UIViewController.supportedInterfaceOrientations)) {
                 return viewController.supportedInterfaceOrientations()
             }
@@ -89,7 +89,7 @@ extension UINavigationController {
     }
     
     public override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        if let viewController = visibleViewController {
+        if let viewController = topViewController {
             if viewController.respondsToSelector(#selector(UIViewController.preferredStatusBarStyle)) {
                 return viewController.preferredStatusBarStyle()
             }

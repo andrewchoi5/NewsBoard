@@ -102,6 +102,10 @@
 		3982DD911CC5672100691A39 /* Simple-Line-Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */; };
 		3982DD931CC5882600691A39 /* CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982DD921CC5882600691A39 /* CIFilter.swift */; };
 		39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39830FEB1C8AD6B600313AFC /* PostViewerController.swift */; };
+		39961DF81CC70CA50049368E /* QRReaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39961DF71CC70CA50049368E /* QRReaderController.swift */; };
+		39961DF91CC716E30049368E /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396871B41CBD18C900D6869B /* UIViewExt.swift */; };
+		39961DFC1CC759C40049368E /* QRCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39961DFB1CC759C40049368E /* QRCoder.swift */; };
+		39961DFD1CC759D70049368E /* QRCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39961DFB1CC759C40049368E /* QRCoder.swift */; };
 		399A75001C87AB80007778B0 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		399A75021C88C86F007778B0 /* PosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399A75011C88C86F007778B0 /* PosterController.swift */; };
 		39A8BA8C1CC4E78900307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
@@ -111,6 +115,7 @@
 		39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; };
 		39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
+		39C3DC531CC831AC00D85706 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C3DC521CC831AC00D85706 /* DefaultViewController.swift */; };
 		39C61EFF1C981122002C7E12 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61EFE1C981122002C7E12 /* Card.swift */; };
 		39C61F041C98168F002C7E12 /* CardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61F031C98168F002C7E12 /* CardFactory.swift */; };
 		39D7E2D71CC4163900B02FEC /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D7E2D61CC4163900B02FEC /* UIColorExt.swift */; };
@@ -348,10 +353,13 @@
 		3982DD901CC5671500691A39 /* Simple-Line-Icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Simple-Line-Icons.ttf"; sourceTree = "<group>"; };
 		3982DD921CC5882600691A39 /* CIFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIFilter.swift; sourceTree = "<group>"; };
 		39830FEB1C8AD6B600313AFC /* PostViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewerController.swift; sourceTree = "<group>"; };
+		39961DF71CC70CA50049368E /* QRReaderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderController.swift; sourceTree = "<group>"; };
+		39961DFB1CC759C40049368E /* QRCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCoder.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
 		39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPresenter.swift; sourceTree = "<group>"; };
 		39AE8D521CBF11C2000F0D39 /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MailCore.framework"; sourceTree = "<absolute>"; };
+		39C3DC521CC831AC00D85706 /* DefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		39C61EFE1C981122002C7E12 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		39C61F031C98168F002C7E12 /* CardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
 		39D7E2D61CC4163900B02FEC /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
@@ -679,17 +687,17 @@
 			isa = PBXGroup;
 			children = (
 				39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */,
-				3982DD921CC5882600691A39 /* CIFilter.swift */,
-				396871B41CBD18C900D6869B /* UIViewExt.swift */,
-				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
-				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
-				3964FF561C9A5695002B5AE8 /* NSDateExt.swift */,
-				3964FF581C9A56AA002B5AE8 /* StringExt.swift */,
 				39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */,
 				39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */,
 				39D7E2D61CC4163900B02FEC /* UIColorExt.swift */,
 				2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */,
+				396871B41CBD18C900D6869B /* UIViewExt.swift */,
+				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
+				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
+				3964FF561C9A5695002B5AE8 /* NSDateExt.swift */,
 				2D72F0B51CC6638F00697221 /* CALayerExt.swift */,
+				3982DD921CC5882600691A39 /* CIFilter.swift */,
+				3964FF581C9A56AA002B5AE8 /* StringExt.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -760,6 +768,9 @@
 				39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */,
 				39D878531C765067007E0CD5 /* SpaceSelectorController.swift */,
 				39E5A8631C77DF9F00DFC0F5 /* CategorySelectorController.swift */,
+				39C3DC521CC831AC00D85706 /* DefaultViewController.swift */,
+				39961DF71CC70CA50049368E /* QRReaderController.swift */,
+				39961DFB1CC759C40049368E /* QRCoder.swift */,
 				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
 			);
 			name = Controllers;
@@ -1007,6 +1018,7 @@
 				39EB94051C7E66600053F73F /* UIImage+WebP.m in Sources */,
 				39022D041C8A545B00464BC1 /* VideoAPIManager.swift in Sources */,
 				3964FF591C9A56AA002B5AE8 /* StringExt.swift in Sources */,
+				39C3DC531CC831AC00D85706 /* DefaultViewController.swift in Sources */,
 				391212E81C9B470900C05BDB /* ZHCalendarDayView.swift in Sources */,
 				39EB93FA1C7E66600053F73F /* NSData+ImageContentType.m in Sources */,
 				39EB93E71C7E45C60053F73F /* ArticlePosterController.swift in Sources */,
@@ -1027,6 +1039,7 @@
 				39EB94071C7E66600053F73F /* UIImageView+WebCache.m in Sources */,
 				39A8BA8C1CC4E78900307E95 /* UIImageExt.swift in Sources */,
 				39EB93B31C7D8A880053F73F /* UIImageViewExt.swift in Sources */,
+				39961DF81CC70CA50049368E /* QRReaderController.swift in Sources */,
 				394CD6861C91825500AB28F1 /* JTCalendarPageView.m in Sources */,
 				39EB93F81C7E66600053F73F /* TBXML+HTTP.m in Sources */,
 				3964FF4F1C9A55A2002B5AE8 /* DataConverters.swift in Sources */,
@@ -1055,6 +1068,7 @@
 				394CD6611C91819200AB28F1 /* JTCalendarManager.m in Sources */,
 				39D7E2D71CC4163900B02FEC /* UIColorExt.swift in Sources */,
 				399A75001C87AB80007778B0 /* CardCell.swift in Sources */,
+				39961DFC1CC759C40049368E /* QRCoder.swift in Sources */,
 				39EB93FB1C7E66600053F73F /* SDImageCache.m in Sources */,
 				39EB93FF1C7E66600053F73F /* SDWebImageDownloaderOperation.m in Sources */,
 				393C88CE1CB8427E009DA1AA /* GridView.swift in Sources */,
@@ -1085,10 +1099,12 @@
 				2D72F0B71CC6638F00697221 /* CALayerExt.swift in Sources */,
 				391212EC1C9B620000C05BDB /* NSDateExt.swift in Sources */,
 				39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */,
+				39961DFD1CC759D70049368E /* QRCoder.swift in Sources */,
 				391212EE1C9B621700C05BDB /* StringExt.swift in Sources */,
 				39022CE61C895C5F00464BC1 /* SDWebImageManager.m in Sources */,
 				39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */,
 				39022CE51C895C5F00464BC1 /* SDWebImageDownloaderOperation.m in Sources */,
+				39961DF91CC716E30049368E /* UIViewExt.swift in Sources */,
 				39022CEE1C895C5F00464BC1 /* UIView+WebCacheOperation.m in Sources */,
 				39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */,
 				39C61EFF1C981122002C7E12 /* Card.swift in Sources */,

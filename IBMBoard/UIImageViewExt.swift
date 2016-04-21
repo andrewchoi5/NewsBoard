@@ -86,4 +86,14 @@ extension UIImageView {
         
     }
     
+    func cropToFrameOfImage() {
+        var rect = frameForImage()
+//        rect.origin.x = rect.size.width / image!.size.width *
+//        rect.size.height = image!.size.height / rect.size.height * image!.size.width
+//        rect.size.width = image!.size.width / rect.size.width * image!.size.height
+
+        self.image = UIImage(CGImage: CGImageCreateWithImageInRect(self.image!.CGImage, frameForImage())!)
+        
+    }
+    
 }

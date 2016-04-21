@@ -185,6 +185,40 @@ class PosterController : KeyboardPresenter {
         
     }
 
+    
+}
+
+extension PosterController {
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        rotateToPortraitIfNeeded()
+        
+    }
+    
+    func rotateToPortraitIfNeeded() {
+        if(!UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+            UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
+        }
+    }
+    
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .Portrait
+        
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+        
+    }
+    
+    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+        return .Portrait
+        
+    }
+    
 }
 
 extension PosterController : PosterControllerDelegate {
