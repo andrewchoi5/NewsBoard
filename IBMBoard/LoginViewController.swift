@@ -13,6 +13,8 @@ class LoginViewController: KeyboardPresenter {
     @IBOutlet weak var emailID: RoundedTextBox!
     @IBOutlet weak var password: RoundedTextBox!
     @IBOutlet weak var rememberCredentials: UISwitch!
+    @IBOutlet weak var qrButton: QRButton!
+    @IBOutlet weak var qrLabel: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var userDefaults = NSUserDefaults.standardUserDefaults()
@@ -52,6 +54,8 @@ class LoginViewController: KeyboardPresenter {
         emailID.autocapitalizationType = .None
         emailID.autocorrectionType = .No
         emailID.spellCheckingType = .No
+        
+        qrButton.setLabel(qrLabel)
         
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
         emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
@@ -142,6 +146,43 @@ class LoginViewController: KeyboardPresenter {
         
     }
 }
+
+// ugly hack to allow qr button label to appear pressed when clicked
+class QRButton : UIButton {
+    
+    var QRlabel : UILabel!
+    var QRlabelColor : UIColor!
+    
+    func setLabel(label : UILabel) {
+        self.QRlabel = label;
+        self.QRlabelColor = label.textColor;
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        if let touch = touches.first {
+            _ = touch.locationInView(self)
+            QRlabel.textColor = QRlabelColor.colorWithAlphaComponent(0.20);
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesEnded(touches, withEvent: event)
+        if let touch = touches.first {
+            _ = touch.locationInView(self)
+            QRlabel.textColor = QRlabelColor
+        }
+    }
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?){
+        super.touchesCancelled(touches, withEvent: event)
+        if let touch = touches!.first {
+            _ = touch.locationInView(self)
+            QRlabel.textColor = QRlabelColor
+        }
+    }
+}
+
 
 extension LoginViewController : UITextFieldDelegate {
 

@@ -171,7 +171,7 @@
                                         <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-Gh-BtQ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-Gh-BtQ" customClass="QRButton" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="221" y="9" width="153" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="153" id="Ns5-H0-Z4S"/>
@@ -319,6 +319,8 @@
                         <outlet property="activityIndicator" destination="79a-hK-ewL" id="RoI-rw-3Iy"/>
                         <outlet property="emailID" destination="SSD-f6-CGQ" id="tab-ov-bA9"/>
                         <outlet property="password" destination="n8L-Ea-Clo" id="uUU-aa-55Q"/>
+                        <outlet property="qrButton" destination="ee6-Gh-BtQ" id="Hzy-R5-E1b"/>
+                        <outlet property="qrLabel" destination="i49-8R-pmo" id="tXI-TJ-bY1"/>
                         <outlet property="rememberCredentials" destination="8qD-ge-Ne4" id="fvg-pE-uqu"/>
                         <segue destination="qHj-es-kGg" kind="show" identifier="LoginSuccessfulSegue" id="gn3-NY-18y"/>
                         <segue destination="rkC-1O-pOD" kind="show" identifier="reverificationSegue" id="1Be-XK-7cy"/>
@@ -2175,13 +2177,13 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hwJ-nH-bdX"/>
-        <segue reference="Xsg-t7-MCv"/>
-        <segue reference="bxv-as-pE6"/>
+        <segue reference="PUd-Ut-ITJ"/>
+        <segue reference="1Be-XK-7cy"/>
         <segue reference="W7J-mn-B1x"/>
         <segue reference="oEZ-3m-7p0"/>
-        <segue reference="SCD-dM-0e9"/>
         <segue reference="OdC-w7-WXY"/>
+        <segue reference="hwJ-nH-bdX"/>
+        <segue reference="SCD-dM-0e9"/>
         <segue reference="cWJ-fM-BVu"/>
     </inferredMetricsTieBreakers>
 </document>
