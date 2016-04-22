@@ -553,6 +553,7 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="tUe-8Q-FMK" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" id="0YN-h5-xMY"/>
+                                            <constraint firstItem="2tq-CH-gFY" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" constant="41" id="3XU-xM-jQi"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="mKT-YY-0YQ" secondAttribute="trailing" constant="-5" id="5Ka-6W-kc8"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="bu2-NF-vj9" secondAttribute="bottom" constant="86" id="6Qn-Uq-Gdz"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="mKT-YY-0YQ" secondAttribute="bottom" constant="-5" id="Lvo-tu-9YQ"/>
