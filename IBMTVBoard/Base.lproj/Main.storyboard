@@ -535,7 +535,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="bbG-e3-fXi" secondAttribute="trailing" id="3qK-Co-vR9"/>
                                                         <constraint firstItem="JaX-Ko-ACa" firstAttribute="leading" secondItem="tUe-8Q-FMK" secondAttribute="leading" constant="85" id="515-xM-mnO"/>
-                                                        <constraint firstAttribute="trailing" secondItem="2tq-CH-gFY" secondAttribute="trailing" constant="455" id="7Zj-HC-VQX"/>
                                                         <constraint firstItem="TBk-zY-pHl" firstAttribute="leading" secondItem="bu2-NF-vj9" secondAttribute="leading" id="9bY-qr-CgJ"/>
                                                         <constraint firstItem="bbG-e3-fXi" firstAttribute="centerX" secondItem="JaX-Ko-ACa" secondAttribute="centerX" id="CC0-GE-TGs"/>
                                                         <constraint firstItem="bbG-e3-fXi" firstAttribute="top" secondItem="tUe-8Q-FMK" secondAttribute="top" id="Hdf-AR-FuA"/>
@@ -567,6 +566,7 @@
                                             <constraint firstItem="IdF-nw-GTM" firstAttribute="top" secondItem="xSV-ua-SFf" secondAttribute="topMargin" constant="48" id="kgz-bh-dUh"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="bu2-NF-vj9" secondAttribute="trailing" constant="38" id="pyz-xh-AK7"/>
                                             <constraint firstItem="mKT-YY-0YQ" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" constant="-5" id="q7T-JH-eu6"/>
+                                            <constraint firstItem="2tq-CH-gFY" firstAttribute="leading" secondItem="xSV-ua-SFf" secondAttribute="leadingMargin" constant="41" id="xqn-Ps-GkQ"/>
                                             <constraint firstItem="iEz-8F-TwI" firstAttribute="top" secondItem="xSV-ua-SFf" secondAttribute="topMargin" constant="33" id="yYl-On-Z1N"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
