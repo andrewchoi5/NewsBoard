@@ -1111,22 +1111,6 @@
                                         <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tai-4v-4zN" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="379" height="54"/>
-                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="776-be-WzL"/>
-                                        </constraints>
-                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="QDE-hm-z2s" id="Qts-F4-ERe"/>
-                                        </connections>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPG-Dh-OkA" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="53" width="387" height="54"/>
                                         <constraints>
@@ -1140,6 +1124,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPushAddPictureButton:" destination="QDE-hm-z2s" eventType="touchUpInside" id="2cO-C0-0V7"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YJA-WT-trs" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="387" height="54"/>
@@ -1163,6 +1150,22 @@
                                             <outlet property="delegate" destination="QDE-hm-z2s" id="10a-w4-1h2"/>
                                         </connections>
                                     </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tai-4v-4zN" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="776-be-WzL"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="QDE-hm-z2s" id="Qts-F4-ERe"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1214,8 +1217,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="questionSummary" destination="dMN-oz-zUg" id="Of9-AW-MXq"/>
-                        <outlet property="questionTitle" destination="Tai-4v-4zN" id="YRG-Yn-5aD"/>
+                        <outlet property="addPictureButton" destination="cPG-Dh-OkA" id="8YG-d3-JAa"/>
+                        <outlet property="announcementPhotoURL" destination="YJA-WT-trs" id="YAw-Mz-oMr"/>
+                        <outlet property="announcementText" destination="dMN-oz-zUg" id="ro2-17-b9b"/>
+                        <outlet property="announcementTitle" destination="Tai-4v-4zN" id="GMB-jc-xH4"/>
                         <segue destination="yz0-Wn-78x" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="gh6-Ps-IqX"/>
                     </connections>
                 </viewController>
@@ -1383,22 +1388,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2A-dq-qkq" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="-4" y="64" width="383" height="436"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-Mm-v5b" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="383" height="54"/>
-                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="Ivy-PZ-pH8"/>
-                                        </constraints>
-                                        <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="jSY-Qy-xP5" id="DQp-au-XFL"/>
-                                        </connections>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-IU-zY8" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="53" width="383" height="54"/>
                                         <constraints>
@@ -1412,6 +1401,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPushAddPictureButton:" destination="jSY-Qy-xP5" eventType="touchUpInside" id="BxV-Az-ECQ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWn-7s-S5I" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="157" width="383" height="54"/>
@@ -1445,6 +1437,22 @@
                                             <outlet property="delegate" destination="jSY-Qy-xP5" id="s3R-rv-bG0"/>
                                         </connections>
                                     </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-Mm-v5b" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="383" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="Ivy-PZ-pH8"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="jSY-Qy-xP5" id="DQp-au-XFL"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1494,8 +1502,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="ideaSummary" destination="KTi-cv-gk6" id="aLC-1r-TUi"/>
-                        <outlet property="ideaTitle" destination="3YU-Mm-v5b" id="zJf-Nv-USM"/>
+                        <outlet property="addPictureButton" destination="CR5-IU-zY8" id="acd-C8-87p"/>
+                        <outlet property="announcementPhotoURL" destination="b9A-jp-iWb" id="dqC-dK-TNr"/>
+                        <outlet property="announcementText" destination="KTi-cv-gk6" id="oEC-6Z-jt6"/>
+                        <outlet property="announcementTitle" destination="3YU-Mm-v5b" id="ngE-Lb-KJz"/>
                         <segue destination="upl-7n-vER" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="9uG-nQ-bEB"/>
                     </connections>
                 </viewController>
@@ -1812,17 +1822,10 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPushAddPictureButton:" destination="hW0-mY-DO3" eventType="touchUpInside" id="28Y-Mz-j2d"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pJu-TI-ysq" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="106" width="383" height="54"/>
-                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="ut4-ij-vO3"/>
-                                        </constraints>
-                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
-                                    </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="22M-Vi-Xci">
                                         <rect key="frame" x="13" y="238" width="359" height="196"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
@@ -1846,6 +1849,16 @@
                                         <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pJu-TI-ysq" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="383" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="ut4-ij-vO3"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1895,8 +1908,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="RFPSummary" destination="22M-Vi-Xci" id="inU-E9-CX3"/>
-                        <outlet property="RFPTitle" destination="atV-jq-ePB" id="Byh-Zp-uWc"/>
+                        <outlet property="addPictureButton" destination="OvD-yY-3Pg" id="MAV-gu-8AM"/>
+                        <outlet property="announcementPhotoURL" destination="pJu-TI-ysq" id="WaV-pJ-o2K"/>
+                        <outlet property="announcementText" destination="22M-Vi-Xci" id="Aoi-Y4-nAF"/>
+                        <outlet property="announcementTitle" destination="atV-jq-ePB" id="Ssn-Bj-pmX"/>
                         <segue destination="XD1-AS-3ts" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="Kej-57-1XZ"/>
                     </connections>
                 </viewController>
