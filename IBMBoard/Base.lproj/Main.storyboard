@@ -48,6 +48,12 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Simple-Line-Icons.ttf">
             <string>simple-line-icons</string>
@@ -1093,10 +1099,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0H-bH-pR1" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="383" height="397"/>
+                                <rect key="frame" x="0.0" y="64" width="387" height="451"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-3V-y1u" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53" width="383" height="54"/>
+                                        <rect key="frame" x="0.0" y="159" width="387" height="54"/>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="dmS-z7-FM8"/>
@@ -1105,24 +1111,35 @@
                                         <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tai-4v-4zN" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
-                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPG-Dh-OkA" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="53" width="387" height="54"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="776-be-WzL"/>
+                                            <constraint firstAttribute="height" constant="54" id="v0Q-gw-O5J"/>
                                         </constraints>
-                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Add picture">
+                                            <color key="titleColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="QDE-hm-z2s" id="Qts-F4-ERe"/>
+                                            <action selector="didPushAddPictureButton:" destination="QDE-hm-z2s" eventType="touchUpInside" id="2cO-C0-0V7"/>
                                         </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YJA-WT-trs" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="387" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="YbC-P0-Mvg"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dMN-oz-zUg">
-                                        <rect key="frame" x="17" y="149" width="348" height="204"/>
+                                        <rect key="frame" x="17" y="230" width="352" height="204"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="204" id="NoS-gu-50u"/>
                                         </constraints>
@@ -1133,18 +1150,42 @@
                                             <outlet property="delegate" destination="QDE-hm-z2s" id="10a-w4-1h2"/>
                                         </connections>
                                     </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tai-4v-4zN" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="776-be-WzL"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="QDE-hm-z2s" id="Qts-F4-ERe"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Tai-4v-4zN" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" id="4mF-nw-c0b"/>
                                     <constraint firstAttribute="trailing" secondItem="GCm-3V-y1u" secondAttribute="trailing" id="BpG-aU-glD"/>
-                                    <constraint firstItem="dMN-oz-zUg" firstAttribute="top" secondItem="GCm-3V-y1u" secondAttribute="bottom" constant="42" id="Nr1-Cb-Nbg"/>
+                                    <constraint firstItem="YJA-WT-trs" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" id="LBh-Yp-4Ny"/>
+                                    <constraint firstItem="cPG-Dh-OkA" firstAttribute="top" secondItem="Tai-4v-4zN" secondAttribute="bottom" constant="-1" id="Mvl-zU-oty"/>
+                                    <constraint firstItem="dMN-oz-zUg" firstAttribute="top" secondItem="GCm-3V-y1u" secondAttribute="bottom" constant="17" id="Nr1-Cb-Nbg"/>
+                                    <constraint firstItem="GCm-3V-y1u" firstAttribute="top" secondItem="YJA-WT-trs" secondAttribute="bottom" constant="-1" id="Opk-4J-tRJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Tai-4v-4zN" secondAttribute="trailing" constant="8" id="QH3-Eo-nRU"/>
                                     <constraint firstItem="GCm-3V-y1u" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" id="Qbi-rm-HVV"/>
                                     <constraint firstItem="Tai-4v-4zN" firstAttribute="top" secondItem="C0H-bH-pR1" secondAttribute="top" id="Syo-0B-HdF"/>
+                                    <constraint firstAttribute="trailing" secondItem="cPG-Dh-OkA" secondAttribute="trailing" id="XMY-KE-XqN"/>
+                                    <constraint firstAttribute="trailing" secondItem="YJA-WT-trs" secondAttribute="trailing" id="XPu-B2-9Ru"/>
+                                    <constraint firstItem="YJA-WT-trs" firstAttribute="top" secondItem="cPG-Dh-OkA" secondAttribute="bottom" constant="-1" id="Yvc-HR-87y"/>
+                                    <constraint firstItem="YJA-WT-trs" firstAttribute="top" secondItem="cPG-Dh-OkA" secondAttribute="bottom" constant="-1" id="aBq-vf-OAS"/>
                                     <constraint firstAttribute="trailing" secondItem="dMN-oz-zUg" secondAttribute="trailing" constant="18" id="cZn-ff-tnd"/>
-                                    <constraint firstAttribute="bottom" secondItem="dMN-oz-zUg" secondAttribute="bottom" constant="44" id="iTt-F1-F4K"/>
-                                    <constraint firstItem="GCm-3V-y1u" firstAttribute="top" secondItem="Tai-4v-4zN" secondAttribute="bottom" constant="-1" id="qa5-R7-wlb"/>
+                                    <constraint firstItem="YJA-WT-trs" firstAttribute="top" secondItem="cPG-Dh-OkA" secondAttribute="bottom" constant="-1" id="g97-Q0-Esx"/>
+                                    <constraint firstAttribute="bottom" secondItem="dMN-oz-zUg" secondAttribute="bottom" constant="17" id="iTt-F1-F4K"/>
+                                    <constraint firstItem="cPG-Dh-OkA" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" id="x3l-bP-iSw"/>
                                     <constraint firstItem="dMN-oz-zUg" firstAttribute="leading" secondItem="C0H-bH-pR1" secondAttribute="leading" constant="17" id="xzw-I8-Y8L"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1165,7 +1206,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="C0H-bH-pR1" secondAttribute="trailing" constant="-24" id="DtL-iU-d1H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C0H-bH-pR1" secondAttribute="trailing" constant="-28" id="DtL-iU-d1H"/>
                             <constraint firstItem="C0H-bH-pR1" firstAttribute="top" secondItem="73g-Cu-LQi" secondAttribute="bottom" id="S1h-UZ-hbv"/>
                             <constraint firstItem="C0H-bH-pR1" firstAttribute="leading" secondItem="7gY-5N-W65" secondAttribute="leading" id="WX5-BF-d5j"/>
                         </constraints>
@@ -1176,8 +1217,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="questionSummary" destination="dMN-oz-zUg" id="Of9-AW-MXq"/>
-                        <outlet property="questionTitle" destination="Tai-4v-4zN" id="YRG-Yn-5aD"/>
+                        <outlet property="addPictureButton" destination="cPG-Dh-OkA" id="8YG-d3-JAa"/>
+                        <outlet property="announcementPhotoURL" destination="YJA-WT-trs" id="YAw-Mz-oMr"/>
+                        <outlet property="announcementText" destination="dMN-oz-zUg" id="ro2-17-b9b"/>
+                        <outlet property="announcementTitle" destination="Tai-4v-4zN" id="GMB-jc-xH4"/>
                         <segue destination="yz0-Wn-78x" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="gh6-Ps-IqX"/>
                     </connections>
                 </viewController>
@@ -1343,10 +1386,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2A-dq-qkq" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="-4" y="64" width="383" height="397"/>
+                                <rect key="frame" x="-4" y="64" width="383" height="436"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWn-7s-S5I" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-IU-zY8" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="53" width="383" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="u68-bP-n2B"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Add picture">
+                                            <color key="titleColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPushAddPictureButton:" destination="jSY-Qy-xP5" eventType="touchUpInside" id="BxV-Az-ECQ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWn-7s-S5I" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="157" width="383" height="54"/>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="gzA-UT-j1g"/>
@@ -1355,24 +1415,18 @@
                                         <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-Mm-v5b" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="383" height="54"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b9A-jp-iWb" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="383" height="54"/>
                                         <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="Ivy-PZ-pH8"/>
+                                            <constraint firstAttribute="height" constant="54" id="Xme-fO-i7B"/>
                                         </constraints>
-                                        <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="jSY-Qy-xP5" id="DQp-au-XFL"/>
-                                        </connections>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-cv-gk6">
-                                        <rect key="frame" x="17" y="149" width="348" height="204"/>
+                                        <rect key="frame" x="13" y="221" width="356" height="204"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="204" id="hVs-we-c95"/>
                                         </constraints>
@@ -1383,18 +1437,40 @@
                                             <outlet property="delegate" destination="jSY-Qy-xP5" id="s3R-rv-bG0"/>
                                         </connections>
                                     </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-Mm-v5b" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="383" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="Ivy-PZ-pH8"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="jSY-Qy-xP5" id="DQp-au-XFL"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="b9A-jp-iWb" firstAttribute="leading" secondItem="s2A-dq-qkq" secondAttribute="leading" id="008-o1-9zG"/>
                                     <constraint firstItem="3YU-Mm-v5b" firstAttribute="top" secondItem="s2A-dq-qkq" secondAttribute="top" id="8gE-I2-dJQ"/>
-                                    <constraint firstItem="KTi-cv-gk6" firstAttribute="leading" secondItem="s2A-dq-qkq" secondAttribute="leading" constant="17" id="Ag8-NK-CWZ"/>
+                                    <constraint firstItem="KTi-cv-gk6" firstAttribute="leading" secondItem="s2A-dq-qkq" secondAttribute="leading" constant="13" id="Ag8-NK-CWZ"/>
                                     <constraint firstItem="3YU-Mm-v5b" firstAttribute="leading" secondItem="s2A-dq-qkq" secondAttribute="leading" id="CAP-Kn-tIG"/>
+                                    <constraint firstItem="b9A-jp-iWb" firstAttribute="top" secondItem="CR5-IU-zY8" secondAttribute="bottom" constant="-1" id="DJj-kQ-O56"/>
+                                    <constraint firstItem="CR5-IU-zY8" firstAttribute="top" secondItem="3YU-Mm-v5b" secondAttribute="bottom" constant="-1" id="H5j-Oe-QCt"/>
                                     <constraint firstAttribute="trailing" secondItem="3YU-Mm-v5b" secondAttribute="trailing" id="HOD-DH-mhv"/>
-                                    <constraint firstItem="KTi-cv-gk6" firstAttribute="top" secondItem="vWn-7s-S5I" secondAttribute="bottom" constant="42" id="QG3-he-j4W"/>
+                                    <constraint firstItem="KTi-cv-gk6" firstAttribute="top" secondItem="vWn-7s-S5I" secondAttribute="bottom" constant="10" id="QG3-he-j4W"/>
+                                    <constraint firstAttribute="trailing" secondItem="CR5-IU-zY8" secondAttribute="trailing" id="VXb-VO-Imj"/>
                                     <constraint firstAttribute="trailing" secondItem="vWn-7s-S5I" secondAttribute="trailing" id="Wa6-bF-qMF"/>
-                                    <constraint firstItem="vWn-7s-S5I" firstAttribute="top" secondItem="3YU-Mm-v5b" secondAttribute="bottom" constant="-1" id="fZA-dF-lT0"/>
-                                    <constraint firstAttribute="bottom" secondItem="KTi-cv-gk6" secondAttribute="bottom" constant="44" id="sfj-7s-sYG"/>
-                                    <constraint firstAttribute="trailing" secondItem="KTi-cv-gk6" secondAttribute="trailing" constant="18" id="vhr-jl-27F"/>
+                                    <constraint firstItem="vWn-7s-S5I" firstAttribute="top" secondItem="b9A-jp-iWb" secondAttribute="bottom" constant="-3" id="foe-oH-1k7"/>
+                                    <constraint firstItem="CR5-IU-zY8" firstAttribute="leading" secondItem="s2A-dq-qkq" secondAttribute="leading" id="lxh-Rq-MmW"/>
+                                    <constraint firstAttribute="bottom" secondItem="KTi-cv-gk6" secondAttribute="bottom" constant="11" id="sfj-7s-sYG"/>
+                                    <constraint firstAttribute="trailing" secondItem="b9A-jp-iWb" secondAttribute="trailing" id="vhC-dV-u9W"/>
+                                    <constraint firstAttribute="trailing" secondItem="KTi-cv-gk6" secondAttribute="trailing" constant="14" id="vhr-jl-27F"/>
                                     <constraint firstItem="vWn-7s-S5I" firstAttribute="leading" secondItem="s2A-dq-qkq" secondAttribute="leading" id="y9r-9F-E7E"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1426,8 +1502,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="ideaSummary" destination="KTi-cv-gk6" id="aLC-1r-TUi"/>
-                        <outlet property="ideaTitle" destination="3YU-Mm-v5b" id="zJf-Nv-USM"/>
+                        <outlet property="addPictureButton" destination="CR5-IU-zY8" id="acd-C8-87p"/>
+                        <outlet property="announcementPhotoURL" destination="b9A-jp-iWb" id="dqC-dK-TNr"/>
+                        <outlet property="announcementText" destination="KTi-cv-gk6" id="oEC-6Z-jt6"/>
+                        <outlet property="announcementTitle" destination="3YU-Mm-v5b" id="ngE-Lb-KJz"/>
                         <segue destination="upl-7n-vER" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="9uG-nQ-bEB"/>
                     </connections>
                 </viewController>
@@ -1715,16 +1793,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZe-sj-OVn" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="-4" y="64" width="383" height="451"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-dh-GcE" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53" width="383" height="54"/>
-                                        <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="Q1a-28-l6J"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atV-jq-ePB" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="383" height="54"/>
                                         <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1734,15 +1802,35 @@
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="hW0-mY-DO3" id="117-YB-EiR"/>
                                         </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvD-yY-3Pg" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="53" width="383" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="An0-eY-q9s"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Add picture">
+                                            <color key="titleColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPushAddPictureButton:" destination="hW0-mY-DO3" eventType="touchUpInside" id="28Y-Mz-j2d"/>
+                                        </connections>
+                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="22M-Vi-Xci">
-                                        <rect key="frame" x="17" y="125" width="351" height="309"/>
+                                        <rect key="frame" x="13" y="238" width="359" height="196"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="309" id="JxB-Pm-92P"/>
+                                            <constraint firstAttribute="height" constant="196" id="JxB-Pm-92P"/>
                                         </constraints>
                                         <color key="textColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -1751,18 +1839,44 @@
                                             <outlet property="delegate" destination="hW0-mY-DO3" id="Mls-TV-iFx"/>
                                         </connections>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-dh-GcE" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="159" width="383" height="54"/>
+                                        <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="Q1a-28-l6J"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pJu-TI-ysq" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="383" height="54"/>
+                                        <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="ut4-ij-vO3"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="pJu-TI-ysq" firstAttribute="leading" secondItem="FZe-sj-OVn" secondAttribute="leading" id="199-Pc-Aui"/>
                                     <constraint firstAttribute="bottom" secondItem="22M-Vi-Xci" secondAttribute="bottom" constant="17" id="4Ur-Pl-Z7g"/>
-                                    <constraint firstAttribute="trailing" secondItem="22M-Vi-Xci" secondAttribute="trailing" constant="15" id="E93-vB-rbu"/>
+                                    <constraint firstAttribute="trailing" secondItem="OvD-yY-3Pg" secondAttribute="trailing" id="Csu-DP-QFX"/>
+                                    <constraint firstAttribute="trailing" secondItem="22M-Vi-Xci" secondAttribute="trailing" constant="11" id="E93-vB-rbu"/>
+                                    <constraint firstAttribute="trailing" secondItem="pJu-TI-ysq" secondAttribute="trailing" id="JdX-m8-cr1"/>
                                     <constraint firstItem="atV-jq-ePB" firstAttribute="leading" secondItem="FZe-sj-OVn" secondAttribute="leading" id="OuP-tr-6zb"/>
-                                    <constraint firstItem="22M-Vi-Xci" firstAttribute="leading" secondItem="FZe-sj-OVn" secondAttribute="leading" constant="17" id="RKZ-pI-K4e"/>
-                                    <constraint firstItem="22M-Vi-Xci" firstAttribute="top" secondItem="9gL-dh-GcE" secondAttribute="bottom" constant="18" id="TEM-TB-gJD"/>
+                                    <constraint firstItem="22M-Vi-Xci" firstAttribute="leading" secondItem="FZe-sj-OVn" secondAttribute="leading" constant="13" id="RKZ-pI-K4e"/>
+                                    <constraint firstItem="22M-Vi-Xci" firstAttribute="top" secondItem="9gL-dh-GcE" secondAttribute="bottom" constant="25" id="TEM-TB-gJD"/>
                                     <constraint firstAttribute="trailing" secondItem="9gL-dh-GcE" secondAttribute="trailing" id="brC-qs-BAr"/>
+                                    <constraint firstItem="OvD-yY-3Pg" firstAttribute="top" secondItem="atV-jq-ePB" secondAttribute="bottom" constant="-1" id="dG2-Rc-FS5"/>
+                                    <constraint firstItem="pJu-TI-ysq" firstAttribute="top" secondItem="OvD-yY-3Pg" secondAttribute="bottom" constant="-1" id="fRe-D5-TgQ"/>
                                     <constraint firstItem="9gL-dh-GcE" firstAttribute="leading" secondItem="FZe-sj-OVn" secondAttribute="leading" id="jPc-Kn-QB8"/>
+                                    <constraint firstItem="9gL-dh-GcE" firstAttribute="top" secondItem="pJu-TI-ysq" secondAttribute="bottom" constant="-1" id="kW4-wh-wsr"/>
                                     <constraint firstAttribute="trailing" secondItem="atV-jq-ePB" secondAttribute="trailing" id="pxF-Rx-wtf"/>
-                                    <constraint firstItem="9gL-dh-GcE" firstAttribute="top" secondItem="atV-jq-ePB" secondAttribute="bottom" constant="-1" id="uYb-Dh-iiK"/>
+                                    <constraint firstItem="OvD-yY-3Pg" firstAttribute="leading" secondItem="FZe-sj-OVn" secondAttribute="leading" id="qMQ-DW-lKH"/>
                                     <constraint firstItem="atV-jq-ePB" firstAttribute="top" secondItem="FZe-sj-OVn" secondAttribute="top" id="yFW-IW-qON"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1794,8 +1908,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="RFPSummary" destination="22M-Vi-Xci" id="inU-E9-CX3"/>
-                        <outlet property="RFPTitle" destination="atV-jq-ePB" id="Byh-Zp-uWc"/>
+                        <outlet property="addPictureButton" destination="OvD-yY-3Pg" id="MAV-gu-8AM"/>
+                        <outlet property="announcementPhotoURL" destination="pJu-TI-ysq" id="WaV-pJ-o2K"/>
+                        <outlet property="announcementText" destination="22M-Vi-Xci" id="Aoi-Y4-nAF"/>
+                        <outlet property="announcementTitle" destination="atV-jq-ePB" id="Ssn-Bj-pmX"/>
                         <segue destination="XD1-AS-3ts" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="Kej-57-1XZ"/>
                     </connections>
                 </viewController>
@@ -2059,13 +2175,13 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Be-XK-7cy"/>
-        <segue reference="PUd-Ut-ITJ"/>
+        <segue reference="hwJ-nH-bdX"/>
+        <segue reference="Xsg-t7-MCv"/>
+        <segue reference="bxv-as-pE6"/>
         <segue reference="W7J-mn-B1x"/>
-        <segue reference="7v3-CP-g3l"/>
-        <segue reference="BXu-AB-Ev4"/>
-        <segue reference="bae-Df-lTy"/>
-        <segue reference="Tf5-bR-FsD"/>
         <segue reference="oEZ-3m-7p0"/>
+        <segue reference="SCD-dM-0e9"/>
+        <segue reference="OdC-w7-WXY"/>
+        <segue reference="cWJ-fM-BVu"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,9 @@ class AnnouncementPostController : PosterController {
     @IBOutlet weak var announcementText: UITextView!
     @IBOutlet weak var announcementPhotoURL: UITextField!
     
+    var infoTitle = "announcementTitle"
+    var infoText = "announcementText"
+    
     var selectedImage : UIImage?
     
     override func viewDidLoad() {
@@ -25,8 +28,8 @@ class AnnouncementPostController : PosterController {
     
     override func prepareToUpdateWithCardContent() {
         announcementPhotoURL.text = card.info["userPhotoURL"] as? String
-        announcementTitle.text = card.info["announcementTitle"] as? String
-        announcementText.text = card.info["announcementText"] as? String
+        announcementTitle.text = card.info[infoTitle] as? String
+        announcementText.text = card.info[infoText] as? String
         
         if card.hasAttachments() {
             
@@ -47,8 +50,8 @@ class AnnouncementPostController : PosterController {
             card.info["userPhotoURL"] = userPhotoURLString
         }
         
-        card.info["announcementTitle"] = announcementTitle.text
-        card.info["announcementText"] = announcementText.text
+        card.info[infoTitle] = announcementTitle.text
+        card.info[infoText] = announcementText.text
 
         
         if let image = selectedImage {
@@ -73,4 +76,34 @@ class AnnouncementPostController : PosterController {
         selectedImage = image
         addPictureButton.setTitle("Change picture", forState: .Normal)
     }
+}
+
+class IdeaPostController : AnnouncementPostController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.infoTitle = "ideaTitle"
+        self.infoText = "ideaPreview"
+    }
+    
+}
+
+class QuestionPostController : AnnouncementPostController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.infoTitle = "questionTitle"
+        self.infoText = "questionPreview"
+    }
+    
+}
+
+class RFPPostController : AnnouncementPostController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.infoTitle = "RFPTitle"
+        self.infoText = "RFPPreview"
+    }
+    
 }

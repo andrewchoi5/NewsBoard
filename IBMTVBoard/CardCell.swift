@@ -83,13 +83,15 @@ class AnnouncementCardCell : CardCell {
     @IBOutlet weak var announcementPhoto: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var announcementText: UILabel!
+    var infoTitle = "announcementTitle"
+    var infoText = "announcementText"
     
     private var hasPhoto : Bool = false
     
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
     
-        if let title = card.info["announcementTitle"] as? String {
+        if let title = card.info[infoTitle] as? String {
             titleLabel.text = title
             
         } else {
@@ -97,7 +99,7 @@ class AnnouncementCardCell : CardCell {
             
         }
         
-        announcementText.text =  card.info["announcementText"] as? String
+        announcementText.text =  card.info[infoText] as? String
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 7
@@ -243,71 +245,32 @@ class VideoCardCell : CardCell {
     
 }
 
-class IdeaCardCell : ArticleCardCell {
+class IdeaCardCell : AnnouncementCardCell {
     
     override func applyCardContent(card: Card) {
+        self.infoTitle = "ideaTitle"
+        self.infoText = "ideaPreview"
         super.applyCardContent(card)
-        
-        titleLabel.text = card.info["ideaTitle"] as? String
-        articleMessageBody.text = card.info["ideaPreview"] as? String
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 7
-        
-        let attrString = NSMutableAttributedString(string: articleMessageBody.text!)
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
-        
-        articleMessageBody.attributedText = attrString
-        articleMessageBody.lineBreakMode = .ByTruncatingTail
-        
-        detailLabel.text = "More details..."
-        
     }
     
 }
 
-class QuestionCardCell : ArticleCardCell {
+class QuestionCardCell : AnnouncementCardCell {
     
     override func applyCardContent(card: Card) {
+        self.infoTitle = "questionTitle"
+        self.infoText = "questionPreview"
         super.applyCardContent(card)
-        
-        titleLabel.text = card.info["questionTitle"] as? String
-        articleMessageBody.text = card.info["questionPreview"] as? String
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 7
-        
-        let attrString = NSMutableAttributedString(string: articleMessageBody.text!)
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
-        
-        articleMessageBody.attributedText = attrString
-        articleMessageBody.lineBreakMode = .ByTruncatingTail
-        
-        detailLabel.text = "More details..."
-        
     }
     
 }
 
-class RFPCardCell : ArticleCardCell {
+class RFPCardCell : AnnouncementCardCell {
     
     override func applyCardContent(card: Card) {
+        self.infoTitle = "RFPTitle"
+        self.infoText = "RFPPreview"
         super.applyCardContent(card)
-        
-        titleLabel.text = card.info["RFPTitle"] as? String
-        articleMessageBody.text = card.info["RFPPreview"] as? String
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 7
-        
-        let attrString = NSMutableAttributedString(string: articleMessageBody.text!)
-        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
-        
-        articleMessageBody.attributedText = attrString
-        articleMessageBody.lineBreakMode = .ByTruncatingTail
-        
-        detailLabel.text = ""
-        
     }
     
 }
