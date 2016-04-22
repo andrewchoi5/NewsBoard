@@ -105,7 +105,7 @@ class SpaceSelectorController : DefaultViewController {
     
     func reloadCards() {
         self.beginReloading()
-        ServerInterface.getCards(onDates: Array(datesToSearch)) { (cards) in
+        ServerInterface.getCards(onDates: [ calendarDate.underlyingDate() ]) { (cards) in
             self.cardList = cards
             self.reloadData()
             self.finishedReloading()
@@ -301,14 +301,14 @@ class CardEditingGesture : UITapGestureRecognizer {
 extension SpaceSelectorController : PostDateSelector {
     func didAddPostingDate(date: NSDate) {
         postingDates.insert(BoardDate(withDate: date))
-        datesToSearch.insert(date)
-        self.reloadCards()
+//        datesToSearch.insert(date)
+//        self.reloadCards()
     }
     
     func didRemovePostingDate(date: NSDate) {
         postingDates.remove(BoardDate(withDate: date))
-        datesToSearch.remove(date)
-        self.reloadCards()
+//        datesToSearch.remove(date)
+//        self.reloadCards()
     }
     
     func hasPostingDate(date: NSDate) -> Bool {
