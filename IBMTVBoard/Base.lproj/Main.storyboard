@@ -746,13 +746,14 @@
                                             <constraint firstItem="eWO-Jf-0Az" firstAttribute="top" secondItem="28a-SS-yLU" secondAttribute="topMargin" id="ufq-bK-mJO"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="articleMessageBody" destination="0WM-bN-tks" id="Pc5-jW-cFT"/>
-                                            <outlet property="cardBackgroundView" destination="eWO-Jf-0Az" id="Tu8-5C-3FE"/>
-                                            <outlet property="cardGradientBorderView" destination="NWp-8e-9as" id="NUa-xc-5ES"/>
-                                            <outlet property="cardTypeLabel" destination="Y9e-Oj-s24" id="z8v-NE-pSc"/>
-                                            <outlet property="detailLabel" destination="T4n-dO-RcT" id="k4Z-QU-H7S"/>
-                                            <outlet property="titleLabel" destination="P8g-m6-fgR" id="hSs-DQ-SER"/>
-                                            <outlet property="userPhoto" destination="tWP-eh-r3z" id="jTg-Zb-AIe"/>
+                                            <outlet property="announcementPhoto" destination="022-WC-dt9" id="1Qb-Vu-XKn"/>
+                                            <outlet property="announcementText" destination="0WM-bN-tks" id="FuX-dr-H7b"/>
+                                            <outlet property="cardBackgroundView" destination="eWO-Jf-0Az" id="Dew-zn-FDf"/>
+                                            <outlet property="cardGradientBorderView" destination="NWp-8e-9as" id="8UP-Pk-Zmm"/>
+                                            <outlet property="cardTypeLabel" destination="Y9e-Oj-s24" id="7Oj-ve-w3C"/>
+                                            <outlet property="progressBar" destination="ah5-Zr-Zhm" id="wui-Ng-rjb"/>
+                                            <outlet property="titleLabel" destination="P8g-m6-fgR" id="0ZP-pe-gBw"/>
+                                            <outlet property="userPhoto" destination="tWP-eh-r3z" id="8kG-zc-7Gg"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="rfpCardCell" id="ojz-ix-5e0" customClass="RFPCardCell" customModule="IBMTVBoard" customModuleProvider="target">
@@ -903,13 +904,14 @@
                                             <constraint firstItem="f6p-84-raW" firstAttribute="leading" secondItem="ojz-ix-5e0" secondAttribute="leadingMargin" constant="-5" id="uul-Dx-oir"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="articleMessageBody" destination="MZp-5d-VSu" id="OKo-Fp-tGu"/>
-                                            <outlet property="cardBackgroundView" destination="Bwt-lu-Ok4" id="CHW-Fm-0j3"/>
-                                            <outlet property="cardGradientBorderView" destination="f6p-84-raW" id="KxM-lF-JhN"/>
-                                            <outlet property="cardTypeLabel" destination="gF2-X2-q4j" id="R05-Fl-znr"/>
-                                            <outlet property="detailLabel" destination="Vzf-11-Pae" id="hab-rr-WTn"/>
-                                            <outlet property="titleLabel" destination="W1N-b6-S4G" id="r0W-8s-v4s"/>
-                                            <outlet property="userPhoto" destination="bfK-mD-mUL" id="Luc-DH-frK"/>
+                                            <outlet property="announcementPhoto" destination="0bB-hv-fsH" id="MPn-V1-evG"/>
+                                            <outlet property="announcementText" destination="MZp-5d-VSu" id="k3n-Ec-miu"/>
+                                            <outlet property="cardBackgroundView" destination="Bwt-lu-Ok4" id="rWV-mK-Cjo"/>
+                                            <outlet property="cardGradientBorderView" destination="f6p-84-raW" id="7Kz-fb-dMf"/>
+                                            <outlet property="cardTypeLabel" destination="gF2-X2-q4j" id="PtE-3e-j7E"/>
+                                            <outlet property="progressBar" destination="pzI-Dg-hAU" id="5oY-9h-PX0"/>
+                                            <outlet property="titleLabel" destination="W1N-b6-S4G" id="b0I-jR-MGJ"/>
+                                            <outlet property="userPhoto" destination="bfK-mD-mUL" id="cPu-qa-vxY"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="questionCardCell" id="Sm6-OI-JE3" userLabel="questionCardCell" customClass="QuestionCardCell" customModule="IBMTVBoard" customModuleProvider="target">
@@ -1068,13 +1070,14 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="68d-nL-gQ6" secondAttribute="bottom" constant="80" id="zz3-dP-AkH"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="articleMessageBody" destination="68d-nL-gQ6" id="R8z-pi-ifv"/>
-                                            <outlet property="cardBackgroundView" destination="UUU-Ul-zkL" id="Dyq-YB-PoE"/>
-                                            <outlet property="cardGradientBorderView" destination="wze-C4-xfH" id="Ckw-9P-xWm"/>
-                                            <outlet property="cardTypeLabel" destination="Sd0-v3-fuX" id="8Lq-20-Ysi"/>
-                                            <outlet property="detailLabel" destination="bcJ-Jh-bdq" id="lET-fA-3Ca"/>
-                                            <outlet property="titleLabel" destination="ubt-Po-JmV" id="spv-8u-uT0"/>
-                                            <outlet property="userPhoto" destination="7cg-Yb-j0j" id="sFJ-wk-p7z"/>
+                                            <outlet property="announcementPhoto" destination="PXc-2y-sul" id="aiy-E2-6UL"/>
+                                            <outlet property="announcementText" destination="68d-nL-gQ6" id="YZ0-bJ-Ma8"/>
+                                            <outlet property="cardBackgroundView" destination="UUU-Ul-zkL" id="8Lk-zT-tNE"/>
+                                            <outlet property="cardGradientBorderView" destination="wze-C4-xfH" id="5sf-aB-qkH"/>
+                                            <outlet property="cardTypeLabel" destination="Sd0-v3-fuX" id="yly-wJ-fdn"/>
+                                            <outlet property="progressBar" destination="Ee8-Ca-ShK" id="Sk0-Sm-jEZ"/>
+                                            <outlet property="titleLabel" destination="ubt-Po-JmV" id="ViI-xu-5p1"/>
+                                            <outlet property="userPhoto" destination="7cg-Yb-j0j" id="bEP-Gb-UfS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
