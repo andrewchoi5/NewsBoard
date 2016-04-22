@@ -247,6 +247,32 @@ extension ServerInterface {
             handler()
         
         }).resume()
+        
+        ServerInterface.deleteAttachments(ofDocument: document, inDatabase: dbName, completion: nil)
+    }
+    
+    static func deleteAttachments(ofDocument document: Document, inDatabase dbName: String, completion: DefaultCompletionBlock) {
+        for attachment in document.attachments {
+            ServerInterface.deleteAttachment(withName: attachment.0, andDocument: document, inDatabase: dbName, completion: completion)
+            
+        }
+        
+    }
+    
+    static func deleteAttachment(withName name: String, andDocument document: Document, inDatabase dbName: String, completion: DefaultCompletionBlock) {
+        let urlString = "\(serverURL)/\(dbName)/\(document.id)/\(name)/?rev=\(document.revision)"
+        
+        ServerInterface.currentSession.dataTaskWithRequest(deleteJSONRequestWithURLString(urlString), completionHandler: { (data, response, error) in
+            guard let responseData = data else { return }
+            guard let handler = completion else { return }
+            guard let metaData = ServerResponseDeserializer.getResponse(responseData).documentMetaData else {
+                handler()
+                return
+            }
+            document.updateWithDocumentMetaData(metaData)
+            handler()
+            
+        }).resume()
     }
 }
 
@@ -255,9 +281,19 @@ extension ServerInterface {
         ServerInterface.addDocument(card, toDatabase: "ibmboard", completion: completion)
         
     }
-    
+
     static func deleteCard(card: Card, completion: DefaultCompletionBlock) {
         ServerInterface.deleteDocument(card, inDatabase: "ibmboard", completion: completion)
+        
+    }
+    
+    static func deleteAttachments(ofCard card: Card, completion: DefaultCompletionBlock) {
+        ServerInterface.deleteAttachments(ofDocument: card, inDatabase: "ibmboard", completion: completion)
+        
+    }
+    
+    static func updateCard(card: Card, completion: DefaultCompletionBlock) {
+        ServerInterface.updateDocument(card, inDatabase: "ibmboard", completion: completion)
         
     }
     
@@ -295,7 +331,6 @@ extension ServerInterface {
     }
     
 }
-
 
 extension ServerInterface {
     

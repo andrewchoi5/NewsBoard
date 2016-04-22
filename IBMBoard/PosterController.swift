@@ -20,16 +20,21 @@ class PosterController : KeyboardPresenter {
     private var activityIndicator : UIActivityIndicatorView!
     private var progressBar : UIProgressView!
     private var loadingScreen : UIView!
-    var postButton : UIBarButtonItem!
+    private var postButton : UIBarButtonItem!
     private var cancelButton : UIBarButtonItem!
+    private var cancelCurrentUpload = false
     
     var usesProgressBar : Bool = false
-    var selectedCardSpace : Card = Card()
+    var card : Card = Card()
+    var updatingMode = false
 
-    private var cancelCurrentUpload = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if updatingMode {
+            prepareToUpdateWithCardContent()
+        }
         
         self.lockToPortrait()
         
@@ -51,7 +56,13 @@ class PosterController : KeyboardPresenter {
     @objc private func didPushCancel() {
         self.endLoading()
         cancelCurrentUpload = true
-        ServerInterface.deleteCard(selectedCardSpace, completion: nil)
+        if !updatingMode {
+            ServerInterface.deleteCard(card, completion: nil)
+        }
+        
+    }
+    
+    func prepareToUpdateWithCardContent() {
         
     }
     
@@ -90,8 +101,8 @@ class PosterController : KeyboardPresenter {
     
     private func defaultPostButton() -> UIBarButtonItem {
         let postButton = UIBarButtonItem()
-        postButton.title = "Post"
-        postButton.enabled = false
+        postButton.title = updatingMode ? "Update" : "Post"
+        postButton.enabled = isReadyForPosting()
         postButton.action = #selector(PosterController.didPushPostButton(_:))
         postButton.target = self
         
@@ -113,8 +124,53 @@ class PosterController : KeyboardPresenter {
         return postButton
     }
     
+    private func defaultPhotoOptionActionSheet() -> UIAlertController {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Take Picture"
+            , style: .Default, handler: { (action) in
+                
+                self.presentCameraImageController()
+                
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Choose from Album", style: .Default, handler: { (action) in
+            
+                self.presentPhotoAlbumController()
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) in
+            
+            actionSheet.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
+        return actionSheet
+    }
+    
+    func presentImageSelectionOptions() {
+        self.presentViewController(defaultPhotoOptionActionSheet(), animated: true, completion: nil)
+    }
+    
+    private func presentPhotoAlbumController() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .SavedPhotosAlbum
+        vc.delegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    private func presentCameraImageController() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .Camera
+        vc.delegate = self
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+    
     private func registerForNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:         #selector(PosterController.textFieldDidChange(_:)), name: UITextFieldTextDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PosterController.didReceiveTextFieldChangedNotification(_:)), name: UITextFieldTextDidChangeNotification, object: nil)
 
     }
     
@@ -143,7 +199,7 @@ class PosterController : KeyboardPresenter {
         self.view.userInteractionEnabled = true
         loadingScreen.hidden = true
         
-        postButton.enabled = true
+        postButton.enabled = isReadyForPosting()
         self.navigationItem.hidesBackButton = false
         self.navigationItem.leftBarButtonItem = nil
         
@@ -158,14 +214,43 @@ class PosterController : KeyboardPresenter {
         }
     }
     
-    func startedCreatingPost() {
+    func startLoadingState() {
         self.startLoading()
         
     }
     
-    func finishedCreatingPost() {
+    func endLoadingState() {
         self.endLoading()
         self.performSegueWithIdentifier("backToSpaceSelectorSegue", sender: self)
+        
+    }
+    
+    func finish() {
+        if updatingMode {
+            self.updateCard(card)
+            
+        } else {
+            self.addCard(card)
+            
+        }
+        
+    }
+    
+    private func updateCard(card : Card) {
+        self.startLoadingState()
+        ServerInterface.updateCard(card) {
+            self.endLoadingState()
+            
+        }
+        
+    }
+    
+    private func addCard(card : Card) {
+        self.startLoadingState()
+        ServerInterface.addCard(card) {
+            self.endLoadingState()
+            
+        }
         
     }
     
@@ -201,10 +286,22 @@ extension PosterController : PosterControllerDelegate {
 
 extension PosterController : UITextFieldDelegate, UITextViewDelegate {
     
-    // NOTE: This method is not provided by default by UITextFieldDelegate,
-    // an instance of this class is configured to register itself for notifications to
-    // use it
-    func textFieldDidChange(textField: UITextField) {
+    func didReceiveTextFieldChangedNotification(notification: NSNotification) {
+        textFieldDidChange(notification.object as! UITextField)
+        
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        postButton.enabled = isReadyForPosting()
+        
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        postButton.enabled = isReadyForPosting()
+        
+    }
+    
+    func textFieldDidChange(textField : UITextField) {
         postButton.enabled = isReadyForPosting()
 
     }
@@ -229,6 +326,25 @@ extension PosterController : NSURLSessionTaskDelegate {
         }
         
         self.progressBar.setProgress(Float(totalBytesSent) / Float(totalBytesExpectedToSend), animated: true)
+    }
+    
+}
+
+extension PosterController : UINavigationControllerDelegate { }
+
+extension PosterController : UIImagePickerControllerDelegate {
+    
+    func didChooseNewImage(image : UIImage) {
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        didChooseNewImage(info[ UIImagePickerControllerOriginalImage ] as! UIImage)
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

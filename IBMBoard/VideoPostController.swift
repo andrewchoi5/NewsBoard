@@ -20,7 +20,9 @@ class VideoPostController : PosterController {
         
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {        
+    override func textFieldDidEndEditing(textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
+        
         if(textField == videoLink) {
             loadPreview()
             
@@ -28,29 +30,41 @@ class VideoPostController : PosterController {
         
     }
     
+    override func prepareToUpdateWithCardContent() {
+        videoLink.text = card.info["videoURL"] as? String
+        videoTitle.text = card.info["videoTitle"] as? String
+        videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(videoLink.text!), placeholderImage: UIImage())
+        
+    }
+    
     override func isReadyForPosting() -> Bool {
-        return videoLink.text! != "" && videoTitle.text != "" && videoPreview.image != nil
+        return (videoLink.text! != "" && videoTitle.text != "")
+        
     }
     
     override func didPushPostButton(sender: UIBarButtonItem) {
         
-        selectedCardSpace.videoURL = NSURL(string: videoLink.text!)
-        selectedCardSpace.videoTitle = videoTitle.text
+        card.videoURL = NSURL(string: videoLink.text!)
+        card.videoTitle = videoTitle.text
         
-        self.startedCreatingPost()
-        ServerInterface.addCard(selectedCardSpace) {
-            self.finishedCreatingPost()
-            
-        }
+        self.finish()
     }
     
     func loadPreview() {
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(videoLink.text!), placeholderImage: UIImage())
-        videoTitle.text = APIManager.getArbitraryVideoTitle(videoLink.text!, maxLength: 1000)
-        if videoTitle.text == "" {
-            Dialog.showError("Invalid video URL", viewController: self)
+        
+        APIManager.getArbitraryVideoTitle(videoLink.text!, maxLength: 1000) { (title) in
+            self.videoTitle.delegate!.textFieldDidBeginEditing!(self.videoTitle)
+            self.videoTitle.text = title
+            self.videoTitle.delegate!.textFieldDidEndEditing!(self.videoTitle)
+            
         }
-        postButton.enabled = isReadyForPosting()
+        
+        if videoLink.text == "" {
+            Dialog.showError("Invalid video URL", viewController: self)
+            
+        }
+        
     }
 
 }

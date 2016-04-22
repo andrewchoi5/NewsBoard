@@ -236,7 +236,7 @@ class Document {
     func attachPNGImage(withName name: String, andImage image: UIImage) {
         guard let reorientedImage = image.orientedCorrectly() else { return }
         guard let data = UIImagePNGRepresentation(reorientedImage) else { return }
-        self.addAttachment(withMIMEType: "image/png", andData: data)
+        self.setAttachment(withName: name, andMIMEType: "image/png", andData: data)
         
     }
     
@@ -283,6 +283,7 @@ extension Document : Equatable { }
 
 func ==(lhs: Document, rhs: Document) -> Bool {
     return lhs.id == rhs.id
+    
 }
 
 struct Space {
@@ -409,6 +410,24 @@ class Card : Document {
     
     func isOlderCardThan(card: Card) -> Bool {
         return self.isOlderRevisionThan(card)
+    }
+    
+    func attachImage(image: UIImage, completion : ServerInterface.DefaultCompletionBlock) {
+        guard let handler = completion else { return }
+        if hasAttachments() {
+            ServerInterface.deleteAttachments(ofCard: self) {
+                self.attachments.removeAll()
+                self.attachPNGImage(withName: "\(NSDate().timeIntervalSince1970)", andImage: image)
+                handler()
+                
+            }
+            
+        } else {
+            self.attachPNGImage(image)
+            handler()
+            
+        }
+        
     }
     
     override init() {

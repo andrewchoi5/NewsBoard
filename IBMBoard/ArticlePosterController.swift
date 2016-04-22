@@ -20,11 +20,20 @@ class ArticlePosterController : PosterController {
         
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    override func textFieldDidEndEditing(textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
+        
         if(textField == articleLink) {
             loadPreview()
         }
         
+    }
+    
+    override func prepareToUpdateWithCardContent() {
+        articleLink.text = card.info["articleURL"] as? String
+        articleTitle.text = card.info["articleTitle"] as? String
+        articlePreviewBody.text = card.info["articlePreviewText"] as? String
+
     }
     
     override func isReadyForPosting() -> Bool {
@@ -38,15 +47,11 @@ class ArticlePosterController : PosterController {
     }
     
     override func didPushPostButton(button : UIBarButtonItem) {
-        selectedCardSpace.info["articleURL"] = articleLink.text!
-        selectedCardSpace.info["articleTitle"] = articleTitle.text!
-        selectedCardSpace.info["articlePreviewText"] = articlePreviewBody.text
+        card.info["articleURL"] = articleLink.text!
+        card.info["articleTitle"] = articleTitle.text!
+        card.info["articlePreviewText"] = articlePreviewBody.text
         
-        self.startedCreatingPost()
-        ServerInterface.addCard(selectedCardSpace) {
-            self.finishedCreatingPost()
-            
-        }
+        self.finish()
         
     }
 
@@ -62,16 +67,18 @@ class IdeaPostController : PosterController {
         
     }
     
+    override func prepareToUpdateWithCardContent() {
+        ideaTitle.text = card.info["ideaTitle"] as? String
+        ideaSummary.text = card.info["ideaPreview"] as? String
+        
+    }
+    
     override func didPushPostButton(button: UIBarButtonItem) {
         
-        selectedCardSpace.info["ideaTitle"] = ideaTitle.text!
-        selectedCardSpace.info["ideaPreview"] = ideaSummary.text!
+        card.info["ideaTitle"] = ideaTitle.text!
+        card.info["ideaPreview"] = ideaSummary.text!
         
-        self.startedCreatingPost()
-        ServerInterface.addCard(selectedCardSpace) {
-            self.finishedCreatingPost()
-            
-        }
+        self.finish()
         
     }
     
@@ -91,15 +98,19 @@ class QuestionPostController : PosterController {
         
     }
     
-    override func didPushPostButton(button: UIBarButtonItem) {
-        selectedCardSpace.info["questionTitle"] = questionTitle.text!
-        selectedCardSpace.info["questionPreview"] = questionSummary.text!
+    override func prepareToUpdateWithCardContent() {
+        questionTitle.text = card.info["questionTitle"] as? String
+        questionSummary.text = card.info["questionPreview"] as? String
         
-        self.startedCreatingPost()
-        ServerInterface.addCard(selectedCardSpace) {
-            self.finishedCreatingPost()
-        }
     }
+    
+    override func didPushPostButton(button: UIBarButtonItem) {
+        card.info["questionTitle"] = questionTitle.text!
+        card.info["questionPreview"] = questionSummary.text!
+        
+        self.finish()
+    }
+
     
     override func isReadyForPosting() -> Bool {
         return questionTitle.text! != "" && questionSummary.text != ""
@@ -117,19 +128,22 @@ class RFPPostController : PosterController {
         
     }
     
+    override func prepareToUpdateWithCardContent() {
+        RFPTitle.text = card.info["RFPTitle"] as? String
+        RFPSummary.text = card.info["RFPPreview"] as? String
+        
+    }
+    
     override func didPushPostButton(button: UIBarButtonItem) {
         
-        selectedCardSpace.info["RFPTitle"] = RFPTitle.text!
-        selectedCardSpace.info["RFPPreview"] = RFPSummary.text!
+        card.info["RFPTitle"] = RFPTitle.text!
+        card.info["RFPPreview"] = RFPSummary.text!
         
-        self.startedCreatingPost()
-        ServerInterface.addCard(selectedCardSpace) {
-            self.finishedCreatingPost()
-            
-        }
+        self.finish()
     }
     
     override func isReadyForPosting() -> Bool {
         return RFPTitle.text! != "" && RFPSummary.text != ""
+        
     }
 }

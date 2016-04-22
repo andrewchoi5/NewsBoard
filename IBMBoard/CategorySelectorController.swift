@@ -40,7 +40,7 @@ class CategorySelectorController : DefaultViewController {
     var videoSegueIdentifier         = "videoSegue"
     var guestSegueIdentifier         = placeholderSegueIdentifier
     
-    var selectedCardSpace : Card!
+    var card : Card!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class CategorySelectorController : DefaultViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! PosterController
-        vc.selectedCardSpace = selectedCardSpace
+        vc.card = card
     }
 }
 
@@ -123,16 +123,16 @@ extension CategorySelectorController : UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var segueIdentifier = ""
         switch indexPath.row {
-            case 0: segueIdentifier = newsSegueIdentifier;          selectedCardSpace.type = .NewsArticle
-            case 1: segueIdentifier = announcementSegueIdentifier;  selectedCardSpace.type = .Announcement
-            case 2: segueIdentifier = ideaSegueIdentifier;          selectedCardSpace.type = .Idea
-            case 3: segueIdentifier = questionSegueIdentifier;      selectedCardSpace.type = .Question
-            case 4: segueIdentifier = rfpSegueIdentifier;           selectedCardSpace.type = .RFP
-            case 5: segueIdentifier = videoSegueIdentifier;         selectedCardSpace.type = .Video
-            case 6: segueIdentifier = pollingSegueIdentifier;       selectedCardSpace.type = .Polling
-            case 7: segueIdentifier = guestSegueIdentifier;         selectedCardSpace.type = .Guest
+            case 0: segueIdentifier = newsSegueIdentifier;          card.type = .NewsArticle
+            case 1: segueIdentifier = announcementSegueIdentifier;  card.type = .Announcement
+            case 2: segueIdentifier = ideaSegueIdentifier;          card.type = .Idea
+            case 3: segueIdentifier = questionSegueIdentifier;      card.type = .Question
+            case 4: segueIdentifier = rfpSegueIdentifier;           card.type = .RFP
+            case 5: segueIdentifier = videoSegueIdentifier;         card.type = .Video
+            case 6: segueIdentifier = pollingSegueIdentifier;       card.type = .Polling
+            case 7: segueIdentifier = guestSegueIdentifier;         card.type = .Guest
                 
-            default: segueIdentifier = placeholderSegueIdentifier;   selectedCardSpace.type = .Default
+            default: segueIdentifier = placeholderSegueIdentifier;   card.type = .Default
         }
         
         self.performSegueWithIdentifier(segueIdentifier, sender: self)

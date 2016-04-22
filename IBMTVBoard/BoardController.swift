@@ -16,13 +16,13 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     let cellsPerRow = 7
     let cellsPerColumn = 4
     
-    let DefaultCardCellIdentifier = "defaultCardCell"
-    let AnnouncementCardCellIdentifier = "announcementCardCell"
-    let IdeaCardCellIdentifier = "ideaCardCell"
-    let QuestionCardCellIdentifier = "questionCardCell"
-    let RFPCardCellIdentifier = "rfpCardCell"
-    let ArticleCardCellIdentifier = "articleCardCell"
-    let VideoCardCellIdentifier = "videoCardCell"
+    let DefaultCardCellIdentifier           = "defaultCardCell"
+    let AnnouncementCardCellIdentifier      = "announcementCardCell"
+    let IdeaCardCellIdentifier              = "ideaCardCell"
+    let QuestionCardCellIdentifier          = "questionCardCell"
+    let RFPCardCellIdentifier               = "rfpCardCell"
+    let ArticleCardCellIdentifier           = "articleCardCell"
+    let VideoCardCellIdentifier             = "videoCardCell"
     var timer : NSTimer!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -39,74 +39,81 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
         self.reload()
         
-//        let id = "ruwxZfiC9dI"
-//        let URL = NSURL(string: "http://www.youtube.com/v/\(id)")!
-//        if UIApplication.sharedApplication().canOpenURL(URL) {
-//            UIApplication.sharedApplication().openURL(URL)
-//        }
-        
-        self.navigationItem
-        
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
     }
     
-    func reload() {
+    func beginNoNetworkState() {
+        errorLabel.hidden = false
+        collectionView.hidden = true
         
-        
-        if (ServerInterface.isConnectedToNetwork()) {
-            errorLabel.hidden = true;
-            collectionView.hidden = false;
-            ServerInterface.getCardsForToday({ (cards) in
-            
-                let oldDeck = Set<Card>(self.cardList)
-                let newDeck = Set<Card>(cards)
-            
-                let deletedCards = oldDeck.subtract(newDeck)
-                let addedCards = newDeck.subtract(oldDeck)
-                var leftOverCards = newDeck.intersect(oldDeck)
-            
-                for card in addedCards {
-                    self.cardList.append(card)
-                    let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
-                    self.collectionView.insertItemsAtIndexPaths([ indexPath ])
-                
-                }
-            
-                for index in 0..<self.cardList.count {
-                    let oldCard = self.cardList[ index ]
-                    if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
-                        let indexPath = NSIndexPath(forRow: index, inSection:0)
-                        self.cardList[ index ] = card
-                        self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
-                    }
-                }
-
-                var deleted = 0
-                for index in 0..<self.cardList.count {
-                    let realIndex = index - deleted
-                    let oldCard = self.cardList[ realIndex ]
-                    if deletedCards.contains(oldCard) {
-                        let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
-                        self.cardList.removeAtIndex(realIndex)
-                        self.collectionView.deleteItemsAtIndexPaths([indexPath])
-                        deleted += 1
-                    }
-                }
-            
-                self.firstLoadCompletionRoutine()
-            })
-        } else {
-            firstLoadCompletionRoutine()
-            errorLabel.hidden = false;
-            collectionView.hidden = true;
-        }
     }
     
-    func firstLoadCompletionRoutine() {
+    func endNoNetworkState() {
+        errorLabel.hidden = true
+        collectionView.hidden = false
         
+    }
+    
+    func beginLoadingState() {
+        loadingView.alpha = 0.25
+        activityIndicator.startAnimating()
+    }
+    
+    func endLoadingState() {
         loadingView.alpha = 0.0
         activityIndicator.stopAnimating()
         
+    }
+    
+    func reload() {
+        if !ServerInterface.isConnectedToNetwork() {
+            self.endLoadingState()
+            self.beginNoNetworkState()
+            return
+            
+        }
+        
+        self.endNoNetworkState()
+        
+        ServerInterface.getCardsForToday({ (cards) in
+        
+            let oldDeck = Set<Card>(self.cardList)
+            let newDeck = Set<Card>(cards)
+        
+            let deletedCards = oldDeck.subtract(newDeck)
+            let addedCards = newDeck.subtract(oldDeck)
+            var leftOverCards = newDeck.intersect(oldDeck)
+        
+            for card in addedCards {
+                self.cardList.append(card)
+                let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
+                self.collectionView.insertItemsAtIndexPaths([ indexPath ])
+            
+            }
+        
+            for index in 0..<self.cardList.count {
+                let oldCard = self.cardList[ index ]
+                if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
+                    let indexPath = NSIndexPath(forRow: index, inSection:0)
+                    self.cardList[ index ] = card
+                    self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
+                }
+            }
+
+            var deleted = 0
+            for index in 0..<self.cardList.count {
+                let realIndex = index - deleted
+                let oldCard = self.cardList[ realIndex ]
+                if deletedCards.contains(oldCard) {
+                    let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
+                    self.cardList.removeAtIndex(realIndex)
+                    self.collectionView.deleteItemsAtIndexPaths([indexPath])
+                    deleted += 1
+                }
+            }
+        
+            self.endLoadingState()
+        })
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

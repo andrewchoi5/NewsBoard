@@ -8,6 +8,27 @@
 
 import Foundation
 
+extension ServerInterface {
+    
+    static func scrapeHTMLString(fromURL url: String, completion: (String) -> Void) {
+        if url == "" {
+            return
+            
+        }
+        
+        let request = ServerInterface.requestWithURLString(url)
+        request.HTTPMethod = "GET"
+        
+        ServerInterface.currentSession.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+            guard let responseData = data else { return }
+            guard let responseString = String(data: responseData, encoding: NSUTF8StringEncoding) else { return }
+            completion(responseString)
+            
+        }).resume()
+        
+    }
+    
+}
 
 public class APIManager {
     
@@ -25,20 +46,16 @@ public class APIManager {
                                                     "source"
     ]
     
-    public static func getArbitraryVideoTitle(videoURLString: String, maxLength: UInt) -> String {
-        if videoURLString == "" {
-            return ""
+    public static func getArbitraryVideoTitle(videoURLString: String, maxLength: UInt, completion: (String) -> Void) {
+        ServerInterface.scrapeHTMLString(fromURL: videoURLString) { (scrapedString) in
+            var result = scrapedString
+            result = result.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
+            
+            let parsedXML = TBXML(XMLString: result)
+            completion(APIManager.collectVideoTitle(parsedXML.rootXMLElement))
+            
         }
         
-        guard let url = NSURL(string: videoURLString) else { return "" }
-        guard let urlContentsData = NSData(contentsOfURL: url)  else { return "" }
-        guard var contentsString = String(data: urlContentsData, encoding: NSUTF8StringEncoding) else { return "" }
-        
-        contentsString = contentsString.stringByReplacingOccurrencesOfString("<html>", withString: "<html xmlns='http://www.w3.org/1999/xhtml'>")
-        
-        let parsedXML = TBXML(XMLString: contentsString)
-        
-        return APIManager.collectVideoTitle(parsedXML.rootXMLElement)
     }
     
     public static func getArbitraryTextArticleTitle() -> String {
