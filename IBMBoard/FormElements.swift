@@ -9,16 +9,6 @@
 import Foundation
 import UIKit
 
-public func defaultFontOfSize(size: Double) -> UIFont {
-    return UIFont(name:"Roboto", size: CGFloat(size))!
-    
-}
-
-public func defaultBoldFontOfSize(size: Double) -> UIFont {
-    return UIFont(name:"Roboto-bold", size: CGFloat(size))!
-    
-}
-
 @IBDesignable class Switch : UISwitch {
 
     var oldThumbTintColor : UIColor?
@@ -270,7 +260,7 @@ public func defaultBoldFontOfSize(size: Double) -> UIFont {
         
         let placeholderString = NSMutableAttributedString(string: placeholderText)
 
-        placeholderString.addAttribute(NSFontAttributeName, value: defaultFontOfSize(placeholderSize), range:NSMakeRange(0, placeholderString.length))
+        placeholderString.addAttribute(NSFontAttributeName, value: UIFont.defaultFontOfSize(placeholderSize), range:NSMakeRange(0, placeholderString.length))
         placeholderString.addAttribute(NSForegroundColorAttributeName, value: placeholderColor, range: NSMakeRange(0, placeholderString.length))
         
         textField.attributedPlaceholder = placeholderString

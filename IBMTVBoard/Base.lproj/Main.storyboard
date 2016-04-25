@@ -13,6 +13,9 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
         </mutableArray>
+        <mutableArray key="Roboto-Black.ttf">
+            <string>Roboto-Black</string>
+        </mutableArray>
         <mutableArray key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
             <string>Roboto-Medium</string>
@@ -57,14 +60,13 @@
                                     <constraint firstItem="RJK-CP-3Lq" firstAttribute="centerX" secondItem="usf-4d-e41" secondAttribute="centerX" id="v6y-or-mRE"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-Bg-KUV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-Bg-KUV">
                                 <rect key="frame" x="861" y="522" width="198" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="OzV-SM-d79"/>
-                                    <constraint firstAttribute="width" constant="198" id="fQG-Ax-VpN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.91764705879999997" green="0.28235294119999998" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yuC-Fs-YnA">
@@ -233,10 +235,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qP4-G0-Wtg">
-                                                            <rect key="frame" x="466" y="344" width="60" height="60"/>
+                                                            <rect key="frame" x="446" y="324" width="80" height="80"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="60" id="vWc-HQ-AFz"/>
-                                                                <constraint firstAttribute="height" constant="60" id="wOH-cL-23b"/>
+                                                                <constraint firstAttribute="width" constant="80" id="vWc-HQ-AFz"/>
+                                                                <constraint firstAttribute="height" constant="80" id="wOH-cL-23b"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PPw-Ak-Cyr">
@@ -387,10 +389,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-LY-8VM">
-                                                            <rect key="frame" x="466" y="344" width="60" height="60"/>
+                                                            <rect key="frame" x="446" y="324" width="80" height="80"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="60" id="ZYD-e7-Bst"/>
-                                                                <constraint firstAttribute="height" constant="60" id="eO2-ee-ps0"/>
+                                                                <constraint firstAttribute="width" constant="80" id="ZYD-e7-Bst"/>
+                                                                <constraint firstAttribute="height" constant="80" id="eO2-ee-ps0"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -955,7 +957,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TECHNICAL QUESTION" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sd0-v3-fuX">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUESTION" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sd0-v3-fuX">
                                                             <rect key="frame" x="75" y="8" width="440" height="70"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="70" id="wGK-gl-ymS"/>

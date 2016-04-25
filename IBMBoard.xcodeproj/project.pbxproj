@@ -54,6 +54,9 @@
 		391212EC1C9B620000C05BDB /* NSDateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF561C9A5695002B5AE8 /* NSDateExt.swift */; };
 		391212ED1C9B621000C05BDB /* NSJSONSerializationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */; };
 		391212EE1C9B621700C05BDB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF581C9A56AA002B5AE8 /* StringExt.swift */; };
+		391355261CCACFA700D801FC /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391355251CCACFA700D801FC /* UIFont.swift */; };
+		391355271CCACFA700D801FC /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391355251CCACFA700D801FC /* UIFont.swift */; };
+		391355281CCAD00700D801FC /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D7E2D61CC4163900B02FEC /* UIColorExt.swift */; };
 		391584AC1CAB96B200E37F99 /* ProgressControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391584AB1CAB96B200E37F99 /* ProgressControl.swift */; };
 		392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF11E1C762FCF00090214 /* AppDelegate.swift */; };
 		392CF1211C762FCF00090214 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1201C762FCF00090214 /* LoginViewController.swift */; };
@@ -196,6 +199,7 @@
 		2D72F0B51CC6638F00697221 /* CALayerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExt.swift; sourceTree = "<group>"; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
+		391355251CCACFA700D801FC /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		391584AB1CAB96B200E37F99 /* ProgressControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControl.swift; sourceTree = "<group>"; };
 		392CF11B1C762FCF00090214 /* IBMBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IBMBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		392CF11E1C762FCF00090214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 				39EB93AE1C7D87BD0053F73F /* UINavigationExt.swift */,
 				39D7E2D61CC4163900B02FEC /* UIColorExt.swift */,
 				2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */,
+				391355251CCACFA700D801FC /* UIFont.swift */,
 				396871B41CBD18C900D6869B /* UIViewExt.swift */,
 				3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */,
 				3964FF541C9A5680002B5AE8 /* NSDataExt.swift */,
@@ -1041,6 +1046,7 @@
 				2D7087901CC55A3600CEF4F7 /* UILabelExt.swift in Sources */,
 				396AB10D1CAF225600B91FF9 /* SignUpController.swift in Sources */,
 				39EB93EB1C7E50750053F73F /* ArticleParser.swift in Sources */,
+				391355261CCACFA700D801FC /* UIFont.swift in Sources */,
 				393CB2141CBF47F500648B5B /* JFBCrypt.m in Sources */,
 				39DDBCBC1CC47885004FED02 /* ProfilePictureController.swift in Sources */,
 				396AB1111CB31DA700B91FF9 /* AccountVerificationController.swift in Sources */,
@@ -1133,10 +1139,12 @@
 				39EB940E1C80FE240053F73F /* CardCell.swift in Sources */,
 				39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */,
 				39A8BA8D1CC4E96100307E95 /* UIImageExt.swift in Sources */,
+				391355281CCAD00700D801FC /* UIColorExt.swift in Sources */,
 				39022CEA1C895C5F00464BC1 /* UIImage+MultiFormat.m in Sources */,
 				39022CEC1C895C5F00464BC1 /* UIImageView+HighlightedWebCache.m in Sources */,
 				39C61F041C98168F002C7E12 /* CardFactory.swift in Sources */,
 				393CB23E1CBF774500648B5B /* GradientView.swift in Sources */,
+				391355271CCACFA700D801FC /* UIFont.swift in Sources */,
 				39022CE91C895C5F00464BC1 /* UIImage+GIF.m in Sources */,
 				393CB23C1CBF4E3C00648B5B /* JFBCrypt.m in Sources */,
 				2D7087911CC55AB100CEF4F7 /* UILabelExt.swift in Sources */,
@@ -1262,8 +1270,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/mailcore2/build-mac",

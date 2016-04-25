@@ -86,7 +86,7 @@ extension CategorySelectorController : UICollectionViewDataSource {
             let comingSoonLabel = UILabel()
             comingSoonLabel.backgroundColor = UIColor.backgroundDarkColor()
             comingSoonLabel.text = "Coming Soon!"
-            comingSoonLabel.font = defaultFontOfSize(16.0)
+            comingSoonLabel.font = UIFont.defaultFontOfSize(16.0)
             comingSoonLabel.textColor = UIColor.textWhite()
             comingSoonLabel.textAlignment = .Center
             comingSoonLabel.sizeToFit()

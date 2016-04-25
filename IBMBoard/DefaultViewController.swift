@@ -34,6 +34,11 @@ class DefaultViewController : UIViewController {
             UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
             
         }
+        
+        if UIDevice.currentDevice().orientation == .PortraitUpsideDown {
+            UIDevice.currentDevice().setValue(UIDeviceOrientation.Portrait.rawValue, forKey: "orientation")
+            
+        }
         print("")
 
     }

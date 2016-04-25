@@ -37,21 +37,49 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let label = UILabel()
+        label.tag = 1010101
+        label.hidden = true
+        label.textColor = UIColor.errorRed()
+        label.text = "No Posts for Today"
+        label.font = UIFont.defaultFontOfSize(30.0)
+        label.sizeToFit()
+        label.center.x = self.view.frame.width / 2
+        label.center.y = self.view.frame.height / 2
+        self.view.addSubview(label)
+        
+        self.beginLoadingState()
         self.reload()
         
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
     }
     
     func beginNoNetworkState() {
+        errorLabel.text = "No Connection"
         errorLabel.hidden = false
         collectionView.hidden = true
         
     }
     
     func endNoNetworkState() {
-        errorLabel.hidden = true
         collectionView.hidden = false
+        errorLabel.hidden = true
+    }
+    
+    func showNoCardsState() {
+        guard let noCardsLabel = self.view.viewWithTag(1010101) else { return }
+        noCardsLabel.hidden = false
+        collectionView.hidden = true
+        collectionView.userInteractionEnabled = false
+
+    }
+    
+    func hideNoCardsState() {
+        guard let noCardsLabel = self.view.viewWithTag(1010101) else { return }
+        noCardsLabel.hidden = true
         
+        collectionView.hidden = false
+        collectionView.userInteractionEnabled = true
     }
     
     func beginLoadingState() {
@@ -68,15 +96,23 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     func reload() {
         if !ServerInterface.isConnectedToNetwork() {
             self.endLoadingState()
+            self.hideNoCardsState()
             self.beginNoNetworkState()
             return
             
         }
         
         self.endNoNetworkState()
+        ServerInterface.getCardsForToday() { (cards) in
         
-        ServerInterface.getCardsForToday({ (cards) in
-        
+            if cards.count == 0 {
+                self.showNoCardsState()
+                
+            } else {
+                self.hideNoCardsState()
+                
+            }
+            
             let oldDeck = Set<Card>(self.cardList)
             let newDeck = Set<Card>(cards)
         
@@ -113,11 +149,12 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             }
         
             self.endLoadingState()
-        })
+        }
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cardList.count
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, rectForItemAtIndexPath indexPath: NSIndexPath) -> CGRect {
@@ -169,6 +206,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
