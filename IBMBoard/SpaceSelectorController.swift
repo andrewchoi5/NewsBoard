@@ -136,7 +136,27 @@ class SpaceSelectorController : DefaultViewController {
         activityIndicator.stopAnimating()
         loadingScreen.alpha = 0.0
         collectionView?.userInteractionEnabled = true
+        generateCardBoxes()
         
+    }
+    
+    
+    func generateCardBoxes () {
+        var c = 1;
+        for card in cardList {
+            let startIndex = card.space.topLeftCorner - 1
+            var height = card.space.height
+            var width = card.space.width
+            c = c + 1;
+            
+            print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
+            
+            if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as? OccupiedCellView {
+               cell.drawCellRect(false, topEmpty: false, rightEmpty: false, bottomEmpty: false)
+            }
+           
+        }
+
     }
     
     func reloadData() {
@@ -372,10 +392,29 @@ extension SpaceSelectorController : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
         cell.addGestureRecognizer(editGesture)
+        if cellType == 1 {
+            //cell.drawCellRect(false, topEmpty: false, rightEmpty: false, bottomEmpty: false)
+            print(" ITEM: \(indexPath.item) SECTION: \(indexPath.section)")
+        }
         return cell
     }
 }
 
+/*
+ func generateCardBoxes () {
+ var c = 1;
+ for card in cardList {
+ let startIndex = card.space.topLeftCorner - 1
+ var height = card.space.height
+ var width = card.space.width
+ c = c + 1;
+ 
+ print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
+ 
+ }
+ 
+ }
+ */
 
 extension SpaceSelectorController : UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

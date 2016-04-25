@@ -14,12 +14,14 @@ class OccupiedCellView : DefaultCellView {
     // cross lines
     var line : UIView!
     var line2 : UIView!
+    var rect : UIView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         line = UIView()
         line2 = UIView()
+        rect = UIView(frame: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
         
     }
     
@@ -65,7 +67,6 @@ class OccupiedCellView : DefaultCellView {
         addConstraint(NSLayoutConstraint(item: line2, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
         lengthConstraint2.constant = sqrt(pow(frame.size.width, 2) + pow(frame.size.height, 2))
         line2.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) - atan2(frame.size.height, frame.size.width))
-        
     }
     
 }
