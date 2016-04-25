@@ -232,7 +232,7 @@ class VideoCardCell : CardCell {
             }
             
             self.videoPreview.image = self.videoPreview.image?.grayScaleImage()
-            self.videoPreview.cropToFrameOfImage()
+            //self.videoPreview.cropToFrameOfImage()
             self.videoPreview.hidden = false
                 
         }

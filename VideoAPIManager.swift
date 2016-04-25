@@ -14,7 +14,7 @@ class VideoAPIManager {
     
     static let videoPreviewAPIURLs = [
         
-        "youtube":"http://img.youtube.com/vi/\(videoIDMarker)/0.jpg"
+        "youtube":"http://img.youtube.com/vi/\(videoIDMarker)/maxresdefault.jpg"
     ]
     
     static func getAPIURLStringTemplate(videoURLDomain: String) -> String {
