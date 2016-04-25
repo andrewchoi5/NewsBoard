@@ -44,6 +44,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     
     func beginNoNetworkState() {
         errorLabel.hidden = false
+        errorLabel.text = "No connection"
         collectionView.hidden = true
         
     }
@@ -51,7 +52,6 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     func endNoNetworkState() {
         errorLabel.hidden = true
         collectionView.hidden = false
-        
     }
     
     func beginLoadingState() {
@@ -65,6 +65,19 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         
     }
     
+    func beginNoCardsState() {
+        if (errorLabel.hidden == true) {
+            errorLabel.hidden = false
+            collectionView.hidden = true
+        }
+        errorLabel.text = "No posts available on this day"
+    }
+    
+    func endNoCardsState() {
+        errorLabel.hidden = true
+        collectionView.hidden = false
+    }
+    
     func reload() {
         if !ServerInterface.isConnectedToNetwork() {
             self.endLoadingState()
@@ -72,8 +85,6 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             return
             
         }
-        
-        self.endNoNetworkState()
         
         ServerInterface.getCardsForToday({ (cards) in
         
@@ -83,6 +94,14 @@ class BoardController: UIViewController, BoardLayoutDelegate {
             let deletedCards = oldDeck.subtract(newDeck)
             let addedCards = newDeck.subtract(oldDeck)
             var leftOverCards = newDeck.intersect(oldDeck)
+            
+            self.endNoNetworkState()
+            
+            if leftOverCards.isEmpty {
+                self.beginNoCardsState()
+            } else {
+                self.endNoCardsState()
+            }
         
             for card in addedCards {
                 self.cardList.append(card)
