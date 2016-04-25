@@ -415,14 +415,6 @@
                                     <constraint firstAttribute="height" constant="20" id="qaf-Xn-Mfs"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46I-zf-8QE">
-                                <rect key="frame" x="87" y="89.5" width="240" height="214"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Q0y-Od-1fX"/>
-                                    <constraint firstAttribute="height" constant="214" id="r5E-hb-Ja2"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io0-dx-LeE" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="39" y="529.5" width="335" height="48"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -460,6 +452,14 @@
                                 <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46I-zf-8QE">
+                                <rect key="frame" x="87" y="90" width="240" height="214"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Q0y-Od-1fX"/>
+                                    <constraint firstAttribute="height" constant="214" id="r5E-hb-Ja2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1941,9 +1941,26 @@
                                     <constraint firstAttribute="width" constant="150" id="Zih-Qj-jeV"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-NH-Kkh">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-5Y-V12" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="51" width="375" height="191"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startingColor">
+                                        <color key="value" red="0.8901960784313725" green="0.95686274509803915" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endingColor">
+                                        <color key="value" red="0.72941176470588232" green="0.88627450980392153" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="startingPoint">
+                                        <point key="value" x="0.0" y="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="endingPoint">
+                                        <point key="value" x="1" y="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-NH-Kkh">
+                                <rect key="frame" x="0.0" y="51" width="375" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="ZaC-Y9-tr4"/>
                                     <constraint firstAttribute="height" constant="191" id="bqs-5i-cPZ"/>
@@ -2177,13 +2194,13 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PUd-Ut-ITJ"/>
         <segue reference="1Be-XK-7cy"/>
-        <segue reference="W7J-mn-B1x"/>
+        <segue reference="bxv-as-pE6"/>
         <segue reference="oEZ-3m-7p0"/>
-        <segue reference="OdC-w7-WXY"/>
+        <segue reference="W7J-mn-B1x"/>
         <segue reference="hwJ-nH-bdX"/>
-        <segue reference="SCD-dM-0e9"/>
         <segue reference="cWJ-fM-BVu"/>
+        <segue reference="OdC-w7-WXY"/>
+        <segue reference="SCD-dM-0e9"/>
     </inferredMetricsTieBreakers>
 </document>
