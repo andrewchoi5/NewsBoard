@@ -24,7 +24,8 @@ class ArticlePosterController : PosterController {
         super.textFieldDidEndEditing(textField)
         
         if(textField == articleLink) {
-            loadPreview()
+            // disable for now
+            //loadPreview()
         }
         
     }
