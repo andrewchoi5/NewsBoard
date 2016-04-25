@@ -1941,7 +1941,7 @@
                                     <constraint firstAttribute="width" constant="150" id="Zih-Qj-jeV"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-5Y-V12" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-5Y-V12" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="51" width="375" height="191"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -2196,11 +2196,11 @@
     <inferredMetricsTieBreakers>
         <segue reference="1Be-XK-7cy"/>
         <segue reference="bxv-as-pE6"/>
+        <segue reference="7v3-CP-g3l"/>
+        <segue reference="bae-Df-lTy"/>
         <segue reference="oEZ-3m-7p0"/>
         <segue reference="W7J-mn-B1x"/>
-        <segue reference="hwJ-nH-bdX"/>
-        <segue reference="cWJ-fM-BVu"/>
-        <segue reference="OdC-w7-WXY"/>
-        <segue reference="SCD-dM-0e9"/>
+        <segue reference="Tf5-bR-FsD"/>
+        <segue reference="BXu-AB-Ev4"/>
     </inferredMetricsTieBreakers>
 </document>
