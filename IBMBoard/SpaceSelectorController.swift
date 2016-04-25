@@ -64,6 +64,10 @@ class SpaceSelectorController : DefaultViewController {
         doneButton.setTitleTextAttributes(normalAttributes, forState: .Normal)
         doneButton.setTitleTextAttributes(disabledAttributes, forState: .Disabled)
         
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(backButtonAction(_:)))
+        self.navigationItem.leftBarButtonItem = newBackButton;
+        
         
         self.postingDates.insert(calendarDate)
         
@@ -289,6 +293,10 @@ class SpaceSelectorController : DefaultViewController {
         self.reloadCards()
     }
     
+    
+    func backButtonAction(sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     
 }
 
