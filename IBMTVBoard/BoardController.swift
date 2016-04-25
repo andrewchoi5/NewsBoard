@@ -30,8 +30,6 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var errorLabel: UILabel!
     
-    var postContainer = RectContainer()
-    
     let layout = BoardLayout()
     
     var cardList = [ Card ]()
@@ -169,14 +167,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         let width = blockWidth * CGFloat(cell.space.width)
         let height = blockHeight * CGFloat(cell.space.height)
         let rect = CGRectMake(xPos,yPos,width,height)
-        
-        if postContainer.addRectIfNoOverlap(rect) {
-            return rect
-        
-        } else {
-            return CGRectZero
-            
-        }
+        return rect
     
     }
     
@@ -246,30 +237,4 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         vc.contentURL = NSURL(string: (sender as! Card).info["videoURL"] as! String)
     }
     
-}
-
-class RectContainer {
-    
-    let insets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
-    let screenFrame = CGRect(x: 0.0, y: 0.0, width: 1920.0, height: 1080.0)
-    var rectangleList = [ CGRect ]()
-    
-    init() {
-        
-    }
-    
-    func addRectIfNoOverlap(rect : CGRect) -> Bool {
-        if !CGRectIntersectsRect(screenFrame, rect) {
-            return false
-        }
-        let insettedRectangle = CGRectZero
-        for rectangle in rectangleList {
-            let insettedRectangle = CGRectInset(rectangle, insets.left, insets.top)
-            if CGRectIntersectsRect(insettedRectangle, rect) {
-                return false
-            }
-        }
-        rectangleList.append(insettedRectangle)
-        return true
-    }
 }

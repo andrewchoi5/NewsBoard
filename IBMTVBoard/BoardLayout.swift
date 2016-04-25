@@ -13,10 +13,13 @@ import UIKit
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, rectForItemAtIndexPath indexPath: NSIndexPath) -> CGRect    
 }
 
-class BoardLayout : UICollectionViewFlowLayout {
+class BoardLayout : UICollectionViewLayout {
     
     var delegate : BoardLayoutDelegate?
     var dataSource : UICollectionViewDataSource?
+    
+    var cardContainer = RectContainer()
+
     
     override func prepareLayout() {
         super.prepareLayout()
@@ -26,6 +29,7 @@ class BoardLayout : UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        cardContainer.rectangleList.removeAll()
         if delegate == nil  {
             return nil
         }
@@ -40,12 +44,19 @@ class BoardLayout : UICollectionViewFlowLayout {
         
         for index in 0..<cellCount {
             let indexPathOfCell = NSIndexPath(forRow: index, inSection: 0)
-            let contentRect = delegate!.collectionView(collectionView!, layout: self, rectForItemAtIndexPath: indexPathOfCell)
-            if(CGRectIntersectsRect(contentRect, rect) || CGRectContainsRect(rect, contentRect)) {
-                let newAttribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPathOfCell)
-                newAttribute.frame = contentRect
-                attributesArray!.append(newAttribute)
+            let cardRect = delegate!.collectionView(collectionView!, layout: self, rectForItemAtIndexPath: indexPathOfCell)
+            
+            if !cardContainer.addRectIfNoOverlap(cardRect) {
+                continue
             }
+            
+            if(CGRectIntersectsRect(cardRect, rect) || CGRectContainsRect(rect, cardRect)) {
+                let newAttribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPathOfCell)
+                newAttribute.frame = cardRect
+                attributesArray!.append(newAttribute)
+                
+            }
+            
         }
         
         return attributesArray
@@ -81,17 +92,45 @@ class BoardLayout : UICollectionViewFlowLayout {
             return nil
         }
         
-        let contentRect = delegate!.collectionView(collectionView!, layout: self, rectForItemAtIndexPath: indexPath)
+        let cardRect = delegate!.collectionView(collectionView!, layout: self, rectForItemAtIndexPath: indexPath)
         
         let newAttribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-        newAttribute.indexPath = indexPath
-        newAttribute.frame = contentRect
-        
+        newAttribute.frame = cardRect
+        if !cardContainer.addRectIfNoOverlap(cardRect) {
+            newAttribute.hidden = true
+        }
         
         return Optional(newAttribute)
     }
     
     override func collectionViewContentSize() -> CGSize {
-        return CGSizeMake(1920 - 2 * 10,1080 - 2 * 10)
+        return CGSizeMake(1920 - 2 * 10, 1080 - 2 * 10)
+    }
+}
+
+class RectContainer {
+    
+//    let insets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
+    let screenFrame = CGRect(x: 0.0, y: 0.0, width: 1920.0, height: 1080.0)
+    var rectangleList = [ CGRect ]()
+    
+    init() {
+        
+    }
+    
+    func addRectIfNoOverlap(rect : CGRect) -> Bool {
+        if !CGRectIntersectsRect(screenFrame, rect) {
+            return false
+            
+        }
+        for rectangle in rectangleList {
+            if CGRectIntersectsRect(rectangle, rect) {
+                return false
+                
+            }
+            
+        }
+        rectangleList.append(rect)
+        return true
     }
 }
