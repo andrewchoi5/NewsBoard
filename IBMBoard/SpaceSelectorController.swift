@@ -136,23 +136,23 @@ class SpaceSelectorController : DefaultViewController {
         activityIndicator.stopAnimating()
         loadingScreen.alpha = 0.0
         collectionView?.userInteractionEnabled = true
-        generateCardBoxes()
         
     }
     
     
     func generateCardBoxes () {
-        var c = 1;
+        var c = 1
         for card in cardList {
             let startIndex = card.space.topLeftCorner - 1
-            var height = card.space.height
-            var width = card.space.width
-            c = c + 1;
+            let height = card.space.height
+            let width = card.space.width
+            c = c + 1
             
             print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
             
             if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as? OccupiedCellView {
                cell.drawCellRect(false, topEmpty: false, rightEmpty: false, bottomEmpty: false)
+                
             }
            
         }
@@ -356,6 +356,12 @@ extension SpaceSelectorController : PostDateSelector {
 }
 
 extension SpaceSelectorController : UICollectionViewDataSource {
+    
+    
+    override func viewDidLayoutSubviews() {
+        generateCardBoxes()
+        
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellsPerRow * cellsPerColumn
