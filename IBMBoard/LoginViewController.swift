@@ -60,6 +60,10 @@ class LoginViewController: KeyboardPresenter {
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
         emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
         password.text = userDefaults.stringForKey(LoginViewController.LoginPasswordKey)
+        
+        if rememberCredentials.on {
+            performLogin()
+        }
 
     }
 
@@ -81,6 +85,10 @@ class LoginViewController: KeyboardPresenter {
     }
     
     @IBAction func loginPressed() {
+        performLogin()
+    }
+    
+    func performLogin() {
         self.showLoading()
         emailID.endEditing(true)
         password.endEditing(true)
@@ -92,9 +100,13 @@ class LoginViewController: KeyboardPresenter {
             userDefaults.setObject(emailID.text, forKey: LoginViewController.LoginUsernameKey)
             userDefaults.setObject(password.text, forKey: LoginViewController.LoginPasswordKey)
             
+        } else {
+            userDefaults.setBool(false, forKey: LoginViewController.RememberCredentialsKey)
+            userDefaults.setObject("", forKey: LoginViewController.LoginUsernameKey)
+            userDefaults.setObject("", forKey: LoginViewController.LoginPasswordKey)
         }
         
-//        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+        //        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
         ServerInterface.getAccount(withEmail: emailID.text!, andPassword: password.text!) { (account) in
             self.hideLoading()
             if account == nil {
@@ -118,9 +130,9 @@ class LoginViewController: KeyboardPresenter {
             }
             
             self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
-
+            
         }
-        
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
