@@ -80,8 +80,9 @@ class AnnouncementPostController : PosterController {
 
 class IdeaPostController : AnnouncementPostController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         self.infoTitle = "ideaTitle"
         self.infoText = "ideaPreview"
     }
@@ -90,8 +91,9 @@ class IdeaPostController : AnnouncementPostController {
 
 class QuestionPostController : AnnouncementPostController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         self.infoTitle = "questionTitle"
         self.infoText = "questionPreview"
     }
@@ -100,8 +102,9 @@ class QuestionPostController : AnnouncementPostController {
 
 class RFPPostController : AnnouncementPostController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         self.infoTitle = "RFPTitle"
         self.infoText = "RFPPreview"
     }
