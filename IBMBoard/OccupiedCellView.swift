@@ -75,7 +75,7 @@ class OccupiedCellView : DefaultCellView {
     func drawCellRect(leftEmpty : Bool, topEmpty: Bool, rightEmpty : Bool, bottomEmpty : Bool) {
         let padding = CGFloat(10)
         
-        greyBox.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.10)
+        greyBox.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.10)
         greyBox.frame.origin.x = leftEmpty ? padding : CGFloat(0)
         greyBox.frame.origin.y = topEmpty ? padding : CGFloat(0)
         greyBox.frame.size.width = rightEmpty ? (leftEmpty ? self.frame.size.width - 2*padding : self.frame.size.width - padding)  : self.frame.size.width
@@ -83,4 +83,9 @@ class OccupiedCellView : DefaultCellView {
         self.contentView.addSubview(greyBox)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        greyBox.removeFromSuperview()
+    }
+
 }

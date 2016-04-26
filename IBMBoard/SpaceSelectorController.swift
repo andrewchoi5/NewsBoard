@@ -73,6 +73,11 @@ class SpaceSelectorController : DefaultViewController {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
+    }
+    
     func configureCurrentDateLabel() {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "dd/MM/yy"
@@ -158,8 +163,8 @@ class SpaceSelectorController : DefaultViewController {
                     let bottomEmpty = yIndex == height - 1 ? true : false
                     
                     if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: startIndex + (yIndex * cellsPerRow) + xIndex, inSection: 0)) as? OccupiedCellView {
-                        print("height : \(height), width: \(width)")
-                        print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
+                        //print("height : \(height), width: \(width)")
+                        //print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
                         cell.drawCellRect(leftEmpty, topEmpty: topEmpty, rightEmpty: rightEmpty, bottomEmpty: bottomEmpty)
                     }
                 }
@@ -366,7 +371,7 @@ extension SpaceSelectorController : UICollectionViewDataSource {
     
     
     override func viewDidLayoutSubviews() {
-        generateCardBoxes()
+        //generateCardBoxes()
         
     }
     
@@ -405,6 +410,34 @@ extension SpaceSelectorController : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
         cell.addGestureRecognizer(editGesture)
+        
+        
+        if (card != nil) {
+            let startIndex = card!.space.topLeftCorner - 1
+            let height = card!.space.height
+            let width = card!.space.width
+            //c = c + 1
+            //print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)"
+            print("START INDEX: \(startIndex)")
+            print("indexPath.row: \(indexPath.row)")
+            print("width: \(width), height: \(height)")
+            let x = indexPath.row % cellsPerRow
+            let y = indexPath.row / cellsPerRow
+            
+            print("x: \(x), y: \(y)")
+            let leftEmpty = (startIndex % cellsPerRow == x) ? true : false
+            let topEmpty = (startIndex / cellsPerRow == y) ? true : false
+            let rightEmpty = (((startIndex % cellsPerRow) + width - 1) == x) ? true : false
+            let bottomEmpty = (((startIndex / cellsPerRow) + height - 1) == y) ? true : false
+            
+                if let occupiedCell = cell as? OccupiedCellView {
+                    //print("height : \(height), width: \(width)")
+                    //print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
+                    occupiedCell.drawCellRect(leftEmpty, topEmpty: topEmpty, rightEmpty: rightEmpty, bottomEmpty: bottomEmpty)
+                    // return cell
+                }
+        }
+        
         return cell
     }
 }
