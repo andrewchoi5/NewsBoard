@@ -14,6 +14,7 @@ class OccupiedCellView : DefaultCellView {
     // cross lines
     var line : UIView!
     var line2 : UIView!
+    // box for indicating position of card within the cell
     var greyBox : UIView!
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,8 +78,8 @@ class OccupiedCellView : DefaultCellView {
         greyBox.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.10)
         greyBox.frame.origin.x = leftEmpty ? padding : CGFloat(0)
         greyBox.frame.origin.y = topEmpty ? padding : CGFloat(0)
-        greyBox.frame.size.width = rightEmpty ? self.frame.size.width - padding : self.frame.size.width
-        greyBox.frame.size.height = bottomEmpty ? self.frame.size.height - padding : self.frame.size.height
+        greyBox.frame.size.width = rightEmpty ? (leftEmpty ? self.frame.size.width - 2*padding : self.frame.size.width - padding)  : self.frame.size.width
+        greyBox.frame.size.height = bottomEmpty ? (topEmpty ? self.frame.size.height - 2*padding : self.frame.size.height - padding) : self.frame.size.height
         self.contentView.addSubview(greyBox)
     }
     

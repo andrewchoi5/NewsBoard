@@ -141,7 +141,7 @@ class SpaceSelectorController : DefaultViewController {
     
     
     func generateCardBoxes () {
-        var c = 1
+        //var c = 1
         for card in cardList {
             let startIndex = card.space.topLeftCorner - 1
             let height = card.space.height
@@ -158,7 +158,8 @@ class SpaceSelectorController : DefaultViewController {
                     let bottomEmpty = yIndex == height - 1 ? true : false
                     
                     if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: startIndex + (yIndex * cellsPerRow) + xIndex, inSection: 0)) as? OccupiedCellView {
-                        //print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
+                        print("height : \(height), width: \(width)")
+                        print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
                         cell.drawCellRect(leftEmpty, topEmpty: topEmpty, rightEmpty: rightEmpty, bottomEmpty: bottomEmpty)
                     }
                 }
