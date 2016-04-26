@@ -14,14 +14,15 @@ class OccupiedCellView : DefaultCellView {
     // cross lines
     var line : UIView!
     var line2 : UIView!
-    var rect : UIView!
+    // box for indicating position of card within the cell
+    var greyBox : UIView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         line = UIView()
         line2 = UIView()
-        rect = UIView(frame: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))
+        greyBox = UIView()
         
     }
     
@@ -67,6 +68,19 @@ class OccupiedCellView : DefaultCellView {
         addConstraint(NSLayoutConstraint(item: line2, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
         lengthConstraint2.constant = sqrt(pow(frame.size.width, 2) + pow(frame.size.height, 2))
         line2.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) - atan2(frame.size.height, frame.size.width))
+    }
+    
+    // when each flag is set to false, the rectangle takes up the full cell
+    // when for example, the topEmpty flag is set to true, then top top of the rect will be empty
+    func drawCellRect(leftEmpty : Bool, topEmpty: Bool, rightEmpty : Bool, bottomEmpty : Bool) {
+        let padding = CGFloat(10)
+        
+        greyBox.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.10)
+        greyBox.frame.origin.x = leftEmpty ? padding : CGFloat(0)
+        greyBox.frame.origin.y = topEmpty ? padding : CGFloat(0)
+        greyBox.frame.size.width = rightEmpty ? (leftEmpty ? self.frame.size.width - 2*padding : self.frame.size.width - padding)  : self.frame.size.width
+        greyBox.frame.size.height = bottomEmpty ? (topEmpty ? self.frame.size.height - 2*padding : self.frame.size.height - padding) : self.frame.size.height
+        self.contentView.addSubview(greyBox)
     }
     
 }
