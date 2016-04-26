@@ -9,7 +9,7 @@
 
 import UIKit
 
-class BoardController: UIViewController, BoardLayoutDelegate {
+class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelegate {
 
     static let updateIntervalInSeconds = 5.0
     
@@ -30,9 +30,24 @@ class BoardController: UIViewController, BoardLayoutDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var errorLabel: UILabel!
     
+    
+    let dateSelector = DateSelectorController()
     let layout = BoardLayout()
+    let boardDate = BoardDate()
     
     var cardList = [ Card ]()
+    
+    func didPressNextDayButton() {
+        boardDate.incrementByDay()
+        self.reload()
+        
+    }
+    
+    func didPressPreviousDayButton() {
+        boardDate.decrementByDay()
+        self.reload()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,18 +56,24 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         label.tag = 1010101
         label.hidden = true
         label.textColor = UIColor.errorRed()
-        label.text = "No Posts for Today"
         label.font = UIFont.defaultFontOfSize(30.0)
-        label.sizeToFit()
-        label.center.x = self.view.frame.width / 2
-        label.center.y = self.view.frame.height / 2
         self.view.addSubview(label)
         
         self.beginLoadingState()
         self.reload()
         
+        dateSelector.delegate = self
+        
+        self.addChildViewController(dateSelector)
+        dateSelector.view.frame = self.view.bounds
+        self.view.addSubview(dateSelector.view)
+        dateSelector.didMoveToParentViewController(self)
+        
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
+        
     }
+    
+    
     
     func beginNoNetworkState() {
         errorLabel.text = "No Connection"
@@ -66,8 +87,29 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         errorLabel.hidden = true
     }
     
+    func getDateString(date : BoardDate) -> String {
+        
+        if date.underlyingDate().isYesterday() {
+            return "Yesterday, \(boardDate.mediumDateString())"
+            
+        } else if date.underlyingDate().isToday() {
+            return "Today, \(boardDate.mediumDateString())"
+            
+        } else if date.underlyingDate().isTomorrow() {
+            return "Tomorrow, \(boardDate.mediumDateString())"
+            
+        }
+        
+        return date.mediumDateString()
+        
+    }
+    
     func showNoCardsState() {
-        guard let noCardsLabel = self.view.viewWithTag(1010101) else { return }
+        guard let noCardsLabel = self.view.viewWithTag(1010101) as? UILabel else { return }
+        noCardsLabel.text = "No Posts for \(getDateString(boardDate))"
+        noCardsLabel.sizeToFit()
+        noCardsLabel.center.x = self.view.frame.width / 2
+        noCardsLabel.center.y = self.view.frame.height / 2
         noCardsLabel.hidden = false
         collectionView.hidden = true
         collectionView.userInteractionEnabled = false
@@ -103,7 +145,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         }
         
         self.endNoNetworkState()
-        ServerInterface.getCardsForToday() { (cards) in
+        ServerInterface.getCards(onDate: boardDate.underlyingDate()) { (cards) in
         
             if cards.count == 0 {
                 self.showNoCardsState()
@@ -187,11 +229,7 @@ class BoardController: UIViewController, BoardLayoutDelegate {
         if let previousPath = context.previouslyFocusedIndexPath {
             if let previousCell = collectionView.cellForItemAtIndexPath(previousPath) {
                 (previousCell as! CardCell).defocus()
-                
-                if CGRectGetMinX(collectionView.frame) + CGRectGetMaxX(previousCell.frame) >= collectionView.frame.width {
-                    print("edge")
-                    
-                }
+                dateSelector.focusButtons()
                 
             }
         }

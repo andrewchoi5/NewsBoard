@@ -325,6 +325,11 @@ extension ServerInterface {
         
     }
     
+    static func getCards(onDate date: NSDate, completion: CardListCompletionBlock) {
+        ServerInterface.getCards(withQuery: CardQuery(withDates: [ date ]), completion: completion)
+        
+    }
+    
     static func getCardsForToday(completion: CardListCompletionBlock) {
         ServerInterface.getCards(fromDate: NSDate(), toDate: NSDate(), completion: completion)
         

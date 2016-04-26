@@ -109,4 +109,5 @@ class DefaultViewController : UIViewController {
         self.setNeedsStatusBarAppearanceUpdate()
         
     }
+    
 }

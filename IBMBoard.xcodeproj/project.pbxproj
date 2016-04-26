@@ -92,6 +92,7 @@
 		394CD6891C91825500AB28F1 /* JTHorizontalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6811C91825500AB28F1 /* JTHorizontalCalendarView.m */; };
 		394CD68A1C91825500AB28F1 /* JTVerticalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 394CD6831C91825500AB28F1 /* JTVerticalCalendarView.m */; };
 		394CD68D1C92140700AB28F1 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CD68C1C92140700AB28F1 /* CalendarController.swift */; };
+		3956C1951CCEC7F1008597F6 /* DateSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3956C1941CCEC7F1008597F6 /* DateSelectorController.swift */; };
 		3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61EFE1C981122002C7E12 /* Card.swift */; };
 		3964FF4F1C9A55A2002B5AE8 /* DataConverters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */; };
 		3964FF511C9A5618002B5AE8 /* NSJSONSerializationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */; };
@@ -347,6 +348,7 @@
 		394CD6821C91825500AB28F1 /* JTVerticalCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTVerticalCalendarView.h; path = JTCalendar/JTCalendar/Views/JTVerticalCalendarView.h; sourceTree = "<group>"; };
 		394CD6831C91825500AB28F1 /* JTVerticalCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTVerticalCalendarView.m; path = JTCalendar/JTCalendar/Views/JTVerticalCalendarView.m; sourceTree = "<group>"; };
 		394CD68C1C92140700AB28F1 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		3956C1941CCEC7F1008597F6 /* DateSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSelectorController.swift; sourceTree = "<group>"; };
 		3964FF4E1C9A55A2002B5AE8 /* DataConverters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConverters.swift; sourceTree = "<group>"; };
 		3964FF501C9A5618002B5AE8 /* NSJSONSerializationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSJSONSerializationExt.swift; sourceTree = "<group>"; };
 		3964FF521C9A5666002B5AE8 /* CloudantDBInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudantDBInterface.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				39EB940D1C80FE240053F73F /* CardCell.swift */,
+				3956C1941CCEC7F1008597F6 /* DateSelectorController.swift */,
 				39C61F031C98168F002C7E12 /* CardFactory.swift */,
 				39C61EFE1C981122002C7E12 /* Card.swift */,
 				39830FEB1C8AD6B600313AFC /* PostViewerController.swift */,
@@ -1114,6 +1117,7 @@
 				391212EC1C9B620000C05BDB /* NSDateExt.swift in Sources */,
 				39830FEC1C8AD6B600313AFC /* PostViewerController.swift in Sources */,
 				39961DFD1CC759D70049368E /* QRCoder.swift in Sources */,
+				3956C1951CCEC7F1008597F6 /* DateSelectorController.swift in Sources */,
 				391212EE1C9B621700C05BDB /* StringExt.swift in Sources */,
 				39022CE61C895C5F00464BC1 /* SDWebImageManager.m in Sources */,
 				39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */,

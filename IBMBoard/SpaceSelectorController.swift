@@ -151,7 +151,7 @@ class SpaceSelectorController : DefaultViewController {
             print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
             
             if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as? OccupiedCellView {
-               cell.drawCellRect(false, topEmpty: false, rightEmpty: false, bottomEmpty: false)
+//               cell.drawCellRect(false, topEmpty: false, rightEmpty: false, bottomEmpty: false)
                 
             }
            

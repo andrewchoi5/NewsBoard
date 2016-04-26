@@ -16,10 +16,33 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
     
+    func mediumDateString() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MMM d yyyy"
+        return formatter.stringFromDate(self)
+        
+    }
 
     func isSameDayAs(anotherDate : NSDate) -> Bool {
         
         return NSCalendar.currentCalendar().isDate(self, inSameDayAsDate: anotherDate)
+        
+
+        
+    }
+    
+    func isYesterday() -> Bool {
+        return NSCalendar.currentCalendar().isDateInYesterday(self)
+        
+    }
+    
+    func isToday() -> Bool {
+        return NSCalendar.currentCalendar().isDateInToday(self)
+        
+    }
+    
+    func isTomorrow() -> Bool {
+        return NSCalendar.currentCalendar().isDateInTomorrow(self)
         
     }
     

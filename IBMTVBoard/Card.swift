@@ -35,6 +35,10 @@ class BoardDate {
         return date.shortDateString()
     }
     
+    func mediumDateString() -> String {
+        return date.mediumDateString()
+    }
+    
     init() {
         
     }
