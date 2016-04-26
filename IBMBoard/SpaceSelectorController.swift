@@ -144,34 +144,6 @@ class SpaceSelectorController : DefaultViewController {
         
     }
     
-    
-    func generateCardBoxes () {
-        //var c = 1
-        for card in cardList {
-            let startIndex = card.space.topLeftCorner - 1
-            let height = card.space.height
-            let width = card.space.width
-            //c = c + 1
-            //print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
-            
-            for xIndex in 0 ..< width {
-                for yIndex in 0 ..< height {
-                    
-                    let leftEmpty = xIndex == 0 ? true : false
-                    let topEmpty = yIndex == 0 ? true : false
-                    let rightEmpty = xIndex == width - 1 ? true : false
-                    let bottomEmpty = yIndex == height - 1 ? true : false
-                    
-                    if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: startIndex + (yIndex * cellsPerRow) + xIndex, inSection: 0)) as? OccupiedCellView {
-                        //print("height : \(height), width: \(width)")
-                        //print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
-                        cell.drawCellRect(leftEmpty, topEmpty: topEmpty, rightEmpty: rightEmpty, bottomEmpty: bottomEmpty)
-                    }
-                }
-            }
-        }
-    }
-    
     func reloadData() {
         cardHolderMatrix = [ (Int, Card?) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, nil))
         
@@ -369,12 +341,6 @@ extension SpaceSelectorController : PostDateSelector {
 
 extension SpaceSelectorController : UICollectionViewDataSource {
     
-    
-    override func viewDidLayoutSubviews() {
-        //generateCardBoxes()
-        
-    }
-    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellsPerRow * cellsPerColumn
         
@@ -411,31 +377,25 @@ extension SpaceSelectorController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
         cell.addGestureRecognizer(editGesture)
         
-        
+        // draw the box around the cell indicating which card it is a member of
         if (card != nil) {
             let startIndex = card!.space.topLeftCorner - 1
             let height = card!.space.height
             let width = card!.space.width
-            //c = c + 1
-            //print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)"
-            print("START INDEX: \(startIndex)")
-            print("indexPath.row: \(indexPath.row)")
-            print("width: \(width), height: \(height)")
-            let x = indexPath.row % cellsPerRow
-            let y = indexPath.row / cellsPerRow
+       
+            let cellRow = indexPath.row % cellsPerRow
+            let cellCol = indexPath.row / cellsPerRow
+            let topLeftRow = startIndex % cellsPerRow
+            let topLeftCol = startIndex / cellsPerRow
             
-            print("x: \(x), y: \(y)")
-            let leftEmpty = (startIndex % cellsPerRow == x) ? true : false
-            let topEmpty = (startIndex / cellsPerRow == y) ? true : false
-            let rightEmpty = (((startIndex % cellsPerRow) + width - 1) == x) ? true : false
-            let bottomEmpty = (((startIndex / cellsPerRow) + height - 1) == y) ? true : false
+            let leftEmpty = (topLeftRow == cellRow) ? true : false
+            let topEmpty = (startIndex / cellsPerRow == cellCol) ? true : false
+            let rightEmpty = ((topLeftRow + width - 1) == cellRow) ? true : false
+            let bottomEmpty = ((topLeftCol + height - 1) == cellCol) ? true : false
             
-                if let occupiedCell = cell as? OccupiedCellView {
-                    //print("height : \(height), width: \(width)")
-                    //print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
-                    occupiedCell.drawCellRect(leftEmpty, topEmpty: topEmpty, rightEmpty: rightEmpty, bottomEmpty: bottomEmpty)
-                    // return cell
-                }
+            if let occupiedCell = cell as? OccupiedCellView {
+                occupiedCell.drawCellRect(leftEmpty, topEmpty: topEmpty, rightEmpty: rightEmpty, bottomEmpty: bottomEmpty)
+            }
         }
         
         return cell

@@ -68,19 +68,57 @@ class OccupiedCellView : DefaultCellView {
         addConstraint(NSLayoutConstraint(item: line2, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
         lengthConstraint2.constant = sqrt(pow(frame.size.width, 2) + pow(frame.size.height, 2))
         line2.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) - atan2(frame.size.height, frame.size.width))
+ 
     }
     
     // when each flag is set to false, the rectangle takes up the full cell
     // when for example, the topEmpty flag is set to true, then top top of the rect will be empty
     func drawCellRect(leftEmpty : Bool, topEmpty: Bool, rightEmpty : Bool, bottomEmpty : Bool) {
         let padding = CGFloat(10)
+    
         
-        greyBox.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.10)
+        
+        //greyBox.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.10).CGColor
+        //greyBox.layer.borderWidth = 3;
+        greyBox.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15)
         greyBox.frame.origin.x = leftEmpty ? padding : CGFloat(0)
         greyBox.frame.origin.y = topEmpty ? padding : CGFloat(0)
         greyBox.frame.size.width = rightEmpty ? (leftEmpty ? self.frame.size.width - 2*padding : self.frame.size.width - padding)  : self.frame.size.width
         greyBox.frame.size.height = bottomEmpty ? (topEmpty ? self.frame.size.height - 2*padding : self.frame.size.height - padding) : self.frame.size.height
-        self.contentView.addSubview(greyBox)
+        
+        
+        // bordered boxes (alternative look)
+        /*
+        let bottomBorderPadding =  3
+        let rightBorderPadding =  3
+        
+        if (topEmpty) {
+            var lineViewTop = UIView(frame: CGRectMake(0, 0, greyBox.frame.size.width, 3))
+            lineViewTop.backgroundColor=UIColor.grayColor().colorWithAlphaComponent(0.35)
+            greyBox.addSubview(lineViewTop)
+        }
+        
+        if (bottomEmpty) {
+            var lineViewBottom = UIView(frame: CGRectMake(0, greyBox.frame.maxY-3, greyBox.frame.size.width, 3))
+            lineViewBottom.backgroundColor=UIColor.grayColor().colorWithAlphaComponent(0.35)
+            greyBox.addSubview(lineViewBottom)
+        }
+        
+        if (leftEmpty) {
+            var lineViewLeft = UIView(frame: CGRectMake(0, 0, 3, greyBox.frame.size.height))
+            lineViewLeft.backgroundColor=UIColor.grayColor().colorWithAlphaComponent(0.35)
+            greyBox.addSubview(lineViewLeft)
+        }
+        
+        if (rightEmpty) {
+            var lineViewRight = UIView(frame: CGRectMake(greyBox.frame.maxX - 3, 0, 3, greyBox.frame.size.height))
+            lineViewRight.backgroundColor=UIColor.grayColor().colorWithAlphaComponent(0.35)
+            greyBox.addSubview(lineViewRight)
+        }
+            
+         */
+ 
+        addSubview(greyBox)
     }
     
     override func prepareForReuse() {
