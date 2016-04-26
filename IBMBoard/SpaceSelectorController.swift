@@ -146,17 +146,24 @@ class SpaceSelectorController : DefaultViewController {
             let startIndex = card.space.topLeftCorner - 1
             let height = card.space.height
             let width = card.space.width
-            c = c + 1
+            //c = c + 1
+            //print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
             
-            print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
-            
-            if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as? OccupiedCellView {
-//               cell.drawCellRect(false, topEmpty: false, rightEmpty: false, bottomEmpty: false)
-                
+            for xIndex in 0 ..< width {
+                for yIndex in 0 ..< height {
+                    
+                    let leftEmpty = xIndex == 0 ? true : false
+                    let topEmpty = yIndex == 0 ? true : false
+                    let rightEmpty = xIndex == width - 1 ? true : false
+                    let bottomEmpty = yIndex == height - 1 ? true : false
+                    
+                    if let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: startIndex + (yIndex * cellsPerRow) + xIndex, inSection: 0)) as? OccupiedCellView {
+                        //print("x: \(xIndex), y: \(yIndex), leftEmpty: \(leftEmpty), topEmpty: \(topEmpty), rightEmpty: \(rightEmpty), bottomEmpty: \(bottomEmpty)")
+                        cell.drawCellRect(leftEmpty, topEmpty: topEmpty, rightEmpty: rightEmpty, bottomEmpty: bottomEmpty)
+                    }
+                }
             }
-           
         }
-
     }
     
     func reloadData() {
@@ -257,7 +264,6 @@ class SpaceSelectorController : DefaultViewController {
     func deleteCard(card : Card) {
         ServerInterface.deleteCard(card) {
             self.reloadCards()
-            
         }
         
     }
@@ -398,29 +404,9 @@ extension SpaceSelectorController : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! DefaultCellView
         cell.addGestureRecognizer(editGesture)
-        if cellType == 1 {
-            //cell.drawCellRect(false, topEmpty: false, rightEmpty: false, bottomEmpty: false)
-            print(" ITEM: \(indexPath.item) SECTION: \(indexPath.section)")
-        }
         return cell
     }
 }
-
-/*
- func generateCardBoxes () {
- var c = 1;
- for card in cardList {
- let startIndex = card.space.topLeftCorner - 1
- var height = card.space.height
- var width = card.space.width
- c = c + 1;
- 
- print("card: \(c), startIndex: \(startIndex), height : \(height), width : \(width)")
- 
- }
- 
- }
- */
 
 extension SpaceSelectorController : UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
