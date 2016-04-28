@@ -283,19 +283,29 @@
                                 <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBZ-f9-eyX">
+                                <rect key="frame" x="159" y="119" width="97" height="76"/>
+                                <connections>
+                                    <action selector="touchIDloginPressed" destination="buu-uZ-RDf" eventType="touchUpInside" id="XHr-Gf-hso"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PnE-pB-Y6i" firstAttribute="width" secondItem="3Kn-g0-FKT" secondAttribute="width" id="0ZM-Tp-SCi"/>
+                            <constraint firstItem="nBZ-f9-eyX" firstAttribute="centerX" secondItem="QVn-Tf-nF3" secondAttribute="centerX" id="0ZO-96-YWk"/>
+                            <constraint firstItem="nBZ-f9-eyX" firstAttribute="width" secondItem="NzT-ld-rtn" secondAttribute="width" id="3LP-Fh-AvC"/>
                             <constraint firstItem="79a-hK-ewL" firstAttribute="leading" secondItem="3Kn-g0-FKT" secondAttribute="trailing" constant="-38" id="3eR-rk-oJL"/>
                             <constraint firstItem="n8L-Ea-Clo" firstAttribute="width" secondItem="SSD-f6-CGQ" secondAttribute="width" id="3xk-0e-nsd"/>
                             <constraint firstItem="IbA-fz-Gyz" firstAttribute="width" secondItem="QVn-Tf-nF3" secondAttribute="width" id="8cF-J0-21a"/>
                             <constraint firstItem="NzT-ld-rtn" firstAttribute="centerX" secondItem="QVn-Tf-nF3" secondAttribute="centerX" id="Ajb-pZ-pQ5"/>
                             <constraint firstItem="EWV-m1-IQW" firstAttribute="top" secondItem="PnE-pB-Y6i" secondAttribute="bottom" constant="20" id="Cjj-UW-htK"/>
+                            <constraint firstItem="nBZ-f9-eyX" firstAttribute="height" secondItem="NzT-ld-rtn" secondAttribute="height" id="Hxq-rt-mak"/>
                             <constraint firstItem="SSD-f6-CGQ" firstAttribute="top" secondItem="NzT-ld-rtn" secondAttribute="bottom" constant="77" id="MBv-si-LDf"/>
                             <constraint firstItem="3Kn-g0-FKT" firstAttribute="top" secondItem="n8L-Ea-Clo" secondAttribute="bottom" constant="20" id="OhR-m9-Bf5"/>
                             <constraint firstItem="IbA-fz-Gyz" firstAttribute="leading" secondItem="EWV-m1-IQW" secondAttribute="leading" id="Py9-RQ-AXw"/>
                             <constraint firstAttribute="leadingMargin" secondItem="SSD-f6-CGQ" secondAttribute="leading" id="XnE-ru-vg5"/>
+                            <constraint firstItem="SSD-f6-CGQ" firstAttribute="top" secondItem="nBZ-f9-eyX" secondAttribute="bottom" constant="77" id="b7J-G0-Jie"/>
                             <constraint firstItem="PnE-pB-Y6i" firstAttribute="centerX" secondItem="QVn-Tf-nF3" secondAttribute="centerX" id="bdq-tv-gbd"/>
                             <constraint firstItem="79a-hK-ewL" firstAttribute="centerY" secondItem="3Kn-g0-FKT" secondAttribute="centerY" id="gIf-px-dTH"/>
                             <constraint firstItem="n8L-Ea-Clo" firstAttribute="centerX" secondItem="QVn-Tf-nF3" secondAttribute="centerX" id="kF1-pb-Jsv"/>
@@ -1941,7 +1951,7 @@
                                     <constraint firstAttribute="width" constant="150" id="Zih-Qj-jeV"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-5Y-V12" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-5Y-V12" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="51" width="375" height="191"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>

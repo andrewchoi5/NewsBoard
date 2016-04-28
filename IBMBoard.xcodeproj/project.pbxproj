@@ -29,6 +29,7 @@
 		2D7087B31CC57A2800CEF4F7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393426B51CBC9FEB0089F48F /* Roboto-Regular.ttf */; };
 		2D72F0B61CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
 		2D72F0B71CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
+		2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */; };
 		2DFE79DC1CD251EF0056C8C6 /* Certificates in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D11CD251EF0056C8C6 /* Certificates */; };
 		2DFE79DD1CD251EF0056C8C6 /* Configurations in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D21CD251EF0056C8C6 /* Configurations */; };
 		2DFE79DE1CD251EF0056C8C6 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D31CD251EF0056C8C6 /* Gemfile */; };
@@ -226,6 +227,7 @@
 		2D5BD0E51CC92B6F001953CE /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		2D72F0B51CC6638F00697221 /* CALayerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExt.swift; sourceTree = "<group>"; };
+		2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		2DFE79D11CD251EF0056C8C6 /* Certificates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Certificates; path = KeychainAccess/Lib/Certificates; sourceTree = "<group>"; };
 		2DFE79D21CD251EF0056C8C6 /* Configurations */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Configurations; path = KeychainAccess/Lib/Configurations; sourceTree = "<group>"; };
 		2DFE79D31CD251EF0056C8C6 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Gemfile; path = KeychainAccess/Lib/Gemfile; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */,
 				2DFE79EA1CD2523F0056C8C6 /* KeychainAccess.framework in Frameworks */,
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
@@ -881,6 +884,7 @@
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */,
 				39AE8D521CBF11C2000F0D39 /* MailCore.framework */,
 				393E09A01CADAC2300988EAA /* Security.framework */,
 				393E099E1CADAC1E00988EAA /* CFNetwork.framework */,
