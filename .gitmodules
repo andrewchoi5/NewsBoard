@@ -13,3 +13,6 @@
 [submodule "JFCommon"]
 	path = JFCommon
 	url = https://github.com/jayfuerstenberg/JFCommon.git
+[submodule "KeychainAccess"]
+	path = KeychainAccess
+	url = https://github.com/kishikawakatsumi/KeychainAccess.git

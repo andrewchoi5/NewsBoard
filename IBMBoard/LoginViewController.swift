@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class LoginViewController: KeyboardPresenter {
 
@@ -21,7 +22,6 @@ class LoginViewController: KeyboardPresenter {
     
     static var RememberCredentialsKey = "RememberCredentialsKey"
     static var LoginUsernameKey = "LoginUsernameKey"
-    static var LoginPasswordKey = "LoginPasswordKey"
     static var LoginSuccessfulSegue = "LoginSuccessfulSegue"
     
     var userAccount : Account!
@@ -50,6 +50,8 @@ class LoginViewController: KeyboardPresenter {
         
         registerDelegates()
         
+        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        
         emailID.keyboardType = .EmailAddress
         emailID.autocapitalizationType = .None
         emailID.autocorrectionType = .No
@@ -58,10 +60,11 @@ class LoginViewController: KeyboardPresenter {
         qrButton.setLabel(qrLabel)
         
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
-        emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
-        password.text = userDefaults.stringForKey(LoginViewController.LoginPasswordKey)
         
         if rememberCredentials.on {
+            emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
+            password.text = try! keychain.getString(emailID.text!)
+            
             performLogin()
         }
 
@@ -86,6 +89,58 @@ class LoginViewController: KeyboardPresenter {
     
     @IBAction func loginPressed() {
         performLogin()
+        //performTouchIDLogin()
+    }
+    
+    func performTouchIDLogin() {
+        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        
+        let email = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
+        //password.text = try! keychain.getString(emailID.text!)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            do {
+                let password = try keychain
+                    .authenticationPrompt("Authenticate to login to server")
+                    .get(email!)
+                
+                print("password: \(password)")
+                
+                
+                //        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+                ServerInterface.getAccount(withEmail: self.emailID.text!, andPassword: password!) { (account) in
+                    self.hideLoading()
+                    if account == nil {
+                        self.emailID.showInvalid()
+                        self.password.showInvalid()
+                        return
+                    }
+                    
+                    self.userAccount = account!
+                    
+                    if !self.userAccount.verified {
+                        self.performSegueWithIdentifier("reverificationSegue", sender: self)
+                        return
+                        
+                    }
+                    
+                    if !self.userAccount.hasProfilePicture() {
+                        self.performSegueWithIdentifier("profilePictureSegue", sender: self)
+                        return
+                        
+                    }
+                    
+                    self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+                    
+                }
+
+                
+                
+                
+            } catch let error {
+                // Error handling if needed...
+            }
+        }
     }
     
     func performLogin() {
@@ -95,15 +150,28 @@ class LoginViewController: KeyboardPresenter {
         
         emailID.text = emailID.text?.lowercaseString
         
+        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        
         if(rememberCredentials.on) {
             userDefaults.setBool(true, forKey: LoginViewController.RememberCredentialsKey)
             userDefaults.setObject(emailID.text, forKey: LoginViewController.LoginUsernameKey)
-            userDefaults.setObject(password.text, forKey: LoginViewController.LoginPasswordKey)
+            
+            keychain[emailID.text!] = password.text
+            
+            // store key for touchID retrieval
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                do {
+                    try keychain
+                        .accessibility(.WhenPasscodeSetThisDeviceOnly, authenticationPolicy: .UserPresence)
+                        .set(self.password.text!, key: self.emailID.text!)
+                } catch let error {
+                    // Error handling
+                }
+            }
             
         } else {
             userDefaults.setBool(false, forKey: LoginViewController.RememberCredentialsKey)
             userDefaults.setObject("", forKey: LoginViewController.LoginUsernameKey)
-            userDefaults.setObject("", forKey: LoginViewController.LoginPasswordKey)
         }
         
         //        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)

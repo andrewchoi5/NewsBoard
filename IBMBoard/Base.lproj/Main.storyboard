@@ -234,15 +234,6 @@
                                     <constraint firstAttribute="width" constant="97" id="n44-B2-r1k"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-m1-IQW">
-                                <rect key="frame" x="0.0" y="544" width="414" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="RVp-tb-MD8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="79a-hK-ewL">
                                 <rect key="frame" x="356" y="422" width="20" height="20"/>
                                 <constraints>
@@ -283,6 +274,15 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Intranet ID"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-m1-IQW">
+                                <rect key="frame" x="0.0" y="544" width="414" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="RVp-tb-MD8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1941,7 +1941,7 @@
                                     <constraint firstAttribute="width" constant="150" id="Zih-Qj-jeV"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-5Y-V12" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0B-5Y-V12" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="51" width="375" height="191"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -2194,13 +2194,13 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Hfu-pc-aJi"/>
+        <segue reference="PUd-Ut-ITJ"/>
         <segue reference="1Be-XK-7cy"/>
-        <segue reference="bxv-as-pE6"/>
-        <segue reference="7v3-CP-g3l"/>
-        <segue reference="bae-Df-lTy"/>
-        <segue reference="oEZ-3m-7p0"/>
-        <segue reference="W7J-mn-B1x"/>
-        <segue reference="Tf5-bR-FsD"/>
-        <segue reference="BXu-AB-Ev4"/>
+        <segue reference="hwJ-nH-bdX"/>
+        <segue reference="Tfi-ct-jo6"/>
+        <segue reference="SCD-dM-0e9"/>
+        <segue reference="OdC-w7-WXY"/>
+        <segue reference="cWJ-fM-BVu"/>
     </inferredMetricsTieBreakers>
 </document>
