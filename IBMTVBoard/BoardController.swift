@@ -62,12 +62,12 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         self.beginLoadingState()
         self.reload()
         
-        dateSelector.delegate = self
-        
-        self.addChildViewController(dateSelector)
-        dateSelector.view.frame = self.view.bounds
-        self.view.addSubview(dateSelector.view)
-        dateSelector.didMoveToParentViewController(self)
+//        dateSelector.delegate = self
+//        
+//        self.addChildViewController(dateSelector)
+//        dateSelector.view.frame = self.view.bounds
+//        self.view.addSubview(dateSelector.view)
+//        dateSelector.didMoveToParentViewController(self)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
         
@@ -169,7 +169,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             
             }
         
-            for index in 0..<self.cardList.count {
+            for index in 0 ..< self.cardList.count {
                 let oldCard = self.cardList[ index ]
                 if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
                     let indexPath = NSIndexPath(forRow: index, inSection:0)
@@ -243,7 +243,57 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
+//        self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+//        let cellsRankedByXCoord = self.collectionView.visibleCells().sort { (cell1, cell2) -> Bool in
+//            return cell1.frame.origin.x < cell2.frame.origin.x
+//            
+//        }
+        
+        guard let farLeftCell = (self.collectionView.visibleCells().maxElement { (cell1, cell2) -> Bool in
+            cell1.frame.origin.x > cell2.frame.origin.x
+            
+        }) else {
+            return
+            
+        }
+        
+        guard let farRightCell = (self.collectionView.visibleCells().minElement { (cell1, cell2) -> Bool in
+            cell1.frame.origin.x > cell2.frame.origin.x
+            
+        }) else {
+            return
+            
+        }
+        
+        let minX = farLeftCell.frame.origin.x
+        let maxX = farRightCell.frame.origin.x
+        
+        for cell in self.collectionView.visibleCells() {
+        
+            let leftSwipeGesture = UISwipeGestureRecognizer()
+            leftSwipeGesture.direction = .Left
+            leftSwipeGesture.addTarget(self, action: #selector(BoardController.swipeLeft))
+            
+            let rightSwipeGesture = UISwipeGestureRecognizer()
+            rightSwipeGesture.direction = .Right
+            rightSwipeGesture.addTarget(self, action: #selector(BoardController.swipeRight))
+            
+            if cell.frame.origin.x == minX {
+                cell.addGestureRecognizer(leftSwipeGesture)
+                
+            }
+            
+            if cell.frame.origin.x == maxX {
+                cell.addGestureRecognizer(rightSwipeGesture)
+                
+            }
+        }
         
     }
     
@@ -270,9 +320,19 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         return cell
     }
     
+    func swipeLeft() {
+        print("")
+        
+    }
+    
+    func swipeRight() {
+        print("")
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! PostViewerController
-        vc.contentURL = NSURL(string: (sender as! Card).info["videoURL"] as! String)
+//        vc.contentURL = NSURL(string: (sender as! Card).info["videoURL"] as! String)
     }
     
 }

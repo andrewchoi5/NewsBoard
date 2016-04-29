@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:mailcore2/build-mac/mailcore2.xcodeproj">
+      location = "container:IBMBoard.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:IBMBoard.xcodeproj">
+      location = "group:mailcore2/build-mac/mailcore2.xcodeproj">
    </FileRef>
 </Workspace>

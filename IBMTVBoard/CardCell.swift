@@ -91,7 +91,7 @@ class AnnouncementCardCell : CardCell {
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
     
-        if let title = card.info[infoTitle] as? String {
+        if let title = card.info[ infoTitle ] as? String {
             titleLabel.text = title
             
         } else {
@@ -232,7 +232,7 @@ class VideoCardCell : CardCell {
             }
             
             self.videoPreview.image = self.videoPreview.image?.grayScaleImage()
-            //self.videoPreview.cropToFrameOfImage()
+//            self.videoPreview.cropToFrameOfImage()
             self.videoPreview.hidden = false
                 
         }
@@ -247,30 +247,34 @@ class VideoCardCell : CardCell {
 
 class IdeaCardCell : AnnouncementCardCell {
     
-    override func applyCardContent(card: Card) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         self.infoTitle = "ideaTitle"
         self.infoText = "ideaPreview"
-        super.applyCardContent(card)
     }
     
 }
 
 class QuestionCardCell : AnnouncementCardCell {
     
-    override func applyCardContent(card: Card) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         self.infoTitle = "questionTitle"
         self.infoText = "questionPreview"
-        super.applyCardContent(card)
     }
     
 }
 
 class RFPCardCell : AnnouncementCardCell {
     
-    override func applyCardContent(card: Card) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         self.infoTitle = "RFPTitle"
         self.infoText = "RFPPreview"
-        super.applyCardContent(card)
+        
     }
     
 }

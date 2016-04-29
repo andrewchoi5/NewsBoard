@@ -410,6 +410,7 @@ class Card : Document {
     
     func isOlderCardThan(card: Card) -> Bool {
         return self.isOlderRevisionThan(card)
+        
     }
     
     func attachImage(image: UIImage, completion : ServerInterface.DefaultCompletionBlock) {

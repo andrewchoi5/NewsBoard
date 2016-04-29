@@ -32,23 +32,26 @@ class BoardLayout : UICollectionViewLayout {
         cardContainer.resetContainer()
         if delegate == nil  {
             return nil
+            
         }
         
         if dataSource == nil {
             return nil
+            
         }
         
         let cellCount = (dataSource?.collectionView(collectionView!, numberOfItemsInSection: 0))!
         
         var attributesArray : [UICollectionViewLayoutAttributes]? = []
         
-        for index in 0..<cellCount {
+        for index in 0 ..< cellCount {
             let indexPathOfCell = NSIndexPath(forRow: index, inSection: 0)
             let cardRect = delegate!.collectionView(collectionView!, layout: self, rectForItemAtIndexPath: indexPathOfCell)
             
             if(CGRectIntersectsRect(cardRect, rect) || CGRectContainsRect(rect, cardRect)) {
                 if !cardContainer.addRectIfNoOverlap(cardRect) {
                     continue
+                    
                 }
                 let newAttribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPathOfCell)
                 newAttribute.frame = cardRect
@@ -85,10 +88,12 @@ class BoardLayout : UICollectionViewLayout {
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         if delegate == nil {
             return nil
+            
         }
         
         if dataSource == nil {
             return nil
+            
         }
         
         let cardRect = delegate!.collectionView(collectionView!, layout: self, rectForItemAtIndexPath: indexPath)
@@ -103,7 +108,8 @@ class BoardLayout : UICollectionViewLayout {
     }
     
     override func collectionViewContentSize() -> CGSize {
-        return CGSizeMake(1920 - 2 * 10, 1080 - 2 * 10)
+        return self.collectionView!.bounds.size
+        
     }
 }
 
@@ -131,4 +137,5 @@ class RectContainer {
         rectangleList.append(rect)
         return true
     }
+    
 }

@@ -41,6 +41,12 @@ class DateSelectorController : UIViewController {
         
     }
     
+//    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+//        
+//        print("")
+//        
+//    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -51,6 +57,7 @@ class DateSelectorController : UIViewController {
         buttonVisibilityTimer = NSTimer.scheduledTimerWithTimeInterval(buttonVisibilityTick, target: self, selector: #selector(DateSelectorController.enterNextAnimationState), userInfo: nil, repeats: true)
 
         self.view.userInteractionEnabled = false
+        self.view.backgroundColor = UIColor.clearColor()
         
         leftButton.setTitle("", forState: .Normal)
         leftButton.setTitle("", forState: .Focused)
@@ -65,7 +72,6 @@ class DateSelectorController : UIViewController {
         rightButton.userInteractionEnabled = true
 
         leftButton.addTarget(self, action: #selector(DateSelectorController.didPressLeftButton), forControlEvents: .PrimaryActionTriggered)
-        
         rightButton.addTarget(self, action: #selector(DateSelectorController.didPressRightButton), forControlEvents: .PrimaryActionTriggered)
 
         self.parentViewController?.view.addSubview(leftButton)
@@ -84,7 +90,6 @@ class DateSelectorController : UIViewController {
         rightButton.frame.origin.x = self.view.frame.size.width - rightButton.frame.size.width - inwardXOffset
 
         leftButton.sizeToFit()
-
         leftButton.layer.cornerRadius = leftButton.frame.size.height / 2
         leftButton.frame.origin.x = inwardXOffset
         leftButton.center.y = self.view.frame.height / 2
@@ -125,14 +130,29 @@ class DateSelectorController : UIViewController {
         }
     }
     
-    private func fadeButtons() {
+    private func showButtons() {
+        leftButton.alpha = 1.0
+        rightButton.alpha = 1.0
+        leftButton.hidden = false
+        rightButton.hidden = false
         
+    }
+    
+    private func fadeButtons() {
         leftButton.alpha = 0.5
         rightButton.alpha = 0.5
     }
     
+    private func hideButtons() {
+        leftButton.hidden = true
+        rightButton.hidden = true
+        
+    }
+    
     func focusButtons() {
         delayFading = true
+        self.view.bringSubviewToFront(rightButton)
+        self.view.bringSubviewToFront(leftButton)
         buttonState = .Focussed
         showButtons()
     }
@@ -140,20 +160,6 @@ class DateSelectorController : UIViewController {
     func defocusButtons() {
         buttonState = .Hidden
         hideButtons()
-    }
-    
-    private func showButtons() {
-        leftButton.alpha = 1.0
-        rightButton.alpha = 1.0
-        leftButton.hidden = false
-        rightButton.hidden = false
-
-    }
-    
-    private func hideButtons() {
-        leftButton.hidden = true
-        rightButton.hidden = true
-        
     }
 }
 

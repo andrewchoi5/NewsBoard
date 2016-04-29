@@ -117,9 +117,15 @@
 		39A8BA8C1CC4E78900307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
 		39A8BA8D1CC4E96100307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
 		39A8BA8E1CC5381400307E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1251C762FCF00090214 /* Assets.xcassets */; };
+		39A9CAF01CD29E23007F0582 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
+		39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF11CD2A2AC007F0582 /* libMailCore-ios.a */; };
+		39A9CAF71CD2A354007F0582 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
+		39A9CAF81CD2A354007F0582 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		39A9CAFE1CD2B965007F0582 /* libctemplate-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFA1CD2B965007F0582 /* libctemplate-ios.a */; };
+		39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFB1CD2B965007F0582 /* libetpan-ios.a */; };
+		39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFC1CD2B965007F0582 /* libsasl2.a */; };
+		39A9CB011CD2B965007F0582 /* libtidy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFD1CD2B965007F0582 /* libtidy.a */; };
 		39AE8D311CBD8E48000F0D39 /* KeyboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */; };
-		39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; };
-		39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE8D521CBF11C2000F0D39 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39B6ADAE1C851001002E626D /* ServerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93E41C7E3D500053F73F /* ServerInterface.swift */; };
 		39C3DC531CC831AC00D85706 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C3DC521CC831AC00D85706 /* DefaultViewController.swift */; };
 		39C61EFF1C981122002C7E12 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C61EFE1C981122002C7E12 /* Card.swift */; };
@@ -181,13 +187,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		39AE8D551CBF11C2000F0D39 /* Embed Frameworks */ = {
+		39A9CAF91CD2A354007F0582 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */,
+				39A9CAF81CD2A354007F0582 /* MailCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,8 +373,14 @@
 		39961DFB1CC759C40049368E /* QRCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCoder.swift; sourceTree = "<group>"; };
 		399A75011C88C86F007778B0 /* PosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterController.swift; sourceTree = "<group>"; };
 		39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
+		39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		39A9CAF11CD2A2AC007F0582 /* libMailCore-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMailCore-ios.a"; sourceTree = "<group>"; };
+		39A9CAF51CD2A30C007F0582 /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MailCore.framework; sourceTree = "<group>"; };
+		39A9CAFA1CD2B965007F0582 /* libctemplate-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libctemplate-ios.a"; sourceTree = "<group>"; };
+		39A9CAFB1CD2B965007F0582 /* libetpan-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libetpan-ios.a"; sourceTree = "<group>"; };
+		39A9CAFC1CD2B965007F0582 /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsasl2.a; sourceTree = "<group>"; };
+		39A9CAFD1CD2B965007F0582 /* libtidy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtidy.a; sourceTree = "<group>"; };
 		39AE8D301CBD8E48000F0D39 /* KeyboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPresenter.swift; sourceTree = "<group>"; };
-		39AE8D521CBF11C2000F0D39 /* MailCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = MailCore.framework; path = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MailCore.framework"; sourceTree = "<absolute>"; };
 		39C3DC521CC831AC00D85706 /* DefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		39C61EFE1C981122002C7E12 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		39C61F031C98168F002C7E12 /* CardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFactory.swift; sourceTree = "<group>"; };
@@ -453,11 +465,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */,
+				39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */,
+				39A9CAF71CD2A354007F0582 /* MailCore.framework in Frameworks */,
+				39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */,
+				39A9CAF01CD29E23007F0582 /* AVFoundation.framework in Frameworks */,
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
-				39AE8D531CBF11C2000F0D39 /* MailCore.framework in Frameworks */,
 				39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */,
+				39A9CAFE1CD2B965007F0582 /* libctemplate-ios.a in Frameworks */,
+				39A9CB011CD2B965007F0582 /* libtidy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,7 +835,13 @@
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39AE8D521CBF11C2000F0D39 /* MailCore.framework */,
+				39A9CAFA1CD2B965007F0582 /* libctemplate-ios.a */,
+				39A9CAFB1CD2B965007F0582 /* libetpan-ios.a */,
+				39A9CAFC1CD2B965007F0582 /* libsasl2.a */,
+				39A9CAFD1CD2B965007F0582 /* libtidy.a */,
+				39A9CAF11CD2A2AC007F0582 /* libMailCore-ios.a */,
+				39A9CAF51CD2A30C007F0582 /* MailCore.framework */,
+				39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */,
 				393E09A01CADAC2300988EAA /* Security.framework */,
 				393E099E1CADAC1E00988EAA /* CFNetwork.framework */,
 				39DC84801CAC804900F2DB4F /* Security.framework */,
@@ -891,7 +915,7 @@
 				392CF1171C762FCF00090214 /* Sources */,
 				392CF1181C762FCF00090214 /* Frameworks */,
 				392CF1191C762FCF00090214 /* Resources */,
-				39AE8D551CBF11C2000F0D39 /* Embed Frameworks */,
+				39A9CAF91CD2A354007F0582 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1276,9 +1300,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Mehran Najafi (Q79878SPU6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/mailcore2/build-mac",
+					"$(PROJECT_DIR)/mailcore2/build-mac/debugBuild-iPhone",
+					"$(PROJECT_DIR)/mailcore2/build-mac/build/Debug-iphoneos",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
@@ -1301,7 +1328,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "69a17924-fe60-4253-a3f9-eb12fff5752e";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
@@ -1317,6 +1344,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/mailcore2/build-mac",
+					"$(PROJECT_DIR)/mailcore2/build-mac/debugBuild-iPhone",
+					"$(PROJECT_DIR)/mailcore2/build-mac/build/Debug-iphoneos",
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
@@ -1339,7 +1368,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "69a17924-fe60-4253-a3f9-eb12fff5752e";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
