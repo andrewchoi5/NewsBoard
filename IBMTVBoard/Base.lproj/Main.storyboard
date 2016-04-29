@@ -15,6 +15,7 @@
         </mutableArray>
         <mutableArray key="Roboto-Black.ttf">
             <string>Roboto-Black</string>
+            <string>Roboto-Black</string>
         </mutableArray>
         <mutableArray key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
@@ -25,6 +26,8 @@
             <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Simple-Line-Icons.ttf">
+            <string>simple-line-icons</string>
+            <string>simple-line-icons</string>
             <string>simple-line-icons</string>
             <string>simple-line-icons</string>
             <string>simple-line-icons</string>
@@ -49,9 +52,48 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwH-Ua-eyC">
                                 <rect key="frame" x="0.0" y="1020" width="1920" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7T1-g5-OAn">
+                                        <rect key="frame" x="939" y="1" width="42" height="60"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cO-Ik-a62">
+                                        <rect key="frame" x="5" y="3" width="118" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="118" id="lrR-Mk-OMM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="23"/>
+                                        <state key="normal" title=""/>
+                                        <connections>
+                                            <action selector="didPressPreviousDayButton" destination="ibY-wK-Ja0" eventType="primaryActionTriggered" id="Xtd-fG-F4H"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ln-HF-R3t">
+                                        <rect key="frame" x="1797" y="3" width="118" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="118" id="rzV-mG-Kut"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="25"/>
+                                        <state key="normal" title=""/>
+                                        <connections>
+                                            <action selector="didPressNextDayButton" destination="ibY-wK-Ja0" eventType="primaryActionTriggered" id="T7T-xh-mB4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14117647707462311" green="0.15686275064945221" blue="0.18039216101169586" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Hqw-GZ-txr"/>
+                                    <constraint firstItem="7T1-g5-OAn" firstAttribute="centerX" secondItem="pwH-Ua-eyC" secondAttribute="centerX" id="Jm0-a5-kVk"/>
+                                    <constraint firstItem="6cO-Ik-a62" firstAttribute="centerY" secondItem="pwH-Ua-eyC" secondAttribute="centerY" id="XPP-sJ-FM9"/>
+                                    <constraint firstItem="7T1-g5-OAn" firstAttribute="height" secondItem="pwH-Ua-eyC" secondAttribute="height" id="Zli-ES-9Oz"/>
+                                    <constraint firstAttribute="trailing" secondItem="8ln-HF-R3t" secondAttribute="trailing" constant="5" id="dHU-Vj-0uc"/>
+                                    <constraint firstItem="8ln-HF-R3t" firstAttribute="height" secondItem="pwH-Ua-eyC" secondAttribute="height" constant="-5" id="dpx-eh-vDY"/>
+                                    <constraint firstItem="8ln-HF-R3t" firstAttribute="centerY" secondItem="pwH-Ua-eyC" secondAttribute="centerY" id="ozY-RU-u7h"/>
+                                    <constraint firstItem="7T1-g5-OAn" firstAttribute="centerY" secondItem="pwH-Ua-eyC" secondAttribute="centerY" id="s7u-4y-ESM"/>
+                                    <constraint firstItem="6cO-Ik-a62" firstAttribute="height" secondItem="pwH-Ua-eyC" secondAttribute="height" constant="-5" id="xS1-SS-xfm"/>
+                                    <constraint firstItem="6cO-Ik-a62" firstAttribute="leading" secondItem="pwH-Ua-eyC" secondAttribute="leading" constant="5" id="yY5-Rg-dQf"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-Bg-KUV">
@@ -1103,6 +1145,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="RJK-CP-3Lq" id="YZb-ki-VYB"/>
                         <outlet property="collectionView" destination="yuC-Fs-YnA" id="Xvx-kR-9ih"/>
+                        <outlet property="dateLabel" destination="7T1-g5-OAn" id="cA4-oY-ErT"/>
                         <outlet property="errorLabel" destination="wMT-Bg-KUV" id="2hf-0c-OUD"/>
                         <outlet property="loadingView" destination="usf-4d-e41" id="S3L-HZ-fDk"/>
                         <segue destination="dIu-zU-G7e" kind="show" identifier="viewPostSegue" id="Oj2-AK-HdB"/>

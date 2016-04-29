@@ -30,6 +30,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
     
     let dateSelector = DateSelectorController()
     let layout = BoardLayout()
@@ -37,15 +38,16 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     var cardList = [ Card ]()
     
-    func didPressNextDayButton() {
+    @IBAction func didPressNextDayButton() {
         boardDate.incrementByDay()
         self.reload()
-        
+        dateLabel.text = getDateString(boardDate)
     }
     
-    func didPressPreviousDayButton() {
+    @IBAction func didPressPreviousDayButton() {
         boardDate.decrementByDay()
         self.reload()
+        dateLabel.text = getDateString(boardDate)
         
     }
     
@@ -61,7 +63,8 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         
         self.beginLoadingState()
         self.reload()
-        
+        dateLabel.text = getDateString(boardDate)
+
 //        dateSelector.delegate = self
 //        
 //        self.addChildViewController(dateSelector)
@@ -106,7 +109,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     func showNoCardsState() {
         guard let noCardsLabel = self.view.viewWithTag(1010101) as? UILabel else { return }
-        noCardsLabel.text = "No Posts for \(getDateString(boardDate))"
+        noCardsLabel.text = "No posts for this day"
         noCardsLabel.sizeToFit()
         noCardsLabel.center.x = self.view.frame.width / 2
         noCardsLabel.center.y = self.view.frame.height / 2
