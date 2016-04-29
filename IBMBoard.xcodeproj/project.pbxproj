@@ -29,6 +29,17 @@
 		2D7087B31CC57A2800CEF4F7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393426B51CBC9FEB0089F48F /* Roboto-Regular.ttf */; };
 		2D72F0B61CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
 		2D72F0B71CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
+		2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */; };
+		2DFE79DC1CD251EF0056C8C6 /* Certificates in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D11CD251EF0056C8C6 /* Certificates */; };
+		2DFE79DD1CD251EF0056C8C6 /* Configurations in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D21CD251EF0056C8C6 /* Configurations */; };
+		2DFE79DE1CD251EF0056C8C6 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D31CD251EF0056C8C6 /* Gemfile */; };
+		2DFE79DF1CD251EF0056C8C6 /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D41CD251EF0056C8C6 /* Gemfile.lock */; };
+		2DFE79E01CD251EF0056C8C6 /* KeychainAccess in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D51CD251EF0056C8C6 /* KeychainAccess */; };
+		2DFE79E11CD251EF0056C8C6 /* KeychainAccessTests in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D91CD251EF0056C8C6 /* KeychainAccessTests */; };
+		2DFE79E21CD251EF0056C8C6 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79DA1CD251EF0056C8C6 /* Rakefile */; };
+		2DFE79E31CD251EF0056C8C6 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79DB1CD251EF0056C8C6 /* Scripts */; };
+		2DFE79EA1CD2523F0056C8C6 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */; };
+		2DFE79EB1CD252710056C8C6 /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */; };
 		39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
 		39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
@@ -186,6 +197,23 @@
 		39EB94121C84ABB10053F73F /* BoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB94111C84ABB10053F73F /* BoardLayout.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2DFE79E61CD251EF0056C8C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 140F195C1A49D79400B0016A;
+			remoteInfo = KeychainAccess;
+		};
+		2DFE79E81CD251EF0056C8C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 140F19671A49D79500B0016A;
+			remoteInfo = KeychainAccessTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		39A9CAF91CD2A354007F0582 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -193,7 +221,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				39A9CAF81CD2A354007F0582 /* MailCore.framework in Embed Frameworks */,
+				2DFE79EB1CD252710056C8C6 /* KeychainAccess.framework in Embed Frameworks */,
+				39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +233,16 @@
 		2D5BD0E51CC92B6F001953CE /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		2D72F0B51CC6638F00697221 /* CALayerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExt.swift; sourceTree = "<group>"; };
+		2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		2DFE79D11CD251EF0056C8C6 /* Certificates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Certificates; path = KeychainAccess/Lib/Certificates; sourceTree = "<group>"; };
+		2DFE79D21CD251EF0056C8C6 /* Configurations */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Configurations; path = KeychainAccess/Lib/Configurations; sourceTree = "<group>"; };
+		2DFE79D31CD251EF0056C8C6 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Gemfile; path = KeychainAccess/Lib/Gemfile; sourceTree = "<group>"; };
+		2DFE79D41CD251EF0056C8C6 /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Gemfile.lock; path = KeychainAccess/Lib/Gemfile.lock; sourceTree = "<group>"; };
+		2DFE79D51CD251EF0056C8C6 /* KeychainAccess */ = {isa = PBXFileReference; lastKnownFileType = folder; name = KeychainAccess; path = KeychainAccess/Lib/KeychainAccess; sourceTree = "<group>"; };
+		2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeychainAccess.xcodeproj; path = KeychainAccess/Lib/KeychainAccess.xcodeproj; sourceTree = "<group>"; };
+		2DFE79D91CD251EF0056C8C6 /* KeychainAccessTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = KeychainAccessTests; path = KeychainAccess/Lib/KeychainAccessTests; sourceTree = "<group>"; };
+		2DFE79DA1CD251EF0056C8C6 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = KeychainAccess/Lib/Rakefile; sourceTree = "<group>"; };
+		2DFE79DB1CD251EF0056C8C6 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Scripts; path = KeychainAccess/Lib/Scripts; sourceTree = "<group>"; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
 		391355251CCACFA700D801FC /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -470,6 +509,8 @@
 				39A9CAF71CD2A354007F0582 /* MailCore.framework in Frameworks */,
 				39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */,
 				39A9CAF01CD29E23007F0582 /* AVFoundation.framework in Frameworks */,
+				2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */,
+				2DFE79EA1CD2523F0056C8C6 /* KeychainAccess.framework in Frameworks */,
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
@@ -489,6 +530,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DFE79D01CD2517C0056C8C6 /* KeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE79D11CD251EF0056C8C6 /* Certificates */,
+				2DFE79D21CD251EF0056C8C6 /* Configurations */,
+				2DFE79D31CD251EF0056C8C6 /* Gemfile */,
+				2DFE79D41CD251EF0056C8C6 /* Gemfile.lock */,
+				2DFE79D51CD251EF0056C8C6 /* KeychainAccess */,
+				2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */,
+				2DFE79D91CD251EF0056C8C6 /* KeychainAccessTests */,
+				2DFE79DA1CD251EF0056C8C6 /* Rakefile */,
+				2DFE79DB1CD251EF0056C8C6 /* Scripts */,
+			);
+			name = KeychainAccess;
+			sourceTree = "<group>";
+		};
+		2DFE79D71CD251EF0056C8C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */,
+				2DFE79E91CD251EF0056C8C6 /* KeychainAccessTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		392CF1121C762FCF00090214 = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +562,7 @@
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
 				39022D031C8A545B00464BC1 /* VideoAPIManager.swift */,
 				393CB1B51CBF47E200648B5B /* Utilities */,
+				2DFE79D01CD2517C0056C8C6 /* KeychainAccess */,
 				394CD6671C9181A300AB28F1 /* JTCalendar */,
 				39EB93F51C7E65E30053F73F /* TBXML */,
 				39E5A8B81C7D29D900DFC0F5 /* SDWebImage */,
@@ -842,6 +909,7 @@
 				39A9CAF11CD2A2AC007F0582 /* libMailCore-ios.a */,
 				39A9CAF51CD2A30C007F0582 /* MailCore.framework */,
 				39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */,
+				2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */,
 				393E09A01CADAC2300988EAA /* Security.framework */,
 				393E099E1CADAC1E00988EAA /* CFNetwork.framework */,
 				39DC84801CAC804900F2DB4F /* Security.framework */,
@@ -974,6 +1042,12 @@
 			mainGroup = 392CF1121C762FCF00090214;
 			productRefGroup = 392CF11C1C762FCF00090214 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2DFE79D71CD251EF0056C8C6 /* Products */;
+					ProjectRef = 2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				392CF11A1C762FCF00090214 /* IBMBoard */,
@@ -982,12 +1056,31 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KeychainAccess.framework;
+			remoteRef = 2DFE79E61CD251EF0056C8C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DFE79E91CD251EF0056C8C6 /* KeychainAccessTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KeychainAccessTests.xctest;
+			remoteRef = 2DFE79E81CD251EF0056C8C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		392CF1191C762FCF00090214 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DFE79DE1CD251EF0056C8C6 /* Gemfile in Resources */,
 				3982DD911CC5672100691A39 /* Simple-Line-Icons.ttf in Resources */,
+				2DFE79DD1CD251EF0056C8C6 /* Configurations in Resources */,
 				39D7E2E81CC429AF00B02FEC /* Roboto-Black.ttf in Resources */,
 				39D7E2E91CC429AF00B02FEC /* Roboto-BlackItalic.ttf in Resources */,
 				39D7E2EA1CC429AF00B02FEC /* Roboto-Bold.ttf in Resources */,
@@ -995,19 +1088,25 @@
 				39D7E2EC1CC429AF00B02FEC /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				39D7E2ED1CC429AF00B02FEC /* Roboto-BoldItalic.ttf in Resources */,
 				39D7E2EE1CC429AF00B02FEC /* Roboto-Condensed.ttf in Resources */,
+				2DFE79E31CD251EF0056C8C6 /* Scripts in Resources */,
+				2DFE79DC1CD251EF0056C8C6 /* Certificates in Resources */,
 				39D7E2EF1CC429AF00B02FEC /* Roboto-CondensedItalic.ttf in Resources */,
 				39D7E2F01CC429AF00B02FEC /* Roboto-Italic.ttf in Resources */,
 				39D7E2F11CC429AF00B02FEC /* Roboto-Light.ttf in Resources */,
 				39D7E2F21CC429AF00B02FEC /* Roboto-LightItalic.ttf in Resources */,
+				2DFE79DF1CD251EF0056C8C6 /* Gemfile.lock in Resources */,
 				39D7E2F31CC429AF00B02FEC /* Roboto-Medium.ttf in Resources */,
 				39D7E2F41CC429AF00B02FEC /* Roboto-MediumItalic.ttf in Resources */,
+				2DFE79E01CD251EF0056C8C6 /* KeychainAccess in Resources */,
 				39D7E2F51CC429AF00B02FEC /* Roboto-Thin.ttf in Resources */,
 				39D7E2F61CC429AF00B02FEC /* Roboto-ThinItalic.ttf in Resources */,
 				393426B61CBCA4860089F48F /* Roboto-Regular.ttf in Resources */,
 				392CF1291C762FCF00090214 /* LaunchScreen.storyboard in Resources */,
+				2DFE79E11CD251EF0056C8C6 /* KeychainAccessTests in Resources */,
 				392CF1261C762FCF00090214 /* Assets.xcassets in Resources */,
 				394606C01C91605F00E2633C /* Assets.xcassets in Resources */,
 				392CF1241C762FCF00090214 /* Main.storyboard in Resources */,
+				2DFE79E21CD251EF0056C8C6 /* Rakefile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

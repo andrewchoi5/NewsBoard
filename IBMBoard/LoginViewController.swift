@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import KeychainAccess
+import LocalAuthentication
 
 class LoginViewController: KeyboardPresenter {
 
@@ -21,7 +23,6 @@ class LoginViewController: KeyboardPresenter {
     
     static var RememberCredentialsKey = "RememberCredentialsKey"
     static var LoginUsernameKey = "LoginUsernameKey"
-    static var LoginPasswordKey = "LoginPasswordKey"
     static var LoginSuccessfulSegue = "LoginSuccessfulSegue"
     
     var userAccount : Account!
@@ -50,6 +51,8 @@ class LoginViewController: KeyboardPresenter {
         
         registerDelegates()
         
+        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        
         emailID.keyboardType = .EmailAddress
         emailID.autocapitalizationType = .None
         emailID.autocorrectionType = .No
@@ -58,10 +61,11 @@ class LoginViewController: KeyboardPresenter {
         qrButton.setLabel(qrLabel)
         
         rememberCredentials.on = userDefaults.boolForKey(LoginViewController.RememberCredentialsKey)
-        emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
-        password.text = userDefaults.stringForKey(LoginViewController.LoginPasswordKey)
         
         if rememberCredentials.on {
+            emailID.text = userDefaults.stringForKey(LoginViewController.LoginUsernameKey)
+            password.text = try! keychain.getString(emailID.text!)
+            
             performLogin()
         }
 
@@ -88,6 +92,116 @@ class LoginViewController: KeyboardPresenter {
         performLogin()
     }
     
+    @IBAction func touchIDloginPressed() {
+        performTouchIDLogin()
+    }
+    
+    // not working correctly
+    func performTouchIDLogin() {
+        
+        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        
+        let authenticationContext = LAContext()
+        var error:NSError?
+    
+        guard authenticationContext.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            
+            print("No touchid on device")
+            return
+            
+        }
+        
+        authenticationContext.evaluatePolicy(
+            .DeviceOwnerAuthenticationWithBiometrics,
+            localizedReason: "Login to IBM Board",
+            reply: { [unowned self] (success, error) -> Void in
+                
+                if( success ) {
+                    
+                    self.password.text = keychain[self.emailID.text!]
+                        
+                        ServerInterface.getAccount(withEmail: self.emailID.text!, andPassword: self.password.text!) { (account) in
+                            self.hideLoading()
+                            if account == nil {
+                                self.emailID.showInvalid()
+                                self.password.showInvalid()
+                                return
+                            }
+                            
+                            self.userAccount = account!
+                            
+                            if !self.userAccount.verified {
+                                self.performSegueWithIdentifier("reverificationSegue", sender: self)
+                                return
+                                
+                            }
+                            
+                            if !self.userAccount.hasProfilePicture() {
+                                self.performSegueWithIdentifier("profilePictureSegue", sender: self)
+                                return
+                                
+                            }
+                            
+                            self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+                    }
+
+                    
+                }else {
+                    
+                    // Check if there is an error
+                    if let error = error {
+                        
+                        let message = self.errorMessageForLAErrorCode(error.code)
+                        print(message)
+                    }
+                    
+                }
+                
+            })
+    }
+    
+    func errorMessageForLAErrorCode( errorCode:Int ) -> String{
+        
+        var message = ""
+        
+        switch errorCode {
+            
+        case LAError.AppCancel.rawValue:
+            message = "Authentication was cancelled by application"
+            
+        case LAError.AuthenticationFailed.rawValue:
+            message = "The user failed to provide valid credentials"
+            
+        case LAError.InvalidContext.rawValue:
+            message = "The context is invalid"
+            
+        case LAError.PasscodeNotSet.rawValue:
+            message = "Passcode is not set on the device"
+            
+        case LAError.SystemCancel.rawValue:
+            message = "Authentication was cancelled by the system"
+            
+        case LAError.TouchIDLockout.rawValue:
+            message = "Too many failed attempts."
+            
+        case LAError.TouchIDNotAvailable.rawValue:
+            message = "TouchID is not available on the device"
+            
+        case LAError.UserCancel.rawValue:
+            message = "The user did cancel"
+            
+        case LAError.UserFallback.rawValue:
+            message = "The user chose to use the fallback"
+            
+        default:
+            message = "Did not find error code on LAError object"
+            
+        }
+        
+        return message
+        
+    }
+    
     func performLogin() {
         self.showLoading()
         emailID.endEditing(true)
@@ -95,44 +209,55 @@ class LoginViewController: KeyboardPresenter {
         
         emailID.text = emailID.text?.lowercaseString
         
+        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        
         if(rememberCredentials.on) {
             userDefaults.setBool(true, forKey: LoginViewController.RememberCredentialsKey)
             userDefaults.setObject(emailID.text, forKey: LoginViewController.LoginUsernameKey)
-            userDefaults.setObject(password.text, forKey: LoginViewController.LoginPasswordKey)
+            
+            keychain[emailID.text!] = password.text
             
         } else {
             userDefaults.setBool(false, forKey: LoginViewController.RememberCredentialsKey)
             userDefaults.setObject("", forKey: LoginViewController.LoginUsernameKey)
-            userDefaults.setObject("", forKey: LoginViewController.LoginPasswordKey)
+            
+            /*
+            let keys = keychain.allKeys()
+            for key in keys {
+                do {
+                    try keychain.remove(key)
+                } catch let error {
+                    // Error handling if needed...
+                }
+            }
+            */
         }
         
-        //        self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
-        ServerInterface.getAccount(withEmail: emailID.text!, andPassword: password.text!) { (account) in
-            self.hideLoading()
-            if account == nil {
-                self.emailID.showInvalid()
-                self.password.showInvalid()
-                return
-            }
-            
-            self.userAccount = account!
-            
-            if !self.userAccount.verified {
-                self.performSegueWithIdentifier("reverificationSegue", sender: self)
-                return
-                
-            }
-            
-            if !self.userAccount.hasProfilePicture() {
-                self.performSegueWithIdentifier("profilePictureSegue", sender: self)
-                return
-                
-            }
-            
-            self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
-            
+        ServerInterface.getAccount(withEmail: self.emailID.text!, andPassword: self.password.text!) { (account) in
+                    self.hideLoading()
+                    if account == nil {
+                        self.emailID.showInvalid()
+                        self.password.showInvalid()
+                        return
+                    }
+                    
+                    self.userAccount = account!
+                    
+                    if !self.userAccount.verified {
+                        self.performSegueWithIdentifier("reverificationSegue", sender: self)
+                        return
+                        
+                    }
+                    
+                    if !self.userAccount.hasProfilePicture() {
+                        self.performSegueWithIdentifier("profilePictureSegue", sender: self)
+                        return
+                        
+                    }
+                    
+                    self.performSegueWithIdentifier(LoginViewController.LoginSuccessfulSegue, sender: self)
+                    
         }
-
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
