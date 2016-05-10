@@ -21,7 +21,10 @@ xcuserdata
 *.xccheckout
 *.moved-aside
 *.xcuserstate
-
+MailCore.framework/libMailCore.a
+*libMailCore.a
+/MailCore.framework/libMailCore.a
+*/libMailCore.a
 *.DS_STORE
 
 SDWebImage
