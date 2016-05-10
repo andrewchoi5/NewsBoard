@@ -7,6 +7,9 @@
 [submodule "JTCalendar"]
 	path = JTCalendar
 	url = https://github.com/jonathantribouharet/JTCalendar.git
+[submodule "mailcore2"]
+	path = mailcore2
+	url = https://github.com/MailCore/mailcore2.git
 [submodule "JFCommon"]
 	path = JFCommon
 	url = https://github.com/jayfuerstenberg/JFCommon.git
