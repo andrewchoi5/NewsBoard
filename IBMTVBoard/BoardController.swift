@@ -222,7 +222,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     }
     
     func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool {
-        
         return true
     }
 
@@ -247,9 +246,22 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //        self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
+        
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         
-        UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: { () -> Void in }, completion: nil)
+        let cardCell = cardList[indexPath.row]
+        
+        if (cardCell.type! == CardCellType.Video || cardCell.type! == CardCellType.NewsArticle) {
+            
+            UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: { (finished: Bool) -> () in
+                
+                let label = UILabel.init()
+                label.frame = (cell?.bounds)!
+                label.text = "this is a test"
+                cell?.contentView.addSubview(label)
+                self.reload()
+            })
+        }
     }
     
     override func viewDidLayoutSubviews() {
