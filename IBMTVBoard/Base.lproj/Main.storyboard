@@ -254,10 +254,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qP4-G0-Wtg">
-                                                            <rect key="frame" x="435" y="305" width="80" height="80"/>
+                                                            <rect key="frame" x="475" y="345" width="40" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="vWc-HQ-AFz"/>
-                                                                <constraint firstAttribute="height" constant="80" id="wOH-cL-23b"/>
+                                                                <constraint firstAttribute="width" constant="40" id="vWc-HQ-AFz"/>
+                                                                <constraint firstAttribute="height" constant="40" id="wOH-cL-23b"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -373,10 +373,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-LY-8VM">
-                                                            <rect key="frame" x="446" y="324" width="80" height="80"/>
+                                                            <rect key="frame" x="486" y="364" width="40" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="ZYD-e7-Bst"/>
-                                                                <constraint firstAttribute="height" constant="80" id="eO2-ee-ps0"/>
+                                                                <constraint firstAttribute="width" constant="40" id="ZYD-e7-Bst"/>
+                                                                <constraint firstAttribute="height" constant="40" id="eO2-ee-ps0"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
