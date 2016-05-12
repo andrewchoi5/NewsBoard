@@ -211,8 +211,7 @@ class ArticleCardCell : CardCell {
             articleMessageBody.lineBreakMode = .ByTruncatingTail
         }
         
-        detailLabel.text = "Read More..."
-        
+        detailLabel.text = "Read More..."        
     }
     
 }
