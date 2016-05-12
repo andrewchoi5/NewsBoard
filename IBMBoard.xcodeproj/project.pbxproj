@@ -128,10 +128,8 @@
 		39A8BA8C1CC4E78900307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
 		39A8BA8D1CC4E96100307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
 		39A8BA8E1CC5381400307E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1251C762FCF00090214 /* Assets.xcassets */; };
-		39A9CAF01CD29E23007F0582 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
 		39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF11CD2A2AC007F0582 /* libMailCore-ios.a */; };
 		39A9CAF71CD2A354007F0582 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
-		39A9CAF81CD2A354007F0582 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39A9CAFE1CD2B965007F0582 /* libctemplate-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFA1CD2B965007F0582 /* libctemplate-ios.a */; };
 		39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFB1CD2B965007F0582 /* libetpan-ios.a */; };
 		39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFC1CD2B965007F0582 /* libsasl2.a */; };
@@ -195,6 +193,13 @@
 		39EB940C1C7FC8030053F73F /* AnnouncementPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940B1C7FC8030053F73F /* AnnouncementPostController.swift */; };
 		39EB940E1C80FE240053F73F /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		39EB94121C84ABB10053F73F /* BoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB94111C84ABB10053F73F /* BoardLayout.swift */; };
+		867ABEF01CE3D34A00402B18 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
+		867ABEF11CE3D34A00402B18 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86863B2C1CE3D851006FA574 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
+		86863B2D1CE3D851006FA574 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86863B2E1CE3D87B006FA574 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
+		86FE76C11CE4B5890035F43B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
+		86FE76C21CE4B5890035F43B /* AVFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,8 +226,20 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				86863B2D1CE3D851006FA574 /* MailCore.framework in Embed Frameworks */,
 				2DFE79EB1CD252710056C8C6 /* KeychainAccess.framework in Embed Frameworks */,
-				39AE8D541CBF11C2000F0D39 /* MailCore.framework in Embed Frameworks */,
+				86FE76C21CE4B5890035F43B /* AVFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		867ABEF41CE3D34A00402B18 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				867ABEF11CE3D34A00402B18 /* MailCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,12 +523,14 @@
 			files = (
 				39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */,
 				39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */,
+				86FE76C11CE4B5890035F43B /* AVFoundation.framework in Frameworks */,
+				86863B2E1CE3D87B006FA574 /* AVFoundation.framework in Frameworks */,
 				39A9CAF71CD2A354007F0582 /* MailCore.framework in Frameworks */,
 				39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */,
-				39A9CAF01CD29E23007F0582 /* AVFoundation.framework in Frameworks */,
 				2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */,
 				2DFE79EA1CD2523F0056C8C6 /* KeychainAccess.framework in Frameworks */,
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
+				86863B2C1CE3D851006FA574 /* MailCore.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
 				39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */,
@@ -524,6 +543,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867ABEF01CE3D34A00402B18 /* MailCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,6 +1021,7 @@
 				392CF14C1C76424500090214 /* Sources */,
 				392CF14D1C76424500090214 /* Frameworks */,
 				392CF14E1C76424500090214 /* Resources */,
+				867ABEF41CE3D34A00402B18 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1023,7 +1044,6 @@
 				TargetAttributes = {
 					392CF11A1C762FCF00090214 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = PP64RT7P8Z;
 					};
 					392CF14F1C76424500090214 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1397,8 +1417,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mehran Najafi (Q79878SPU6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
@@ -1427,9 +1447,9 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
+				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69a17924-fe60-4253-a3f9-eb12fff5752e";
+				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Debug;
@@ -1438,8 +1458,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mehran Najafi (Q79878SPU6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/mailcore2/build-mac",
@@ -1467,9 +1487,9 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
+				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69a17924-fe60-4253-a3f9-eb12fff5752e";
+				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Release;
@@ -1480,6 +1500,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
@@ -1499,6 +1523,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
