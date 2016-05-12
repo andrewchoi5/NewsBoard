@@ -247,7 +247,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //        self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
-         let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
         
         UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: { () -> Void in }, completion: nil)
     }

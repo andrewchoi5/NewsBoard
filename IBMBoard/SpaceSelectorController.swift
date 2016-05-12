@@ -158,7 +158,7 @@ class SpaceSelectorController : DefaultViewController {
         
         self.collectionView?.reloadData()
     }
-
+    
     func openEditingActionSheet(withInvokingGesture gesture: CardEditingGesture) {
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -168,7 +168,7 @@ class SpaceSelectorController : DefaultViewController {
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Delete", style: .Destructive, handler: { (action) in
-                self.deleteCard(gesture.associatedCard)
+            self.deleteCard(gesture.associatedCard)
             
         }))
         
@@ -261,14 +261,14 @@ class SpaceSelectorController : DefaultViewController {
         
         switch type {
             
-            case .Video:            segueIdentifier = updateVideoCardSegue
-            case .NewsArticle:      segueIdentifier = updateArticleCardSegue
-            case .Announcement:     segueIdentifier = updateAnnouncementCardSegue
-            case .Question:         segueIdentifier = updateQuestionCardSegue
-            case .Idea:             segueIdentifier = updateIdeaCardSegue
-            case .RFP:              segueIdentifier = updateRFPCardSegue
+        case .Video:            segueIdentifier = updateVideoCardSegue
+        case .NewsArticle:      segueIdentifier = updateArticleCardSegue
+        case .Announcement:     segueIdentifier = updateAnnouncementCardSegue
+        case .Question:         segueIdentifier = updateQuestionCardSegue
+        case .Idea:             segueIdentifier = updateIdeaCardSegue
+        case .RFP:              segueIdentifier = updateRFPCardSegue
             
-            default : return
+        default : return
         }
         
         self.performSegueWithIdentifier(segueIdentifier, sender: card)
@@ -289,7 +289,7 @@ class SpaceSelectorController : DefaultViewController {
             vc.card = sender as! Card
             vc.updatingMode = true
         }
-
+        
     }
     
     @IBAction func unwindToSpaceSelector(segue : UIStoryboardSegue) {
@@ -313,14 +313,14 @@ class CardEditingGesture : UITapGestureRecognizer {
 extension SpaceSelectorController : PostDateSelector {
     func didAddPostingDate(date: NSDate) {
         postingDates.insert(BoardDate(withDate: date))
-//        datesToSearch.insert(date)
-//        self.reloadCards()
+        //        datesToSearch.insert(date)
+        //        self.reloadCards()
     }
     
     func didRemovePostingDate(date: NSDate) {
         postingDates.remove(BoardDate(withDate: date))
-//        datesToSearch.remove(date)
-//        self.reloadCards()
+        //        datesToSearch.remove(date)
+        //        self.reloadCards()
     }
     
     func hasPostingDate(date: NSDate) -> Bool {
@@ -382,7 +382,7 @@ extension SpaceSelectorController : UICollectionViewDataSource {
             let startIndex = card!.space.topLeftCorner - 1
             let height = card!.space.height
             let width = card!.space.width
-       
+            
             let cellRow = indexPath.row % cellsPerRow
             let cellCol = indexPath.row / cellsPerRow
             let topLeftRow = startIndex % cellsPerRow
@@ -412,10 +412,10 @@ extension SpaceSelectorController : UICollectionViewDelegate {
         selectedSpaces.insert(indexPath.row)
         doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
         
-//        if isRectangular(selectedSpaces) && postingDates.count > 0  {
-//            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
-//            
-//        }
+        //        if isRectangular(selectedSpaces) && postingDates.count > 0  {
+        //            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
+        //
+        //        }
         
     }
     
@@ -430,11 +430,11 @@ extension SpaceSelectorController : UICollectionViewDelegate {
         doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
         
         
-//        if isRectangular(selectedSpaces) && postingDates.count > 0 {
-//            
-//            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
-//            
-//        }
+        //        if isRectangular(selectedSpaces) && postingDates.count > 0 {
+        //
+        //            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
+        //
+        //        }
         
     }
     
