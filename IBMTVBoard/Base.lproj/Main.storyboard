@@ -339,8 +339,8 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.minificationFilter" value="kCAFilterTrilinear"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-eF-NtK">
-                                                            <rect key="frame" x="27" y="86" width="495" height="51"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-eF-NtK">
+                                                            <rect key="frame" x="21" y="86" width="495" height="51"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="51" id="7E0-cy-GTY"/>
                                                             </constraints>
@@ -416,7 +416,7 @@
                                             <constraint firstItem="7k4-Lc-a7A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JT0-CE-yaF" secondAttribute="leadingMargin" constant="10" id="enE-aW-uor"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="DyX-aD-CPW" secondAttribute="bottom" constant="-5" id="hSO-Dr-pbY"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="oDr-Co-wTQ" secondAttribute="leading" id="t7K-PJ-bAX"/>
-                                            <constraint firstItem="Lmw-eF-NtK" firstAttribute="leading" secondItem="JT0-CE-yaF" secondAttribute="leadingMargin" constant="27" id="tCY-pq-QE2"/>
+                                            <constraint firstItem="Lmw-eF-NtK" firstAttribute="leading" secondItem="JT0-CE-yaF" secondAttribute="leadingMargin" constant="21" id="tCY-pq-QE2"/>
                                             <constraint firstItem="K1a-w9-FeH" firstAttribute="top" secondItem="JT0-CE-yaF" secondAttribute="topMargin" constant="8" id="ypv-PF-fPd"/>
                                         </constraints>
                                         <connections>
@@ -719,8 +719,8 @@
                                                             <color key="progressTintColor" red="0.16862745100000001" green="0.43529411759999997" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="trackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </progressView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W1N-b6-S4G">
-                                                            <rect key="frame" x="27" y="86" width="495" height="51"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W1N-b6-S4G">
+                                                            <rect key="frame" x="21" y="86" width="495" height="51"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="51" id="HKO-7q-Xsa"/>
                                                             </constraints>
@@ -806,7 +806,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="Bwt-lu-Ok4" secondAttribute="bottom" id="YsN-LN-OTM"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Bwt-lu-Ok4" secondAttribute="trailing" id="cpb-90-MeI"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="MZp-5d-VSu" secondAttribute="bottom" constant="68" id="gat-6i-Ftn"/>
-                                            <constraint firstItem="W1N-b6-S4G" firstAttribute="leading" secondItem="ojz-ix-5e0" secondAttribute="leadingMargin" constant="27" id="iJY-4v-90j"/>
+                                            <constraint firstItem="W1N-b6-S4G" firstAttribute="leading" secondItem="ojz-ix-5e0" secondAttribute="leadingMargin" constant="21" id="iJY-4v-90j"/>
                                             <constraint firstAttribute="topMargin" secondItem="Bwt-lu-Ok4" secondAttribute="top" id="n3l-zK-zdh"/>
                                             <constraint firstItem="f6p-84-raW" firstAttribute="leading" secondItem="ojz-ix-5e0" secondAttribute="leadingMargin" constant="-5" id="uul-Dx-oir"/>
                                         </constraints>
