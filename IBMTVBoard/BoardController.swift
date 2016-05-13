@@ -244,8 +244,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
-        
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
         
         let cardCell = cardList[indexPath.row]
@@ -268,11 +266,10 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             let xVal = qrCode.frame.origin.x
             let yVal = qrCode.frame.origin.y
             
-            qrCode.frame = CGRectMake(xVal + 9, yVal + 9, qrCode.frame.width - 18, qrCode.frame.height - 18)
+            qrCode.frame = CGRectMake(xVal + 8, yVal + 8, qrCode.frame.width - 16, qrCode.frame.height - 16)
             
             qrCode.tag = 1000
             cell?.contentView.addSubview(qrCode)
-            
             
             UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
         }
