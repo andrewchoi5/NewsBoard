@@ -252,14 +252,13 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         let cardCell = cardList[indexPath.row]
         
         if (cardCell.type! == CardCellType.Video || cardCell.type! == CardCellType.NewsArticle) {
+            let qrCode = UIImageView.init()
+            
+            qrCode.image = QRCoder(card: cardCell).encodedImage()
+            qrCode.frame = (cell?.bounds)!
+            cell?.contentView.addSubview(qrCode)
             
             UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: { (finished: Bool) -> () in
-                
-                let label = UILabel.init()
-                label.frame = (cell?.bounds)!
-                label.text = "this is a test"
-                cell?.contentView.addSubview(label)
-                self.reload()
             })
         }
     }
