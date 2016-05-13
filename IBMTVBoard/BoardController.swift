@@ -10,7 +10,6 @@
 import UIKit
 
 class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelegate {
-
     static let updateIntervalInSeconds = 5.0
     
     let cellsPerRow = 7
@@ -251,15 +250,31 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         
         let cardCell = cardList[indexPath.row]
         
-        if (cardCell.type! == CardCellType.Video || cardCell.type! == CardCellType.NewsArticle) {
+        if (cell?.contentView.subviews.count > 2)
+        {
+            for v in (cell?.contentView.subviews)!{
+                if v.tag == 1000 {
+                    v.removeFromSuperview()
+                    UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
+                }
+            }
+        }
+        else if (cardCell.type! == CardCellType.Video || cardCell.type! == CardCellType.NewsArticle) {
             let qrCode = UIImageView.init()
             
             qrCode.image = QRCoder(card: cardCell).encodedImage()
             qrCode.frame = (cell?.bounds)!
+            
+            let xVal = qrCode.frame.origin.x
+            let yVal = qrCode.frame.origin.y
+            
+            qrCode.frame = CGRectMake(xVal + 9, yVal + 9, qrCode.frame.width - 18, qrCode.frame.height - 18)
+            
+            qrCode.tag = 1000
             cell?.contentView.addSubview(qrCode)
             
-            UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: { (finished: Bool) -> () in
-            })
+            
+            UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
         }
     }
     
