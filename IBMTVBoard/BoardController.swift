@@ -251,7 +251,13 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         if (cell?.contentView.subviews.count > 2)
         {
             for v in (cell?.contentView.subviews)!{
-                if v.tag == 1000 {
+                if v.tag == 1 {
+                    
+                    cell?.contentView.subviews[1].subviews[4].hidden = false
+                    cell?.contentView.subviews[1].subviews[3].hidden = false
+                    cell?.contentView.subviews[1].subviews[2].hidden = false
+                    cell?.contentView.subviews[1].subviews[1].hidden = false
+                    
                     v.removeFromSuperview()
                     UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
                 }
@@ -262,16 +268,18 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             
             qrCode.image = QRCoder(card: cardCell).encodedImage()
             qrCode.frame = (cell?.bounds)!
-            
-            let xVal = qrCode.frame.origin.x
-            let yVal = qrCode.frame.origin.y
-            
-            qrCode.frame = CGRectMake(xVal + 8, yVal + 8, qrCode.frame.width - 16, qrCode.frame.height - 16)
-            
-            qrCode.tag = 1000
-            cell?.contentView.addSubview(qrCode)
 
+            qrCode.frame = CGRectMake(qrCode.frame.origin.x, qrCode.frame.origin.y, 200, 200)
+            qrCode.center = (cell?.contentView.convertPoint((cell?.contentView.center)!, fromView:cell?.contentView.superview))!
+         
+            qrCode.tag = 1
+            cell?.contentView.addSubview(qrCode)
             
+            cell?.contentView.subviews[1].subviews[4].hidden = true
+            cell?.contentView.subviews[1].subviews[3].hidden = true
+            cell?.contentView.subviews[1].subviews[2].hidden = true
+            cell?.contentView.subviews[1].subviews[1].hidden = true
+
             UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
         }
     }
