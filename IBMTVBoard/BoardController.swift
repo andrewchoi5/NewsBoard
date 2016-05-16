@@ -12,7 +12,7 @@ import UIKit
 class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelegate {
     static let updateIntervalInSeconds = 5.0
     
-    let cellsPerRow = 7
+    let cellsPerRow = 5
     let cellsPerColumn = 4
     
     let DefaultCardCellIdentifier           = "defaultCardCell"
