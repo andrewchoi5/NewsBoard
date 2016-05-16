@@ -253,10 +253,11 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             for v in (cell?.contentView.subviews)!{
                 if v.tag == 1 {
                     
-                    cell?.contentView.subviews[1].subviews[4].hidden = false
-                    cell?.contentView.subviews[1].subviews[3].hidden = false
-                    cell?.contentView.subviews[1].subviews[2].hidden = false
-                    cell?.contentView.subviews[1].subviews[1].hidden = false
+                    for cellContent in (cell?.contentView.subviews[1].subviews)! {
+                        if (cellContent.hidden == true) {
+                            cellContent.hidden = false
+                        }
+                    }
                     
                     v.removeFromSuperview()
                     UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
@@ -275,10 +276,11 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             qrCode.tag = 1
             cell?.contentView.addSubview(qrCode)
             
-            cell?.contentView.subviews[1].subviews[4].hidden = true
-            cell?.contentView.subviews[1].subviews[3].hidden = true
-            cell?.contentView.subviews[1].subviews[2].hidden = true
-            cell?.contentView.subviews[1].subviews[1].hidden = true
+            for cellContent in (cell?.contentView.subviews[1].subviews)! {
+                if (cellContent.hidden == false) {
+                    cellContent.hidden = true
+                }
+            }
 
             UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
         }
