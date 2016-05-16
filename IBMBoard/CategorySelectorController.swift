@@ -22,7 +22,7 @@ class CategorySelectorController : DefaultViewController {
     // XCode cannot render unicode symbols on this screen
     var optionImagesArray = [
                                     ("Article",         ""),
-                                    ("Announcements",   ""),
+                                    ("News",   ""),
                                     ("Idea",            ""),
                                     ("Tech Questions",  ""),
                                     ("RFP",             ""),

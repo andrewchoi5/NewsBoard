@@ -1286,7 +1286,7 @@
                                             <outlet property="delegate" destination="NvT-Dn-yoj" id="HRU-Th-3Zw"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcement body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIG-v8-MfI" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIG-v8-MfI" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="159" width="383" height="54"/>
                                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1367,7 +1367,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="hMV-U1-mdd" secondAttribute="trailing" constant="-20" id="nNs-YW-PhR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Announcement" id="e7H-vo-iMF">
+                    <navigationItem key="navigationItem" title="News" id="e7H-vo-iMF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IVd-gG-b9C"/>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -2204,13 +2204,13 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BXu-AB-Ev4"/>
+        <segue reference="SCD-dM-0e9"/>
         <segue reference="PUd-Ut-ITJ"/>
         <segue reference="Xsg-t7-MCv"/>
-        <segue reference="bae-Df-lTy"/>
-        <segue reference="7v3-CP-g3l"/>
-        <segue reference="W7J-mn-B1x"/>
-        <segue reference="oEZ-3m-7p0"/>
-        <segue reference="Tf5-bR-FsD"/>
+        <segue reference="Hfu-pc-aJi"/>
+        <segue reference="OdC-w7-WXY"/>
+        <segue reference="Tfi-ct-jo6"/>
+        <segue reference="hwJ-nH-bdX"/>
+        <segue reference="cWJ-fM-BVu"/>
     </inferredMetricsTieBreakers>
 </document>
