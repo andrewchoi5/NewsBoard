@@ -270,6 +270,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             
             qrCode.tag = 1000
             cell?.contentView.addSubview(qrCode)
+
             
             UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
         }

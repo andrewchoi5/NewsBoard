@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal let cellsPerRow = 7
+internal let cellsPerRow = 5
 internal let cellsPerColumn = 4
 
 class SpaceSelectorController : DefaultViewController {
