@@ -260,12 +260,8 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
                         }
                     }
                     
-                    // keep background view hidden
-                    if (cell?.contentView.subviews[1].subviews.count == 5)
-                    {
-                        cell?.contentView.subviews[1].subviews[0].hidden = true
-                    }
-                    else
+                    //hide read more label in article cell
+                    if (cell?.contentView.subviews[1].subviews.count == 6)
                     {
                         cell?.contentView.subviews[1].subviews[3].hidden = true
                     }
@@ -285,6 +281,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             qrCode.center = (cell?.contentView.convertPoint((cell?.contentView.center)!, fromView:cell?.contentView.superview))!
          
             qrCode.tag = 1
+            
             cell?.contentView.addSubview(qrCode)
             
             // Hide content for cell flip
