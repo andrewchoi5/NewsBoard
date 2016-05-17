@@ -253,10 +253,21 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             for v in (cell?.contentView.subviews)!{
                 if v.tag == 1 {
                     
+                    // Unhide content hidden on cell flip
                     for cellContent in (cell?.contentView.subviews[1].subviews)! {
                         if (cellContent.hidden == true) {
                             cellContent.hidden = false
                         }
+                    }
+                    
+                    // keep background view hidden
+                    if (cell?.contentView.subviews[1].subviews.count == 5)
+                    {
+                        cell?.contentView.subviews[1].subviews[0].hidden = true
+                    }
+                    else
+                    {
+                        cell?.contentView.subviews[1].subviews[3].hidden = true
                     }
                     
                     v.removeFromSuperview()
@@ -276,6 +287,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             qrCode.tag = 1
             cell?.contentView.addSubview(qrCode)
             
+            // Hide content for cell flip
             for cellContent in (cell?.contentView.subviews[1].subviews)! {
                 if (cellContent.hidden == false) {
                     cellContent.hidden = true
