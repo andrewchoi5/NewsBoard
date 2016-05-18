@@ -38,12 +38,14 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     var cardList = [ Card ]()
     
     @IBAction func didPressNextDayButton() {
+        flipAllCells()
         boardDate.incrementByDay()
         self.reload()
         dateLabel.text = getDateString(boardDate)
     }
     
     @IBAction func didPressPreviousDayButton() {
+        flipAllCells()
         boardDate.decrementByDay()
         self.reload()
         dateLabel.text = getDateString(boardDate)
@@ -72,10 +74,36 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
 //        dateSelector.didMoveToParentViewController(self)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
-        
     }
     
-    
+    func flipAllCells() {
+        for cell in self.collectionView.visibleCells() {
+            
+            if (cell.contentView.subviews.count > 2) {
+                
+                for c in (cell.contentView.subviews) {
+                    
+                    if c.tag == 1 {
+                        for cellContent in (cell.contentView.subviews[1].subviews) {
+                            if (cellContent.hidden == true) {
+                                cellContent.hidden = false
+                            }
+                        }
+                        
+                        if (cell.contentView.subviews[1].subviews.count == 6) {
+                            cell.contentView.subviews[1].subviews[3].hidden = true
+                        }
+                        
+                        c.removeFromSuperview()
+                        UIView.transitionWithView(cell, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
+                    }
+                    
+                }
+                
+            }
+            
+        }
+    }
     
     func beginNoNetworkState() {
         errorLabel.text = "No Connection"
@@ -217,7 +245,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-        
     }
     
     func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool {
@@ -382,5 +409,4 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         let vc = segue.destinationViewController as! PostViewerController
 //        vc.contentURL = NSURL(string: (sender as! Card).info["videoURL"] as! String)
     }
-    
 }
