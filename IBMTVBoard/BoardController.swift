@@ -78,11 +78,8 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     func flipAllCells() {
         for cell in self.collectionView.visibleCells() {
-            
             if (cell.contentView.subviews.count > 2) {
-                
                 for c in (cell.contentView.subviews) {
-                    
                     if c.tag == 1 {
                         for cellContent in (cell.contentView.subviews[1].subviews) {
                             if (cellContent.hidden == true) {
@@ -95,13 +92,9 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
                         }
                         
                         c.removeFromSuperview()
-                        UIView.transitionWithView(cell, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
                     }
-                    
                 }
-                
             }
-            
         }
     }
     
@@ -137,6 +130,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     func showNoCardsState() {
         guard let noCardsLabel = self.view.viewWithTag(1010101) as? UILabel else { return }
         noCardsLabel.text = "No posts for this day"
+        noCardsLabel.font = UIFont(name: "Roboto-Black", size: (noCardsLabel.font?.pointSize)!)
         noCardsLabel.sizeToFit()
         noCardsLabel.center.x = self.view.frame.width / 2
         noCardsLabel.center.y = self.view.frame.height / 2
