@@ -14,7 +14,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     let cellsPerRow = 5
     let cellsPerColumn = 4
-    let flipAnimationSpeed = 0.6
+    let flipAnimationSpeed = 0.75
     
     let DefaultCardCellIdentifier           = "defaultCardCell"
     let AnnouncementCardCellIdentifier      = "announcementCardCell"
@@ -76,6 +76,28 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
 //        dateSelector.didMoveToParentViewController(self)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
+    }
+    
+    func hidePictureOnlyState() {
+        for cell in self.collectionView.visibleCells() {
+            print(cell)
+            var numNull = 0
+            for cellItems in cell.contentView.subviews[1].subviews {
+                if (cellItems.isKindOfClass(UILabel)) {
+                    let label = cellItems as? UILabel
+                    if ((label?.text?.isEmpty) == true) {
+                        numNull += 1
+                    }
+                }
+            }
+            if (numNull >= 2) {
+                for cellItems in cell.contentView.subviews[1].subviews {
+                    if (cellItems.isKindOfClass(UILabel)) {
+                        cellItems.hidden = true
+                    }
+                }
+            }
+        }
     }
     
     func flipAllCells() {
@@ -205,6 +227,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         loadingView.alpha = 0.0
         activityIndicator.stopAnimating()
         //layoutTitleAndBody()
+        //hidePictureOnlyState()
     }
     
     func reload() {
