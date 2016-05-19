@@ -52,6 +52,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,6 +94,52 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
                         
                         c.removeFromSuperview()
                     }
+                }
+            }
+        }
+    }
+    
+    func layoutTitleAndBody() {
+        for cardCell in self.collectionView.visibleCells() {
+            if (cardCell.contentView.subviews[1].subviews.count == 5)
+            {
+                let labelCell = cardCell.contentView.subviews[1].subviews[1]
+                labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+            }
+            else if (cardCell.contentView.subviews[1].subviews.count == 6)
+            {
+                if (cardCell.contentView.subviews[1].subviews[4].isKindOfClass(UILabel)) {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[1]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[2]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
+                }
+                else {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[3]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[2]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
+                }
+            }
+            else if (cardCell.contentView.subviews[1].subviews.count == 7)
+            {
+                // Proposal
+                if (cardCell.contentView.subviews[1].subviews[5].isKindOfClass(UILabel)) {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[2]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[5]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
+                }
+                else
+                {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[3]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[6]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
                 }
             }
         }
@@ -156,7 +203,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     func endLoadingState() {
         loadingView.alpha = 0.0
         activityIndicator.stopAnimating()
-        
+       // layoutTitleAndBody()
     }
     
     func reload() {
@@ -233,8 +280,8 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         let width = blockWidth * CGFloat(cell.space.width)
         let height = blockHeight * CGFloat(cell.space.height)
         let rect = CGRectMake(xPos,yPos,width,height)
+        
         return rect
-    
     }
     
     func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -363,7 +410,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
                 
             }
         }
-        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
