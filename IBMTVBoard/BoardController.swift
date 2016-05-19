@@ -14,6 +14,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     let cellsPerRow = 5
     let cellsPerColumn = 4
+    let flipAnimationSpeed = 0.6
     
     let DefaultCardCellIdentifier           = "defaultCardCell"
     let AnnouncementCardCellIdentifier      = "announcementCardCell"
@@ -203,7 +204,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     func endLoadingState() {
         loadingView.alpha = 0.0
         activityIndicator.stopAnimating()
-       // layoutTitleAndBody()
+        //layoutTitleAndBody()
     }
     
     func reload() {
@@ -335,7 +336,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
                     }
                     
                     v.removeFromSuperview()
-                    UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
+                    UIView.transitionWithView(cell!, duration: flipAnimationSpeed, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
                 }
             }
         }
@@ -359,7 +360,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
                 }
             }
 
-            UIView.transitionWithView(cell!, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
+            UIView.transitionWithView(cell!, duration: flipAnimationSpeed, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
         }
     }
     
