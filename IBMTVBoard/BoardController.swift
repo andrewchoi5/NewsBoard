@@ -78,27 +78,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
     }
     
-    func hidePictureOnlyState() {
-        for cell in self.collectionView.visibleCells() {
-            var numNull = 0
-            for cellItems in cell.contentView.subviews[1].subviews {
-                if (cellItems.isKindOfClass(UILabel)) {
-                    let label = cellItems as? UILabel
-                    if ((label?.text?.isEmpty) == true) {
-                        numNull += 1
-                    }
-                }
-            }
-            if (numNull >= 2) {
-                for cellItems in cell.contentView.subviews[1].subviews {
-                    if (cellItems.isKindOfClass(UILabel) || (cellItems.frame.size.height == 40 && cellItems.frame.size.width == 40)) {
-                        cellItems.hidden = true
-                    }
-                }
-            }
-        }
-    }
-    
     func flipAllCells() {
         for cell in self.collectionView.visibleCells() {
             if (cell.contentView.subviews.count > 2) {
@@ -226,7 +205,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         loadingView.alpha = 0.0
         activityIndicator.stopAnimating()
         //layoutTitleAndBody()
-        hidePictureOnlyState()
     }
     
     func reload() {
@@ -455,6 +433,11 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardCell
         cell.applyCardContent(card)
+        
+        if (cell.titleLabel.text?.isEmpty == true) {
+            cell.userPhoto.hidden = true
+            cell.cardTypeLabel.hidden = true
+        }
         return cell
     }
     
