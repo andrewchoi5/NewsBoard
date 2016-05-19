@@ -129,7 +129,6 @@
 		39A8BA8D1CC4E96100307E95 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8BA8B1CC4E78900307E95 /* UIImageExt.swift */; };
 		39A8BA8E1CC5381400307E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1251C762FCF00090214 /* Assets.xcassets */; };
 		39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF11CD2A2AC007F0582 /* libMailCore-ios.a */; };
-		39A9CAF71CD2A354007F0582 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		39A9CAFE1CD2B965007F0582 /* libctemplate-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFA1CD2B965007F0582 /* libctemplate-ios.a */; };
 		39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFB1CD2B965007F0582 /* libetpan-ios.a */; };
 		39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAFC1CD2B965007F0582 /* libsasl2.a */; };
@@ -195,11 +194,8 @@
 		39EB94121C84ABB10053F73F /* BoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB94111C84ABB10053F73F /* BoardLayout.swift */; };
 		867ABEF01CE3D34A00402B18 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		867ABEF11CE3D34A00402B18 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86863B2C1CE3D851006FA574 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
-		86863B2D1CE3D851006FA574 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86863B2E1CE3D87B006FA574 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
-		86FE76C11CE4B5890035F43B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
-		86FE76C21CE4B5890035F43B /* AVFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86E671E81CEDF8EA00307E48 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
+		86E671EE1CEDFB5C00307E48 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,9 +222,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				86863B2D1CE3D851006FA574 /* MailCore.framework in Embed Frameworks */,
+				86E671EE1CEDFB5C00307E48 /* MailCore.framework in Embed Frameworks */,
 				2DFE79EB1CD252710056C8C6 /* KeychainAccess.framework in Embed Frameworks */,
-				86FE76C21CE4B5890035F43B /* AVFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,16 +516,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E671E81CEDF8EA00307E48 /* AVFoundation.framework in Frameworks */,
 				39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */,
 				39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */,
-				86FE76C11CE4B5890035F43B /* AVFoundation.framework in Frameworks */,
-				86863B2E1CE3D87B006FA574 /* AVFoundation.framework in Frameworks */,
-				39A9CAF71CD2A354007F0582 /* MailCore.framework in Frameworks */,
 				39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */,
 				2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */,
 				2DFE79EA1CD2523F0056C8C6 /* KeychainAccess.framework in Frameworks */,
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
-				86863B2C1CE3D851006FA574 /* MailCore.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
 				39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */,
