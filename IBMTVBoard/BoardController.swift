@@ -80,7 +80,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     func hidePictureOnlyState() {
         for cell in self.collectionView.visibleCells() {
-            print(cell)
             var numNull = 0
             for cellItems in cell.contentView.subviews[1].subviews {
                 if (cellItems.isKindOfClass(UILabel)) {
@@ -92,7 +91,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             }
             if (numNull >= 2) {
                 for cellItems in cell.contentView.subviews[1].subviews {
-                    if (cellItems.isKindOfClass(UILabel)) {
+                    if (cellItems.isKindOfClass(UILabel) || (cellItems.frame.size.height == 40 && cellItems.frame.size.width == 40)) {
                         cellItems.hidden = true
                     }
                 }
@@ -227,7 +226,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         loadingView.alpha = 0.0
         activityIndicator.stopAnimating()
         //layoutTitleAndBody()
-        //hidePictureOnlyState()
+        hidePictureOnlyState()
     }
     
     func reload() {
