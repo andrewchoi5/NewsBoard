@@ -438,6 +438,10 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
             cell.userPhoto.hidden = true
             cell.cardTypeLabel.hidden = true
         }
+        else {
+            cell.userPhoto.hidden = false
+            cell.cardTypeLabel.hidden = false
+        }
         return cell
     }
     
