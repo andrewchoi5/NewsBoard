@@ -2204,13 +2204,13 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SCD-dM-0e9"/>
-        <segue reference="PUd-Ut-ITJ"/>
         <segue reference="Xsg-t7-MCv"/>
+        <segue reference="bxv-as-pE6"/>
         <segue reference="Hfu-pc-aJi"/>
-        <segue reference="OdC-w7-WXY"/>
-        <segue reference="Tfi-ct-jo6"/>
-        <segue reference="hwJ-nH-bdX"/>
         <segue reference="cWJ-fM-BVu"/>
+        <segue reference="SCD-dM-0e9"/>
+        <segue reference="hwJ-nH-bdX"/>
+        <segue reference="Tfi-ct-jo6"/>
+        <segue reference="OdC-w7-WXY"/>
     </inferredMetricsTieBreakers>
 </document>
