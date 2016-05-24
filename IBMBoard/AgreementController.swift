@@ -8,13 +8,26 @@
 
 import Foundation
 import UIKit
+import LocalAuthentication
+import KeychainAccess
 
 class AgreementController : DefaultViewController {
     @IBAction func acceptClick(sender: RoundedButton) {
-      //  self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
+        self.performSegueWithIdentifier("loginSegue", sender: self)
     }
     
     @IBAction func declineClick(sender: RoundedButton) {
+        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        
+        let emailID = NSUserDefaults.standardUserDefaults().stringForKey(LoginViewController.LoginUsernameKey)
+        let password = try! keychain.getString(emailID!)
+        
+        ServerInterface.getAccount(withEmail: emailID!, andPassword: password!) { (account)
+            in
+            ServerInterface.deleteDocument(account!, inDatabase: "accounts", completion: {
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            })
+        }
     }
 }
 

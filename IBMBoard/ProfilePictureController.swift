@@ -51,7 +51,7 @@ class ProfilePictureController : DefaultViewController {
         ServerInterface.updateAccount(accountForProfilePicture) {
             self.hideLoading()
             //self.performSegueWithIdentifier("profilePictureUploadSuccessSegue", sender: self)
-            //self.performSegueWithIdentifier("agreementSegue", sender: self)
+            self.performSegueWithIdentifier("agreementSegue", sender: self)
             
         }
         

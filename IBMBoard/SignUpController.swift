@@ -106,9 +106,7 @@ class SignUpController : KeyboardPresenter {
                 self.hideLoading()
                 self.emailField.showInvalid()
                 Dialog.showError("Email already exists", viewController: self)
-                
             }
-            
         }
     }
     
