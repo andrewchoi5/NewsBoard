@@ -195,6 +195,7 @@
 		861883421CF49744001E036C /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861883411CF49744001E036C /* MailCore.framework */; };
 		861883431CF4974E001E036C /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		861883441CF4974E001E036C /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		861883481CF49A8F001E036C /* AgreementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861883471CF49A8F001E036C /* AgreementController.swift */; };
 		867ABEF01CE3D34A00402B18 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		867ABEF11CE3D34A00402B18 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86E671E81CEDF8EA00307E48 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
@@ -512,6 +513,7 @@
 		39EB940D1C80FE240053F73F /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		39EB94111C84ABB10053F73F /* BoardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardLayout.swift; sourceTree = "<group>"; };
 		861883411CF49744001E036C /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/IBMBoard-eutogxmdanavyfbbnymfhrdgeyiy/Build/Products/Debug-iphonesimulator/MailCore.framework"; sourceTree = "<group>"; };
+		861883471CF49A8F001E036C /* AgreementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -888,6 +890,7 @@
 				39961DF71CC70CA50049368E /* QRReaderController.swift */,
 				39961DFB1CC759C40049368E /* QRCoder.swift */,
 				394CD68C1C92140700AB28F1 /* CalendarController.swift */,
+				861883471CF49A8F001E036C /* AgreementController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1210,6 +1213,7 @@
 				393C88CC1CB5C82C009DA1AA /* GradientView.swift in Sources */,
 				3982DD931CC5882600691A39 /* CIFilter.swift in Sources */,
 				3964FF4D1C9833FC002B5AE8 /* Card.swift in Sources */,
+				861883481CF49A8F001E036C /* AgreementController.swift in Sources */,
 				394CD66D1C9181EF00AB28F1 /* JTCalendarScrollManager.m in Sources */,
 				39EB94061C7E66600053F73F /* UIImageView+HighlightedWebCache.m in Sources */,
 				396AB10F1CAF4B7B00B91FF9 /* EmailServerInterface.swift in Sources */,
