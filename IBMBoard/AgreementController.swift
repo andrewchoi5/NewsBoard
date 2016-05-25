@@ -24,9 +24,12 @@ class AgreementController : DefaultViewController {
         
         ServerInterface.getAccount(withEmail: emailID!, andPassword: password!) { (account)
             in
-            ServerInterface.deleteDocument(account!, inDatabase: "accounts", completion: {
-                self.performSegueWithIdentifier("loginSegue", sender: self)
-            })
+            if (account != nil)
+            {
+                ServerInterface.deleteDocument(account!, inDatabase: "accounts", completion: {
+                    self.performSegueWithIdentifier("loginSegue", sender: self)
+                })
+            }
         }
     }
 }
