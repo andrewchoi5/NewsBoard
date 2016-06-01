@@ -51,7 +51,7 @@ class LoginViewController: KeyboardPresenter {
         
         registerDelegates()
         
-        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        let keychain = Keychain(service: "com.ibm.cio.be.iphone.zamiulhaque.ibmboard")
         
         emailID.keyboardType = .EmailAddress
         emailID.autocapitalizationType = .None
@@ -99,7 +99,7 @@ class LoginViewController: KeyboardPresenter {
     // not working correctly
     func performTouchIDLogin() {
         
-        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        let keychain = Keychain(service: "com.ibm.cio.be.iphone.zamiulhaque.ibmboard")
         
         let authenticationContext = LAContext()
         var error:NSError?
@@ -209,7 +209,7 @@ class LoginViewController: KeyboardPresenter {
         
         emailID.text = emailID.text?.lowercaseString
         
-        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        let keychain = Keychain(service: "com.ibm.cio.be.iphone.zamiulhaque.ibmboard")
         
         if(rememberCredentials.on) {
             userDefaults.setBool(true, forKey: LoginViewController.RememberCredentialsKey)

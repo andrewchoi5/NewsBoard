@@ -17,7 +17,7 @@ class AgreementController : DefaultViewController {
     }
     
     @IBAction func declineClick(sender: RoundedButton) {
-        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        let keychain = Keychain(service: "com.ibm.cio.be.iphone.zamiulhaque.ibmboard")
         
         let emailID = NSUserDefaults.standardUserDefaults().stringForKey(LoginViewController.LoginUsernameKey)
         let password = try! keychain.getString(emailID!)

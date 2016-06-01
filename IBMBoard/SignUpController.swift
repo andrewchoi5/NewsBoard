@@ -54,6 +54,7 @@ class SignUpController : KeyboardPresenter {
     }
     
     @IBAction func didAttemptRegistration() {
+        NSLog("attemping registration")
         emailField.endEditing(true)
         passwordField.endEditing(true)
         confirmPasswordField.endEditing(true)
@@ -90,16 +91,18 @@ class SignUpController : KeyboardPresenter {
         }
         
         showLoading()
+        NSLog("Before calling server interface")
         ServerInterface.checkIfEmailExists(withEmail: emailField.text!) { (emailExists) in
-            
+            NSLog("called server interface")
             if !emailExists {
                 self.newAccount = Account(withEmail:self.emailField.text!, andPassword:self.passwordField.text!)
-                
+                NSLog("before calling add account")
                 ServerInterface.addAccount(self.newAccount, completion: {
                     self.hideLoading()
+                    NSLog("before sending verification email")
                     ServerInterface.sendVerificationEmailToAccount(self.newAccount, completion: nil)
                     self.performSegueWithIdentifier("verificationSegue", sender: self)
-                    print("Account added")
+                    NSLog("Account added")
                 })
                 
             } else {

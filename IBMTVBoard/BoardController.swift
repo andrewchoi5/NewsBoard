@@ -435,11 +435,11 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         cell.applyCardContent(card)
         
         if (cell.titleLabel.text?.isEmpty == true) {
-            cell.userPhoto.hidden = true
+            //cell.userPhoto.hidden = true
             cell.cardTypeLabel.hidden = true
         }
         else {
-            cell.userPhoto.hidden = false
+            //cell.userPhoto.hidden = false
             cell.cardTypeLabel.hidden = false
         }
         return cell

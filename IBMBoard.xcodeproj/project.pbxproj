@@ -30,16 +30,6 @@
 		2D72F0B61CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
 		2D72F0B71CC6638F00697221 /* CALayerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D72F0B51CC6638F00697221 /* CALayerExt.swift */; };
 		2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */; };
-		2DFE79DC1CD251EF0056C8C6 /* Certificates in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D11CD251EF0056C8C6 /* Certificates */; };
-		2DFE79DD1CD251EF0056C8C6 /* Configurations in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D21CD251EF0056C8C6 /* Configurations */; };
-		2DFE79DE1CD251EF0056C8C6 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D31CD251EF0056C8C6 /* Gemfile */; };
-		2DFE79DF1CD251EF0056C8C6 /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D41CD251EF0056C8C6 /* Gemfile.lock */; };
-		2DFE79E01CD251EF0056C8C6 /* KeychainAccess in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D51CD251EF0056C8C6 /* KeychainAccess */; };
-		2DFE79E11CD251EF0056C8C6 /* KeychainAccessTests in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79D91CD251EF0056C8C6 /* KeychainAccessTests */; };
-		2DFE79E21CD251EF0056C8C6 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79DA1CD251EF0056C8C6 /* Rakefile */; };
-		2DFE79E31CD251EF0056C8C6 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE79DB1CD251EF0056C8C6 /* Scripts */; };
-		2DFE79EA1CD2523F0056C8C6 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */; };
-		2DFE79EB1CD252710056C8C6 /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39022CDE1C895C3800464BC1 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB93B21C7D8A880053F73F /* UIImageViewExt.swift */; };
 		39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8771C7D29C900DFC0F5 /* NSData+ImageContentType.m */; };
 		39022CE11C895C5F00464BC1 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5A8791C7D29C900DFC0F5 /* SDImageCache.m */; };
@@ -75,7 +65,6 @@
 		392CF1261C762FCF00090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1251C762FCF00090214 /* Assets.xcassets */; };
 		392CF1291C762FCF00090214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1271C762FCF00090214 /* LaunchScreen.storyboard */; };
 		392CF1531C76424500090214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1521C76424500090214 /* AppDelegate.swift */; };
-		392CF1551C76424500090214 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
 		392CF1581C76424500090214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1561C76424500090214 /* Main.storyboard */; };
 		392CF15A1C76424500090214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392CF1591C76424500090214 /* Assets.xcassets */; };
 		393426B41CBC95430089F48F /* FormElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393426B31CBC95430089F48F /* FormElements.swift */; };
@@ -192,26 +181,91 @@
 		39EB940C1C7FC8030053F73F /* AnnouncementPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940B1C7FC8030053F73F /* AnnouncementPostController.swift */; };
 		39EB940E1C80FE240053F73F /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB940D1C80FE240053F73F /* CardCell.swift */; };
 		39EB94121C84ABB10053F73F /* BoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB94111C84ABB10053F73F /* BoardLayout.swift */; };
-		861883421CF49744001E036C /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861883411CF49744001E036C /* MailCore.framework */; };
-		861883431CF4974E001E036C /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
-		861883441CF4974E001E036C /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		861883481CF49A8F001E036C /* AgreementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861883471CF49A8F001E036C /* AgreementController.swift */; };
+		8620EAA91CFF18F900D13FBB /* libMailCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8620EAA81CFF18F900D13FBB /* libMailCore.a */; };
+		86492EF91CFCB06D004690B0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492EF81CFCB06D004690B0 /* Keychain.swift */; };
+		86492EFD1CFCDCD9004690B0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
+		8651647B1CFDFCFC00D24A7B /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
+		865164811CFE15CE00D24A7B /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		865164821CFE160C00D24A7B /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		867ABEF01CE3D34A00402B18 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		867ABEF11CE3D34A00402B18 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86E671E81CEDF8EA00307E48 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2DFE79E61CD251EF0056C8C6 /* PBXContainerItemProxy */ = {
+		8620EAB51CFF268F00D13FBB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA537169E772200778456;
+			remoteInfo = "static mailcore2 osx";
+		};
+		8620EAB71CFF268F00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BA2C191705F4E6003F0E9E;
+			remoteInfo = "static mailcore2 ios";
+		};
+		8620EAB91CFF268F00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA78C169F259200778456;
+			remoteInfo = tests;
+		};
+		8620EABB1CFF268F00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6A81B911706840C00882C15;
+			remoteInfo = "test-ios";
+		};
+		8620EABD1CFF268F00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BD288D170BD71100A91AC1;
+			remoteInfo = "mailcore osx";
+		};
+		8620EABF1CFF268F00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27780C3A19CF9CD100C77E44;
+			remoteInfo = "mailcore ios";
+		};
+		8620EAC11CFF268F00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6B5AE0219F630B3001352A6;
+			remoteInfo = unittest;
+		};
+		8620EAC31CFF268F00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C600B6141A242C3F000728F1;
+			remoteInfo = unittestcpp;
+		};
+		8620EAC51CFF269C00D13FBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 27780C2A19CF9CD100C77E44;
+			remoteInfo = "mailcore ios";
+		};
+		86492F101CFCE141004690B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 140F195C1A49D79400B0016A;
 			remoteInfo = KeychainAccess;
 		};
-		2DFE79E81CD251EF0056C8C6 /* PBXContainerItemProxy */ = {
+		86492F121CFCE141004690B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */;
+			containerPortal = 86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 140F19671A49D79500B0016A;
 			remoteInfo = KeychainAccessTests;
@@ -225,8 +279,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				861883441CF4974E001E036C /* MailCore.framework in Embed Frameworks */,
-				2DFE79EB1CD252710056C8C6 /* KeychainAccess.framework in Embed Frameworks */,
+				865164811CFE15CE00D24A7B /* MailCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,15 +302,6 @@
 		2D70878F1CC55A3600CEF4F7 /* UILabelExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		2D72F0B51CC6638F00697221 /* CALayerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExt.swift; sourceTree = "<group>"; };
 		2D92BB331CD29C6E00769388 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
-		2DFE79D11CD251EF0056C8C6 /* Certificates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Certificates; path = KeychainAccess/Lib/Certificates; sourceTree = "<group>"; };
-		2DFE79D21CD251EF0056C8C6 /* Configurations */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Configurations; path = KeychainAccess/Lib/Configurations; sourceTree = "<group>"; };
-		2DFE79D31CD251EF0056C8C6 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Gemfile; path = KeychainAccess/Lib/Gemfile; sourceTree = "<group>"; };
-		2DFE79D41CD251EF0056C8C6 /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Gemfile.lock; path = KeychainAccess/Lib/Gemfile.lock; sourceTree = "<group>"; };
-		2DFE79D51CD251EF0056C8C6 /* KeychainAccess */ = {isa = PBXFileReference; lastKnownFileType = folder; name = KeychainAccess; path = KeychainAccess/Lib/KeychainAccess; sourceTree = "<group>"; };
-		2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeychainAccess.xcodeproj; path = KeychainAccess/Lib/KeychainAccess.xcodeproj; sourceTree = "<group>"; };
-		2DFE79D91CD251EF0056C8C6 /* KeychainAccessTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = KeychainAccessTests; path = KeychainAccess/Lib/KeychainAccessTests; sourceTree = "<group>"; };
-		2DFE79DA1CD251EF0056C8C6 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = KeychainAccess/Lib/Rakefile; sourceTree = "<group>"; };
-		2DFE79DB1CD251EF0056C8C6 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Scripts; path = KeychainAccess/Lib/Scripts; sourceTree = "<group>"; };
 		39022D031C8A545B00464BC1 /* VideoAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		391212E71C9B470900C05BDB /* ZHCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHCalendarDayView.swift; sourceTree = "<group>"; };
 		391355251CCACFA700D801FC /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -512,8 +556,12 @@
 		39EB940B1C7FC8030053F73F /* AnnouncementPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementPostController.swift; sourceTree = "<group>"; };
 		39EB940D1C80FE240053F73F /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		39EB94111C84ABB10053F73F /* BoardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardLayout.swift; sourceTree = "<group>"; };
-		861883411CF49744001E036C /* MailCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MailCore.framework; path = "../../Library/Developer/Xcode/DerivedData/IBMBoard-eutogxmdanavyfbbnymfhrdgeyiy/Build/Products/Debug-iphonesimulator/MailCore.framework"; sourceTree = "<group>"; };
 		861883471CF49A8F001E036C /* AgreementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementController.swift; sourceTree = "<group>"; };
+		8620EAA81CFF18F900D13FBB /* libMailCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMailCore.a; sourceTree = "<group>"; };
+		8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
+		86492EF71CFCB068004690B0 /* KeychainAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeychainAccess.h; path = ../KeychainAccess/Lib/KeychainAccess/KeychainAccess.h; sourceTree = "<group>"; };
+		86492EF81CFCB06D004690B0 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = ../KeychainAccess/Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
+		86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeychainAccess.xcodeproj; path = KeychainAccess/Lib/KeychainAccess.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,15 +569,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861883421CF49744001E036C /* MailCore.framework in Frameworks */,
-				86E671E81CEDF8EA00307E48 /* AVFoundation.framework in Frameworks */,
+				8620EAA91CFF18F900D13FBB /* libMailCore.a in Frameworks */,
+				865164821CFE160C00D24A7B /* MailCore.framework in Frameworks */,
+				86492EFD1CFCDCD9004690B0 /* AVFoundation.framework in Frameworks */,
 				39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */,
 				39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */,
 				39A9CAFF1CD2B965007F0582 /* libetpan-ios.a in Frameworks */,
 				2D92BB341CD29C6E00769388 /* LocalAuthentication.framework in Frameworks */,
-				2DFE79EA1CD2523F0056C8C6 /* KeychainAccess.framework in Frameworks */,
 				39DC84811CAC804900F2DB4F /* Security.framework in Frameworks */,
-				861883431CF4974E001E036C /* MailCore.framework in Frameworks */,
 				39DC847F1CAC804200F2DB4F /* CFNetwork.framework in Frameworks */,
 				39EB940A1C7E67950053F73F /* libz.tbd in Frameworks */,
 				39E5A8661C7D17EA00DFC0F5 /* ImageIO.framework in Frameworks */,
@@ -549,44 +596,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2DFE79D01CD2517C0056C8C6 /* KeychainAccess */ = {
-			isa = PBXGroup;
-			children = (
-				2DFE79D11CD251EF0056C8C6 /* Certificates */,
-				2DFE79D21CD251EF0056C8C6 /* Configurations */,
-				2DFE79D31CD251EF0056C8C6 /* Gemfile */,
-				2DFE79D41CD251EF0056C8C6 /* Gemfile.lock */,
-				2DFE79D51CD251EF0056C8C6 /* KeychainAccess */,
-				2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */,
-				2DFE79D91CD251EF0056C8C6 /* KeychainAccessTests */,
-				2DFE79DA1CD251EF0056C8C6 /* Rakefile */,
-				2DFE79DB1CD251EF0056C8C6 /* Scripts */,
-			);
-			name = KeychainAccess;
-			sourceTree = "<group>";
-		};
-		2DFE79D71CD251EF0056C8C6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */,
-				2DFE79E91CD251EF0056C8C6 /* KeychainAccessTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		392CF1121C762FCF00090214 = {
 			isa = PBXGroup;
 			children = (
+				86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */,
 				39D7E2D81CC4296100B02FEC /* Fonts */,
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
 				39022D031C8A545B00464BC1 /* VideoAPIManager.swift */,
 				393CB1B51CBF47E200648B5B /* Utilities */,
-				2DFE79D01CD2517C0056C8C6 /* KeychainAccess */,
 				394CD6671C9181A300AB28F1 /* JTCalendar */,
 				39EB93F51C7E65E30053F73F /* TBXML */,
 				39E5A8B81C7D29D900DFC0F5 /* SDWebImage */,
 				392CF11C1C762FCF00090214 /* Products */,
 				392CF11D1C762FCF00090214 /* IBMBoard */,
+				8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */,
 				392CF1511C76424500090214 /* IBMTVBoard */,
 				39E5A8671C7D17F600DFC0F5 /* Frameworks */,
 			);
@@ -604,6 +627,7 @@
 		392CF11D1C762FCF00090214 /* IBMBoard */ = {
 			isa = PBXGroup;
 			children = (
+				86492EF61CFCB058004690B0 /* KeychainAccess */,
 				3964FF5A1C9A62E0002B5AE8 /* Extensions */,
 				39B61D661CBC56B400CDB05A /* Views */,
 				39B61D641CBC566A00CDB05A /* Model */,
@@ -922,7 +946,7 @@
 		39E5A8671C7D17F600DFC0F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				861883411CF49744001E036C /* MailCore.framework */,
+				8620EAA81CFF18F900D13FBB /* libMailCore.a */,
 				39A9CAFA1CD2B965007F0582 /* libctemplate-ios.a */,
 				39A9CAFB1CD2B965007F0582 /* libetpan-ios.a */,
 				39A9CAFC1CD2B965007F0582 /* libsasl2.a */,
@@ -994,6 +1018,39 @@
 			path = IBMBoard;
 			sourceTree = "<group>";
 		};
+		8620EAAB1CFF268E00D13FBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8620EAB61CFF268F00D13FBB /* libMailCore.a */,
+				8620EAB81CFF268F00D13FBB /* libMailCore-ios.a */,
+				8620EABA1CFF268F00D13FBB /* tests */,
+				8620EABC1CFF268F00D13FBB /* test-ios.app */,
+				8620EABE1CFF268F00D13FBB /* MailCore.framework */,
+				8620EAC01CFF268F00D13FBB /* MailCore.framework */,
+				8620EAC21CFF268F00D13FBB /* unittest.xctest */,
+				8620EAC41CFF268F00D13FBB /* unittestcpp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86492EF61CFCB058004690B0 /* KeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				86492EF81CFCB06D004690B0 /* Keychain.swift */,
+				86492EF71CFCB068004690B0 /* KeychainAccess.h */,
+			);
+			name = KeychainAccess;
+			sourceTree = "<group>";
+		};
+		86492F0C1CFCE141004690B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86492F111CFCE141004690B0 /* KeychainAccess.framework */,
+				86492F131CFCE141004690B0 /* KeychainAccessTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1009,6 +1066,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8620EAC61CFF269C00D13FBB /* PBXTargetDependency */,
 			);
 			name = IBMBoard;
 			productName = IBMBoard;
@@ -1065,8 +1123,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2DFE79D71CD251EF0056C8C6 /* Products */;
-					ProjectRef = 2DFE79D61CD251EF0056C8C6 /* KeychainAccess.xcodeproj */;
+					ProductGroup = 86492F0C1CFCE141004690B0 /* Products */;
+					ProjectRef = 86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */;
+				},
+				{
+					ProductGroup = 8620EAAB1CFF268E00D13FBB /* Products */;
+					ProjectRef = 8620EAAA1CFF268E00D13FBB /* mailcore2.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1078,18 +1140,74 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2DFE79E71CD251EF0056C8C6 /* KeychainAccess.framework */ = {
+		8620EAB61CFF268F00D13FBB /* libMailCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMailCore.a;
+			remoteRef = 8620EAB51CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8620EAB81CFF268F00D13FBB /* libMailCore-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMailCore-ios.a";
+			remoteRef = 8620EAB71CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8620EABA1CFF268F00D13FBB /* tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = tests;
+			remoteRef = 8620EAB91CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8620EABC1CFF268F00D13FBB /* test-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "test-ios.app";
+			remoteRef = 8620EABB1CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8620EABE1CFF268F00D13FBB /* MailCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MailCore.framework;
+			remoteRef = 8620EABD1CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8620EAC01CFF268F00D13FBB /* MailCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MailCore.framework;
+			remoteRef = 8620EABF1CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8620EAC21CFF268F00D13FBB /* unittest.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = unittest.xctest;
+			remoteRef = 8620EAC11CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8620EAC41CFF268F00D13FBB /* unittestcpp */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = unittestcpp;
+			remoteRef = 8620EAC31CFF268F00D13FBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86492F111CFCE141004690B0 /* KeychainAccess.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = KeychainAccess.framework;
-			remoteRef = 2DFE79E61CD251EF0056C8C6 /* PBXContainerItemProxy */;
+			remoteRef = 86492F101CFCE141004690B0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2DFE79E91CD251EF0056C8C6 /* KeychainAccessTests.xctest */ = {
+		86492F131CFCE141004690B0 /* KeychainAccessTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = KeychainAccessTests.xctest;
-			remoteRef = 2DFE79E81CD251EF0056C8C6 /* PBXContainerItemProxy */;
+			remoteRef = 86492F121CFCE141004690B0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1099,9 +1217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DFE79DE1CD251EF0056C8C6 /* Gemfile in Resources */,
 				3982DD911CC5672100691A39 /* Simple-Line-Icons.ttf in Resources */,
-				2DFE79DD1CD251EF0056C8C6 /* Configurations in Resources */,
 				39D7E2E81CC429AF00B02FEC /* Roboto-Black.ttf in Resources */,
 				39D7E2E91CC429AF00B02FEC /* Roboto-BlackItalic.ttf in Resources */,
 				39D7E2EA1CC429AF00B02FEC /* Roboto-Bold.ttf in Resources */,
@@ -1109,25 +1225,19 @@
 				39D7E2EC1CC429AF00B02FEC /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				39D7E2ED1CC429AF00B02FEC /* Roboto-BoldItalic.ttf in Resources */,
 				39D7E2EE1CC429AF00B02FEC /* Roboto-Condensed.ttf in Resources */,
-				2DFE79E31CD251EF0056C8C6 /* Scripts in Resources */,
-				2DFE79DC1CD251EF0056C8C6 /* Certificates in Resources */,
 				39D7E2EF1CC429AF00B02FEC /* Roboto-CondensedItalic.ttf in Resources */,
 				39D7E2F01CC429AF00B02FEC /* Roboto-Italic.ttf in Resources */,
 				39D7E2F11CC429AF00B02FEC /* Roboto-Light.ttf in Resources */,
 				39D7E2F21CC429AF00B02FEC /* Roboto-LightItalic.ttf in Resources */,
-				2DFE79DF1CD251EF0056C8C6 /* Gemfile.lock in Resources */,
 				39D7E2F31CC429AF00B02FEC /* Roboto-Medium.ttf in Resources */,
 				39D7E2F41CC429AF00B02FEC /* Roboto-MediumItalic.ttf in Resources */,
-				2DFE79E01CD251EF0056C8C6 /* KeychainAccess in Resources */,
 				39D7E2F51CC429AF00B02FEC /* Roboto-Thin.ttf in Resources */,
 				39D7E2F61CC429AF00B02FEC /* Roboto-ThinItalic.ttf in Resources */,
 				393426B61CBCA4860089F48F /* Roboto-Regular.ttf in Resources */,
 				392CF1291C762FCF00090214 /* LaunchScreen.storyboard in Resources */,
-				2DFE79E11CD251EF0056C8C6 /* KeychainAccessTests in Resources */,
 				392CF1261C762FCF00090214 /* Assets.xcassets in Resources */,
 				394606C01C91605F00E2633C /* Assets.xcassets in Resources */,
 				392CF1241C762FCF00090214 /* Main.storyboard in Resources */,
-				2DFE79E21CD251EF0056C8C6 /* Rakefile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1246,6 +1356,7 @@
 				392CF11F1C762FCF00090214 /* AppDelegate.swift in Sources */,
 				394CD6851C91825500AB28F1 /* JTCalendarMenuView.m in Sources */,
 				39EB93F61C7E66600053F73F /* TBXML.m in Sources */,
+				86492EF91CFCB06D004690B0 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,7 +1364,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				392CF1551C76424500090214 /* BoardController.swift in Sources */,
 				39EB53F01C9B721200B7FE85 /* CardManager.swift in Sources */,
 				391212ED1C9B621000C05BDB /* NSJSONSerializationExt.swift in Sources */,
 				391212EA1C9B619200C05BDB /* NSDataExt.swift in Sources */,
@@ -1274,6 +1384,7 @@
 				391212E91C9B616800C05BDB /* CloudantDBInterface.swift in Sources */,
 				39022CE81C895C5F00464BC1 /* UIButton+WebCache.m in Sources */,
 				39022CE01C895C5F00464BC1 /* NSData+ImageContentType.m in Sources */,
+				8651647B1CFDFCFC00D24A7B /* BoardController.swift in Sources */,
 				394436951CC5A32C00EAB3DC /* CIFilter.swift in Sources */,
 				39022CE71C895C5F00464BC1 /* SDWebImagePrefetcher.m in Sources */,
 				39022CE41C895C5F00464BC1 /* SDWebImageDownloader.m in Sources */,
@@ -1301,6 +1412,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8620EAC61CFF269C00D13FBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "mailcore ios";
+			targetProxy = 8620EAC51CFF269C00D13FBB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		392CF1221C762FCF00090214 /* Main.storyboard */ = {
@@ -1419,7 +1538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1428,6 +1547,7 @@
 					"$(PROJECT_DIR)/mailcore2/build-mac/debugBuild-iPhone",
 					"$(PROJECT_DIR)/mailcore2/build-mac/build/Debug-iphoneos",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -1449,7 +1569,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
@@ -1460,7 +1580,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
@@ -1468,6 +1588,7 @@
 					"$(PROJECT_DIR)/mailcore2/build-mac/debugBuild-iPhone",
 					"$(PROJECT_DIR)/mailcore2/build-mac/build/Debug-iphoneos",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = IBMBoard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -1489,7 +1610,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";

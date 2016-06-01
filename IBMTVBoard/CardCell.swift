@@ -159,6 +159,11 @@ class AnnouncementCardCell : CardCell {
             
         }
         
+        // FOR EMPTY PHOTO (EVENTUALLY CHANGE TO PICTURE TYPE)
+        if (titleLabel.text?.isEmpty == true) {
+            announcementPhoto.alpha = 1.0
+        }
+        
     }
     
     func hidePhoto() {
@@ -217,7 +222,6 @@ class ArticleCardCell : CardCell {
         
         detailLabel.text = "Read More..."        
     }
-    
 }
 
 class VideoCardCell : CardCell {
