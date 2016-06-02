@@ -27,6 +27,8 @@ class CategorySelectorController : DefaultViewController {
                                     ("Tech Questions",  ""),
                                     ("RFP",             ""),
                                     ("Video",           ""),
+                                    ("Photo",           ""),
+                                    ("",                  ""),
                                     ("Polling",         ""),
                                     ("Guest Visits",    "")
     ]
@@ -38,9 +40,12 @@ class CategorySelectorController : DefaultViewController {
     var questionSegueIdentifier      = "questionSegue"
     var rfpSegueIdentifier           = "rfpSegue"
     var videoSegueIdentifier         = "videoSegue"
+    var photoSegueIdentifier         = "photoSegue"
     var guestSegueIdentifier         = placeholderSegueIdentifier
     
     var card : Card!
+    
+    var isSquare : Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +56,15 @@ class CategorySelectorController : DefaultViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! PosterController
         vc.card = card
+        
+        if (segue.identifier == "photoSegue") {
+            if (isSquare == false) {
+                let alert = UIAlertController(title: "Error", message: "Please ensure the area selected is a square", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            (segue.destinationViewController as! AnnouncementPostController).isPhotoView = true
+        }
     }
 }
 
@@ -82,7 +96,11 @@ extension CategorySelectorController : UICollectionViewDataSource {
         (cell.viewWithTag(1) as! UILabel).text = optionImagesArray[ indexPath.row ].1
         cell.selectedBackgroundView = backgroundView
         
-        if indexPath.row > 5 {
+        if indexPath.row == 7 {
+            cell.userInteractionEnabled = false
+        }
+        
+        if indexPath.row > 7 {
             let comingSoonLabel = UILabel()
             comingSoonLabel.backgroundColor = UIColor.backgroundDarkColor()
             comingSoonLabel.text = "Coming Soon!"
@@ -111,12 +129,12 @@ extension CategorySelectorController : UICollectionViewDataSource {
 extension CategorySelectorController : UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return indexPath.row <= 5
+        return indexPath.row <= 7
         
     }
     
     func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return indexPath.row <= 5
+        return indexPath.row <= 7
         
     }
     
@@ -129,8 +147,10 @@ extension CategorySelectorController : UICollectionViewDelegate {
             case 3: segueIdentifier = questionSegueIdentifier;      card.type = .Question
             case 4: segueIdentifier = rfpSegueIdentifier;           card.type = .RFP
             case 5: segueIdentifier = videoSegueIdentifier;         card.type = .Video
-            case 6: segueIdentifier = pollingSegueIdentifier;       card.type = .Polling
-            case 7: segueIdentifier = guestSegueIdentifier;         card.type = .Guest
+            case 6: segueIdentifier = photoSegueIdentifier;         card.type = .Announcement
+            case 7: segueIdentifier = "";                           card.type = .Announcement
+            case 8: segueIdentifier = pollingSegueIdentifier;       card.type = .Polling
+            case 9: segueIdentifier = guestSegueIdentifier;         card.type = .Guest
                 
             default: segueIdentifier = placeholderSegueIdentifier;   card.type = .Default
         }
@@ -138,6 +158,5 @@ extension CategorySelectorController : UICollectionViewDelegate {
         self.performSegueWithIdentifier(segueIdentifier, sender: self)
         self.collectionView.deselectItemAtIndexPath(indexPath, animated: true)
     }
-
 }
 

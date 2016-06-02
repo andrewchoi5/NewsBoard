@@ -148,7 +148,9 @@ class AnnouncementCardCell : CardCell {
                         
                     }
                     
-                    self.announcementPhoto.image = self.announcementPhoto.image?.grayScaleImage()
+                    if (self.titleLabel.text?.isEmpty == false) {
+                        self.announcementPhoto.image = self.announcementPhoto.image?.grayScaleImage()
+                    }
                     self.announcementPhoto.hidden = false
                     self.progressBar.hidden = true
             })

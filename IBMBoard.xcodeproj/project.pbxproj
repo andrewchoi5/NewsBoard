@@ -186,10 +186,10 @@
 		86492EF91CFCB06D004690B0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492EF81CFCB06D004690B0 /* Keychain.swift */; };
 		86492EFD1CFCDCD9004690B0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
 		8651647B1CFDFCFC00D24A7B /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
-		865164811CFE15CE00D24A7B /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		865164821CFE160C00D24A7B /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		867ABEF01CE3D34A00402B18 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		867ABEF11CE3D34A00402B18 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86E6825B1D00A489001924D7 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8620EAC01CFF268F00D13FBB /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86E6825C1D00A48B001924D7 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8620EAC01CFF268F00D13FBB /* MailCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,7 +279,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				865164811CFE15CE00D24A7B /* MailCore.framework in Embed Frameworks */,
+				86E6825B1D00A489001924D7 /* MailCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,8 +569,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E6825C1D00A48B001924D7 /* MailCore.framework in Frameworks */,
 				8620EAA91CFF18F900D13FBB /* libMailCore.a in Frameworks */,
-				865164821CFE160C00D24A7B /* MailCore.framework in Frameworks */,
 				86492EFD1CFCDCD9004690B0 /* AVFoundation.framework in Frameworks */,
 				39A9CAF41CD2A2E7007F0582 /* libMailCore-ios.a in Frameworks */,
 				39A9CB001CD2B965007F0582 /* libsasl2.a in Frameworks */,
@@ -1569,7 +1569,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
+				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
@@ -1610,7 +1610,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
+				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";

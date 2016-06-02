@@ -35,6 +35,7 @@ class SpaceSelectorController : DefaultViewController {
     var cardList = [ Card ]()
     var calendarDate = BoardDate()
     var datesToSearch = Set<NSDate>()
+    var isSquareSelected : Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -194,7 +195,7 @@ class SpaceSelectorController : DefaultViewController {
         self.performSegueWithIdentifier(completedSpaceSelectionSegue, sender: self)
         
     }
-    
+
     func makeCardWithSpaces(spaces: Set<Int>) -> Card {
         let rect = CGRectForSpaces(spaces)
         let width = Int(rect.width)
@@ -232,6 +233,15 @@ class SpaceSelectorController : DefaultViewController {
         
         let rect = CGRectForSpaces(spaces)
         return spaces.count == Int(rect.width * rect.height)
+    }
+    
+    func isSquare(spaces: Set<Int>) -> Bool {
+        if (spaces.count == 0) {
+            return false
+        }
+        
+        let rect = CGRectForSpaces(spaces)
+        return rect.width == rect.height
     }
     
     func isEmptyCell(indexPath: NSIndexPath) -> Bool {
@@ -276,6 +286,7 @@ class SpaceSelectorController : DefaultViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        (segue.destinationViewController as! CategorySelectorController).isSquare = isSquareSelected
         if segue.identifier == completedSpaceSelectionSegue {
             let vc = segue.destinationViewController as! CategorySelectorController
             vc.card = newCard
@@ -411,6 +422,7 @@ extension SpaceSelectorController : UICollectionViewDelegate {
         
         selectedSpaces.insert(indexPath.row)
         doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
+        isSquareSelected = isSquare(selectedSpaces)
         
         //        if isRectangular(selectedSpaces) && postingDates.count > 0  {
         //            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")

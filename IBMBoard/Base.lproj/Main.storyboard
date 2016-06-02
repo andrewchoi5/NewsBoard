@@ -806,11 +806,12 @@
                         <segue destination="hW0-mY-DO3" kind="show" identifier="rfpSegue" id="Tfi-ct-jo6"/>
                         <segue destination="8vr-01-bPK" kind="show" identifier="placeholderSegue" id="9uh-tS-0hc"/>
                         <segue destination="QDE-hm-z2s" kind="show" identifier="questionSegue" id="cWJ-fM-BVu"/>
+                        <segue destination="NvT-Dn-yoj" kind="show" identifier="photoSegue" id="ywO-bU-7Zo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Cs-db-3O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990.5" y="1293.5"/>
+            <point key="canvasLocation" x="876.5" y="1667.5"/>
         </scene>
         <!--Video Poster View Controller-->
         <scene sceneID="ioU-oU-ePm">
@@ -1257,23 +1258,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMV-U1-mdd" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="-4" y="64" width="383" height="451"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-FQ-bmS" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53" width="383" height="54"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="4u3-zM-Xyy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Add picture">
-                                            <color key="titleColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="didPushAddPictureButton:" destination="NvT-Dn-yoj" eventType="primaryActionTriggered" id="lh6-bE-CiG"/>
-                                        </connections>
-                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-aB-s7N" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="383" height="54"/>
                                         <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1326,6 +1310,23 @@
                                             <outlet property="delegate" destination="NvT-Dn-yoj" id="1Iv-LE-5Mx"/>
                                         </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-FQ-bmS" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="53" width="383" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="4u3-zM-Xyy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Add picture">
+                                            <color key="titleColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPushAddPictureButton:" destination="NvT-Dn-yoj" eventType="primaryActionTriggered" id="lh6-bE-CiG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zDY-FQ-bmS" secondAttribute="trailing" id="4Ts-lu-2ee"/>
@@ -1378,6 +1379,8 @@
                         <outlet property="announcementPhotoURL" destination="Yn2-aB-s7N" id="Lji-1m-ZV8"/>
                         <outlet property="announcementText" destination="ioi-sh-QbJ" id="bbj-Na-6dO"/>
                         <outlet property="announcementTitle" destination="hMD-E0-zRp" id="LKX-jb-36s"/>
+                        <outlet property="navTitle" destination="e7H-vo-iMF" id="byn-z0-YTX"/>
+                        <outlet property="newBody" destination="yIG-v8-MfI" id="jE1-mS-EL4"/>
                         <segue destination="ufm-Tk-oJS" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="eg1-ha-XEo"/>
                     </connections>
                 </viewController>
@@ -2304,11 +2307,11 @@ Do not post inappropriate content. No posts should contain statements that are u
         <segue reference="19n-g9-Mh5"/>
         <segue reference="bxv-as-pE6"/>
         <segue reference="Xsg-t7-MCv"/>
-        <segue reference="SCD-dM-0e9"/>
         <segue reference="cWJ-fM-BVu"/>
-        <segue reference="OdC-w7-WXY"/>
-        <segue reference="Hfu-pc-aJi"/>
+        <segue reference="SCD-dM-0e9"/>
         <segue reference="hwJ-nH-bdX"/>
         <segue reference="Tfi-ct-jo6"/>
+        <segue reference="ywO-bU-7Zo"/>
+        <segue reference="Hfu-pc-aJi"/>
     </inferredMetricsTieBreakers>
 </document>

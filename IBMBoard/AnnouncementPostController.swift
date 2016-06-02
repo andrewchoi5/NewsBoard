@@ -14,14 +14,25 @@ class AnnouncementPostController : PosterController {
     @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
     @IBOutlet weak var announcementPhotoURL: UITextField!
+    @IBOutlet weak var newBody: FormLabel!
+    @IBOutlet weak var navTitle: UINavigationItem!
     
     var infoTitle = "announcementTitle"
     var infoText = "announcementText"
+   
+    var isPhotoView : Bool?
     
     var selectedImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (isPhotoView == true) {
+            announcementTitle.hidden = true
+            announcementText.hidden = true
+            newBody.hidden = true
+            navTitle.title = "Photo"
+        }
         
         usesProgressBar = true
     }
@@ -39,8 +50,11 @@ class AnnouncementPostController : PosterController {
     }
     
     override func isReadyForPosting() -> Bool {
-        return announcementTitle.text != "" && announcementText.text != ""
+        if (isPhotoView == true) {
+                return !(announcementPhotoURL.text?.isEmpty)!
+        }
         
+        return announcementTitle.text != "" && announcementText.text != ""
     }
     
     override func didPushPostButton(sender: UIBarButtonItem) {
