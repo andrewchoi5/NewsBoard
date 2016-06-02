@@ -45,7 +45,7 @@ class ProfilePictureController : DefaultViewController {
             return
             
         }
-        
+    
         accountForProfilePicture.setProfilePicture(selectedImage)
         showLoading()
         ServerInterface.updateAccount(accountForProfilePicture) {
@@ -55,6 +55,15 @@ class ProfilePictureController : DefaultViewController {
             
         }
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        
+        if segue.identifier == "agreementSegue" {
+            (segue.destinationViewController as! AgreementController).accountToDelete = accountForProfilePicture
+            
+        }
     }
     
     func showLoading() {
