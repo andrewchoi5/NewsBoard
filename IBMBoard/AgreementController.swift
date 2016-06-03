@@ -15,7 +15,13 @@ class AgreementController : DefaultViewController {
     var accountToDelete : Account!
     
     @IBAction func acceptClick(sender: RoundedButton) {
-        self.performSegueWithIdentifier("loginSegue", sender: self)
+        let alert = UIAlertController(title: "Success!", message: "Your account has been successfully created.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) in
+            self.performSegueWithIdentifier("loginSegue", sender: self)
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func declineClick(sender: RoundedButton) {
