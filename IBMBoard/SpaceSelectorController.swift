@@ -286,10 +286,11 @@ class SpaceSelectorController : DefaultViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        (segue.destinationViewController as! CategorySelectorController).isSquare = isSquareSelected
+        
         if segue.identifier == completedSpaceSelectionSegue {
             let vc = segue.destinationViewController as! CategorySelectorController
             vc.card = newCard
+            (segue.destinationViewController as! CategorySelectorController).isSquare = isSquareSelected
             
         } else if segue.identifier == calenderPopoverSegue {
             let vc = segue.destinationViewController as! CalendarController
@@ -307,7 +308,6 @@ class SpaceSelectorController : DefaultViewController {
         selectedSpaces.removeAll()
         self.reloadCards()
     }
-    
     
     func backButtonAction(sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -422,7 +422,8 @@ extension SpaceSelectorController : UICollectionViewDelegate {
         
         selectedSpaces.insert(indexPath.row)
         doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
-        isSquareSelected = isSquare(selectedSpaces)
+        //isSquareSelected = isSquare(selectedSpaces)
+        isSquareSelected = true
         
         //        if isRectangular(selectedSpaces) && postingDates.count > 0  {
         //            print("Space selected: \(makeCardWithSpaces(selectedSpaces))")
