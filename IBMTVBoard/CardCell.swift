@@ -109,6 +109,7 @@ class AnnouncementCardCell : CardCell {
         
         announcementText.attributedText = attrString
         announcementText.lineBreakMode = .ByTruncatingTail
+        announcementText.contentMode = .TopLeft
         
         if let image = card.attachedImage {
             progressBar.hidden = true
@@ -266,7 +267,6 @@ class IdeaCardCell : AnnouncementCardCell {
         self.infoTitle = "ideaTitle"
         self.infoText = "ideaPreview"
     }
-    
 }
 
 class QuestionCardCell : AnnouncementCardCell {
