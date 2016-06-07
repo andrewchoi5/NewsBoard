@@ -354,19 +354,16 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-eF-NtK">
-                                                            <rect key="frame" x="21" y="86" width="495" height="51"/>
+                                                            <rect key="frame" x="21" y="86" width="495" height="50"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="51" id="7E0-cy-GTY"/>
+                                                                <constraint firstAttribute="height" constant="50" id="7E0-cy-GTY"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="34"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-mI-g8Q">
-                                                            <rect key="frame" x="21" y="145" width="494" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="YqS-E7-fIs"/>
-                                                            </constraints>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Message Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-mI-g8Q">
+                                                            <rect key="frame" x="21" y="149" width="494" height="200"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="24"/>
                                                             <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -406,7 +403,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Lmw-eF-NtK" secondAttribute="trailing" constant="20" id="1Dx-1Z-fuI"/>
                                                         <constraint firstItem="K1a-w9-FeH" firstAttribute="leading" secondItem="g8e-4e-cIq" secondAttribute="trailing" constant="10" id="5L2-zD-9K6"/>
-                                                        <constraint firstItem="KVQ-mI-g8Q" firstAttribute="top" secondItem="Lmw-eF-NtK" secondAttribute="bottom" constant="8" id="7bM-Os-wxH"/>
+                                                        <constraint firstItem="KVQ-mI-g8Q" firstAttribute="top" secondItem="Lmw-eF-NtK" secondAttribute="bottom" constant="13" id="7bM-Os-wxH"/>
                                                         <constraint firstItem="Ble-LY-8VM" firstAttribute="leading" secondItem="K1a-w9-FeH" secondAttribute="trailing" constant="50" id="KO9-Wt-8dE"/>
                                                         <constraint firstItem="KVQ-mI-g8Q" firstAttribute="leading" secondItem="oDr-Co-wTQ" secondAttribute="leading" constant="21" id="LoG-7f-Sig"/>
                                                         <constraint firstAttribute="bottom" secondItem="7k4-Lc-a7A" secondAttribute="bottom" constant="16" id="NBY-ts-xag"/>
@@ -417,7 +414,6 @@
                                                         <constraint firstAttribute="trailing" secondItem="Ble-LY-8VM" secondAttribute="trailing" constant="25" id="cSl-D3-IeN"/>
                                                         <constraint firstAttribute="trailing" secondItem="7k4-Lc-a7A" secondAttribute="trailing" constant="8" id="fDg-Bq-fzo"/>
                                                         <constraint firstItem="Ble-LY-8VM" firstAttribute="top" secondItem="oDr-Co-wTQ" secondAttribute="top" constant="23" id="gWL-Mm-fY9"/>
-                                                        <constraint firstItem="7k4-Lc-a7A" firstAttribute="top" secondItem="KVQ-mI-g8Q" secondAttribute="bottom" constant="173" id="yfe-2L-DTu"/>
                                                         <constraint firstItem="g8e-4e-cIq" firstAttribute="top" secondItem="oDr-Co-wTQ" secondAttribute="top" constant="23" id="yrY-p4-7Jv"/>
                                                         <constraint firstAttribute="trailing" secondItem="KVQ-mI-g8Q" secondAttribute="trailing" constant="21" id="zL9-rV-9aG"/>
                                                     </constraints>

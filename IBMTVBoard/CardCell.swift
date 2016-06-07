@@ -90,6 +90,12 @@ class AnnouncementCardCell : CardCell {
     
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
+        
+        // For an unkown reason, the alpha sometimes gets set to 1
+        // and the photo view is unhidden on cells without photos
+        // This ensures photos stay hidden and alpha is 0.25
+        announcementPhoto.hidden = true
+        announcementPhoto.alpha = 0.25
     
         if let title = card.info[ infoTitle ] as? String {
             titleLabel.text = title

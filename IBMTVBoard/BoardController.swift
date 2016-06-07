@@ -39,14 +39,14 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     var cardList = [ Card ]()
     
     @IBAction func didPressNextDayButton() {
-        flipAllCells()
+        //flipAllCells()
         boardDate.incrementByDay()
         self.reload()
         dateLabel.text = getDateString(boardDate)
     }
     
     @IBAction func didPressPreviousDayButton() {
-        flipAllCells()
+        //flipAllCells()
         boardDate.decrementByDay()
         self.reload()
         dateLabel.text = getDateString(boardDate)
