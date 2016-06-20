@@ -29,6 +29,7 @@ class CardCell : UICollectionViewCell {
     @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var cardGradientBorderView: GradientView!
     @IBOutlet weak var cardTypeLabel: UILabel!
+    @IBOutlet weak var announcementText: UILabel!
     
     var oldColor : UIColor!
     
@@ -42,6 +43,10 @@ class CardCell : UICollectionViewCell {
         cardBackgroundView.layer.shadowOffset = CGSizeMake(-1.0, 5.0)
         
         cardTypeLabel.setKern(2.0)
+        
+        if (announcementText != nil) {
+            announcementText.sizeToFit()
+        }
     }
     
     func applyCardContent(card: Card) {
@@ -82,7 +87,7 @@ class AnnouncementCardCell : CardCell {
     
     @IBOutlet weak var announcementPhoto: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var announcementText: UILabel!
+
     var infoTitle = "announcementTitle"
     var infoText = "announcementText"
     
