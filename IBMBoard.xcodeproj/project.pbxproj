@@ -186,6 +186,7 @@
 		86492EF91CFCB06D004690B0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86492EF81CFCB06D004690B0 /* Keychain.swift */; };
 		86492EFD1CFCDCD9004690B0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAEC1CD29DD5007F0582 /* AVFoundation.framework */; };
 		8651647B1CFDFCFC00D24A7B /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392CF1541C76424500090214 /* BoardController.swift */; };
+		8660D8841D1C396900C43A93 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8660D8831D1C396900C43A93 /* Settings.bundle */; };
 		867ABEF01CE3D34A00402B18 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; };
 		867ABEF11CE3D34A00402B18 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39A9CAF51CD2A30C007F0582 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86E6825B1D00A489001924D7 /* MailCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8620EAC01CFF268F00D13FBB /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -562,6 +563,7 @@
 		86492EF71CFCB068004690B0 /* KeychainAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeychainAccess.h; path = ../KeychainAccess/Lib/KeychainAccess/KeychainAccess.h; sourceTree = "<group>"; };
 		86492EF81CFCB06D004690B0 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = ../KeychainAccess/Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
 		86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeychainAccess.xcodeproj; path = KeychainAccess/Lib/KeychainAccess.xcodeproj; sourceTree = "<group>"; };
+		8660D8831D1C396900C43A93 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -599,6 +601,7 @@
 		392CF1121C762FCF00090214 = {
 			isa = PBXGroup;
 			children = (
+				8660D8831D1C396900C43A93 /* Settings.bundle */,
 				86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */,
 				39D7E2D81CC4296100B02FEC /* Fonts */,
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
@@ -1258,6 +1261,7 @@
 				2D7087A51CC57A2800CEF4F7 /* Roboto-BlackItalic.ttf in Resources */,
 				2D7087AC1CC57A2800CEF4F7 /* Roboto-Italic.ttf in Resources */,
 				2D7087A31CC57A1D00CEF4F7 /* Simple-Line-Icons.ttf in Resources */,
+				8660D8841D1C396900C43A93 /* Settings.bundle in Resources */,
 				2D7087A41CC57A2800CEF4F7 /* Roboto-Black.ttf in Resources */,
 				39A8BA8E1CC5381400307E95 /* Assets.xcassets in Resources */,
 				392CF1581C76424500090214 /* Main.storyboard in Resources */,
