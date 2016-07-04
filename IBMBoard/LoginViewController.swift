@@ -122,6 +122,7 @@ class LoginViewController: KeyboardPresenter {
                         
                         ServerInterface.getAccount(withEmail: self.emailID.text!, andPassword: self.password.text!) { (account) in
                             self.hideLoading()
+                            account?.id
                             if account == nil {
                                 self.emailID.showInvalid()
                                 self.password.showInvalid()
@@ -235,6 +236,7 @@ class LoginViewController: KeyboardPresenter {
         
         ServerInterface.getAccount(withEmail: self.emailID.text!, andPassword: self.password.text!) { (account) in
                     self.hideLoading()
+            
                     if account == nil {
                         self.emailID.showInvalid()
                         self.password.showInvalid()

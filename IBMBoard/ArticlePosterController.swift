@@ -14,6 +14,8 @@ class ArticlePosterController : PosterController {
     @IBOutlet weak var articleLink: UITextField!
     @IBOutlet weak var articleTitle: UITextField!
     @IBOutlet weak var articlePreviewBody: UITextView!
+    
+    var selectedTVName : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,6 @@ class ArticlePosterController : PosterController {
         articleLink.text = card.info["articleURL"] as? String
         articleTitle.text = card.info["articleTitle"] as? String
         articlePreviewBody.text = card.info["articlePreviewText"] as? String
-
     }
     
     override func isReadyForPosting() -> Bool {
@@ -52,8 +53,14 @@ class ArticlePosterController : PosterController {
         card.info["articleTitle"] = articleTitle.text!
         card.info["articlePreviewText"] = articlePreviewBody.text
         
-        self.finish()
-        
+        ServerInterface.getUser(associateWithAccount: SessionInformation.currentSession.userAccount, completion:{
+            (user) in
+            
+            self.card.info["org"] = user?.org
+            self.card.info["office"] = user?.office
+            self.card.info["tv"] = self.selectedTVName
+            
+            self.finish()
+        })
     }
-
 }

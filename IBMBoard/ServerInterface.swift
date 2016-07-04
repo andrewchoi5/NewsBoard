@@ -20,7 +20,6 @@ class DelegateProxy : NSObject, NSURLSessionTaskDelegate {
     
     override init() {
         super.init()
-        
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
@@ -125,14 +124,12 @@ public class ServerInterface {
 }
 
 struct DocumentMetaData {
-    
     var id : String!
     var revision : String!
     
     init(withDictionary dictionary: [ String : AnyObject ]) {
         id = dictionary["id"] as! String
         revision = dictionary["rev"] as! String
-        
     }
 }
 
@@ -140,7 +137,6 @@ class NullServerResponse : ServerResponse {
     override var wasSuccessful: Bool {
         return false
     }
-    
     
     override init() {
         super.init()
@@ -204,7 +200,6 @@ extension ServerInterface {
             
             completion(QueryDeserializer.getDocuments(responseData))
         }).resume()
-        
     }
     
     static func updateDocumentWithMetaData(document: Document, inDatabase dbName: String, completion: DefaultCompletionBlock) {
@@ -325,6 +320,10 @@ extension ServerInterface {
         
     }
     
+    static func getCards(onDates dates: [ NSDate ], withOrg orgName: String, andOffice officeName: String, andTV tvName: String, completion: CardListCompletionBlock) {
+        ServerInterface.getCards(withQuery: CardQuery(withDates: dates, andOrg: orgName,andOffice: officeName, andTV: tvName), completion: completion)
+    }
+    
     static func getCards(onDate date: NSDate, completion: CardListCompletionBlock) {
         ServerInterface.getCards(withQuery: CardQuery(withDates: [ date ]), completion: completion)
         
@@ -338,7 +337,6 @@ extension ServerInterface {
 }
 
 extension ServerInterface {
-    
     static func addAccount(account: Account, completion: DefaultCompletionBlock) {
         ServerInterface.addDocument(account, toDatabase: "accounts", completion: completion)
         
@@ -400,7 +398,44 @@ extension ServerInterface {
         ServerInterface.getAccounts(associatedWithCard: card) { (accounts) in
             completion(accounts.first)
         }
-        
+    }
+}
+
+// Extension for user querys
+extension ServerInterface {
+    static func getUsers(withQuery query: Query, completion: UserListCompletionBlock) {
+        ServerInterface.getDocuments(withQuery: query, inDatabase: "users") { (documents) in
+            completion( DocumentToUserConverter.getUsers( documents ) )
+        }
+    }
+    
+    static func getUsers(associateWithAccount account: Account!, completion: UserListCompletionBlock) {
+        ServerInterface.getUsers(withQuery: UserQuery(withAccount: account), completion: completion)
+    }
+    
+    static func getUser(associateWithAccount account: Account!, completion: UserCompletionBlock) {
+        ServerInterface.getUsers(associateWithAccount: account) { (users) in
+            completion(users.first)
+        }
+    }
+}
+
+// Extension for tv querys
+extension ServerInterface {
+    static func getTVs(withQuery query : Query, completion: TVListCompletionBlock) {
+        ServerInterface.getDocuments(withQuery: query, inDatabase: "tvs") { (documents) in
+                completion( DocumentToTVConverter.getUsers( documents ) )
+            }
+    }
+    
+    static func getTVs(associateWithOrgAndOffice org : String!, office : String!, completion: TVListCompletionBlock) {
+        ServerInterface.getTVs(withQuery: TVQuery(withOrgAndOffice: org, office: office), completion: completion)
+    }
+    
+    static func getTV(associateWithOrgAndOffice org : String!, office : String!, completion: TVListCompletionBlock) {
+        ServerInterface.getTVs(associateWithOrgAndOffice: org, office: office) { (tvs) in
+            completion(tvs)
+        }
     }
 }
 
@@ -414,4 +449,9 @@ extension ServerInterface {
     typealias AccountListCompletionBlock = ( [ Account ] ) -> Void
     typealias AccountCompletionBlock = ( Account? ) -> Void
     
+    typealias UserListCompletionBlock = ( [ User ] ) -> Void
+    typealias UserCompletionBlock = ( User? ) -> Void
+    
+    typealias TVListCompletionBlock = ( [ TV ] ) -> Void
+    typealias TVCompletionBlock = ( TV? ) -> Void
 }

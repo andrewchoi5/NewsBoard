@@ -56,8 +56,10 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
         <mutableArray key="Simple-Line-Icons.ttf">
+            <string>simple-line-icons</string>
             <string>simple-line-icons</string>
             <string>simple-line-icons</string>
             <string>simple-line-icons</string>
@@ -1530,7 +1532,7 @@
             </objects>
             <point key="canvasLocation" x="1462.5" y="2083.5"/>
         </scene>
-        <!--Select space and date-->
+        <!--Space Selector Controller-->
         <scene sceneID="y39-Be-u9p">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="qHj-es-kGg" customClass="SpaceSelectorController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -1617,6 +1619,11 @@
                                 <rect key="frame" x="315" y="137" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-Wr-jIh">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="262"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </pickerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA6-Qz-dMA">
                                 <rect key="frame" x="0.0" y="262" width="667" height="49"/>
                                 <gestureRecognizers/>
@@ -1654,7 +1661,9 @@
                             <constraint firstItem="eqf-UA-Hhg" firstAttribute="centerX" secondItem="byt-7F-rLS" secondAttribute="centerX" id="Acl-VG-eLs"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="width" secondItem="byt-7F-rLS" secondAttribute="width" id="DRd-Za-vyh"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="height" secondItem="byt-7F-rLS" secondAttribute="height" id="EIx-n6-dPn"/>
+                            <constraint firstItem="AA6-Qz-dMA" firstAttribute="top" secondItem="xdp-Wr-jIh" secondAttribute="bottom" id="Hf3-eN-cPc"/>
                             <constraint firstItem="IcO-OX-EP6" firstAttribute="centerY" secondItem="byt-7F-rLS" secondAttribute="centerY" id="IAl-tI-CkZ"/>
+                            <constraint firstItem="xdp-Wr-jIh" firstAttribute="trailing" secondItem="U7D-Gt-7IR" secondAttribute="trailing" id="Izs-te-gcy"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="leading" secondItem="byt-7F-rLS" secondAttribute="leadingMargin" constant="-20" id="KrI-wY-6tO"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="centerY" secondItem="8UH-W9-sPh" secondAttribute="centerY" id="Pkh-53-o6H"/>
                             <constraint firstItem="AA6-Qz-dMA" firstAttribute="width" secondItem="byt-7F-rLS" secondAttribute="width" id="Qg3-hn-fTi"/>
@@ -1662,7 +1671,9 @@
                             <constraint firstItem="amK-Bn-Hjf" firstAttribute="top" secondItem="AA6-Qz-dMA" secondAttribute="bottom" id="Spk-mI-Izu"/>
                             <constraint firstItem="IcO-OX-EP6" firstAttribute="centerX" secondItem="byt-7F-rLS" secondAttribute="centerX" id="VGj-YW-eWp"/>
                             <constraint firstItem="eqf-UA-Hhg" firstAttribute="height" secondItem="8UH-W9-sPh" secondAttribute="height" id="XRt-bP-gs7"/>
+                            <constraint firstItem="xdp-Wr-jIh" firstAttribute="leading" secondItem="AA6-Qz-dMA" secondAttribute="leading" id="Y3C-Qm-rmf"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="centerX" secondItem="8UH-W9-sPh" secondAttribute="centerX" id="dh6-ao-HG8"/>
+                            <constraint firstItem="xdp-Wr-jIh" firstAttribute="top" secondItem="YOE-xc-AiB" secondAttribute="bottom" id="dpU-gX-SOn"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="top" secondItem="YOE-xc-AiB" secondAttribute="bottom" id="eEJ-gs-zFs"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="width" secondItem="8UH-W9-sPh" secondAttribute="width" id="sSh-QW-EeM"/>
                             <constraint firstItem="AA6-Qz-dMA" firstAttribute="leading" secondItem="byt-7F-rLS" secondAttribute="leadingMargin" constant="-20" id="y8A-RJ-a1i"/>
@@ -1677,8 +1688,20 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Select space and date" id="7Iw-Sh-Rdv">
+                    <navigationItem key="navigationItem" id="7Iw-Sh-Rdv">
+                        <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Back" id="RSW-9B-7oE"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4W8-s4-eI3">
+                            <rect key="frame" x="200.5" y="7" width="266" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                            <state key="normal" title="Select tv, space and date">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="selectTV:" destination="qHj-es-kGg" eventType="touchUpInside" id="QAr-bc-N1d"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" style="done" id="bLj-A0-Kh2">
                             <color key="tintColor" red="0.36078431372549019" green="1" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1694,9 +1717,11 @@
                         <outlet property="calendarButton" destination="NqP-x9-B1E" id="d2B-0i-PLA"/>
                         <outlet property="collectionView" destination="8UH-W9-sPh" id="8ox-b1-Mv8"/>
                         <outlet property="doneButton" destination="bLj-A0-Kh2" id="oQx-Vd-0m3"/>
+                        <outlet property="gradientView" destination="byt-7F-rLS" id="dEr-NW-6yr"/>
                         <outlet property="gridView" destination="U7D-Gt-7IR" id="sEJ-5W-S4F"/>
                         <outlet property="loadingScreen" destination="eqf-UA-Hhg" id="uTJ-8m-xeV"/>
                         <outlet property="toolBar" destination="AA6-Qz-dMA" id="lEG-FV-hNL"/>
+                        <outlet property="tvPicker" destination="xdp-Wr-jIh" id="AJh-2W-TJA"/>
                         <segue destination="v1k-AI-dtd" kind="show" identifier="completedSpaceSelectionSegue" id="J6H-1j-AbP"/>
                         <segue destination="QDE-hm-z2s" kind="show" identifier="updateQuestionCardSegue" id="bae-Df-lTy"/>
                         <segue destination="NvT-Dn-yoj" kind="show" identifier="updateAnnouncementCardSegue" id="7v3-CP-g3l"/>
@@ -1707,6 +1732,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IfA-sf-JJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fQh-0C-qns">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
             </objects>
             <point key="canvasLocation" x="1787" y="475"/>
         </scene>
@@ -2013,7 +2043,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNK-A2-BTI" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="424" width="374" height="48"/>
+                                <rect key="frame" x="20" y="464" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycx-8b-lbL">
                                         <rect key="frame" x="17" y="14" width="17" height="17"/>
@@ -2048,7 +2078,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="754-5k-jQ4" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="492" width="374" height="48"/>
+                                <rect key="frame" x="20" y="532" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO9-J8-aPb">
                                         <rect key="frame" x="17" y="14" width="17" height="17"/>
@@ -2083,7 +2113,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-zV-BcP" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="560" width="374" height="48"/>
+                                <rect key="frame" x="20" y="600" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.58431372549019611" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="P6w-Ca-7lr"/>
@@ -2102,31 +2132,21 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_logo" translatesAutoresizingMaskIntoConstraints="NO" id="D5X-RF-Bmx">
-                                <rect key="frame" x="159" y="184" width="97" height="76"/>
+                                <rect key="frame" x="159" y="164" width="97" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="gYa-7f-SrF"/>
                                     <constraint firstAttribute="width" constant="97" id="hxn-Rm-bYs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please do not use your real IBM Intranet password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4x-WE-NcJ">
-                                <rect key="frame" x="36" y="287" width="343" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="sca-iC-77d"/>
-                                    <constraint firstAttribute="width" constant="343" id="u4p-jH-AXb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="UZw-5D-2Px">
-                                <rect key="frame" x="356" y="574" width="20" height="20"/>
+                                <rect key="frame" x="356" y="614" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="HrL-lB-Pdx"/>
                                     <constraint firstAttribute="height" constant="20" id="lPA-YX-EIW"/>
                                 </constraints>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJz-k1-I6h" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="356" width="374" height="48"/>
+                                <rect key="frame" x="20" y="396" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqA-99-QOR">
                                         <rect key="frame" x="17" y="14" width="17" height="17"/>
@@ -2159,19 +2179,67 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Intranet ID"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQt-s2-MEf" userLabel="officeNameTextBox" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="328" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqc-wa-2cl">
+                                        <rect key="frame" x="17" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="1WZ-wr-zj0"/>
+                                            <constraint firstAttribute="width" constant="17" id="JJG-p6-4Yp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2470588235" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="0hg-cF-T9i"/>
+                                    <constraint firstAttribute="bottom" secondItem="Iqc-wa-2cl" secondAttribute="bottom" constant="17" id="Ahf-Rj-Opz"/>
+                                    <constraint firstItem="Iqc-wa-2cl" firstAttribute="top" secondItem="iQt-s2-MEf" secondAttribute="top" constant="14" id="CKg-4X-ZBa"/>
+                                    <constraint firstItem="Iqc-wa-2cl" firstAttribute="leading" secondItem="iQt-s2-MEf" secondAttribute="leading" constant="17" id="krc-6g-EyX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderSize">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="insets">
+                                        <size key="value" width="48" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Office Name"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please do not use your real IBM Intranet password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4x-WE-NcJ">
+                                <rect key="frame" x="36" y="267" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sca-iC-77d"/>
+                                    <constraint firstAttribute="width" constant="343" id="u4p-jH-AXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="NLl-r5-NOa" firstAttribute="top" secondItem="Gl9-zV-BcP" secondAttribute="bottom" constant="128" identifier="SignUpToBottomGuideConstraint" id="0BQ-Hg-hl0"/>
+                            <constraint firstItem="NLl-r5-NOa" firstAttribute="top" secondItem="Gl9-zV-BcP" secondAttribute="bottom" constant="88" identifier="SignUpToBottomGuideConstraint" id="0BQ-Hg-hl0"/>
                             <constraint firstItem="754-5k-jQ4" firstAttribute="width" secondItem="PNK-A2-BTI" secondAttribute="width" id="1F7-u7-Xl8"/>
-                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="O4x-WE-NcJ" secondAttribute="bottom" constant="25" id="73A-k2-Kqb"/>
+                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="O4x-WE-NcJ" secondAttribute="bottom" constant="85" id="73A-k2-Kqb"/>
                             <constraint firstItem="PNK-A2-BTI" firstAttribute="width" secondItem="SJz-k1-I6h" secondAttribute="width" id="8Uf-sv-Owt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SJz-k1-I6h" secondAttribute="trailing" id="A0X-Q0-0Oh"/>
                             <constraint firstItem="O4x-WE-NcJ" firstAttribute="top" secondItem="D5X-RF-Bmx" secondAttribute="bottom" constant="27" id="ECj-bc-3kB"/>
-                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="D5X-RF-Bmx" secondAttribute="bottom" constant="96" id="Eex-gC-8hh"/>
+                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="D5X-RF-Bmx" secondAttribute="bottom" constant="156" id="Eex-gC-8hh"/>
                             <constraint firstItem="UZw-5D-2Px" firstAttribute="leading" secondItem="Gl9-zV-BcP" secondAttribute="trailing" constant="-38" id="FU6-8E-vma"/>
+                            <constraint firstItem="iQt-s2-MEf" firstAttribute="trailing" secondItem="BTm-O1-wJ6" secondAttribute="trailingMargin" id="H6T-uu-0gQ"/>
+                            <constraint firstItem="iQt-s2-MEf" firstAttribute="top" secondItem="O4x-WE-NcJ" secondAttribute="bottom" constant="17" id="IfQ-kW-LoM"/>
                             <constraint firstItem="D5X-RF-Bmx" firstAttribute="centerX" secondItem="BTm-O1-wJ6" secondAttribute="centerX" id="SNG-oX-RIi"/>
+                            <constraint firstItem="iQt-s2-MEf" firstAttribute="leading" secondItem="BTm-O1-wJ6" secondAttribute="leadingMargin" id="V3Z-7a-ksv"/>
                             <constraint firstItem="754-5k-jQ4" firstAttribute="centerX" secondItem="BTm-O1-wJ6" secondAttribute="centerX" id="ZPb-WA-4MK"/>
+                            <constraint firstItem="iQt-s2-MEf" firstAttribute="top" secondItem="O4x-WE-NcJ" secondAttribute="bottom" constant="17" id="a2N-xb-0P2"/>
                             <constraint firstItem="PNK-A2-BTI" firstAttribute="centerX" secondItem="BTm-O1-wJ6" secondAttribute="centerX" id="f6b-ET-cQA"/>
                             <constraint firstItem="754-5k-jQ4" firstAttribute="top" secondItem="PNK-A2-BTI" secondAttribute="bottom" constant="20" id="gx0-NN-0lj"/>
                             <constraint firstItem="Gl9-zV-BcP" firstAttribute="top" secondItem="754-5k-jQ4" secondAttribute="bottom" constant="20" id="pvH-1b-RvP"/>
@@ -2180,8 +2248,15 @@
                             <constraint firstAttribute="leadingMargin" secondItem="SJz-k1-I6h" secondAttribute="leading" id="siS-7s-aEL"/>
                             <constraint firstItem="Gl9-zV-BcP" firstAttribute="width" secondItem="PNK-A2-BTI" secondAttribute="width" id="ucT-eY-rs8"/>
                             <constraint firstItem="Gl9-zV-BcP" firstAttribute="centerX" secondItem="BTm-O1-wJ6" secondAttribute="centerX" id="uib-FD-lys"/>
+                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="iQt-s2-MEf" secondAttribute="bottom" constant="20" id="w9v-P4-Loc"/>
                             <constraint firstItem="UZw-5D-2Px" firstAttribute="centerY" secondItem="Gl9-zV-BcP" secondAttribute="centerY" id="y6E-85-ees"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="73A-k2-Kqb"/>
+                                <exclude reference="Eex-gC-8hh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="qWM-Fc-7NY">
                         <barButtonItem key="backBarButtonItem" title="Back" id="PXV-q2-x5F"/>
@@ -2192,6 +2267,7 @@
                         <outlet property="activityIndicator" destination="UZw-5D-2Px" id="6EM-Mv-pug"/>
                         <outlet property="confirmPasswordField" destination="754-5k-jQ4" id="Bfa-2G-pOO"/>
                         <outlet property="emailField" destination="SJz-k1-I6h" id="FM8-3v-vVl"/>
+                        <outlet property="officeNameField" destination="iQt-s2-MEf" id="6zO-pb-kB5"/>
                         <outlet property="passwordField" destination="PNK-A2-BTI" id="PlX-8J-rOi"/>
                         <segue destination="rkC-1O-pOD" kind="show" identifier="verificationSegue" id="Xsg-t7-MCv"/>
                         <segue destination="G2W-Ha-IRn" kind="show" identifier="skipVerificationSegue" id="Iyf-yE-v2G"/>
@@ -2304,14 +2380,14 @@ Do not post inappropriate content. No posts should contain statements that are u
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="oEZ-3m-7p0"/>
         <segue reference="19n-g9-Mh5"/>
-        <segue reference="bxv-as-pE6"/>
-        <segue reference="Xsg-t7-MCv"/>
-        <segue reference="cWJ-fM-BVu"/>
-        <segue reference="SCD-dM-0e9"/>
-        <segue reference="hwJ-nH-bdX"/>
-        <segue reference="Tfi-ct-jo6"/>
-        <segue reference="ywO-bU-7Zo"/>
-        <segue reference="Hfu-pc-aJi"/>
+        <segue reference="PUd-Ut-ITJ"/>
+        <segue reference="1Be-XK-7cy"/>
+        <segue reference="Tf5-bR-FsD"/>
+        <segue reference="bae-Df-lTy"/>
+        <segue reference="7v3-CP-g3l"/>
+        <segue reference="W7J-mn-B1x"/>
+        <segue reference="BXu-AB-Ev4"/>
     </inferredMetricsTieBreakers>
 </document>

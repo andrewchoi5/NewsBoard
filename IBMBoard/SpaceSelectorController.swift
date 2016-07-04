@@ -12,7 +12,7 @@ import UIKit
 internal let cellsPerRow = 5
 internal let cellsPerColumn = 4
 
-class SpaceSelectorController : DefaultViewController {
+class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let emptyCellIdentifier = "emptyCell"
     let lockedCellIdentifier = "lockedCell"
@@ -27,7 +27,9 @@ class SpaceSelectorController : DefaultViewController {
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
-    
+    @IBOutlet weak var tvPicker: UIPickerView!
+    @IBOutlet var gradientView: GradientView!
+        
     var postingDates = Set<BoardDate>()
     var newCard : Card!
     var cardHolderMatrix = [ (Int, Card?) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, nil))
@@ -36,6 +38,11 @@ class SpaceSelectorController : DefaultViewController {
     var calendarDate = BoardDate()
     var datesToSearch = Set<NSDate>()
     var isSquareSelected : Bool!
+    var officeTVs = [ TV ]()
+    
+    var userOrgName = String()
+    var userOfficeName = String()
+    var selectedTV = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +53,8 @@ class SpaceSelectorController : DefaultViewController {
         
         configureCurrentDateLabel()
         addGesturesRecognizers()
-        reloadCards()
+        // reload called in getTVNames, after the tv names for associated org and office has been obtained
+        // reloadCards()
         
         
         let normalAttributes = [
@@ -72,11 +80,70 @@ class SpaceSelectorController : DefaultViewController {
         
         self.postingDates.insert(calendarDate)
         
+        self.tvPicker.delegate = self
+        self.tvPicker.dataSource = self
+        
+        getTVNames()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewWillAppear(animated)
         doneButton.enabled = isRectangular(selectedSpaces) && postingDates.count > 0
+    }
+    
+    func getTVNames() {
+        
+        ServerInterface.getUser(associateWithAccount: SessionInformation.currentSession.userAccount, completion:{
+            (user) in
+            self.userOrgName = (user?.org)!
+            self.userOfficeName = (user?.office)!
+
+            ServerInterface.getTV(associateWithOrgAndOffice: self.userOrgName, office: self.userOfficeName
+                , completion: {
+                (tvs) in
+                self.officeTVs = tvs
+                self.selectedTV = self.officeTVs[0].tv
+                self.tvPicker.reloadAllComponents()
+                self.reloadCards()
+            })
+        })
+    }
+    
+    @IBAction func selectTV(sender: AnyObject) {
+        print("select tv")
+        tvPicker.hidden = false
+        self.collectionView.userInteractionEnabled = false
+        self.gridView.hidden = true
+    }
+    
+    // MARK: UIPicker delegate methods
+    // The number of columns of data
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return officeTVs.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return officeTVs[row].tv
+    }
+    
+    // Catpure the picker view selection
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        print("selection made")
+        tvPicker.hidden = true
+        self.collectionView.userInteractionEnabled = false
+        self.gridView.hidden = false
+        
+        selectedTV = officeTVs[row].tv
+        
+        self.reloadCards()
     }
     
     func configureCurrentDateLabel() {
@@ -115,11 +182,13 @@ class SpaceSelectorController : DefaultViewController {
     
     func reloadCards() {
         self.beginReloading()
-        ServerInterface.getCards(onDates: [ calendarDate.underlyingDate() ]) { (cards) in
+        
+        ServerInterface.getCards(onDates: [ calendarDate.underlyingDate() ], withOrg: userOrgName, andOffice: userOfficeName, andTV: selectedTV, completion: {
+            (cards) in
             self.cardList = cards
             self.reloadData()
             self.finishedReloading()
-        }
+        })
     }
     
     func didSwipeUp() {
@@ -291,6 +360,7 @@ class SpaceSelectorController : DefaultViewController {
             let vc = segue.destinationViewController as! CategorySelectorController
             vc.card = newCard
             (segue.destinationViewController as! CategorySelectorController).isSquare = isSquareSelected
+            (segue.destinationViewController as! CategorySelectorController).selectedTVName = selectedTV
             
         } else if segue.identifier == calenderPopoverSegue {
             let vc = segue.destinationViewController as! CalendarController

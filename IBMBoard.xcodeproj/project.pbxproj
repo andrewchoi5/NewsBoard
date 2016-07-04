@@ -563,7 +563,7 @@
 		86492EF71CFCB068004690B0 /* KeychainAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeychainAccess.h; path = ../KeychainAccess/Lib/KeychainAccess/KeychainAccess.h; sourceTree = "<group>"; };
 		86492EF81CFCB06D004690B0 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = ../KeychainAccess/Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
 		86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeychainAccess.xcodeproj; path = KeychainAccess/Lib/KeychainAccess.xcodeproj; sourceTree = "<group>"; };
-		8660D8831D1C396900C43A93 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		8660D8831D1C396900C43A93 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,7 +601,6 @@
 		392CF1121C762FCF00090214 = {
 			isa = PBXGroup;
 			children = (
-				8660D8831D1C396900C43A93 /* Settings.bundle */,
 				86492F0B1CFCE141004690B0 /* KeychainAccess.xcodeproj */,
 				39D7E2D81CC4296100B02FEC /* Fonts */,
 				39E5A8B91C7D2A5100DFC0F5 /* IBMBoard-Bridging-Header.h */,
@@ -647,6 +646,7 @@
 		392CF1511C76424500090214 /* IBMTVBoard */ = {
 			isa = PBXGroup;
 			children = (
+				8660D8831D1C396900C43A93 /* Settings.bundle */,
 				39EB940D1C80FE240053F73F /* CardCell.swift */,
 				3956C1941CCEC7F1008597F6 /* DateSelectorController.swift */,
 				39C61F031C98168F002C7E12 /* CardFactory.swift */,
@@ -1109,7 +1109,6 @@
 					};
 					392CF14F1C76424500090214 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = PP64RT7P8Z;
 					};
 				};
 			};
@@ -1573,9 +1572,9 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
+				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Debug;
@@ -1614,9 +1613,9 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.zamiulhaque.ibmboard;
+				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7615dcb7-46f2-41ce-8450-f55eee8e4937";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 			};
 			name = Release;
@@ -1626,7 +1625,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1636,7 +1636,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ef34587b-1d27-42d6-9358-3521968f642c";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1649,7 +1649,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mehran Najafi (5C9NDSKQG2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1659,7 +1660,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ef34587b-1d27-42d6-9358-3521968f642c";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;

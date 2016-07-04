@@ -24,6 +24,8 @@ class AnnouncementPostController : PosterController {
     
     var selectedImage : UIImage?
     
+    var selectedTVName : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,19 +68,26 @@ class AnnouncementPostController : PosterController {
         
         card.info[infoTitle] = announcementTitle.text
         card.info[infoText] = announcementText.text
-
         
-        if let image = selectedImage {
-            card.attachImage(image) {
-                self.finish()
+        ServerInterface.getUser(associateWithAccount: SessionInformation.currentSession.userAccount, completion:{
+            (user) in
+            
+            self.card.info["org"] = user?.org
+            self.card.info["office"] = user?.office
+            self.card.info["tv"] = self.selectedTVName
+            
+            
+            if let image = self.selectedImage {
+                self.card.attachImage(image) {
+                    self.finish()
+                    
+                }
                 
+            } else {
+                self.finish()
             }
             
-        } else {
-            self.finish()
-            
-        }
-        
+        })
     }
     
     @IBAction func didPushAddPictureButton(sender: UIButton) {

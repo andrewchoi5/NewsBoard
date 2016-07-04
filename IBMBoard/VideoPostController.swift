@@ -15,6 +15,8 @@ class VideoPostController : PosterController {
     @IBOutlet weak var videoTitle: UITextField!
     @IBOutlet weak var videoPreview: UIImageView!
     
+    var selectedTVName : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +49,15 @@ class VideoPostController : PosterController {
         card.videoURL = NSURL(string: videoLink.text!)
         card.videoTitle = videoTitle.text
         
-        self.finish()
+        ServerInterface.getUser(associateWithAccount: SessionInformation.currentSession.userAccount, completion:{
+            (user) in
+            
+            self.card.info["org"] = user?.org
+            self.card.info["office"] = user?.office
+            self.card.info["tv"] = self.selectedTVName
+            
+            self.finish()
+        })
     }
     
     func loadPreview() {

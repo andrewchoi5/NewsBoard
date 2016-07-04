@@ -32,6 +32,8 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    
+    
     let dateSelector = DateSelectorController()
     let layout = BoardLayout()
     let boardDate = BoardDate()
@@ -217,52 +219,67 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         }
         
         self.endNoNetworkState()
-        ServerInterface.getCards(onDate: boardDate.underlyingDate()) { (cards) in
         
-            if cards.count == 0 {
-                self.showNoCardsState()
+        let standardUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let appTVName = standardUserDefaults.objectForKey("tv_name") as? String
+        let appOrgName = standardUserDefaults.objectForKey("org_name") as? String
+        let appOfficeName = standardUserDefaults.objectForKey("office_name") as? String
+        
+        if (appOrgName != nil && appTVName != nil && appOfficeName != nil) {
+            ServerInterface.getCards(onDates: [ boardDate.underlyingDate() ], withOrg: appOrgName!, andOffice: appOfficeName!, andTV: appTVName!, completion: {
+                (cards) in
                 
-            } else {
-                self.hideNoCardsState()
+                if cards.count == 0 {
+                    self.showNoCardsState()
+                    
+                } else {
+                    self.hideNoCardsState()
+                    
+                }
                 
-            }
-            
-            let oldDeck = Set<Card>(self.cardList)
-            let newDeck = Set<Card>(cards)
-        
-            let deletedCards = oldDeck.subtract(newDeck)
-            let addedCards = newDeck.subtract(oldDeck)
-            var leftOverCards = newDeck.intersect(oldDeck)
-        
-            for card in addedCards {
-                self.cardList.append(card)
-                let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
-                self.collectionView.insertItemsAtIndexPaths([ indexPath ])
-            
-            }
-        
-            for index in 0 ..< self.cardList.count {
-                let oldCard = self.cardList[ index ]
-                if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
-                    let indexPath = NSIndexPath(forRow: index, inSection:0)
-                    self.cardList[ index ] = card
-                    self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
+                let oldDeck = Set<Card>(self.cardList)
+                let newDeck = Set<Card>(cards)
+                
+                let deletedCards = oldDeck.subtract(newDeck)
+                let addedCards = newDeck.subtract(oldDeck)
+                var leftOverCards = newDeck.intersect(oldDeck)
+                
+                for card in addedCards {
+                    self.cardList.append(card)
+                    let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
+                    self.collectionView.insertItemsAtIndexPaths([ indexPath ])
+                    
                 }
-            }
-
-            var deleted = 0
-            for index in 0..<self.cardList.count {
-                let realIndex = index - deleted
-                let oldCard = self.cardList[ realIndex ]
-                if deletedCards.contains(oldCard) {
-                    let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
-                    self.cardList.removeAtIndex(realIndex)
-                    self.collectionView.deleteItemsAtIndexPaths([indexPath])
-                    deleted += 1
+                
+                for index in 0 ..< self.cardList.count {
+                    let oldCard = self.cardList[ index ]
+                    if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
+                        let indexPath = NSIndexPath(forRow: index, inSection:0)
+                        self.cardList[ index ] = card
+                        self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
+                    }
                 }
-            }
-        
+                
+                var deleted = 0
+                for index in 0..<self.cardList.count {
+                    let realIndex = index - deleted
+                    let oldCard = self.cardList[ realIndex ]
+                    if deletedCards.contains(oldCard) {
+                        let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
+                        self.cardList.removeAtIndex(realIndex)
+                        self.collectionView.deleteItemsAtIndexPaths([indexPath])
+                        deleted += 1
+                    }
+                }
+                
+                self.endLoadingState()
+                
+            })
+        }
+        else {
             self.endLoadingState()
+            self.showNoCardsState()
         }
     }
     
@@ -447,12 +464,10 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     func swipeLeft() {
         print("")
-        
     }
     
     func swipeRight() {
         print("")
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

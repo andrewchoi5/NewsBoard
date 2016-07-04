@@ -47,6 +47,8 @@ class CategorySelectorController : DefaultViewController {
     
     var isSquare : Bool!
     
+    var selectedTVName : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +66,16 @@ class CategorySelectorController : DefaultViewController {
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             (segue.destinationViewController as! AnnouncementPostController).isPhotoView = true
+        }
+        
+        if (segue.identifier == "newsSegue") {
+            (segue.destinationViewController as! ArticlePosterController).selectedTVName = selectedTVName
+        }
+        else if (segue.identifier == "videoSegue") {
+            (segue.destinationViewController as! VideoPostController).selectedTVName = selectedTVName
+        }
+        else {
+            (segue.destinationViewController as! AnnouncementPostController).selectedTVName = selectedTVName
         }
     }
 }
