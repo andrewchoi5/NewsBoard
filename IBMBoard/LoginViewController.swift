@@ -245,12 +245,11 @@ class LoginViewController: KeyboardPresenter {
                     
                     self.userAccount = account!
             
-                    /* UNCOMMENT FOR EMAIL VERIFICATION
                     if !self.userAccount.verified {
                         self.performSegueWithIdentifier("reverificationSegue", sender: self)
                         return
                         
-                    }*/
+                    }
                     
                     if !self.userAccount.hasProfilePicture() {
                         self.performSegueWithIdentifier("profilePictureSegue", sender: self)

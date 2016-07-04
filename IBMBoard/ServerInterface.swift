@@ -403,6 +403,13 @@ extension ServerInterface {
 
 // Extension for user querys
 extension ServerInterface {
+    static func addUser(withAccount account: Account, andOrg org: String, completion: DefaultCompletionBlock) {
+        let user = User(withOrg: org, andOffice: account.officeName, andAccountID: account.id)
+        ServerInterface.addDocument(user, toDatabase: "users", completion: completion)
+    }
+    
+    
+    
     static func getUsers(withQuery query: Query, completion: UserListCompletionBlock) {
         ServerInterface.getDocuments(withQuery: query, inDatabase: "users") { (documents) in
             completion( DocumentToUserConverter.getUsers( documents ) )

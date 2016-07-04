@@ -92,7 +92,6 @@ class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIP
     }
     
     func getTVNames() {
-        
         ServerInterface.getUser(associateWithAccount: SessionInformation.currentSession.userAccount, completion:{
             (user) in
             self.userOrgName = (user?.org)!

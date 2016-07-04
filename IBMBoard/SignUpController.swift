@@ -104,11 +104,13 @@ class SignUpController : KeyboardPresenter {
                 ServerInterface.addAccount(self.newAccount, completion: {
                     self.hideLoading()
                     
-                    // USE IF USING EMAIL VERIFICATION
-                    //ServerInterface.sendVerificationEmailToAccount(self.newAccount, completion: nil)
-                    //self.performSegueWithIdentifier("verificationSegue", sender: self)
-                    
-                    self.performSegueWithIdentifier("skipVerificationSegue", sender: self)
+                    ServerInterface.addUser(withAccount: self.newAccount, andOrg: "IBM", completion: {
+                        // USE IF USING EMAIL VERIFICATION
+                        ServerInterface.sendVerificationEmailToAccount(self.newAccount, completion: nil)
+                        self.performSegueWithIdentifier("verificationSegue", sender: self)
+                        
+                        //self.performSegueWithIdentifier("skipVerificationSegue", sender: self)
+                    })
                 })
                 
             } else {
@@ -136,7 +138,7 @@ class SignUpController : KeyboardPresenter {
             
             
             // CHANGE BACK FOR VERIFICATION EMAIL
-            //(segue.destinationViewController as! AccountVerificationController).accountToVerify = newAccount
+            (segue.destinationViewController as! AccountVerificationController).accountToVerify = newAccount
             
         }
         else if segue.identifier == "skipVerificationSegue" {

@@ -131,19 +131,19 @@ class UserQuery : Query {
     override init() {
         super.init()
         
-        self.addField("userInfo")
+        self.addField("user")
     }
     
     convenience init(withAccountID accountID : String) {
         self.init()
         
-        self.addSelector("userInfo.accountID", .Equals, accountID)
+        self.addSelector("user.accountID", .Equals, accountID)
     }
     
     convenience init(withAccount account: Account) {
         self.init()
         
-        self.addSelector("userInfo.accountID", .Equals, account.id)
+        self.addSelector("user.accountID", .Equals, account.id)
     }
 }
 
@@ -638,7 +638,7 @@ class Account : Document {
         email = document.info["email"] as! String
         password = document.info["password"] as! String
         verified = document.info["verified"] as! Bool
-        
+        officeName = document.info["officeName"] as! String
     }
     
     static func hashPassword(password: String) -> String {
@@ -666,6 +666,15 @@ class User : Document {
     var org : String!
     var office : String!
     var accountID : String!
+    
+    
+    init(withOrg org: String, andOffice office: String, andAccountID accountID: String) {
+        super.init()
+        
+        self.org = org
+        self.office = office
+        self.accountID = accountID
+    }
     
     override init(document: Document) {
         super.init(document: document)
