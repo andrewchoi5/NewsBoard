@@ -60,7 +60,7 @@ class AnnouncementPostController : PosterController {
     }
     
     override func didPushPostButton(sender: UIBarButtonItem) {
-        
+
         if let userPhotoURLString = announcementPhotoURL.text {
             guard let _ = NSURL(string: userPhotoURLString) else { return }
             card.info["userPhotoURL"] = userPhotoURLString

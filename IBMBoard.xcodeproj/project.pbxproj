@@ -1572,7 +1572,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.dylantrachsel.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
@@ -1613,7 +1613,7 @@
 					"-stdlib=libc++",
 					"-Obj",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.dylantrachsel.IBMBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IBMBoard-Bridging-Header.h";
@@ -1634,7 +1634,7 @@
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.dylantrachsel.ibmboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
@@ -1658,7 +1658,7 @@
 				INFOPLIST_FILE = IBMTVBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = ibm.IBMTVBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.cio.be.iphone.dylantrachsel.ibmboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;

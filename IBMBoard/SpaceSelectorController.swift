@@ -365,7 +365,48 @@ class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIP
             let vc = segue.destinationViewController as! CalendarController
             vc.delegate = self
             
-        } else {
+        }
+        else if segue.identifier == "updateAnnouncementCardSegue" {
+            let vc = segue.destinationViewController as! PosterController
+            (segue.destinationViewController as! AnnouncementPostController).selectedTVName = selectedTV
+            vc.card = sender as! Card
+            vc.updatingMode = true
+            
+            if (vc.card.articleTitle == nil) {
+                (segue.destinationViewController as! AnnouncementPostController).isPhotoView = true
+            }
+        }
+        else if segue.identifier == "updateArticleCardSegue" {
+            let vc = segue.destinationViewController as! PosterController
+            (segue.destinationViewController as! ArticlePosterController).selectedTVName = selectedTV
+            vc.card = sender as! Card
+            vc.updatingMode = true
+        }
+        else if segue.identifier == "updateIdeaCardSegue" {
+            let vc = segue.destinationViewController as! PosterController
+            (segue.destinationViewController as! IdeaPostController).selectedTVName = selectedTV
+            vc.card = sender as! Card
+            vc.updatingMode = true
+        }
+        else if segue.identifier == "updateQuestionCardSegue" {
+            let vc = segue.destinationViewController as! PosterController
+            (segue.destinationViewController as! QuestionPostController).selectedTVName = selectedTV
+            vc.card = sender as! Card
+            vc.updatingMode = true
+        }
+        else if segue.identifier == "updateRFPCardSegue" {
+            let vc = segue.destinationViewController as! PosterController
+            (segue.destinationViewController as! RFPPostController).selectedTVName = selectedTV
+            vc.card = sender as! Card
+            vc.updatingMode = true
+        }
+        else if segue.identifier == "updateVideoCardSegue" {
+            let vc = segue.destinationViewController as! PosterController
+            (segue.destinationViewController as! VideoPostController).selectedTVName = selectedTV
+            vc.card = sender as! Card
+            vc.updatingMode = true
+        }
+        else {
             let vc = segue.destinationViewController as! PosterController
             vc.card = sender as! Card
             vc.updatingMode = true
