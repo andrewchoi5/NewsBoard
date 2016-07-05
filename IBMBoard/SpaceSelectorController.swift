@@ -372,8 +372,11 @@ class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIP
             vc.card = sender as! Card
             vc.updatingMode = true
             
-            if (vc.card.articleTitle == nil) {
+            if (vc.card.info["announcementTitle"] as! String == "") {
                 (segue.destinationViewController as! AnnouncementPostController).isPhotoView = true
+            }
+            else {
+                (segue.destinationViewController as! AnnouncementPostController).isPhotoView = false
             }
         }
         else if segue.identifier == "updateArticleCardSegue" {
