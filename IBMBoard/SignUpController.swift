@@ -15,7 +15,6 @@ class SignUpController : KeyboardPresenter {
     @IBOutlet weak var emailField: RoundedTextBox!
     @IBOutlet weak var passwordField: RoundedTextBox!
     @IBOutlet weak var confirmPasswordField: RoundedTextBox!
-    @IBOutlet weak var officeNameField: RoundedTextBox!
     
     var newAccount : Account!
     
@@ -23,7 +22,6 @@ class SignUpController : KeyboardPresenter {
         emailField.delegate = self
         passwordField.delegate = self
         confirmPasswordField.delegate = self
-        officeNameField.delegate = self
     }
     
     override func didPresentKeyboardWithFrame(frame: CGRect) {
@@ -53,11 +51,9 @@ class SignUpController : KeyboardPresenter {
         emailField.isInvalid = true
         passwordField.isInvalid = true
         confirmPasswordField.isInvalid = true
-        officeNameField.isInvalid = true
     }
     
     @IBAction func didAttemptRegistration() {
-        officeNameField.endEditing(true)
         emailField.endEditing(true)
         passwordField.endEditing(true)
         confirmPasswordField.endEditing(true)
@@ -98,7 +94,7 @@ class SignUpController : KeyboardPresenter {
         
         ServerInterface.checkIfEmailExists(withEmail: emailField.text!) { (emailExists) in
             if !emailExists {
-                self.newAccount = Account(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, andOffice: self.officeNameField.text!)
+                self.newAccount = Account(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, andOffice: "120 Bloor")
                 
                 self.newAccount.verified = true
                 ServerInterface.addAccount(self.newAccount, completion: {
@@ -185,13 +181,7 @@ extension SignUpController : UITextFieldDelegate {
                 
             }
             
-        } else if textField == officeNameField {
-            if textField.text! == "" {
-                officeNameField.showInvalid()
-            } else {
-                officeNameField.showNormal()
-            }
-        }
+        } 
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -204,8 +194,6 @@ extension SignUpController : UITextFieldDelegate {
         } else if textField == confirmPasswordField.textField {
             confirmPasswordField.showFocussed()
             
-        } else if textField == officeNameField.textField {
-            officeNameField.showFocussed()
         }
     }
 }
