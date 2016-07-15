@@ -29,7 +29,8 @@ class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
     @IBOutlet weak var tvPicker: UIPickerView!
     @IBOutlet var gradientView: GradientView!
-        
+    @IBOutlet weak var tvButton: UIButton!
+    
     var postingDates = Set<BoardDate>()
     var newCard : Card!
     var cardHolderMatrix = [ (Int, Card?) ](count: cellsPerRow * cellsPerColumn, repeatedValue: (0, nil))
@@ -102,6 +103,8 @@ class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIP
                 (tvs) in
                 self.officeTVs = tvs
                 self.selectedTV = self.officeTVs[0].tv
+                    
+                self.tvButton.setTitle(self.officeTVs[0].tv, forState: UIControlState.Normal)
                 self.tvPicker.reloadAllComponents()
                 self.reloadCards()
             })
@@ -141,6 +144,7 @@ class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIP
         self.gridView.hidden = false
         
         selectedTV = officeTVs[row].tv
+        self.tvButton.setTitle(officeTVs[row].tv, forState: UIControlState.Normal)
         
         self.reloadCards()
     }

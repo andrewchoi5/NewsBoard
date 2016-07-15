@@ -923,8 +923,8 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.minificationFilter" value="kCAFilterTrilinear"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Message Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68d-nL-gQ6">
-                                                            <rect key="frame" x="21" y="149" width="494" height="100"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68d-nL-gQ6">
+                                                            <rect key="frame" x="21" y="149" width="494" height="200"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="24"/>
                                                             <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -944,6 +944,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="Ee8-Ca-ShK" secondAttribute="bottom" constant="202" id="cfg-5D-oEA"/>
                                                         <constraint firstItem="PXc-2y-sul" firstAttribute="top" secondItem="UUU-Ul-zkL" secondAttribute="top" id="fHH-1U-TCI"/>
                                                         <constraint firstAttribute="trailing" secondItem="bcJ-Jh-bdq" secondAttribute="trailing" constant="8" id="gKT-ef-QHD"/>
+                                                        <constraint firstItem="bcJ-Jh-bdq" firstAttribute="top" secondItem="68d-nL-gQ6" secondAttribute="bottom" constant="19" id="kIL-fe-Xp2"/>
                                                         <constraint firstItem="Sd0-v3-fuX" firstAttribute="leading" secondItem="7cg-Yb-j0j" secondAttribute="trailing" constant="10" id="kKr-Hb-EeZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="ubt-Po-JmV" secondAttribute="trailing" constant="20" id="leH-PP-VUJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="Sd0-v3-fuX" secondAttribute="trailing" constant="25" id="loR-2V-XXM"/>

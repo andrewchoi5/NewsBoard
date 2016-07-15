@@ -247,8 +247,6 @@ class VideoCardCell : CardCell {
         super.applyCardContent(card)
         titleLabel.text = card.info["videoTitle"] as? String
         QRCode.image = QRCoder(card: card).encodedImage()
-        
-        titleLabel.center = cardBackgroundView.convertPoint(cardBackgroundView.center, fromView: cardBackgroundView.superview)
 
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String)) { (image, error, cacheType, url) in
             
