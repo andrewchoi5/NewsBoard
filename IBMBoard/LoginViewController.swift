@@ -51,7 +51,7 @@ class LoginViewController: KeyboardPresenter {
         
         registerDelegates()
         
-        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        let keychain = Keychain(service: "com.ibm.cio.be.iphone.zamiulhaque.ibmboard")
         
         emailID.keyboardType = .EmailAddress
         emailID.autocapitalizationType = .None
@@ -99,7 +99,7 @@ class LoginViewController: KeyboardPresenter {
     // not working correctly
     func performTouchIDLogin() {
         
-        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        let keychain = Keychain(service: "com.ibm.cio.be.iphone.zamiulhaque.ibmboard")
         
         let authenticationContext = LAContext()
         var error:NSError?
@@ -122,6 +122,7 @@ class LoginViewController: KeyboardPresenter {
                         
                         ServerInterface.getAccount(withEmail: self.emailID.text!, andPassword: self.password.text!) { (account) in
                             self.hideLoading()
+                            account?.id
                             if account == nil {
                                 self.emailID.showInvalid()
                                 self.password.showInvalid()
@@ -209,7 +210,7 @@ class LoginViewController: KeyboardPresenter {
         
         emailID.text = emailID.text?.lowercaseString
         
-        let keychain = Keychain(service: "com.ibm.IBMBoard")
+        let keychain = Keychain(service: "com.ibm.cio.be.iphone.zamiulhaque.ibmboard")
         
         if(rememberCredentials.on) {
             userDefaults.setBool(true, forKey: LoginViewController.RememberCredentialsKey)
@@ -235,6 +236,7 @@ class LoginViewController: KeyboardPresenter {
         
         ServerInterface.getAccount(withEmail: self.emailID.text!, andPassword: self.password.text!) { (account) in
                     self.hideLoading()
+            
                     if account == nil {
                         self.emailID.showInvalid()
                         self.password.showInvalid()
@@ -242,7 +244,7 @@ class LoginViewController: KeyboardPresenter {
                     }
                     
                     self.userAccount = account!
-                    
+            
                     if !self.userAccount.verified {
                         self.performSegueWithIdentifier("reverificationSegue", sender: self)
                         return

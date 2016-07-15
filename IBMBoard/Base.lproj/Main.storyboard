@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QnW-b8-0fL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QnW-b8-0fL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,6 +11,9 @@
             <string>Roboto-Bold</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -97,11 +100,11 @@
                         <viewControllerLayoutGuide type="bottom" id="VqN-qP-nmj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QVn-Tf-nF3">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8L-Ea-Clo" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="340" width="374" height="48"/>
+                                <rect key="frame" x="20" y="404" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXi-hB-pAZ">
                                         <rect key="frame" x="18" y="14" width="17" height="17"/>
@@ -136,7 +139,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbA-fz-Gyz">
-                                <rect key="frame" x="0.0" y="592" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="656" width="414" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="jhG-Sc-z41"/>
                                 </constraints>
@@ -149,7 +152,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PnE-pB-Y6i">
-                                <rect key="frame" x="20" y="476" width="374" height="48"/>
+                                <rect key="frame" x="20" y="540" width="374" height="48"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qD-ge-Ne4" customClass="Switch" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="9" width="51" height="31"/>
@@ -209,7 +212,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-g0-FKT" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="408" width="374" height="48"/>
+                                <rect key="frame" x="20" y="472" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.58431372549019611" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="o11-B9-6R6"/>
@@ -228,21 +231,21 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_logo" translatesAutoresizingMaskIntoConstraints="NO" id="NzT-ld-rtn">
-                                <rect key="frame" x="159" y="119" width="97" height="76"/>
+                                <rect key="frame" x="159" y="183" width="97" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="4Ye-cB-MCW"/>
                                     <constraint firstAttribute="width" constant="97" id="n44-B2-r1k"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="79a-hK-ewL">
-                                <rect key="frame" x="356" y="422" width="20" height="20"/>
+                                <rect key="frame" x="356" y="486" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="qcJ-ng-qc9"/>
                                     <constraint firstAttribute="height" constant="20" id="uFs-I9-HPI"/>
                                 </constraints>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSD-f6-CGQ" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="272" width="374" height="48"/>
+                                <rect key="frame" x="20" y="336" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX3-ox-N5F">
                                         <rect key="frame" x="18" y="14" width="17" height="17"/>
@@ -275,7 +278,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-m1-IQW">
-                                <rect key="frame" x="0.0" y="544" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="608" width="414" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="RVp-tb-MD8"/>
                                 </constraints>
@@ -284,7 +287,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBZ-f9-eyX">
-                                <rect key="frame" x="159" y="119" width="97" height="76"/>
+                                <rect key="frame" x="159" y="183" width="97" height="76"/>
                                 <connections>
                                     <action selector="touchIDloginPressed" destination="buu-uZ-RDf" eventType="touchUpInside" id="XHr-Gf-hso"/>
                                 </connections>
@@ -350,11 +353,11 @@
                         <viewControllerLayoutGuide type="bottom" id="WcQ-7X-UBH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lBm-wx-kPi">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGQ-L7-eXP" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="39" y="393.5" width="335" height="48"/>
+                                <rect key="frame" x="39" y="425" width="335" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4v-Su-I9G">
                                         <rect key="frame" x="16" y="14" width="17" height="17"/>
@@ -389,7 +392,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the verification code or scan the QR code sent to your email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ois-KX-yP4">
-                                <rect key="frame" x="66" y="338.5" width="282" height="35"/>
+                                <rect key="frame" x="66" y="370" width="282" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="hwy-fi-yDY"/>
                                     <constraint firstAttribute="width" constant="282" id="wPu-ux-Kt2"/>
@@ -399,7 +402,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYL-Bv-Orb" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="39" y="461.5" width="335" height="48"/>
+                                <rect key="frame" x="39" y="493" width="335" height="48"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.58431372549019611" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Fyb-tU-FjC"/>
@@ -418,15 +421,15 @@
                                     <action selector="didAttemptToVerify" destination="rkC-1O-pOD" eventType="primaryActionTriggered" id="jhS-8K-B5E"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8KP-9h-HFs">
-                                <rect key="frame" x="336" y="476" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8KP-9h-HFs">
+                                <rect key="frame" x="336" y="508" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="8tX-e2-XY2"/>
                                     <constraint firstAttribute="height" constant="20" id="qaf-Xn-Mfs"/>
                                 </constraints>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io0-dx-LeE" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="39" y="529.5" width="335" height="48"/>
+                                <rect key="frame" x="39" y="561" width="335" height="48"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="DA9-RB-XyH"/>
@@ -445,15 +448,15 @@
                                     <action selector="didRequestResendOfEmail" destination="rkC-1O-pOD" eventType="touchUpInside" id="obc-bY-0co"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="cPJ-Ch-aEL">
-                                <rect key="frame" x="336" y="544" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="cPJ-Ch-aEL">
+                                <rect key="frame" x="336" y="576" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Pc7-1s-aHl"/>
                                     <constraint firstAttribute="width" constant="20" id="ZKZ-wP-R5t"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code Scanner" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swp-WF-Z6Z">
-                                <rect key="frame" x="65" y="42" width="282" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="QR Code Scanner" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swp-WF-Z6Z">
+                                <rect key="frame" x="65" y="74" width="282" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="282" id="IdO-e5-HEC"/>
                                     <constraint firstAttribute="height" constant="35" id="Mde-mx-Pr9"/>
@@ -462,8 +465,8 @@
                                 <color key="textColor" red="0.49803921569999998" green="0.51764705879999995" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46I-zf-8QE">
-                                <rect key="frame" x="87" y="90" width="240" height="214"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46I-zf-8QE">
+                                <rect key="frame" x="87" y="122" width="240" height="214"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Q0y-Od-1fX"/>
@@ -520,17 +523,17 @@
                         <viewControllerLayoutGuide type="bottom" id="oJ3-0a-lZe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2Vm-jB-Amt">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UI-HK-Jko">
-                                <rect key="frame" x="199" y="386" width="16" height="21"/>
+                                <rect key="frame" x="199" y="418" width="16" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-1i-Emo" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="320" width="374" height="48"/>
+                                <rect key="frame" x="20" y="352" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Ez8-ij-Trh"/>
@@ -556,7 +559,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cL-z0-d79" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="425" width="374" height="48"/>
+                                <rect key="frame" x="20" y="457" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="faW-Ft-rxw"/>
@@ -582,7 +585,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6b-IM-BFy" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="493" width="374" height="48"/>
+                                <rect key="frame" x="20" y="525" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="d7D-gI-vay"/>
@@ -607,7 +610,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="wZ5-ql-Dwl">
-                                <rect key="frame" x="107" y="90" width="200" height="200"/>
+                                <rect key="frame" x="107" y="122" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="hci-Xb-AyF"/>
@@ -615,10 +618,10 @@
                                 </constraints>
                             </imageView>
                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjJ-UD-MXi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1kD-1w-O6u">
-                                        <rect key="frame" x="132" y="335" width="150" height="2"/>
+                                        <rect key="frame" x="132" y="367" width="150" height="2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="VuF-yi-Jao"/>
                                             <constraint firstAttribute="width" constant="150" id="jdq-MC-nOB"/>
@@ -660,11 +663,10 @@
                         <outlet property="loadingScreen" destination="FjJ-UD-MXi" id="krw-na-UTr"/>
                         <outlet property="profilePictureView" destination="wZ5-ql-Dwl" id="E6o-Le-nAQ"/>
                         <outlet property="progressBar" destination="1kD-1w-O6u" id="eEZ-0f-c3I"/>
-                        <segue destination="Vza-Me-4Mf" kind="unwind" identifier="profilePictureUploadSuccessSegue" unwindAction="unwindToLogin:" id="5Ea-LU-13j"/>
+                        <segue destination="5TR-KL-LHd" kind="show" identifier="agreementSegue" id="dKD-mE-pip"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Jt-MC-j0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Vza-Me-4Mf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1511" y="-395"/>
         </scene>
@@ -805,11 +807,12 @@
                         <segue destination="hW0-mY-DO3" kind="show" identifier="rfpSegue" id="Tfi-ct-jo6"/>
                         <segue destination="8vr-01-bPK" kind="show" identifier="placeholderSegue" id="9uh-tS-0hc"/>
                         <segue destination="QDE-hm-z2s" kind="show" identifier="questionSegue" id="cWJ-fM-BVu"/>
+                        <segue destination="NvT-Dn-yoj" kind="show" identifier="photoSegue" id="ywO-bU-7Zo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Cs-db-3O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990.5" y="1293.5"/>
+            <point key="canvasLocation" x="876.5" y="1667.5"/>
         </scene>
         <!--Video Poster View Controller-->
         <scene sceneID="ioU-oU-ePm">
@@ -1256,23 +1259,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMV-U1-mdd" customClass="GradientView" customModule="IBMBoard" customModuleProvider="target">
                                 <rect key="frame" x="-4" y="64" width="383" height="451"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-FQ-bmS" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="53" width="383" height="54"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="4u3-zM-Xyy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Add picture">
-                                            <color key="titleColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="didPushAddPictureButton:" destination="NvT-Dn-yoj" eventType="primaryActionTriggered" id="lh6-bE-CiG"/>
-                                        </connections>
-                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add picture url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-aB-s7N" customClass="FormTextField" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="383" height="54"/>
                                         <color key="tintColor" red="0.0" green="0.098039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1286,7 +1272,7 @@
                                             <outlet property="delegate" destination="NvT-Dn-yoj" id="HRU-Th-3Zw"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcement body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIG-v8-MfI" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIG-v8-MfI" customClass="FormLabel" customModule="IBMBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="159" width="383" height="54"/>
                                         <color key="backgroundColor" red="0.14117647058823529" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1325,6 +1311,23 @@
                                             <outlet property="delegate" destination="NvT-Dn-yoj" id="1Iv-LE-5Mx"/>
                                         </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-FQ-bmS" customClass="FormButton" customModule="IBMBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="53" width="383" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="4u3-zM-Xyy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Add picture">
+                                            <color key="titleColor" red="0.24705882352941178" green="0.27058823529411763" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="underline" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPushAddPictureButton:" destination="NvT-Dn-yoj" eventType="primaryActionTriggered" id="lh6-bE-CiG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zDY-FQ-bmS" secondAttribute="trailing" id="4Ts-lu-2ee"/>
@@ -1367,7 +1370,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="hMV-U1-mdd" secondAttribute="trailing" constant="-20" id="nNs-YW-PhR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Announcement" id="e7H-vo-iMF">
+                    <navigationItem key="navigationItem" title="News" id="e7H-vo-iMF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="IVd-gG-b9C"/>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -1377,6 +1380,8 @@
                         <outlet property="announcementPhotoURL" destination="Yn2-aB-s7N" id="Lji-1m-ZV8"/>
                         <outlet property="announcementText" destination="ioi-sh-QbJ" id="bbj-Na-6dO"/>
                         <outlet property="announcementTitle" destination="hMD-E0-zRp" id="LKX-jb-36s"/>
+                        <outlet property="navTitle" destination="e7H-vo-iMF" id="byn-z0-YTX"/>
+                        <outlet property="newBody" destination="yIG-v8-MfI" id="jE1-mS-EL4"/>
                         <segue destination="ufm-Tk-oJS" kind="unwind" identifier="backToSpaceSelectorSegue" unwindAction="unwindToSpaceSelector:" id="eg1-ha-XEo"/>
                     </connections>
                 </viewController>
@@ -1526,7 +1531,7 @@
             </objects>
             <point key="canvasLocation" x="1462.5" y="2083.5"/>
         </scene>
-        <!--Select space and date-->
+        <!--Space Selector Controller-->
         <scene sceneID="y39-Be-u9p">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="qHj-es-kGg" customClass="SpaceSelectorController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -1589,7 +1594,7 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="columns">
-                                        <integer key="value" value="7"/>
+                                        <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="gridLineColor">
                                         <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.080000000000000002" colorSpace="calibratedRGB"/>
@@ -1598,7 +1603,7 @@
                                         <color key="value" white="0.33333333329999998" alpha="0.30374461209999998" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="crossLength">
-                                        <real key="value" value="7"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="gridLineThickness">
                                         <real key="value" value="1"/>
@@ -1613,6 +1618,11 @@
                                 <rect key="frame" x="315" y="137" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-Wr-jIh">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="262"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </pickerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA6-Qz-dMA">
                                 <rect key="frame" x="0.0" y="262" width="667" height="49"/>
                                 <gestureRecognizers/>
@@ -1650,7 +1660,9 @@
                             <constraint firstItem="eqf-UA-Hhg" firstAttribute="centerX" secondItem="byt-7F-rLS" secondAttribute="centerX" id="Acl-VG-eLs"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="width" secondItem="byt-7F-rLS" secondAttribute="width" id="DRd-Za-vyh"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="height" secondItem="byt-7F-rLS" secondAttribute="height" id="EIx-n6-dPn"/>
+                            <constraint firstItem="AA6-Qz-dMA" firstAttribute="top" secondItem="xdp-Wr-jIh" secondAttribute="bottom" id="Hf3-eN-cPc"/>
                             <constraint firstItem="IcO-OX-EP6" firstAttribute="centerY" secondItem="byt-7F-rLS" secondAttribute="centerY" id="IAl-tI-CkZ"/>
+                            <constraint firstItem="xdp-Wr-jIh" firstAttribute="trailing" secondItem="U7D-Gt-7IR" secondAttribute="trailing" id="Izs-te-gcy"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="leading" secondItem="byt-7F-rLS" secondAttribute="leadingMargin" constant="-20" id="KrI-wY-6tO"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="centerY" secondItem="8UH-W9-sPh" secondAttribute="centerY" id="Pkh-53-o6H"/>
                             <constraint firstItem="AA6-Qz-dMA" firstAttribute="width" secondItem="byt-7F-rLS" secondAttribute="width" id="Qg3-hn-fTi"/>
@@ -1658,7 +1670,9 @@
                             <constraint firstItem="amK-Bn-Hjf" firstAttribute="top" secondItem="AA6-Qz-dMA" secondAttribute="bottom" id="Spk-mI-Izu"/>
                             <constraint firstItem="IcO-OX-EP6" firstAttribute="centerX" secondItem="byt-7F-rLS" secondAttribute="centerX" id="VGj-YW-eWp"/>
                             <constraint firstItem="eqf-UA-Hhg" firstAttribute="height" secondItem="8UH-W9-sPh" secondAttribute="height" id="XRt-bP-gs7"/>
+                            <constraint firstItem="xdp-Wr-jIh" firstAttribute="leading" secondItem="AA6-Qz-dMA" secondAttribute="leading" id="Y3C-Qm-rmf"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="centerX" secondItem="8UH-W9-sPh" secondAttribute="centerX" id="dh6-ao-HG8"/>
+                            <constraint firstItem="xdp-Wr-jIh" firstAttribute="top" secondItem="YOE-xc-AiB" secondAttribute="bottom" id="dpU-gX-SOn"/>
                             <constraint firstItem="8UH-W9-sPh" firstAttribute="top" secondItem="YOE-xc-AiB" secondAttribute="bottom" id="eEJ-gs-zFs"/>
                             <constraint firstItem="U7D-Gt-7IR" firstAttribute="width" secondItem="8UH-W9-sPh" secondAttribute="width" id="sSh-QW-EeM"/>
                             <constraint firstItem="AA6-Qz-dMA" firstAttribute="leading" secondItem="byt-7F-rLS" secondAttribute="leadingMargin" constant="-20" id="y8A-RJ-a1i"/>
@@ -1673,8 +1687,20 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Select space and date" id="7Iw-Sh-Rdv">
+                    <navigationItem key="navigationItem" id="7Iw-Sh-Rdv">
+                        <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Back" id="RSW-9B-7oE"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4W8-s4-eI3">
+                            <rect key="frame" x="200.5" y="7" width="266" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                            <state key="normal" title="Select tv, space and date">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="selectTV:" destination="qHj-es-kGg" eventType="touchUpInside" id="QAr-bc-N1d"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" style="done" id="bLj-A0-Kh2">
                             <color key="tintColor" red="0.36078431372549019" green="1" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1690,9 +1716,12 @@
                         <outlet property="calendarButton" destination="NqP-x9-B1E" id="d2B-0i-PLA"/>
                         <outlet property="collectionView" destination="8UH-W9-sPh" id="8ox-b1-Mv8"/>
                         <outlet property="doneButton" destination="bLj-A0-Kh2" id="oQx-Vd-0m3"/>
+                        <outlet property="gradientView" destination="byt-7F-rLS" id="dEr-NW-6yr"/>
                         <outlet property="gridView" destination="U7D-Gt-7IR" id="sEJ-5W-S4F"/>
                         <outlet property="loadingScreen" destination="eqf-UA-Hhg" id="uTJ-8m-xeV"/>
                         <outlet property="toolBar" destination="AA6-Qz-dMA" id="lEG-FV-hNL"/>
+                        <outlet property="tvButton" destination="4W8-s4-eI3" id="veR-v3-Yog"/>
+                        <outlet property="tvPicker" destination="xdp-Wr-jIh" id="AJh-2W-TJA"/>
                         <segue destination="v1k-AI-dtd" kind="show" identifier="completedSpaceSelectionSegue" id="J6H-1j-AbP"/>
                         <segue destination="QDE-hm-z2s" kind="show" identifier="updateQuestionCardSegue" id="bae-Df-lTy"/>
                         <segue destination="NvT-Dn-yoj" kind="show" identifier="updateAnnouncementCardSegue" id="7v3-CP-g3l"/>
@@ -1703,6 +1732,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IfA-sf-JJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fQh-0C-qns">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
             </objects>
             <point key="canvasLocation" x="1787" y="475"/>
         </scene>
@@ -1941,11 +1975,11 @@
                         <viewControllerLayoutGuide type="bottom" id="lat-J1-fwA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pVh-qO-JIX">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cNj-hL-KMu">
-                                <rect key="frame" x="112" y="426" width="150" height="150"/>
+                                <rect key="frame" x="112" y="458" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="NEZ-cc-BQe"/>
                                     <constraint firstAttribute="width" constant="150" id="Zih-Qj-jeV"/>
@@ -1969,7 +2003,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-NH-Kkh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-NH-Kkh">
                                 <rect key="frame" x="0.0" y="51" width="375" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="ZaC-Y9-tr4"/>
@@ -2005,11 +2039,11 @@
                         <viewControllerLayoutGuide type="bottom" id="NLl-r5-NOa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BTm-O1-wJ6">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNK-A2-BTI" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="360" width="374" height="48"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PNK-A2-BTI" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="414" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycx-8b-lbL">
                                         <rect key="frame" x="17" y="14" width="17" height="17"/>
@@ -2043,8 +2077,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="754-5k-jQ4" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="428" width="374" height="48"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="754-5k-jQ4" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="482" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO9-J8-aPb">
                                         <rect key="frame" x="17" y="14" width="17" height="17"/>
@@ -2078,8 +2112,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-zV-BcP" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="496" width="374" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-zV-BcP" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="550" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.58431372549019611" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="P6w-Ca-7lr"/>
@@ -2097,32 +2131,22 @@
                                     <action selector="didAttemptRegistration" destination="ZHo-Lh-Pkf" eventType="primaryActionTriggered" id="ZLB-Ch-7F5"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_logo" translatesAutoresizingMaskIntoConstraints="NO" id="D5X-RF-Bmx">
-                                <rect key="frame" x="159" y="120" width="97" height="76"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="board_logo" translatesAutoresizingMaskIntoConstraints="NO" id="D5X-RF-Bmx">
+                                <rect key="frame" x="159" y="164" width="97" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="gYa-7f-SrF"/>
                                     <constraint firstAttribute="width" constant="97" id="hxn-Rm-bYs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please do not use your real IBM Intranet password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4x-WE-NcJ">
-                                <rect key="frame" x="36" y="223" width="343" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="sca-iC-77d"/>
-                                    <constraint firstAttribute="width" constant="343" id="u4p-jH-AXb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="UZw-5D-2Px">
-                                <rect key="frame" x="356" y="510" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="UZw-5D-2Px">
+                                <rect key="frame" x="356" y="564" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="HrL-lB-Pdx"/>
                                     <constraint firstAttribute="height" constant="20" id="lPA-YX-EIW"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJz-k1-I6h" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="292" width="374" height="48"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJz-k1-I6h" customClass="RoundedTextBox" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="346" width="374" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqA-99-QOR">
                                         <rect key="frame" x="17" y="14" width="17" height="17"/>
@@ -2155,16 +2179,27 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Intranet ID"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please do not use your real IBM Intranet password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4x-WE-NcJ">
+                                <rect key="frame" x="36" y="267" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sca-iC-77d"/>
+                                    <constraint firstAttribute="width" constant="343" id="u4p-jH-AXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="NLl-r5-NOa" firstAttribute="top" secondItem="Gl9-zV-BcP" secondAttribute="bottom" constant="128" identifier="SignUpToBottomGuideConstraint" id="0BQ-Hg-hl0"/>
+                            <constraint firstItem="NLl-r5-NOa" firstAttribute="top" secondItem="Gl9-zV-BcP" secondAttribute="bottom" constant="88" identifier="SignUpToBottomGuideConstraint" id="0BQ-Hg-hl0"/>
                             <constraint firstItem="754-5k-jQ4" firstAttribute="width" secondItem="PNK-A2-BTI" secondAttribute="width" id="1F7-u7-Xl8"/>
-                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="O4x-WE-NcJ" secondAttribute="bottom" constant="25" id="73A-k2-Kqb"/>
+                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="O4x-WE-NcJ" secondAttribute="bottom" constant="35" id="6sC-E6-e8g"/>
+                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="O4x-WE-NcJ" secondAttribute="bottom" constant="85" id="73A-k2-Kqb"/>
                             <constraint firstItem="PNK-A2-BTI" firstAttribute="width" secondItem="SJz-k1-I6h" secondAttribute="width" id="8Uf-sv-Owt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SJz-k1-I6h" secondAttribute="trailing" id="A0X-Q0-0Oh"/>
                             <constraint firstItem="O4x-WE-NcJ" firstAttribute="top" secondItem="D5X-RF-Bmx" secondAttribute="bottom" constant="27" id="ECj-bc-3kB"/>
-                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="D5X-RF-Bmx" secondAttribute="bottom" constant="96" id="Eex-gC-8hh"/>
+                            <constraint firstItem="SJz-k1-I6h" firstAttribute="top" secondItem="D5X-RF-Bmx" secondAttribute="bottom" constant="156" id="Eex-gC-8hh"/>
                             <constraint firstItem="UZw-5D-2Px" firstAttribute="leading" secondItem="Gl9-zV-BcP" secondAttribute="trailing" constant="-38" id="FU6-8E-vma"/>
                             <constraint firstItem="D5X-RF-Bmx" firstAttribute="centerX" secondItem="BTm-O1-wJ6" secondAttribute="centerX" id="SNG-oX-RIi"/>
                             <constraint firstItem="754-5k-jQ4" firstAttribute="centerX" secondItem="BTm-O1-wJ6" secondAttribute="centerX" id="ZPb-WA-4MK"/>
@@ -2178,6 +2213,12 @@
                             <constraint firstItem="Gl9-zV-BcP" firstAttribute="centerX" secondItem="BTm-O1-wJ6" secondAttribute="centerX" id="uib-FD-lys"/>
                             <constraint firstItem="UZw-5D-2Px" firstAttribute="centerY" secondItem="Gl9-zV-BcP" secondAttribute="centerY" id="y6E-85-ees"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="73A-k2-Kqb"/>
+                                <exclude reference="Eex-gC-8hh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="qWM-Fc-7NY">
                         <barButtonItem key="backBarButtonItem" title="Back" id="PXV-q2-x5F"/>
@@ -2190,11 +2231,107 @@
                         <outlet property="emailField" destination="SJz-k1-I6h" id="FM8-3v-vVl"/>
                         <outlet property="passwordField" destination="PNK-A2-BTI" id="PlX-8J-rOi"/>
                         <segue destination="rkC-1O-pOD" kind="show" identifier="verificationSegue" id="Xsg-t7-MCv"/>
+                        <segue destination="G2W-Ha-IRn" kind="show" identifier="skipVerificationSegue" id="Iyf-yE-v2G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwe-pU-osZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="-395"/>
+            <point key="canvasLocation" x="549" y="-403"/>
+        </scene>
+        <!--Agreement Controller-->
+        <scene sceneID="jC5-Wl-845">
+            <objects>
+                <viewController id="5TR-KL-LHd" userLabel="Agreement Controller" customClass="AgreementController" customModule="IBMBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ecF-h8-nPh"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZJv-yN-Lw3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wWx-hq-GKz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcS-cx-DPb">
+                                <rect key="frame" x="20" y="25" width="374" height="480"/>
+                                <string key="text">Respect others.
+
+Do not post information that is confidential, proprietary or covered under NDA.
+
+Advertising or solicitation is not permitted. This behavior is grounds for removal from site.
+
+Do not post inappropriate content. No posts should contain statements that are unlawful, threatening, abusive, libelous, defamatory, obscene, vulgar, pornographic, gambling-related, drug-related, alcohol-related, profane, racist, discriminatory, sexually explicit or indecent.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-C4-Lho" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="541" width="374" height="48"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="IWo-Yd-Srz"/>
+                                    <constraint firstAttribute="width" constant="374" id="LSO-hW-wEh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedColor">
+                                        <color key="value" red="0.11764705882352941" green="0.46274509803921571" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="acceptClick:" destination="5TR-KL-LHd" eventType="touchUpInside" id="GtH-as-VQa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gG-Yt-Tzh" customClass="RoundedButton" customModule="IBMBoard" customModuleProvider="target">
+                                <rect key="frame" x="20" y="609" width="374" height="48"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="7zR-7c-p5Y"/>
+                                    <constraint firstAttribute="width" constant="374" id="gWs-bc-ziZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Decline">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedColor">
+                                        <color key="value" red="0.11764705882352941" green="0.46274509803921571" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="declineClick:" destination="5TR-KL-LHd" eventType="touchUpInside" id="G0g-Xr-WuL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14117647059999999" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="z5z-C4-Lho" firstAttribute="top" secondItem="LcS-cx-DPb" secondAttribute="bottom" constant="36" id="6yN-OM-iDA"/>
+                            <constraint firstItem="4gG-Yt-Tzh" firstAttribute="leading" secondItem="wWx-hq-GKz" secondAttribute="leadingMargin" id="AkJ-9Z-n74"/>
+                            <constraint firstItem="z5z-C4-Lho" firstAttribute="top" secondItem="LcS-cx-DPb" secondAttribute="bottom" constant="36" id="INi-ba-82p"/>
+                            <constraint firstItem="z5z-C4-Lho" firstAttribute="leading" secondItem="wWx-hq-GKz" secondAttribute="leadingMargin" id="Sac-8c-bP1"/>
+                            <constraint firstItem="LcS-cx-DPb" firstAttribute="trailing" secondItem="wWx-hq-GKz" secondAttribute="trailingMargin" id="XhO-Ue-uhO"/>
+                            <constraint firstItem="4gG-Yt-Tzh" firstAttribute="trailing" secondItem="wWx-hq-GKz" secondAttribute="trailingMargin" id="ZgD-Mp-WWS"/>
+                            <constraint firstItem="4gG-Yt-Tzh" firstAttribute="top" secondItem="z5z-C4-Lho" secondAttribute="bottom" constant="20" id="h0B-Y2-pPl"/>
+                            <constraint firstItem="z5z-C4-Lho" firstAttribute="trailing" secondItem="wWx-hq-GKz" secondAttribute="trailingMargin" id="joS-D2-3Ec"/>
+                            <constraint firstItem="LcS-cx-DPb" firstAttribute="top" secondItem="ecF-h8-nPh" secondAttribute="bottom" constant="5" id="jpD-T5-ToU"/>
+                            <constraint firstItem="4gG-Yt-Tzh" firstAttribute="top" secondItem="z5z-C4-Lho" secondAttribute="bottom" constant="20" id="lF6-7f-HoY"/>
+                            <constraint firstItem="ZJv-yN-Lw3" firstAttribute="top" secondItem="4gG-Yt-Tzh" secondAttribute="bottom" constant="79" id="pgj-B2-11m"/>
+                            <constraint firstItem="LcS-cx-DPb" firstAttribute="leading" secondItem="wWx-hq-GKz" secondAttribute="leadingMargin" id="uYg-3S-ccA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Agreement" id="pbZ-Z8-Igw">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="o0U-I1-Yev"/>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <segue destination="buu-uZ-RDf" kind="show" identifier="loginSegue" id="19n-g9-Mh5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R9N-Zi-U3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="-395"/>
         </scene>
     </scenes>
     <resources>
@@ -2204,13 +2341,14 @@
         <image name="right_chevron" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hfu-pc-aJi"/>
-        <segue reference="PUd-Ut-ITJ"/>
-        <segue reference="1Be-XK-7cy"/>
-        <segue reference="hwJ-nH-bdX"/>
-        <segue reference="Tfi-ct-jo6"/>
-        <segue reference="SCD-dM-0e9"/>
-        <segue reference="OdC-w7-WXY"/>
-        <segue reference="cWJ-fM-BVu"/>
+        <segue reference="Iyf-yE-v2G"/>
+        <segue reference="19n-g9-Mh5"/>
+        <segue reference="oEZ-3m-7p0"/>
+        <segue reference="7v3-CP-g3l"/>
+        <segue reference="Tf5-bR-FsD"/>
+        <segue reference="bae-Df-lTy"/>
+        <segue reference="BXu-AB-Ev4"/>
+        <segue reference="W7J-mn-B1x"/>
+        <segue reference="Xsg-t7-MCv"/>
     </inferredMetricsTieBreakers>
 </document>

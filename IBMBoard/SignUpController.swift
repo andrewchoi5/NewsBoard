@@ -90,25 +90,30 @@ class SignUpController : KeyboardPresenter {
         }
         
         showLoading()
+        
+        
         ServerInterface.checkIfEmailExists(withEmail: emailField.text!) { (emailExists) in
-            
             if !emailExists {
-                self.newAccount = Account(withEmail:self.emailField.text!, andPassword:self.passwordField.text!)
+                self.newAccount = Account(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, andOffice: "120 Bloor")
                 
+                self.newAccount.verified = true
                 ServerInterface.addAccount(self.newAccount, completion: {
                     self.hideLoading()
-                    ServerInterface.sendVerificationEmailToAccount(self.newAccount, completion: nil)
-                    self.performSegueWithIdentifier("verificationSegue", sender: self)
-                    print("Account added")
+                    
+                    ServerInterface.addUser(withAccount: self.newAccount, andOrg: "IBM", completion: {
+                        // USE IF USING EMAIL VERIFICATION
+                        ServerInterface.sendVerificationEmailToAccount(self.newAccount, completion: nil)
+                        self.performSegueWithIdentifier("verificationSegue", sender: self)
+                        
+                        //self.performSegueWithIdentifier("skipVerificationSegue", sender: self)
+                    })
                 })
                 
             } else {
                 self.hideLoading()
                 self.emailField.showInvalid()
                 Dialog.showError("Email already exists", viewController: self)
-                
             }
-            
         }
     }
     
@@ -127,8 +132,13 @@ class SignUpController : KeyboardPresenter {
         
         if segue.identifier == "verificationSegue" {
             
+            
+            // CHANGE BACK FOR VERIFICATION EMAIL
             (segue.destinationViewController as! AccountVerificationController).accountToVerify = newAccount
             
+        }
+        else if segue.identifier == "skipVerificationSegue" {
+            (segue.destinationViewController as! ProfilePictureController).accountForProfilePicture = newAccount
         }
     }
     
@@ -138,8 +148,8 @@ class SignUpController : KeyboardPresenter {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluateWithObject(testStr)
     }
-    
 }
+
 
 extension SignUpController : UITextFieldDelegate {
     
@@ -171,7 +181,7 @@ extension SignUpController : UITextFieldDelegate {
                 
             }
             
-        }
+        } 
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -186,5 +196,4 @@ extension SignUpController : UITextFieldDelegate {
             
         }
     }
-    
 }

@@ -25,6 +25,14 @@ class CouchDBSerializer : NSObject {
             documentJSONDict["account"] =  AccountSerializer.getAccountJSONDict(document as! Account)
 
         }
+        
+        if document is User {
+            documentJSONDict["user"] = UserSerializer.getUserJSONDict(document as! User)
+        }
+        
+        if document is TV {
+            documentJSONDict["tv"] = TVSerializer.getTVJSONDict(document as! TV)
+        }
 
         return documentJSONDict
     }
@@ -65,7 +73,7 @@ class CardSerializer : NSObject {
                 "topLeftCorner":card.space.topLeftCorner,
                 "width":card.space.width,
                 "height":card.space.height
-            ]
+            ],
         ]
     }
     
@@ -79,9 +87,30 @@ class AccountSerializer : NSObject {
             "password":account.password,
             "verificationCode":account.verificationCode,
             "verified":account.verified,
+            "officeName":account.officeName
         ]
     }
     
+}
+
+class UserSerializer : NSObject {
+    class func getUserJSONDict(user : User) -> [String: AnyObject] {
+        return [
+            "org":user.org,
+            "office":user.office,
+            "accountID":user.accountID
+        ]
+    }
+}
+
+class TVSerializer : NSObject {
+    class func getTVJSONDict(tv : TV) -> [String : AnyObject] {
+        return [
+            "org":tv.org,
+            "office":tv.office,
+            "tv":tv.tv
+        ]
+    }
 }
 
 class QueryDeserializer {
@@ -112,7 +141,6 @@ class ServerResponseDeserializer {
 }
 
 class DocumentToCardConverter {
-    
     class func getCards(documents: [Document]) -> [Card] {
         var cards = [Card]()
         for document in documents {
@@ -129,6 +157,28 @@ class DocumentToAccountConverter {
         var cards = [Account]()
         for document in documents {
             cards.append(Account(document: document))
+        }
+        
+        return cards
+    }
+}
+
+class DocumentToUserConverter {
+    class func getUsers(documents : [Document]) -> [User] {
+        var cards = [User]()
+        for document in documents {
+            cards.append(User(document: document))
+        }
+        
+        return cards
+    }
+}
+
+class DocumentToTVConverter {
+    class func getUsers(documents : [Document]) -> [TV] {
+        var cards = [TV]()
+        for document in documents {
+            cards.append(TV(document: document))
         }
         
         return cards

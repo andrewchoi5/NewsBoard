@@ -29,6 +29,7 @@ class CardCell : UICollectionViewCell {
     @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var cardGradientBorderView: GradientView!
     @IBOutlet weak var cardTypeLabel: UILabel!
+    @IBOutlet weak var announcementText: UILabel!
     
     var oldColor : UIColor!
     
@@ -42,6 +43,10 @@ class CardCell : UICollectionViewCell {
         cardBackgroundView.layer.shadowOffset = CGSizeMake(-1.0, 5.0)
         
         cardTypeLabel.setKern(2.0)
+        
+        if (announcementText != nil) {
+            announcementText.sizeToFit()
+        }
     }
     
     func applyCardContent(card: Card) {
@@ -82,7 +87,7 @@ class AnnouncementCardCell : CardCell {
     
     @IBOutlet weak var announcementPhoto: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var announcementText: UILabel!
+
     var infoTitle = "announcementTitle"
     var infoText = "announcementText"
     
@@ -90,6 +95,12 @@ class AnnouncementCardCell : CardCell {
     
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
+        
+        // For an unkown reason, the alpha sometimes gets set to 1
+        // and the photo view is unhidden on cells without photos
+        // This ensures photos stay hidden and alpha is 0.25
+        announcementPhoto.hidden = true
+        announcementPhoto.alpha = 0.25
     
         if let title = card.info[ infoTitle ] as? String {
             titleLabel.text = title
@@ -109,6 +120,7 @@ class AnnouncementCardCell : CardCell {
         
         announcementText.attributedText = attrString
         announcementText.lineBreakMode = .ByTruncatingTail
+        announcementText.contentMode = .TopLeft
         
         if let image = card.attachedImage {
             progressBar.hidden = true
@@ -126,7 +138,11 @@ class AnnouncementCardCell : CardCell {
                         
                     }
                     
-                    self.announcementPhoto.image = self.announcementPhoto.image?.grayScaleImage()
+                    if (self.titleLabel.text?.isEmpty == false) {
+                        self.announcementPhoto.image = self.announcementPhoto.image?.grayScaleImage()
+                    }
+         
+
                     self.announcementPhoto.hidden = false
                     self.progressBar.hidden = true
                     
@@ -144,7 +160,9 @@ class AnnouncementCardCell : CardCell {
                         
                     }
                     
-                    self.announcementPhoto.image = self.announcementPhoto.image?.grayScaleImage()
+                    if (self.titleLabel.text?.isEmpty == false) {
+                        self.announcementPhoto.image = self.announcementPhoto.image?.grayScaleImage()
+                    }
                     self.announcementPhoto.hidden = false
                     self.progressBar.hidden = true
             })
@@ -153,6 +171,11 @@ class AnnouncementCardCell : CardCell {
         } else {
             self.progressBar.hidden = true
             
+        }
+        
+        // FOR EMPTY PHOTO (EVENTUALLY CHANGE TO PICTURE TYPE)
+        if (titleLabel.text?.isEmpty == true) {
+            announcementPhoto.alpha = 1.0
         }
         
     }
@@ -211,20 +234,20 @@ class ArticleCardCell : CardCell {
             articleMessageBody.lineBreakMode = .ByTruncatingTail
         }
         
-        detailLabel.text = "Read More..."
-        
+        detailLabel.text = "Read More..."        
     }
-    
 }
 
 class VideoCardCell : CardCell {
     @IBOutlet weak var videoPreview: UIImageView!
     @IBOutlet weak var QRCode: UIImageView!
     
+    
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
         titleLabel.text = card.info["videoTitle"] as? String
         QRCode.image = QRCoder(card: card).encodedImage()
+
         videoPreview.sd_setImageWithURL(VideoAPIManager.getAPIURL(card.info["videoURL"] as! String)) { (image, error, cacheType, url) in
             
             if error != nil {
@@ -253,7 +276,6 @@ class IdeaCardCell : AnnouncementCardCell {
         self.infoTitle = "ideaTitle"
         self.infoText = "ideaPreview"
     }
-    
 }
 
 class QuestionCardCell : AnnouncementCardCell {

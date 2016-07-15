@@ -335,12 +335,13 @@ extension PosterController : UINavigationControllerDelegate { }
 extension PosterController : UIImagePickerControllerDelegate {
     
     func didChooseNewImage(image : UIImage) {
-        
+
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         didChooseNewImage(info[ UIImagePickerControllerOriginalImage ] as! UIImage)
         picker.dismissViewControllerAnimated(true, completion: nil)
+        postButton.enabled = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

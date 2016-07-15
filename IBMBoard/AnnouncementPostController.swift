@@ -14,14 +14,27 @@ class AnnouncementPostController : PosterController {
     @IBOutlet weak var announcementTitle: UITextField!
     @IBOutlet weak var announcementText: UITextView!
     @IBOutlet weak var announcementPhotoURL: UITextField!
+    @IBOutlet weak var newBody: FormLabel!
+    @IBOutlet weak var navTitle: UINavigationItem!
     
     var infoTitle = "announcementTitle"
     var infoText = "announcementText"
+   
+    var isPhotoView : Bool?
     
     var selectedImage : UIImage?
     
+    var selectedTVName : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (isPhotoView == true) {
+            announcementTitle.hidden = true
+            announcementText.hidden = true
+            newBody.hidden = true
+            navTitle.title = "Photo"
+        }
         
         usesProgressBar = true
     }
@@ -39,12 +52,15 @@ class AnnouncementPostController : PosterController {
     }
     
     override func isReadyForPosting() -> Bool {
-        return announcementTitle.text != "" && announcementText.text != ""
+        if (isPhotoView == true) {
+                return !(announcementPhotoURL.text?.isEmpty)!
+        }
         
+        return announcementTitle.text != "" && announcementText.text != ""
     }
     
     override func didPushPostButton(sender: UIBarButtonItem) {
-        
+
         if let userPhotoURLString = announcementPhotoURL.text {
             guard let _ = NSURL(string: userPhotoURLString) else { return }
             card.info["userPhotoURL"] = userPhotoURLString
@@ -52,19 +68,26 @@ class AnnouncementPostController : PosterController {
         
         card.info[infoTitle] = announcementTitle.text
         card.info[infoText] = announcementText.text
-
         
-        if let image = selectedImage {
-            card.attachImage(image) {
-                self.finish()
+        ServerInterface.getUser(associateWithAccount: SessionInformation.currentSession.userAccount, completion:{
+            (user) in
+            
+            self.card.info["org"] = user?.org
+            self.card.info["office"] = user?.office
+            self.card.info["tv"] = self.selectedTVName
+            
+            
+            if let image = self.selectedImage {
+                self.card.attachImage(image) {
+                    self.finish()
+                    
+                }
                 
+            } else {
+                self.finish()
             }
             
-        } else {
-            self.finish()
-            
-        }
-        
+        })
     }
     
     @IBAction func didPushAddPictureButton(sender: UIButton) {

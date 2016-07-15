@@ -26,6 +26,16 @@ class CardQuery : Query {
 
     }
     
+    convenience init(withStartingDate firstDate: NSDate, toEndingDate secondDate: NSDate, withOrg orgName: String, andOffice officeName: String, andTVName tvName: String) {
+        self.init()
+        
+        self.addSelector("card.postDates", .In, [ firstDate.shortDateString(), secondDate.shortDateString() ])
+        
+        self.addSelector("card.info.org", .Equals, orgName)
+        self.addSelector("card.info.office", .Equals, officeName)
+        self.addSelector("card.info.tv", .Equals, tvName)
+    }
+    
     convenience init(withDates dates: [ NSDate ]) {
         self.init()
         
@@ -37,6 +47,23 @@ class CardQuery : Query {
         }
         
         self.addSelector("card.postDates", .In, shortDateStrings)
+    }
+    
+    convenience init(withDates dates: [ NSDate ], andOrg orgName: String, andOffice officeName: String, andTV tvName: String) {
+        self.init()
+        
+        var shortDateStrings = [ String ]()
+        
+        for date in dates {
+            shortDateStrings.append(date.shortDateString())
+            
+        }
+        
+        self.addSelector("card.postDates", .In, shortDateStrings)
+        
+        self.addSelector("card.info.org", .Equals, orgName)
+        self.addSelector("card.info.office", .Equals, officeName)
+        self.addSelector("card.info.tv", .Equals, tvName)
     }
     
     convenience init(withID ID: String) {
@@ -81,6 +108,43 @@ class AccountQuery : Query {
     }
 
     
+}
+
+class TVQuery : Query {
+    override init() {
+        super.init()
+        
+        self.addField("tvinfo")
+    }
+    
+    convenience init(withOrgAndOffice org : String, office : String) {
+        self.init()
+        
+        self.addSelector("tvinfo.org", .Equals, org)
+        self.addSelector("tvinfo.office", .Equals, office)
+    }
+    
+
+}
+
+class UserQuery : Query {
+    override init() {
+        super.init()
+        
+        self.addField("user")
+    }
+    
+    convenience init(withAccountID accountID : String) {
+        self.init()
+        
+        self.addSelector("user.accountID", .Equals, accountID)
+    }
+    
+    convenience init(withAccount account: Account) {
+        self.init()
+        
+        self.addSelector("user.accountID", .Equals, account.id)
+    }
 }
 
 enum QuerySortDirection : String {
@@ -321,6 +385,7 @@ class Card : Document {
     var associatedAccountID : String!
     var type : CardCellType!
     var space : Space!
+    
     var userProvidedURL : NSURL? {
         guard let userProvidedURLString = self.info["userPhotoURL"] as? String else { return nil }
         guard let URL = NSURL(string: userProvidedURLString) else { return nil }
@@ -524,6 +589,7 @@ class Account : Document {
     var email : String!
     var password : String!
     var verified = false
+    var officeName : String!
     var verificationCode : String {
         let rawCode = String(abs(email.hashValue ^ password.hashValue))
         return rawCode.substringWithRange(rawCode.startIndex ..< rawCode.startIndex.advancedBy(6))
@@ -558,13 +624,21 @@ class Account : Document {
         
     }
     
+    init(withEmail anEmail: String, andPassword aPassword:String, andOffice userOfficeName:String) {
+        super.init()
+        
+        email = anEmail
+        password = Account.hashPassword(aPassword)
+        officeName = userOfficeName
+    }
+    
     override init(document: Document) {
         super.init(document: document)
         
         email = document.info["email"] as! String
         password = document.info["password"] as! String
         verified = document.info["verified"] as! Bool
-        
+        officeName = document.info["officeName"] as! String
     }
     
     static func hashPassword(password: String) -> String {
@@ -586,4 +660,41 @@ extension Account {
         
     }
     
+}
+
+class User : Document {
+    var org : String!
+    var office : String!
+    var accountID : String!
+    
+    
+    init(withOrg org: String, andOffice office: String, andAccountID accountID: String) {
+        super.init()
+        
+        self.org = org
+        self.office = office
+        self.accountID = accountID
+    }
+    
+    override init(document: Document) {
+        super.init(document: document)
+    
+        org = document.info["org"] as! String
+        office = document.info["office"] as! String
+        accountID = document.info["accountID"] as! String
+    }
+}
+
+class TV : Document {
+    var org : String!
+    var office : String!
+    var tv: String!
+    
+    override init(document: Document) {
+        super.init(document: document)
+        
+        org = document.info["org"] as! String
+        office = document.info["office"] as! String
+        tv = document.info["tv"] as! String
+    }
 }

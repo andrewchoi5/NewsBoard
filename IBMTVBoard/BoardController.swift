@@ -10,11 +10,11 @@
 import UIKit
 
 class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelegate {
-
     static let updateIntervalInSeconds = 5.0
     
-    let cellsPerRow = 7
+    let cellsPerRow = 5
     let cellsPerColumn = 4
+    let flipAnimationSpeed = 0.75
     
     let DefaultCardCellIdentifier           = "defaultCardCell"
     let AnnouncementCardCellIdentifier      = "announcementCardCell"
@@ -32,6 +32,8 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    
+    
     let dateSelector = DateSelectorController()
     let layout = BoardLayout()
     let boardDate = BoardDate()
@@ -39,17 +41,20 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     var cardList = [ Card ]()
     
     @IBAction func didPressNextDayButton() {
+        //flipAllCells()
         boardDate.incrementByDay()
         self.reload()
         dateLabel.text = getDateString(boardDate)
     }
     
     @IBAction func didPressPreviousDayButton() {
+        //flipAllCells()
         boardDate.decrementByDay()
         self.reload()
         dateLabel.text = getDateString(boardDate)
         
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +78,75 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
 //        dateSelector.didMoveToParentViewController(self)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(BoardController.updateIntervalInSeconds, target: self, selector: #selector(BoardController.reload), userInfo: nil, repeats: true)
-        
     }
     
+    func flipAllCells() {
+        for cell in self.collectionView.visibleCells() {
+            if (cell.contentView.subviews.count > 2) {
+                for c in (cell.contentView.subviews) {
+                    if c.tag == 1 {
+                        for cellContent in (cell.contentView.subviews[1].subviews) {
+                            if (cellContent.hidden == true) {
+                                cellContent.hidden = false
+                            }
+                        }
+                        
+                        if (cell.contentView.subviews[1].subviews.count == 6) {
+                            cell.contentView.subviews[1].subviews[3].hidden = true
+                        }
+                        
+                        c.removeFromSuperview()
+                    }
+                }
+            }
+        }
+    }
     
+    func layoutTitleAndBody() {
+        for cardCell in self.collectionView.visibleCells() {
+            if (cardCell.contentView.subviews[1].subviews.count == 5)
+            {
+                let labelCell = cardCell.contentView.subviews[1].subviews[1]
+                labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+            }
+            else if (cardCell.contentView.subviews[1].subviews.count == 6)
+            {
+                if (cardCell.contentView.subviews[1].subviews[4].isKindOfClass(UILabel)) {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[1]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[2]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
+                }
+                else {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[3]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[2]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
+                }
+            }
+            else if (cardCell.contentView.subviews[1].subviews.count == 7)
+            {
+                // Proposal
+                if (cardCell.contentView.subviews[1].subviews[5].isKindOfClass(UILabel)) {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[2]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[5]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
+                }
+                else
+                {
+                    let labelCell = cardCell.contentView.subviews[1].subviews[3]
+                    labelCell.center = cardCell.contentView.convertPoint(cardCell.contentView.center, fromView: cardCell.contentView.superview)
+                    let bodyCell = cardCell.contentView.subviews[1].subviews[6]
+                    bodyCell.frame.origin.y = labelCell.frame.origin.y + 50
+                    bodyCell.frame.origin.x = labelCell.frame.origin.x
+                }
+            }
+        }
+    }
     
     func beginNoNetworkState() {
         errorLabel.text = "No Connection"
@@ -110,6 +180,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     func showNoCardsState() {
         guard let noCardsLabel = self.view.viewWithTag(1010101) as? UILabel else { return }
         noCardsLabel.text = "No posts for this day"
+        noCardsLabel.font = UIFont(name: "Roboto-Black", size: (noCardsLabel.font?.pointSize)!)
         noCardsLabel.sizeToFit()
         noCardsLabel.center.x = self.view.frame.width / 2
         noCardsLabel.center.y = self.view.frame.height / 2
@@ -135,7 +206,7 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     func endLoadingState() {
         loadingView.alpha = 0.0
         activityIndicator.stopAnimating()
-        
+        //layoutTitleAndBody()
     }
     
     func reload() {
@@ -148,52 +219,67 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         }
         
         self.endNoNetworkState()
-        ServerInterface.getCards(onDate: boardDate.underlyingDate()) { (cards) in
         
-            if cards.count == 0 {
-                self.showNoCardsState()
+        let standardUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let appTVName = standardUserDefaults.objectForKey("tv_name") as? String
+        let appOrgName = standardUserDefaults.objectForKey("org_name") as? String
+        let appOfficeName = standardUserDefaults.objectForKey("office_name") as? String
+        
+        if (appOrgName != nil && appTVName != nil && appOfficeName != nil) {
+            ServerInterface.getCards(onDates: [ boardDate.underlyingDate() ], withOrg: appOrgName!, andOffice: appOfficeName!, andTV: appTVName!, completion: {
+                (cards) in
                 
-            } else {
-                self.hideNoCardsState()
+                if cards.count == 0 {
+                    self.showNoCardsState()
+                    
+                } else {
+                    self.hideNoCardsState()
+                    
+                }
                 
-            }
-            
-            let oldDeck = Set<Card>(self.cardList)
-            let newDeck = Set<Card>(cards)
-        
-            let deletedCards = oldDeck.subtract(newDeck)
-            let addedCards = newDeck.subtract(oldDeck)
-            var leftOverCards = newDeck.intersect(oldDeck)
-        
-            for card in addedCards {
-                self.cardList.append(card)
-                let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
-                self.collectionView.insertItemsAtIndexPaths([ indexPath ])
-            
-            }
-        
-            for index in 0 ..< self.cardList.count {
-                let oldCard = self.cardList[ index ]
-                if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
-                    let indexPath = NSIndexPath(forRow: index, inSection:0)
-                    self.cardList[ index ] = card
-                    self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
+                let oldDeck = Set<Card>(self.cardList)
+                let newDeck = Set<Card>(cards)
+                
+                let deletedCards = oldDeck.subtract(newDeck)
+                let addedCards = newDeck.subtract(oldDeck)
+                var leftOverCards = newDeck.intersect(oldDeck)
+                
+                for card in addedCards {
+                    self.cardList.append(card)
+                    let indexPath = NSIndexPath(forRow: self.cardList.count - 1, inSection:0)
+                    self.collectionView.insertItemsAtIndexPaths([ indexPath ])
+                    
                 }
-            }
-
-            var deleted = 0
-            for index in 0..<self.cardList.count {
-                let realIndex = index - deleted
-                let oldCard = self.cardList[ realIndex ]
-                if deletedCards.contains(oldCard) {
-                    let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
-                    self.cardList.removeAtIndex(realIndex)
-                    self.collectionView.deleteItemsAtIndexPaths([indexPath])
-                    deleted += 1
+                
+                for index in 0 ..< self.cardList.count {
+                    let oldCard = self.cardList[ index ]
+                    if let card = leftOverCards.remove(oldCard) where oldCard.isOlderCardThan(card) {
+                        let indexPath = NSIndexPath(forRow: index, inSection:0)
+                        self.cardList[ index ] = card
+                        self.collectionView.reloadItemsAtIndexPaths([ indexPath ])
+                    }
                 }
-            }
-        
+                
+                var deleted = 0
+                for index in 0..<self.cardList.count {
+                    let realIndex = index - deleted
+                    let oldCard = self.cardList[ realIndex ]
+                    if deletedCards.contains(oldCard) {
+                        let indexPath = NSIndexPath(forRow: realIndex, inSection:0)
+                        self.cardList.removeAtIndex(realIndex)
+                        self.collectionView.deleteItemsAtIndexPaths([indexPath])
+                        deleted += 1
+                    }
+                }
+                
+                self.endLoadingState()
+                
+            })
+        }
+        else {
             self.endLoadingState()
+            self.showNoCardsState()
         }
     }
     
@@ -212,17 +298,15 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         let width = blockWidth * CGFloat(cell.space.width)
         let height = blockHeight * CGFloat(cell.space.height)
         let rect = CGRectMake(xPos,yPos,width,height)
+        
         return rect
-    
     }
     
     func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-        
     }
     
     func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool {
-        
         return true
     }
 
@@ -246,8 +330,55 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        self.performSegueWithIdentifier("viewPostSegue", sender: cardList[ indexPath.row ])
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
         
+        let cardCell = cardList[indexPath.row]
+        
+        if (cell?.contentView.subviews.count > 2)
+        {
+            for v in (cell?.contentView.subviews)!{
+                if v.tag == 1 {
+                    
+                    // Unhide content hidden on cell flip
+                    for cellContent in (cell?.contentView.subviews[1].subviews)! {
+                        if (cellContent.hidden == true) {
+                            cellContent.hidden = false
+                        }
+                    }
+                    
+                    //hide read more label in article cell
+                    if (cell?.contentView.subviews[1].subviews.count == 6)
+                    {
+                        cell?.contentView.subviews[1].subviews[3].hidden = true
+                    }
+                    
+                    v.removeFromSuperview()
+                    UIView.transitionWithView(cell!, duration: flipAnimationSpeed, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
+                }
+            }
+        }
+        else if (cardCell.type! == CardCellType.Video || cardCell.type! == CardCellType.NewsArticle) {
+            let qrCode = UIImageView.init()
+            
+            qrCode.image = QRCoder(card: cardCell).encodedImage()
+            qrCode.frame = (cell?.bounds)!
+
+            qrCode.frame = CGRectMake(qrCode.frame.origin.x, qrCode.frame.origin.y, 200, 200)
+            qrCode.center = (cell?.contentView.convertPoint((cell?.contentView.center)!, fromView:cell?.contentView.superview))!
+         
+            qrCode.tag = 1
+            
+            cell?.contentView.addSubview(qrCode)
+            
+            // Hide content for cell flip
+            for cellContent in (cell?.contentView.subviews[1].subviews)! {
+                if (cellContent.hidden == false) {
+                    cellContent.hidden = true
+                }
+            }
+
+            UIView.transitionWithView(cell!, duration: flipAnimationSpeed, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: nil, completion: nil)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -297,7 +428,6 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
                 
             }
         }
-        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -320,22 +450,28 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardCell
         cell.applyCardContent(card)
+        
+        if (cell.titleLabel.text?.isEmpty == true) {
+            //cell.userPhoto.hidden = true
+            cell.cardTypeLabel.hidden = true
+        }
+        else {
+            //cell.userPhoto.hidden = false
+            cell.cardTypeLabel.hidden = false
+        }
         return cell
     }
     
     func swipeLeft() {
         print("")
-        
     }
     
     func swipeRight() {
         print("")
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! PostViewerController
 //        vc.contentURL = NSURL(string: (sender as! Card).info["videoURL"] as! String)
     }
-    
 }

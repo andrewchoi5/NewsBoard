@@ -45,15 +45,25 @@ class ProfilePictureController : DefaultViewController {
             return
             
         }
-        
+    
         accountForProfilePicture.setProfilePicture(selectedImage)
         showLoading()
         ServerInterface.updateAccount(accountForProfilePicture) {
             self.hideLoading()
-            self.performSegueWithIdentifier("profilePictureUploadSuccessSegue", sender: self)
+            //self.performSegueWithIdentifier("profilePictureUploadSuccessSegue", sender: self)
+            self.performSegueWithIdentifier("agreementSegue", sender: self)
             
         }
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        
+        if segue.identifier == "agreementSegue" {
+            (segue.destinationViewController as! AgreementController).accountToDelete = accountForProfilePicture
+            
+        }
     }
     
     func showLoading() {
