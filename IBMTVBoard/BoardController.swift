@@ -210,6 +210,8 @@ class BoardController: UIViewController, BoardLayoutDelegate, DateSelectorDelega
     }
     
     func reload() {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
         if !ServerInterface.isConnectedToNetwork() {
             self.endLoadingState()
             self.hideNoCardsState()

@@ -96,6 +96,8 @@ class AnnouncementCardCell : CardCell {
     override func applyCardContent(card: Card) {
         super.applyCardContent(card)
         
+        announcementPhoto.contentMode = UIViewContentMode.ScaleAspectFit
+        announcementPhoto.backgroundColor = UIColor(r: 36, g: 40, b: 46)
         // For an unkown reason, the alpha sometimes gets set to 1
         // and the photo view is unhidden on cells without photos
         // This ensures photos stay hidden and alpha is 0.25
