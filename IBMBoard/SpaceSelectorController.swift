@@ -102,6 +102,11 @@ class SpaceSelectorController : DefaultViewController, UIPickerViewDelegate, UIP
                 , completion: {
                 (tvs) in
                 self.officeTVs = tvs
+            
+                if self.officeTVs[0].tv == "Reception" {
+                    self.officeTVs.removeAtIndex(0)
+                }
+                    
                 self.selectedTV = self.officeTVs[0].tv
                     
                 self.tvButton.setTitle(self.officeTVs[0].tv, forState: UIControlState.Normal)
